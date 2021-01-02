@@ -8,22 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		CE63A555259F9E6E00406FD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE63A554259F9E6E00406FD4 /* AppDelegate.swift */; };
-		CE63A557259F9E6E00406FD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE63A556259F9E6E00406FD4 /* SceneDelegate.swift */; };
-		CE63A559259F9E6E00406FD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE63A558259F9E6E00406FD4 /* ViewController.swift */; };
-		CE63A55C259F9E6E00406FD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE63A55A259F9E6E00406FD4 /* Main.storyboard */; };
 		CE63A55E259F9E6F00406FD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE63A55D259F9E6F00406FD4 /* Assets.xcassets */; };
 		CE63A561259F9E6F00406FD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE63A55F259F9E6F00406FD4 /* LaunchScreen.storyboard */; };
+		CED842BE25A0E0CD00C07428 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842BC25A0E0CD00C07428 /* MainViewController.swift */; };
+		CED842BF25A0E0CD00C07428 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED842BD25A0E0CD00C07428 /* MainViewController.xib */; };
+		CED842CA25A0E31F00C07428 /* URLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842C925A0E31F00C07428 /* URLService.swift */; };
+		CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842CD25A0E3A500C07428 /* RequestService.swift */; };
+		CED842D425A0E3DD00C07428 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D125A0E3DD00C07428 /* Path.swift */; };
+		CED842D525A0E3DD00C07428 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D225A0E3DD00C07428 /* HTTPMethod.swift */; };
+		CED842D625A0E3DD00C07428 /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D325A0E3DD00C07428 /* ServerError.swift */; };
+		CED842DA25A0FCF600C07428 /* DataTaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D925A0FCF600C07428 /* DataTaskService.swift */; };
+		CED842DD25A0FD4300C07428 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842DC25A0FD4300C07428 /* NetworkService.swift */; };
+		CED842E025A1022A00C07428 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842DF25A1022A00C07428 /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE63A551259F9E6E00406FD4 /* UnsplashUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsplashUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE63A554259F9E6E00406FD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE63A556259F9E6E00406FD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE63A558259F9E6E00406FD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CE63A55B259F9E6E00406FD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE63A55D259F9E6F00406FD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE63A560259F9E6F00406FD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE63A562259F9E6F00406FD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED842BC25A0E0CD00C07428 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CED842BD25A0E0CD00C07428 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		CED842C925A0E31F00C07428 /* URLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLService.swift; sourceTree = "<group>"; };
+		CED842CD25A0E3A500C07428 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
+		CED842D125A0E3DD00C07428 /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		CED842D225A0E3DD00C07428 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		CED842D325A0E3DD00C07428 /* ServerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
+		CED842D925A0FCF600C07428 /* DataTaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskService.swift; sourceTree = "<group>"; };
+		CED842DC25A0FD4300C07428 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		CED842DF25A1022A00C07428 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +71,69 @@
 			isa = PBXGroup;
 			children = (
 				CE63A554259F9E6E00406FD4 /* AppDelegate.swift */,
-				CE63A556259F9E6E00406FD4 /* SceneDelegate.swift */,
-				CE63A558259F9E6E00406FD4 /* ViewController.swift */,
-				CE63A55A259F9E6E00406FD4 /* Main.storyboard */,
+				CED842BA25A0E09F00C07428 /* View Controllers */,
+				CED842BB25A0E0AE00C07428 /* Models */,
+				CED842C825A0E2DC00C07428 /* Networking */,
+				CED842C425A0E19C00C07428 /* Resources */,
+				CED842C625A0E1B200C07428 /* Supporting Files */,
+			);
+			path = UnsplashUIKit;
+			sourceTree = "<group>";
+		};
+		CED842BA25A0E09F00C07428 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CED842BC25A0E0CD00C07428 /* MainViewController.swift */,
+				CED842BD25A0E0CD00C07428 /* MainViewController.xib */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CED842BB25A0E0AE00C07428 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CED842DF25A1022A00C07428 /* Photo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CED842C425A0E19C00C07428 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				CE63A55D259F9E6F00406FD4 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CED842C625A0E1B200C07428 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				CE63A55F259F9E6F00406FD4 /* LaunchScreen.storyboard */,
 				CE63A562259F9E6F00406FD4 /* Info.plist */,
 			);
-			path = UnsplashUIKit;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CED842C825A0E2DC00C07428 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				CED842D025A0E3CC00C07428 /* Helpers */,
+				CED842C925A0E31F00C07428 /* URLService.swift */,
+				CED842CD25A0E3A500C07428 /* RequestService.swift */,
+				CED842D925A0FCF600C07428 /* DataTaskService.swift */,
+				CED842DC25A0FD4300C07428 /* NetworkService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		CED842D025A0E3CC00C07428 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CED842D225A0E3DD00C07428 /* HTTPMethod.swift */,
+				CED842D125A0E3DD00C07428 /* Path.swift */,
+				CED842D325A0E3DD00C07428 /* ServerError.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +195,7 @@
 			files = (
 				CE63A561259F9E6F00406FD4 /* LaunchScreen.storyboard in Resources */,
 				CE63A55E259F9E6F00406FD4 /* Assets.xcassets in Resources */,
-				CE63A55C259F9E6E00406FD4 /* Main.storyboard in Resources */,
+				CED842BF25A0E0CD00C07428 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +206,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE63A559259F9E6E00406FD4 /* ViewController.swift in Sources */,
 				CE63A555259F9E6E00406FD4 /* AppDelegate.swift in Sources */,
-				CE63A557259F9E6E00406FD4 /* SceneDelegate.swift in Sources */,
+				CED842D425A0E3DD00C07428 /* Path.swift in Sources */,
+				CED842D525A0E3DD00C07428 /* HTTPMethod.swift in Sources */,
+				CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */,
+				CED842E025A1022A00C07428 /* Photo.swift in Sources */,
+				CED842DD25A0FD4300C07428 /* NetworkService.swift in Sources */,
+				CED842CA25A0E31F00C07428 /* URLService.swift in Sources */,
+				CED842BE25A0E0CD00C07428 /* MainViewController.swift in Sources */,
+				CED842DA25A0FCF600C07428 /* DataTaskService.swift in Sources */,
+				CED842D625A0E3DD00C07428 /* ServerError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE63A55A259F9E6E00406FD4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE63A55B259F9E6E00406FD4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CE63A55F259F9E6F00406FD4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -288,7 +356,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4J6378W446;
-				INFOPLIST_FILE = UnsplashUIKit/Info.plist;
+				INFOPLIST_FILE = "UnsplashUIKit/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +375,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4J6378W446;
-				INFOPLIST_FILE = UnsplashUIKit/Info.plist;
+				INFOPLIST_FILE = "UnsplashUIKit/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
