@@ -1,5 +1,5 @@
 //
-//  CollectionListCell.swift
+//  CollectionCell.swift
 //  UnsplashUIKit
 //
 //  Created by User on 03.01.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CollectionListCell: UICollectionViewCell {
+final class CollectionCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var collectionNameLabel: UILabel!
@@ -17,7 +17,14 @@ final class CollectionListCell: UICollectionViewCell {
     let networkService: NetworkServiceProtocol = NetworkService()
     
     static func nib() -> UINib {
-        UINib(nibName: "CollectionListCell", bundle: nil)
+        UINib(nibName: "CollectionCell", bundle: nil)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        layer.cornerRadius = 12
+        collectionNameLabel.backgroundColor = UIColor.white.withAlphaComponent(0.7)
     }
     
     func configure(_ collection: Collection) {
@@ -26,5 +33,4 @@ final class CollectionListCell: UICollectionViewCell {
         }
         collectionNameLabel.text = collection.title
     }
-
 }

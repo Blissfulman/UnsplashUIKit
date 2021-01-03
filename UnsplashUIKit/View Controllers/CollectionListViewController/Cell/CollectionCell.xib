@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="gTV-IL-0wX" customClass="CollectionListCell" customModule="UnsplashUIKit" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="gTV-IL-0wX" customClass="CollectionCell" customModule="UnsplashUIKit" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -17,10 +17,14 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hvw-1L-ugx">
-                        <rect key="frame" x="0.0" y="44" width="200" height="127"/>
+                        <rect key="frame" x="0.0" y="44" width="200" height="156"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQB-bg-7ot">
-                        <rect key="frame" x="0.0" y="179" width="200" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQB-bg-7ot">
+                        <rect key="frame" x="0.0" y="170" width="200" height="30"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="ctO-b6-k1Y"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -30,11 +34,11 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="Hvw-1L-ugx" secondAttribute="top" id="3L1-0p-ec1"/>
-                <constraint firstAttribute="bottom" secondItem="QQB-bg-7ot" secondAttribute="bottom" id="Krg-T3-FZI"/>
-                <constraint firstAttribute="trailing" secondItem="QQB-bg-7ot" secondAttribute="trailing" id="Suo-Rw-h3t"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="Hvw-1L-ugx" secondAttribute="bottom" id="72d-UP-thO"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="QQB-bg-7ot" secondAttribute="bottom" id="CfA-8y-joO"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="QQB-bg-7ot" secondAttribute="trailing" id="Qh2-xI-YAv"/>
+                <constraint firstItem="QQB-bg-7ot" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="isI-04-f9B"/>
                 <constraint firstItem="Hvw-1L-ugx" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" id="lIo-Dv-Icn"/>
-                <constraint firstItem="QQB-bg-7ot" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pry-yS-eUO"/>
-                <constraint firstItem="QQB-bg-7ot" firstAttribute="top" secondItem="Hvw-1L-ugx" secondAttribute="bottom" constant="8" id="wGB-SQ-VFP"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="leading" secondItem="Hvw-1L-ugx" secondAttribute="leading" id="yuC-TR-J1z"/>
             </constraints>
             <size key="customSize" width="194" height="195"/>
@@ -42,7 +46,7 @@
                 <outlet property="collectionNameLabel" destination="QQB-bg-7ot" id="I1V-g5-VPB"/>
                 <outlet property="imageView" destination="Hvw-1L-ugx" id="9Nl-ys-BRK"/>
             </connections>
-            <point key="canvasLocation" x="233.33333333333334" y="117.52232142857142"/>
+            <point key="canvasLocation" x="233.33333333333334" y="117.1875"/>
         </collectionViewCell>
     </objects>
 </document>

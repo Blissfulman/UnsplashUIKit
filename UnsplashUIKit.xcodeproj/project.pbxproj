@@ -24,8 +24,12 @@
 		CED842F425A2152B00C07428 /* CollectionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842F225A2152B00C07428 /* CollectionListViewController.swift */; };
 		CED842F525A2152B00C07428 /* CollectionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED842F325A2152B00C07428 /* CollectionListViewController.xib */; };
 		CED842F925A2210500C07428 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842F825A2210500C07428 /* Collection.swift */; };
-		CED842FE25A2298C00C07428 /* CollectionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842FC25A2298C00C07428 /* CollectionListCell.swift */; };
-		CED842FF25A2298C00C07428 /* CollectionListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED842FD25A2298C00C07428 /* CollectionListCell.xib */; };
+		CED842FE25A2298C00C07428 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842FC25A2298C00C07428 /* CollectionCell.swift */; };
+		CED842FF25A2298C00C07428 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED842FD25A2298C00C07428 /* CollectionCell.xib */; };
+		CED8430D25A25CF000C07428 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8430B25A25CF000C07428 /* PhotosViewController.swift */; };
+		CED8430E25A25CF000C07428 /* PhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8430C25A25CF000C07428 /* PhotosViewController.xib */; };
+		CED8431325A2617A00C07428 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8431125A2617A00C07428 /* PhotoCell.swift */; };
+		CED8431425A2617A00C07428 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8431225A2617A00C07428 /* PhotoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +52,12 @@
 		CED842F225A2152B00C07428 /* CollectionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListViewController.swift; sourceTree = "<group>"; };
 		CED842F325A2152B00C07428 /* CollectionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionListViewController.xib; sourceTree = "<group>"; };
 		CED842F825A2210500C07428 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
-		CED842FC25A2298C00C07428 /* CollectionListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListCell.swift; sourceTree = "<group>"; };
-		CED842FD25A2298C00C07428 /* CollectionListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionListCell.xib; sourceTree = "<group>"; };
+		CED842FC25A2298C00C07428 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		CED842FD25A2298C00C07428 /* CollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
+		CED8430B25A25CF000C07428 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		CED8430C25A25CF000C07428 /* PhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosViewController.xib; sourceTree = "<group>"; };
+		CED8431125A2617A00C07428 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		CED8431225A2617A00C07428 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +106,7 @@
 			children = (
 				CED842EF25A2149C00C07428 /* MainViewController */,
 				CED842F125A214D200C07428 /* CollectionListViewController */,
+				CED8430A25A25C6E00C07428 /* PhotosViewController */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -188,8 +197,27 @@
 		CED842FB25A2294D00C07428 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				CED842FC25A2298C00C07428 /* CollectionListCell.swift */,
-				CED842FD25A2298C00C07428 /* CollectionListCell.xib */,
+				CED842FC25A2298C00C07428 /* CollectionCell.swift */,
+				CED842FD25A2298C00C07428 /* CollectionCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CED8430A25A25C6E00C07428 /* PhotosViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CED8430B25A25CF000C07428 /* PhotosViewController.swift */,
+				CED8430C25A25CF000C07428 /* PhotosViewController.xib */,
+				CED8431025A2613100C07428 /* Cell */,
+			);
+			path = PhotosViewController;
+			sourceTree = "<group>";
+		};
+		CED8431025A2613100C07428 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CED8431125A2617A00C07428 /* PhotoCell.swift */,
+				CED8431225A2617A00C07428 /* PhotoCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -253,9 +281,11 @@
 			files = (
 				CED842F525A2152B00C07428 /* CollectionListViewController.xib in Resources */,
 				CE63A561259F9E6F00406FD4 /* LaunchScreen.storyboard in Resources */,
-				CED842FF25A2298C00C07428 /* CollectionListCell.xib in Resources */,
+				CED842FF25A2298C00C07428 /* CollectionCell.xib in Resources */,
+				CED8430E25A25CF000C07428 /* PhotosViewController.xib in Resources */,
 				CE63A55E259F9E6F00406FD4 /* Assets.xcassets in Resources */,
 				CED842BF25A0E0CD00C07428 /* MainViewController.xib in Resources */,
+				CED8431425A2617A00C07428 /* PhotoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,16 +300,18 @@
 				CED842E525A1121A00C07428 /* UIView+Extension.swift in Sources */,
 				CE63A555259F9E6E00406FD4 /* AppDelegate.swift in Sources */,
 				CED842D425A0E3DD00C07428 /* Paths.swift in Sources */,
+				CED8431325A2617A00C07428 /* PhotoCell.swift in Sources */,
 				CED842D525A0E3DD00C07428 /* HTTPMethod.swift in Sources */,
 				CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */,
 				CED842F925A2210500C07428 /* Collection.swift in Sources */,
 				CED842E025A1022A00C07428 /* Photo.swift in Sources */,
 				CED842DD25A0FD4300C07428 /* NetworkService.swift in Sources */,
+				CED8430D25A25CF000C07428 /* PhotosViewController.swift in Sources */,
 				CED842CA25A0E31F00C07428 /* URLService.swift in Sources */,
 				CED842BE25A0E0CD00C07428 /* MainViewController.swift in Sources */,
 				CED842DA25A0FCF600C07428 /* DataTaskService.swift in Sources */,
 				CED842D625A0E3DD00C07428 /* ServerError.swift in Sources */,
-				CED842FE25A2298C00C07428 /* CollectionListCell.swift in Sources */,
+				CED842FE25A2298C00C07428 /* CollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

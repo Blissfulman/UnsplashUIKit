@@ -1,25 +1,27 @@
 //
-//  CollectionListViewController.swift
+//  PhotosViewController.swift
 //  UnsplashUIKit
 //
-//  Created by User on 03.01.2021.
+//  Created by User on 04.01.2021.
 //
 
 import UIKit
 
-
-final class CollectionListViewController: UICollectionViewController {
+final class PhotosViewController: UICollectionViewController {
     
     // MARK: - Properties
-    private var collections = [Collection]()
+    let collectionID: String!
     
-    private let numberOfColumns: CGFloat = 2
-    private let itemSpacing: CGFloat = 8
+    private var photos = [Photo]()
+    
+    private let numberOfColumns: CGFloat = 1
+    private let itemSpacing: CGFloat = 15
     
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Initializers
-    init() {
+    init(id: String) {
+        collectionID = id
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
@@ -31,8 +33,8 @@ final class CollectionListViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.register(CollectionCell.nib(),
-                                forCellWithReuseIdentifier: CollectionCell.identifier)
+        collectionView.register(PhotoCell.nib(),
+                                forCellWithReuseIdentifier: PhotoCell.identifier)
         setupUI()
     }
     
@@ -43,13 +45,13 @@ final class CollectionListViewController: UICollectionViewController {
         //        tabBarItem.image = UIImage(systemName: "photo.on.rectangle.angled")
         //        tabBarItem.title = "Collections"
         
-        networkService.getCollections { [weak self] result in
+        networkService.getCollectionPhotos(id: collectionID) { [weak self] result in
             
             guard let self = self else { return }
             
             switch result {
-            case let .success(collections):
-                self.collections = collections
+            case let .success(photos):
+                self.photos = photos
                 self.collectionView.reloadData()
             case let .failure(error):
                 if let serverError = error as? ServerError {
@@ -63,38 +65,29 @@ final class CollectionListViewController: UICollectionViewController {
 }
 
 // MARK: - Collection Data Source
-extension CollectionListViewController {
+extension PhotosViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        collections.count
+        photos.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: CollectionCell.identifier,
+            withReuseIdentifier: PhotoCell.identifier,
             for: indexPath
-        ) as! CollectionCell
+        ) as! PhotoCell
         
-        cell.configure(collections[indexPath.item])
+        cell.configure(photos[indexPath.item])
         
         return cell
     }
 }
 
 // MARK: - Collection Delegate
-extension CollectionListViewController {
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let collection = collections[indexPath.item]
-        
-        let photosVC = PhotosViewController(id: collection.id ?? "")
-        
-        present(photosVC, animated: true)
-    }
-}
+extension PhotosViewController {}
 
 // MARK: - Collection Layout
-extension CollectionListViewController: UICollectionViewDelegateFlowLayout {
+extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         itemSpacing
@@ -108,7 +101,7 @@ extension CollectionListViewController: UICollectionViewDelegateFlowLayout {
         let collectionWidth = collectionView.bounds.width
         let size = (collectionWidth - (itemSpacing * (numberOfColumns + 1))) / numberOfColumns
         
-        return CGSize(width: size, height: size * 1.5)
+        return CGSize(width: size, height: size * 0.7)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

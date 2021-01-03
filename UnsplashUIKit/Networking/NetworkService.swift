@@ -8,6 +8,7 @@
 import UIKit
 
 typealias PhotoResult = (Result<Photo, Error>) -> Void
+typealias PhotosResult = (Result<[Photo], Error>) -> Void
 typealias CollectionsResult = (Result<[Collection], Error>) -> Void
 
 protocol NetworkServiceProtocol {
@@ -17,6 +18,8 @@ protocol NetworkServiceProtocol {
     func getRandomPhoto(completion: @escaping PhotoResult)
     
     func getCollections(completion: @escaping CollectionsResult)
+    
+    func getCollectionPhotos(id: String, completion: @escaping PhotosResult)
     
     func getImage(fromURL url: URL) -> UIImage?
 }
@@ -47,6 +50,14 @@ final class NetworkService: NetworkServiceProtocol {
     
     func getCollections(completion: @escaping CollectionsResult) {
         guard let url = urlService.getURL(forPath: CollectionsPath.listCollections) else { return }
+
+        let request = requestService.request(url: url, httpMethod: .get)
+                
+        dataTaskService.dataTask(request: request, completion: completion)
+    }
+    
+    func getCollectionPhotos(id: String, completion: @escaping PhotosResult) {
+        guard let url = urlService.getURL(forPath: CollectionsPath.listCollections + "/\(id)/photos") else { return }
 
         let request = requestService.request(url: url, httpMethod: .get)
                 
