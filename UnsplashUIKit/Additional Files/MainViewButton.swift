@@ -15,7 +15,6 @@ class MainViewButton: UIButton {
         titleLabel?.font = .boldSystemFont(ofSize: 24)
         clipsToBounds = true
         layer.cornerRadius = 15
-        titleEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         widthAnchor.constraint(equalToConstant: 250).isActive = true
     }
 }

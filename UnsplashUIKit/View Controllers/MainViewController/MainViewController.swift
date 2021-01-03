@@ -23,6 +23,16 @@ final class MainViewController: UIViewController {
         setupUI()
     }
     
+    // MARK: - Actions
+    @IBAction func showCollectionsButtonTapped(_ sender: UIButton) {
+        let collectionListVC = CollectionListViewController()
+        let navigationController = UINavigationController(rootViewController: collectionListVC)
+        AppDelegate.shared.window?.rootViewController = navigationController
+    }
+    
+    @IBAction func searchPhotosButtonTapped(_ sender: UIButton) {
+    }
+    
     // MARK: - Private methods
     private func setupUI() {
         tabBarItem.image = UIImage(systemName: "photo")

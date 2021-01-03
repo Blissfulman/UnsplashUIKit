@@ -40,8 +40,8 @@ final class CollectionListViewController: UICollectionViewController {
     private func setupUI() {
         collectionView.backgroundColor = .white
         
-        //        tabBarItem.image = UIImage(systemName: "photo.on.rectangle.angled")
-        //        tabBarItem.title = "Collections"
+//        tabBarItem.image = UIImage(systemName: "photo.on.rectangle.angled")
+        title = "Collections"
         
         networkService.getCollections { [weak self] result in
             
@@ -88,8 +88,9 @@ extension CollectionListViewController {
         let collection = collections[indexPath.item]
         
         let photosVC = PhotosViewController(id: collection.id ?? "")
+        photosVC.title = collection.title
         
-        present(photosVC, animated: true)
+        navigationController?.pushViewController(photosVC, animated: true)
     }
 }
 

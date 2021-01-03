@@ -29,10 +29,16 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYr-Kp-bpR" customClass="MainViewButton" customModule="UnsplashUIKit" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="116" height="30"/>
                             <state key="normal" title="Show collections"/>
+                            <connections>
+                                <action selector="showCollectionsButtonTapped:" destination="-1" eventType="touchUpInside" id="LR9-Jd-jGk"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHg-qF-0wF" customClass="MainViewButton" customModule="UnsplashUIKit" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="55" width="116" height="30"/>
                             <state key="normal" title="Search photos"/>
+                            <connections>
+                                <action selector="searchPhotosButtonTapped:" destination="-1" eventType="touchUpInside" id="UGh-rQ-Wcd"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

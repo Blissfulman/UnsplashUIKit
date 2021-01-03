@@ -20,9 +20,10 @@ final class PhotoCell: UICollectionViewCell {
     }
         
     func configure(_ photo: Photo) {
+        layer.cornerRadius = 12
+
         if let url = URL(string: photo.urls?.small ?? "") {
             imageView.image = networkService.getImage(fromURL: url)
         }
-        imageView.backgroundColor = .yellow
     }
 }
