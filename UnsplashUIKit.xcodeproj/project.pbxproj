@@ -14,13 +14,18 @@
 		CED842BF25A0E0CD00C07428 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED842BD25A0E0CD00C07428 /* MainViewController.xib */; };
 		CED842CA25A0E31F00C07428 /* URLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842C925A0E31F00C07428 /* URLService.swift */; };
 		CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842CD25A0E3A500C07428 /* RequestService.swift */; };
-		CED842D425A0E3DD00C07428 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D125A0E3DD00C07428 /* Path.swift */; };
+		CED842D425A0E3DD00C07428 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D125A0E3DD00C07428 /* Paths.swift */; };
 		CED842D525A0E3DD00C07428 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D225A0E3DD00C07428 /* HTTPMethod.swift */; };
 		CED842D625A0E3DD00C07428 /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D325A0E3DD00C07428 /* ServerError.swift */; };
 		CED842DA25A0FCF600C07428 /* DataTaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D925A0FCF600C07428 /* DataTaskService.swift */; };
 		CED842DD25A0FD4300C07428 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842DC25A0FD4300C07428 /* NetworkService.swift */; };
 		CED842E025A1022A00C07428 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842DF25A1022A00C07428 /* Photo.swift */; };
 		CED842E525A1121A00C07428 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842E425A1121A00C07428 /* UIView+Extension.swift */; };
+		CED842F425A2152B00C07428 /* CollectionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842F225A2152B00C07428 /* CollectionListViewController.swift */; };
+		CED842F525A2152B00C07428 /* CollectionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED842F325A2152B00C07428 /* CollectionListViewController.xib */; };
+		CED842F925A2210500C07428 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842F825A2210500C07428 /* Collection.swift */; };
+		CED842FE25A2298C00C07428 /* CollectionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842FC25A2298C00C07428 /* CollectionListCell.swift */; };
+		CED842FF25A2298C00C07428 /* CollectionListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED842FD25A2298C00C07428 /* CollectionListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,13 +38,18 @@
 		CED842BD25A0E0CD00C07428 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		CED842C925A0E31F00C07428 /* URLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLService.swift; sourceTree = "<group>"; };
 		CED842CD25A0E3A500C07428 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
-		CED842D125A0E3DD00C07428 /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		CED842D125A0E3DD00C07428 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		CED842D225A0E3DD00C07428 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		CED842D325A0E3DD00C07428 /* ServerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		CED842D925A0FCF600C07428 /* DataTaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskService.swift; sourceTree = "<group>"; };
 		CED842DC25A0FD4300C07428 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		CED842DF25A1022A00C07428 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		CED842E425A1121A00C07428 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CED842F225A2152B00C07428 /* CollectionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListViewController.swift; sourceTree = "<group>"; };
+		CED842F325A2152B00C07428 /* CollectionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionListViewController.xib; sourceTree = "<group>"; };
+		CED842F825A2210500C07428 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		CED842FC25A2298C00C07428 /* CollectionListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListCell.swift; sourceTree = "<group>"; };
+		CED842FD25A2298C00C07428 /* CollectionListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionListCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +96,8 @@
 		CED842BA25A0E09F00C07428 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CED842BC25A0E0CD00C07428 /* MainViewController.swift */,
-				CED842BD25A0E0CD00C07428 /* MainViewController.xib */,
+				CED842EF25A2149C00C07428 /* MainViewController */,
+				CED842F125A214D200C07428 /* CollectionListViewController */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -96,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				CED842DF25A1022A00C07428 /* Photo.swift */,
+				CED842F825A2210500C07428 /* Collection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -133,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				CED842D225A0E3DD00C07428 /* HTTPMethod.swift */,
-				CED842D125A0E3DD00C07428 /* Path.swift */,
+				CED842D125A0E3DD00C07428 /* Paths.swift */,
 				CED842D325A0E3DD00C07428 /* ServerError.swift */,
 			);
 			path = Helpers;
@@ -153,6 +164,34 @@
 				CED842E425A1121A00C07428 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CED842EF25A2149C00C07428 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CED842BC25A0E0CD00C07428 /* MainViewController.swift */,
+				CED842BD25A0E0CD00C07428 /* MainViewController.xib */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		CED842F125A214D200C07428 /* CollectionListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CED842F225A2152B00C07428 /* CollectionListViewController.swift */,
+				CED842F325A2152B00C07428 /* CollectionListViewController.xib */,
+				CED842FB25A2294D00C07428 /* Cell */,
+			);
+			path = CollectionListViewController;
+			sourceTree = "<group>";
+		};
+		CED842FB25A2294D00C07428 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CED842FC25A2298C00C07428 /* CollectionListCell.swift */,
+				CED842FD25A2298C00C07428 /* CollectionListCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,7 +251,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED842F525A2152B00C07428 /* CollectionListViewController.xib in Resources */,
 				CE63A561259F9E6F00406FD4 /* LaunchScreen.storyboard in Resources */,
+				CED842FF25A2298C00C07428 /* CollectionListCell.xib in Resources */,
 				CE63A55E259F9E6F00406FD4 /* Assets.xcassets in Resources */,
 				CED842BF25A0E0CD00C07428 /* MainViewController.xib in Resources */,
 			);
@@ -225,17 +266,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED842F425A2152B00C07428 /* CollectionListViewController.swift in Sources */,
 				CED842E525A1121A00C07428 /* UIView+Extension.swift in Sources */,
 				CE63A555259F9E6E00406FD4 /* AppDelegate.swift in Sources */,
-				CED842D425A0E3DD00C07428 /* Path.swift in Sources */,
+				CED842D425A0E3DD00C07428 /* Paths.swift in Sources */,
 				CED842D525A0E3DD00C07428 /* HTTPMethod.swift in Sources */,
 				CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */,
+				CED842F925A2210500C07428 /* Collection.swift in Sources */,
 				CED842E025A1022A00C07428 /* Photo.swift in Sources */,
 				CED842DD25A0FD4300C07428 /* NetworkService.swift in Sources */,
 				CED842CA25A0E31F00C07428 /* URLService.swift in Sources */,
 				CED842BE25A0E0CD00C07428 /* MainViewController.swift in Sources */,
 				CED842DA25A0FCF600C07428 /* DataTaskService.swift in Sources */,
 				CED842D625A0E3DD00C07428 /* ServerError.swift in Sources */,
+				CED842FE25A2298C00C07428 /* CollectionListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

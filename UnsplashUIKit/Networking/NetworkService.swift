@@ -8,12 +8,15 @@
 import UIKit
 
 typealias PhotoResult = (Result<Photo, Error>) -> Void
+typealias CollectionsResult = (Result<[Collection], Error>) -> Void
 
 protocol NetworkServiceProtocol {
     /// Переменная, в которой хранится ключ доступа.
     static var accessKey: String { get set }
     
     func getRandomPhoto(completion: @escaping PhotoResult)
+    
+    func getCollections(completion: @escaping CollectionsResult)
     
     func getImage(fromURL url: URL) -> UIImage?
 }
@@ -35,7 +38,15 @@ final class NetworkService: NetworkServiceProtocol {
     }
     
     func getRandomPhoto(completion: @escaping PhotoResult) {
-        guard let url = urlService.getURL(forPath: Path.randomPhoto) else { return }
+        guard let url = urlService.getURL(forPath: PhotosPath.getRandomPhoto) else { return }
+
+        let request = requestService.request(url: url, httpMethod: .get)
+                
+        dataTaskService.dataTask(request: request, completion: completion)
+    }
+    
+    func getCollections(completion: @escaping CollectionsResult) {
+        guard let url = urlService.getURL(forPath: CollectionsPath.listCollections) else { return }
 
         let request = requestService.request(url: url, httpMethod: .get)
                 

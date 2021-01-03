@@ -8,16 +8,24 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var imageView: UIImageView!
     
     // MARK: - Properties
-    let networkService: NetworkServiceProtocol = NetworkService()
+    private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
+    }
+    
+    // MARK: - Private methods
+    private func setupUI() {
+        tabBarItem.image = UIImage(systemName: "photo")
+        tabBarItem.title = "Welcome to Unsplash!"
         
         networkService.getRandomPhoto { [weak self] result in
             
@@ -25,10 +33,12 @@ final class MainViewController: UIViewController {
             
             switch result {
             case let .success(photo):
-                guard let url = URL(string: photo.urls?.regular ?? "") else { return }
-                
-                self.imageView.image = self.networkService.getImage(fromURL: url)
-                self.imageView.appearAnimation()
+                if let url = URL(string: photo.urls?.regular ?? "") {
+                    print("start")
+                    self.imageView.image = self.networkService.getImage(fromURL: url)
+                    print("end")
+                    self.imageView.appearAnimation()
+                }
             case let .failure(error):
                 if let serverError = error as? ServerError {
                     print(serverError.rawValue)

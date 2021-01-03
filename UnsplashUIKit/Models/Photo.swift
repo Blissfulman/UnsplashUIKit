@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Photo
-struct Photo: Codable {
+struct Photo: Decodable {
     let id: String?
 //    let createdAt, updatedAt, promotedAt: Date?
     let width, height: Int?
