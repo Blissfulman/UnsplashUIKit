@@ -11,6 +11,7 @@ final class MainViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var buttonsStackView: UIStackView!
     
     // MARK: - Properties
     private let networkService: NetworkServiceProtocol = NetworkService()
@@ -34,10 +35,10 @@ final class MainViewController: UIViewController {
             switch result {
             case let .success(photo):
                 if let url = URL(string: photo.urls?.regular ?? "") {
-                    print("start")
                     self.imageView.image = self.networkService.getImage(fromURL: url)
-                    print("end")
+
                     self.imageView.appearAnimation()
+                    self.buttonsStackView.appearAnimation(duration: 2)
                 }
             case let .failure(error):
                 if let serverError = error as? ServerError {

@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="UnsplashUIKit" customModuleProvider="target">
             <connections>
+                <outlet property="buttonsStackView" destination="ASe-sw-qh5" id="13F-2k-tme"/>
                 <outlet property="imageView" destination="ioI-BF-cge" id="7e0-OT-sC4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,6 +23,19 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ioI-BF-cge">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
+                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ASe-sw-qh5">
+                    <rect key="frame" x="149" y="627" width="116" height="85"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYr-Kp-bpR" customClass="MainViewButton" customModule="UnsplashUIKit" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="116" height="30"/>
+                            <state key="normal" title="Show collections"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHg-qF-0wF" customClass="MainViewButton" customModule="UnsplashUIKit" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="55" width="116" height="30"/>
+                            <state key="normal" title="Search photos"/>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -30,6 +44,8 @@
                 <constraint firstAttribute="bottom" secondItem="ioI-BF-cge" secondAttribute="bottom" id="B0Z-hk-BRI"/>
                 <constraint firstItem="ioI-BF-cge" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FLk-Bx-u0W"/>
                 <constraint firstAttribute="trailing" secondItem="ioI-BF-cge" secondAttribute="trailing" id="aBc-1a-ZNh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ASe-sw-qh5" secondAttribute="bottom" constant="150" id="eTt-ZQ-HdJ"/>
+                <constraint firstItem="ASe-sw-qh5" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="far-4K-Dcc"/>
             </constraints>
             <point key="canvasLocation" x="35" y="94"/>
         </view>

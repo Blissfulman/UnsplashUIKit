@@ -30,6 +30,7 @@
 		CED8430E25A25CF000C07428 /* PhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8430C25A25CF000C07428 /* PhotosViewController.xib */; };
 		CED8431325A2617A00C07428 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8431125A2617A00C07428 /* PhotoCell.swift */; };
 		CED8431425A2617A00C07428 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8431225A2617A00C07428 /* PhotoCell.xib */; };
+		CED8431925A269DC00C07428 /* MainViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8431825A269DC00C07428 /* MainViewButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		CED8430C25A25CF000C07428 /* PhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosViewController.xib; sourceTree = "<group>"; };
 		CED8431125A2617A00C07428 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		CED8431225A2617A00C07428 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
+		CED8431825A269DC00C07428 /* MainViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				CED842E325A111F900C07428 /* Extensions */,
+				CED8431825A269DC00C07428 /* MainViewButton.swift */,
 			);
 			path = "Additional Files";
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				CED8430D25A25CF000C07428 /* PhotosViewController.swift in Sources */,
 				CED842CA25A0E31F00C07428 /* URLService.swift in Sources */,
 				CED842BE25A0E0CD00C07428 /* MainViewController.swift in Sources */,
+				CED8431925A269DC00C07428 /* MainViewButton.swift in Sources */,
 				CED842DA25A0FCF600C07428 /* DataTaskService.swift in Sources */,
 				CED842D625A0E3DD00C07428 /* ServerError.swift in Sources */,
 				CED842FE25A2298C00C07428 /* CollectionCell.swift in Sources */,
