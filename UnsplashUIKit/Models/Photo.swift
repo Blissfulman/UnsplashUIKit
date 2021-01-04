@@ -10,42 +10,62 @@ import Foundation
 // MARK: - Photo
 struct Photo: Decodable {
     let id: String?
-    let createdAt, updatedAt, promotedAt: Date?
-    let width, height: Int?
-    let color, blurHash: String?
-//    let description: JSONNull?
-//    let altDescription: String?
-    let urls: Urls?
-//    let links: WelcomeLinks?
-//    let categories: [JSONAny]?
-//    let likes: Int?
-//    let likedByUser: Bool?
-//    let currentUserCollections: [JSONAny]?
-//    let sponsorship: JSONNull?
-//    let user: User?
-//    let exif: Exif?
-//    let location: Location?
-//    let views, downloads: Int?
-
+    let createdAt: Date?
+    let updatedAt: Date?
+    let promotedAt: Date?
+    let width: Int?
+    let height: Int?
+    let color: String?
+    let description: String?
+    let altDescription: String?
+    let urls: PhotoUrls?
+    //    let links: PhotoLinks?
+    let likes: Int?
+    let user: User?
+    let location: Location?
+    let views: Int?
+    let downloads: Int?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case createdAt = "created_at"
         case updatedAt = "updated_at"
         case promotedAt = "promoted_at"
-        case width, height, color
-        case blurHash = "blur_hash"
-//        case description
-//        case altDescription = "alt_description"
+        case width
+        case height
+        case color
+        case description
+        case altDescription = "alt_description"
         case urls
-//        case links, categories, likes
-//        case likedByUser = "liked_by_user"
-//        case currentUserCollections = "current_user_collections"
-//        case sponsorship, user, exif, location, views, downloads
+        //        case links
+        case likes
+        case user
+        case location
+        case views
+        case downloads
     }
 }
 
-// MARK: - Urls
-struct Urls: Decodable {
-    let raw, full, regular, small: String?
+// MARK: - PhotoUrls
+struct PhotoUrls: Decodable {
+    let raw: String?
+    let full: String?
+    let regular: String?
+    let small: String?
     let thumb: String?
+}
+
+// MARK: - Location
+struct Location: Decodable {
+    let title: String?
+    let name: String?
+    let city: String?
+    let country: String?
+    let position: Position?
+}
+
+// MARK: - Position
+struct Position: Decodable {
+    let latitude: Double?
+    let longitude: Double?
 }

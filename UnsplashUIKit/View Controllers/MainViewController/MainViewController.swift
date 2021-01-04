@@ -43,14 +43,14 @@ final class MainViewController: UIViewController {
             guard let self = self else { return }
             
             switch result {
-            case let .success(photo):
+            case .success(let photo):
                 if let url = URL(string: photo.urls?.regular ?? "") {
                     self.imageView.image = self.networkService.getImage(fromURL: url)
 
                     self.imageView.appearAnimation()
                     self.buttonsStackView.appearAnimation(duration: 2)
                 }
-            case let .failure(error):
+            case .failure(let error):
                 if let serverError = error as? ServerError {
                     print(serverError.rawValue)
                     return

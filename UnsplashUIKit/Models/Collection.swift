@@ -9,77 +9,44 @@ import Foundation
 
 // MARK: - Collection
 struct Collection: Decodable {
-    let id, title: String?
+    let id: String?
+    let title: String?
     let description: String?
-    let publishedAt, lastCollectedAt, updatedAt: Date?
-    let curated, featured: Bool?
+    let publishedAt: Date?
+    let lastCollectedAt: Date?
+    let updatedAt: Date?
     let totalPhotos: Int?
-    let welcomePrivate: Bool?
-    let shareKey: String?
-//    let tags: [Tag]?
     let links: CollectionLinks?
-//    let user: User?
-    let coverPhoto: CoverPhoto?
+    let user: User?
+    let coverPhoto: Photo?
 //    let previewPhotos: [PreviewPhoto]?
 
     enum CodingKeys: String, CodingKey {
-        case id, title
+        case id
+        case title
         case description
         case publishedAt = "published_at"
         case lastCollectedAt = "last_collected_at"
         case updatedAt = "updated_at"
-        case curated, featured
         case totalPhotos = "total_photos"
-        case welcomePrivate = "private"
-        case shareKey = "share_key"
-//        case tags
         case links
-//        case user
+        case user
         case coverPhoto = "cover_photo"
 //        case previewPhotos = "preview_photos"
     }
 }
 
-// MARK: - CoverPhoto
-struct CoverPhoto: Decodable {
-    let id: String?
-    let createdAt, updatedAt: Date?
-    let promotedAt: Date?
-    let width, height: Int?
-    let color, blurHash: String?
-    let coverPhotoDescription, altDescription: String?
-    let urls: Urls?
-//    let links: CoverPhotoLinks?
-//    let categories: [JSONAny]?
-//    let likes: Int?
-//    let likedByUser: Bool?
-//    let currentUserCollections: [JSONAny]?
-//    let sponsorship: JSONNull?
-//    let user: User?
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-        case promotedAt = "promoted_at"
-        case width, height, color
-        case blurHash = "blur_hash"
-        case coverPhotoDescription = "description"
-        case altDescription = "alt_description"
-        case urls
-//        case links, categories, likes
-//        case likedByUser = "liked_by_user"
-//        case currentUserCollections = "current_user_collections"
-//        case sponsorship, user
-    }
-}
-
 // MARK: - CollectionLinks
 struct CollectionLinks: Decodable {
-    let linksSelf, html, photos, related: URL?
+    let linksSelf: URL?
+    let html: URL?
+    let photos: URL?
+    let related: URL?
 
     enum CodingKeys: String, CodingKey {
         case linksSelf = "self"
-        case html, photos, related
+        case html
+        case photos
+        case related
     }
 }
