@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewButton: UIButton {
+final class MainViewButton: UIButton {
 
     override func draw(_ rect: CGRect) {
         layer.backgroundColor = CGColor.init(gray: 0, alpha: 0.7)

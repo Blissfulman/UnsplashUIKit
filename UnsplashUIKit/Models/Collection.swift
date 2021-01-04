@@ -10,39 +10,41 @@ import Foundation
 // MARK: - Collection
 struct Collection: Decodable {
     let id, title: String?
-    let welcomeDescription: String?
-//    let publishedAt, lastCollectedAt, updatedAt: Date?
+    let description: String?
+    let publishedAt, lastCollectedAt, updatedAt: Date?
     let curated, featured: Bool?
     let totalPhotos: Int?
     let welcomePrivate: Bool?
     let shareKey: String?
 //    let tags: [Tag]?
-//    let links: WelcomeLinks?
+    let links: CollectionLinks?
 //    let user: User?
     let coverPhoto: CoverPhoto?
 //    let previewPhotos: [PreviewPhoto]?
 
     enum CodingKeys: String, CodingKey {
         case id, title
-        case welcomeDescription = "description"
-//        case publishedAt = "published_at"
-//        case lastCollectedAt = "last_collected_at"
-//        case updatedAt = "updated_at"
+        case description
+        case publishedAt = "published_at"
+        case lastCollectedAt = "last_collected_at"
+        case updatedAt = "updated_at"
         case curated, featured
         case totalPhotos = "total_photos"
         case welcomePrivate = "private"
         case shareKey = "share_key"
-//        case tags, links, user
+//        case tags
+        case links
+//        case user
         case coverPhoto = "cover_photo"
 //        case previewPhotos = "preview_photos"
     }
 }
 
 // MARK: - CoverPhoto
-struct CoverPhoto: Codable {
+struct CoverPhoto: Decodable {
     let id: String?
-//    let createdAt, updatedAt: Date?
-//    let promotedAt: Date?
+    let createdAt, updatedAt: Date?
+    let promotedAt: Date?
     let width, height: Int?
     let color, blurHash: String?
     let coverPhotoDescription, altDescription: String?
@@ -57,9 +59,9 @@ struct CoverPhoto: Codable {
 
     enum CodingKeys: String, CodingKey {
         case id
-//        case createdAt = "created_at"
-//        case updatedAt = "updated_at"
-//        case promotedAt = "promoted_at"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case promotedAt = "promoted_at"
         case width, height, color
         case blurHash = "blur_hash"
         case coverPhotoDescription = "description"
@@ -69,5 +71,15 @@ struct CoverPhoto: Codable {
 //        case likedByUser = "liked_by_user"
 //        case currentUserCollections = "current_user_collections"
 //        case sponsorship, user
+    }
+}
+
+// MARK: - CollectionLinks
+struct CollectionLinks: Decodable {
+    let linksSelf, html, photos, related: URL?
+
+    enum CodingKeys: String, CodingKey {
+        case linksSelf = "self"
+        case html, photos, related
     }
 }

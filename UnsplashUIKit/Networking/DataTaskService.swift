@@ -38,6 +38,7 @@ final class DataTaskService: DataTaskServiceProtocol {
             print(httpResponse.statusCode, request.url?.path ?? "")
             
             let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .formatted(DateFormatter.serverDateFormatter)
             
             do {
                 let result = try decoder.decode(T.self, from: data)

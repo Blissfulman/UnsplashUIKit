@@ -10,10 +10,10 @@ import Foundation
 // MARK: - Photo
 struct Photo: Decodable {
     let id: String?
-//    let createdAt, updatedAt, promotedAt: Date?
+    let createdAt, updatedAt, promotedAt: Date?
     let width, height: Int?
     let color, blurHash: String?
-//    let welcomeDescription: JSONNull?
+//    let description: JSONNull?
 //    let altDescription: String?
     let urls: Urls?
 //    let links: WelcomeLinks?
@@ -29,12 +29,12 @@ struct Photo: Decodable {
 
     enum CodingKeys: String, CodingKey {
         case id
-//        case createdAt = "created_at"
-//        case updatedAt = "updated_at"
-//        case promotedAt = "promoted_at"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case promotedAt = "promoted_at"
         case width, height, color
         case blurHash = "blur_hash"
-//        case welcomeDescription = "description"
+//        case description
 //        case altDescription = "alt_description"
         case urls
 //        case links, categories, likes
@@ -45,7 +45,7 @@ struct Photo: Decodable {
 }
 
 // MARK: - Urls
-struct Urls: Codable {
+struct Urls: Decodable {
     let raw, full, regular, small: String?
     let thumb: String?
 }

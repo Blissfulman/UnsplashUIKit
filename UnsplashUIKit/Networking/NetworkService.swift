@@ -20,6 +20,7 @@ protocol NetworkServiceProtocol {
     func getCollections(completion: @escaping CollectionsResult)
     
     func getCollectionPhotos(id: String, completion: @escaping PhotosResult)
+    func getCollectionPhotos(url: URL, completion: @escaping PhotosResult)
     
     func getImage(fromURL url: URL) -> UIImage?
 }
@@ -59,6 +60,12 @@ final class NetworkService: NetworkServiceProtocol {
     func getCollectionPhotos(id: String, completion: @escaping PhotosResult) {
         guard let url = urlService.getURL(forPath: CollectionsPath.listCollections + "/\(id)/photos") else { return }
 
+        let request = requestService.request(url: url, httpMethod: .get)
+                
+        dataTaskService.dataTask(request: request, completion: completion)
+    }
+    
+    func getCollectionPhotos(url: URL, completion: @escaping PhotosResult) {
         let request = requestService.request(url: url, httpMethod: .get)
                 
         dataTaskService.dataTask(request: request, completion: completion)

@@ -10,7 +10,7 @@ import UIKit
 final class PhotosViewController: UICollectionViewController {
     
     // MARK: - Properties
-    let collectionID: String!
+    let photosURL: URL!
     
     private var photos = [Photo]()
     
@@ -20,8 +20,8 @@ final class PhotosViewController: UICollectionViewController {
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Initializers
-    init(id: String) {
-        collectionID = id
+    init(photosURL: URL) {
+        self.photosURL = photosURL
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
@@ -41,11 +41,8 @@ final class PhotosViewController: UICollectionViewController {
     // MARK: - Private methods
     private func setupUI() {
         collectionView.backgroundColor = .white
-        
-        //        tabBarItem.image = UIImage(systemName: "photo.on.rectangle.angled")
-        //        tabBarItem.title = "Collections"
-        
-        networkService.getCollectionPhotos(id: collectionID) { [weak self] result in
+                
+        networkService.getCollectionPhotos(url: photosURL) { [weak self] result in
             
             guard let self = self else { return }
             

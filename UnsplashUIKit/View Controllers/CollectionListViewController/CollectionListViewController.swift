@@ -87,9 +87,12 @@ extension CollectionListViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let collection = collections[indexPath.item]
         
-        let photosVC = PhotosViewController(id: collection.id ?? "")
+        guard let photosURL = collection.links?.photos else { return }
+        
+        let photosVC = PhotosViewController(photosURL: photosURL)
         photosVC.title = collection.title
         
+        // MARK: - Navigation
         navigationController?.pushViewController(photosVC, animated: true)
     }
 }
