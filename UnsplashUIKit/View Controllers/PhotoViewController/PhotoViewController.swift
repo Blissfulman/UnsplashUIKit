@@ -13,12 +13,12 @@ final class PhotoViewController: UIViewController {
     @IBOutlet weak var photoImageView: UIImageView!
     
     // MARK: - Properties
-    let photo: Photo!
+    let photo: PhotoModel!
     
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Initializers
-    init(photo: Photo) {
+    init(photo: PhotoModel) {
         self.photo = photo
         super.init(nibName: nil, bundle: nil)
     }
@@ -32,7 +32,7 @@ final class PhotoViewController: UIViewController {
         super.viewDidLoad()
         
         if let url = URL(string: photo.urls?.regular ?? "") {
-            photoImageView.image = networkService.getImage(fromURL: url)
+            photoImageView.image = networkService.fetchImage(fromURL: url)
         }
     }
 }

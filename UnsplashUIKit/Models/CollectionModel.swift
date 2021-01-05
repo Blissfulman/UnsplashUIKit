@@ -1,5 +1,5 @@
 //
-//  Collection.swift
+//  CollectionModel.swift
 //  UnsplashUIKit
 //
 //  Created by User on 03.01.2021.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-// MARK: - Collection
-struct Collection: Decodable {
+// MARK: - CollectionModel
+struct CollectionModel: Decodable {
     let id: String?
     let title: String?
     let description: String?
@@ -16,9 +16,9 @@ struct Collection: Decodable {
     let lastCollectedAt: Date?
     let updatedAt: Date?
     let totalPhotos: Int?
-    let links: CollectionLinks?
-    let user: User?
-    let coverPhoto: Photo?
+    let links: CollectionLinksModel?
+    let user: UserModel?
+    let coverPhoto: PhotoModel?
 //    let previewPhotos: [PreviewPhoto]?
 
     enum CodingKeys: String, CodingKey {
@@ -36,8 +36,8 @@ struct Collection: Decodable {
     }
 }
 
-// MARK: - CollectionLinks
-struct CollectionLinks: Decodable {
+// MARK: - CollectionLinksModel
+struct CollectionLinksModel: Decodable {
     let linksSelf: URL?
     let html: URL?
     let photos: URL?

@@ -32,9 +32,9 @@ final class CollectionCell: UICollectionViewCell {
     }
     
     // MARK: - Public methods
-    func configure(_ collection: Collection) {
+    func configure(_ collection: CollectionModel) {
         if let url = URL(string: collection.coverPhoto?.urls?.small ?? "") {
-            imageView.image = networkService.getImage(fromURL: url)
+            imageView.image = networkService.fetchImage(fromURL: url)
         }
         collectionNameLabel.text = collection.title
     }

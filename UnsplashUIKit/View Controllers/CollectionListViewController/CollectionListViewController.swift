@@ -10,7 +10,7 @@ import UIKit
 final class CollectionListViewController: UICollectionViewController {
     
     // MARK: - Properties
-    private var collections = [Collection]()
+    private var collections = [CollectionModel]()
     
     private let numberOfColumns: CGFloat = 2
     private let itemSpacing: CGFloat = 8
@@ -40,7 +40,7 @@ final class CollectionListViewController: UICollectionViewController {
         collectionView.backgroundColor = .white
         title = "Collections"
         
-        networkService.getCollections { [weak self] result in
+        networkService.fetchCollections { [weak self] result in
             
             guard let self = self else { return }
             

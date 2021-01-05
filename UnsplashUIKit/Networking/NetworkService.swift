@@ -7,22 +7,25 @@
 
 import UIKit
 
-typealias PhotoResult = (Result<Photo, Error>) -> Void
-typealias PhotosResult = (Result<[Photo], Error>) -> Void
-typealias CollectionsResult = (Result<[Collection], Error>) -> Void
+typealias PhotoResult = (Result<PhotoModel, Error>) -> Void
+typealias PhotosResult = (Result<[PhotoModel], Error>) -> Void
+typealias CollectionsResult = (Result<[CollectionModel], Error>) -> Void
+typealias SearchPhotosResult = (Result<SearchPhotosModel, Error>) -> Void
 
 protocol NetworkServiceProtocol {
     /// Переменная, в которой хранится ключ доступа.
     static var accessKey: String { get set }
     
-    func getRandomPhoto(completion: @escaping PhotoResult)
+    func fetchRandomPhoto(completion: @escaping PhotoResult)
     
-    func getCollections(completion: @escaping CollectionsResult)
+    func fetchCollections(completion: @escaping CollectionsResult)
     
-    func getCollectionPhotos(id: String, completion: @escaping PhotosResult)
-    func getCollectionPhotos(url: URL, completion: @escaping PhotosResult)
+//    func getCollectionPhotos(id: String, completion: @escaping PhotosResult)
+    func fetchCollectionPhotos(url: URL, completion: @escaping PhotosResult)
     
-    func getImage(fromURL url: URL) -> UIImage?
+    func searchPhotos(query: String, orderBy: String, completion: @escaping SearchPhotosResult)
+    
+    func fetchImage(fromURL url: URL) -> UIImage?
 }
 
 final class NetworkService: NetworkServiceProtocol {
@@ -41,37 +44,53 @@ final class NetworkService: NetworkServiceProtocol {
         self.dataTaskService = dataTaskService
     }
     
-    func getRandomPhoto(completion: @escaping PhotoResult) {
-        guard let url = urlService.getURL(forPath: PhotosPath.getRandomPhoto) else { return }
+    func fetchRandomPhoto(completion: @escaping PhotoResult) {
+        guard let url = urlService.getURL(forPath: PhotosPath.getRandomPhoto,
+                                          count: nil) else { return }
 
         let request = requestService.request(url: url, httpMethod: .get)
                 
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
-    func getCollections(completion: @escaping CollectionsResult) {
-        guard let url = urlService.getURL(forPath: CollectionsPath.listCollections) else { return }
+    func fetchCollections(completion: @escaping CollectionsResult) {
+        guard let url = urlService.getURL(forPath: CollectionsPath.listCollections,
+                                          count: 30) else { return }
 
         let request = requestService.request(url: url, httpMethod: .get)
                 
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
-    func getCollectionPhotos(id: String, completion: @escaping PhotosResult) {
-        guard let url = urlService.getURL(forPath: CollectionsPath.listCollections + "/\(id)/photos") else { return }
+//    func getCollectionPhotos(id: String, completion: @escaping PhotosResult) {
+//        guard let url = urlService.getURL(forPath: CollectionsPath.listCollections + "/\(id)/photos",
+//                                          count: 30) else { return }
+//
+//        let request = requestService.request(url: url, httpMethod: .get)
+//
+//        dataTaskService.dataTask(request: request, completion: completion)
+//    }
+    
+    func fetchCollectionPhotos(url: URL, completion: @escaping PhotosResult) {
+        guard let url = urlService.getURL(forURL: url, count: 30) else { return }
 
         let request = requestService.request(url: url, httpMethod: .get)
                 
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
-    func getCollectionPhotos(url: URL, completion: @escaping PhotosResult) {
+    func searchPhotos(query: String, orderBy: String, completion: @escaping SearchPhotosResult) {
+        guard let url = urlService.getURL(forPath: SearchPath.searchPhotos,
+                                          query: query,
+                                          orderBy: orderBy,
+                                          count: 30) else { return }
+
         let request = requestService.request(url: url, httpMethod: .get)
                 
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
-    func getImage(fromURL url: URL) -> UIImage? {
+    func fetchImage(fromURL url: URL) -> UIImage? {
         guard let imageData = try? Data(contentsOf: url) else { return nil }
         return UIImage(data: imageData)
     }

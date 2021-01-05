@@ -10,9 +10,8 @@ import UIKit
 final class CollectionPhotosViewController: UICollectionViewController {
     
     // MARK: - Properties
-    let collection: Collection
-    
-    private var photos = [Photo]()
+    var collection: CollectionModel?
+    var photos = [PhotoModel]()
     
     private var numberOfColumns: CGFloat = 2
     private let itemSpacing: CGFloat = 8
@@ -20,8 +19,14 @@ final class CollectionPhotosViewController: UICollectionViewController {
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Initializers
-    init(collection: Collection) {
+    init(collection: CollectionModel) {
         self.collection = collection
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        getPhotos(collection: collection)
+    }
+    
+    init(photos: [PhotoModel]) {
+        self.photos = photos
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
@@ -47,9 +52,14 @@ final class CollectionPhotosViewController: UICollectionViewController {
     private func setupUI() {
         collectionView.backgroundColor = .white
         
+        guard let collection = collection else { return }
+        getPhotos(collection: collection)
+    }
+    
+    private func getPhotos(collection: CollectionModel) {
         guard let photosURL = collection.links?.photos else { return }
         
-        networkService.getCollectionPhotos(url: photosURL) { [weak self] result in
+        networkService.fetchCollectionPhotos(url: photosURL) { [weak self] result in
             
             guard let self = self else { return }
             
@@ -118,7 +128,7 @@ extension CollectionPhotosViewController {
 extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 150)
+        collection != nil ? CGSize(width: collectionView.bounds.width, height: 150) : .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -137,7 +147,7 @@ extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: itemSpacing, left: itemSpacing, bottom: 0, right: itemSpacing)
+        UIEdgeInsets(top: itemSpacing, left: itemSpacing, bottom: 0, right: itemSpacing)
     }
 }
 

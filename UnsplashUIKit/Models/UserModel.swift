@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  UserModel.swift
 //  UnsplashUIKit
 //
 //  Created by User on 04.01.2021.
@@ -7,20 +7,23 @@
 
 import Foundation
 
-// MARK: - User
-struct User: Decodable {
+// MARK: - UserModel
+struct UserModel: Decodable {
     let id: String?
     let username: String?
     let name: String?
     let firstName: String?
     let lastName: String?
-    let links: UserLinks?
-    let profileImage: ProfileImage?
-    let totalCollections, totalLikes, totalPhotos: Int?
+    let links: UserLinksModel?
+    let profileImage: ProfileImageModel?
+    let totalCollections: Int?
+    let totalLikes: Int?
+    let totalPhotos: Int?
     
     enum CodingKeys: String, CodingKey {
         case id
-        case username, name
+        case username
+        case name
         case firstName = "first_name"
         case lastName = "last_name"
         case links
@@ -31,15 +34,15 @@ struct User: Decodable {
     }
 }
 
-// MARK: - UserLinks
-struct UserLinks: Decodable {
+// MARK: - UserLinksModel
+struct UserLinksModel: Decodable {
     let html: String?
     let photos: String?
     let likes: String?
 }
 
-// MARK: - ProfileImage
-struct ProfileImage: Decodable {
+// MARK: - ProfileImageModel
+struct ProfileImageModel: Decodable {
     let small: String?
     let medium: String?
     let large: String?

@@ -17,7 +17,7 @@ final class CollectionPhotosHeader: UICollectionReusableView {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var photoCountLabel: UILabel!
     
-    @IBOutlet weak var columnNumberSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     // MARK: - Properties
     static let identifier = "collectionPhotosHeader"
@@ -30,17 +30,17 @@ final class CollectionPhotosHeader: UICollectionReusableView {
     }
     
     // MARK: - Public methods
-    func configure(_ collection: Collection) {
+    func configure(_ collection: CollectionModel?) {
         backgroundColor = UIColor.systemIndigo.withAlphaComponent(0.15)
         
-        descriptionLabel.text = collection.description
-        if let count = collection.totalPhotos {
+        descriptionLabel.text = collection?.description
+        if let count = collection?.totalPhotos {
             photoCountLabel.text = "Total photos: \(count)"
         }
     }
     
     // MARK: - Actions
     @IBAction func segmentedControlSwitched(_ sender: Any) {
-        delegate?.switchColumnNumber(columns: columnNumberSegmentedControl.selectedSegmentIndex + 1)
+        delegate?.switchColumnNumber(columns: segmentedControl.selectedSegmentIndex + 1)
     }
 }

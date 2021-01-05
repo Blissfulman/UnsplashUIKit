@@ -23,11 +23,11 @@ final class PhotoCell: UICollectionViewCell {
     }
     
     // MARK: - Public methods
-    func configure(_ photo: Photo) {
+    func configure(_ photo: PhotoModel) {
         layer.cornerRadius = 8
 
         if let url = URL(string: photo.urls?.small ?? "") {
-            imageView.image = networkService.getImage(fromURL: url)
+            imageView.image = networkService.fetchImage(fromURL: url)
         }
     }
 }

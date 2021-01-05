@@ -31,21 +31,21 @@ final class MainViewController: UIViewController {
     }
     
     @IBAction func searchPhotosButtonTapped(_ sender: UIButton) {
+        let searchPhotosVC = SearchPhotosViewController()
+        let navigationController = UINavigationController(rootViewController: searchPhotosVC)
+        AppDelegate.shared.window?.rootViewController = navigationController
     }
     
     // MARK: - Private methods
     private func setupUI() {
-//        tabBarItem.image = UIImage(systemName: "photo")
-//        tabBarItem.title = "Welcome to Unsplash!"
-        
-        networkService.getRandomPhoto { [weak self] result in
+        networkService.fetchRandomPhoto { [weak self] result in
             
             guard let self = self else { return }
             
             switch result {
             case .success(let photo):
                 if let url = URL(string: photo.urls?.regular ?? "") {
-                    self.imageView.image = self.networkService.getImage(fromURL: url)
+                    self.imageView.image = self.networkService.fetchImage(fromURL: url)
 
                     self.imageView.appearAnimation()
                     self.buttonsStackView.appearAnimation(duration: 2)
