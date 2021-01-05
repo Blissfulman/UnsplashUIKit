@@ -23,7 +23,7 @@ final class MainViewController: UIViewController {
         setupUI()
     }
     
-    // MARK: - Actions
+    // MARK: - Navigation
     @IBAction func showCollectionsButtonTapped(_ sender: UIButton) {
         let collectionListVC = CollectionListViewController()
         let navigationController = UINavigationController(rootViewController: collectionListVC)
@@ -35,8 +35,8 @@ final class MainViewController: UIViewController {
     
     // MARK: - Private methods
     private func setupUI() {
-        tabBarItem.image = UIImage(systemName: "photo")
-        tabBarItem.title = "Welcome to Unsplash!"
+//        tabBarItem.image = UIImage(systemName: "photo")
+//        tabBarItem.title = "Welcome to Unsplash!"
         
         networkService.getRandomPhoto { [weak self] result in
             

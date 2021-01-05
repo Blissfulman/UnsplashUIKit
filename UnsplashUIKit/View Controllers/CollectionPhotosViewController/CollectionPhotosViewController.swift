@@ -1,5 +1,5 @@
 //
-//  PhotosViewController.swift
+//  CollectionPhotosViewController.swift
 //  UnsplashUIKit
 //
 //  Created by User on 04.01.2021.
@@ -7,21 +7,21 @@
 
 import UIKit
 
-final class PhotosViewController: UICollectionViewController {
+final class CollectionPhotosViewController: UICollectionViewController {
     
     // MARK: - Properties
-    let photosURL: URL!
+    let collection: Collection
     
     private var photos = [Photo]()
     
-    private let numberOfColumns: CGFloat = 1
-    private let itemSpacing: CGFloat = 15
+    private var numberOfColumns: CGFloat = 2
+    private let itemSpacing: CGFloat = 8
     
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Initializers
-    init(photosURL: URL) {
-        self.photosURL = photosURL
+    init(collection: Collection) {
+        self.collection = collection
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
@@ -33,6 +33,11 @@ final class PhotosViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.register(
+            CollectionPhotosHeader.nib(),
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: CollectionPhotosHeader.identifier
+        )
         collectionView.register(PhotoCell.nib(),
                                 forCellWithReuseIdentifier: PhotoCell.identifier)
         setupUI()
@@ -41,7 +46,9 @@ final class PhotosViewController: UICollectionViewController {
     // MARK: - Private methods
     private func setupUI() {
         collectionView.backgroundColor = .white
-                
+        
+        guard let photosURL = collection.links?.photos else { return }
+        
         networkService.getCollectionPhotos(url: photosURL) { [weak self] result in
             
             guard let self = self else { return }
@@ -62,7 +69,21 @@ final class PhotosViewController: UICollectionViewController {
 }
 
 // MARK: - Collection Data Source
-extension PhotosViewController {
+extension CollectionPhotosViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let header = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: CollectionPhotosHeader.identifier,
+            for: indexPath
+        ) as! CollectionPhotosHeader
+        
+        header.delegate = self
+        header.configure(collection)
+        
+        return header
+    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         photos.count
@@ -81,10 +102,14 @@ extension PhotosViewController {
 }
 
 // MARK: - Collection Delegate
-extension PhotosViewController {}
+extension CollectionPhotosViewController {}
 
 // MARK: - Collection Layout
-extension PhotosViewController: UICollectionViewDelegateFlowLayout {
+extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 150)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         itemSpacing
@@ -103,5 +128,13 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: itemSpacing, left: itemSpacing, bottom: 0, right: itemSpacing)
+    }
+}
+
+extension CollectionPhotosViewController: CollectionPhotosHeaderDelegate {
+    
+    func switchColumnNumber(columns: Int) {
+        numberOfColumns = CGFloat(columns)
+        collectionView.reloadData()
     }
 }

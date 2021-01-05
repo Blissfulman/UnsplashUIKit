@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class CollectionListViewController: UICollectionViewController {
     
     // MARK: - Properties
@@ -39,8 +38,6 @@ final class CollectionListViewController: UICollectionViewController {
     // MARK: - Private methods
     private func setupUI() {
         collectionView.backgroundColor = .white
-        
-//        tabBarItem.image = UIImage(systemName: "photo.on.rectangle.angled")
         title = "Collections"
         
         networkService.getCollections { [weak self] result in
@@ -70,6 +67,7 @@ extension CollectionListViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: CollectionCell.identifier,
             for: indexPath
@@ -87,9 +85,7 @@ extension CollectionListViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let collection = collections[indexPath.item]
         
-        guard let photosURL = collection.links?.photos else { return }
-        
-        let photosVC = PhotosViewController(photosURL: photosURL)
+        let photosVC = CollectionPhotosViewController(collection: collection)
         photosVC.title = collection.title
         
         // MARK: - Navigation

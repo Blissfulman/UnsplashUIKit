@@ -12,6 +12,8 @@
 		CE63A561259F9E6F00406FD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE63A55F259F9E6F00406FD4 /* LaunchScreen.storyboard */; };
 		CEA2A8AE25A3688F003E0E02 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8AD25A3688F003E0E02 /* DateFormatter+Extension.swift */; };
 		CEA2A8B125A37D3F003E0E02 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8B025A37D3F003E0E02 /* User.swift */; };
+		CEA2A8B525A383A6003E0E02 /* CollectionPhotosHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8B325A383A6003E0E02 /* CollectionPhotosHeader.swift */; };
+		CEA2A8B625A383A6003E0E02 /* CollectionPhotosHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A8B425A383A6003E0E02 /* CollectionPhotosHeader.xib */; };
 		CED842BE25A0E0CD00C07428 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842BC25A0E0CD00C07428 /* MainViewController.swift */; };
 		CED842BF25A0E0CD00C07428 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED842BD25A0E0CD00C07428 /* MainViewController.xib */; };
 		CED842CA25A0E31F00C07428 /* URLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842C925A0E31F00C07428 /* URLService.swift */; };
@@ -28,8 +30,8 @@
 		CED842F925A2210500C07428 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842F825A2210500C07428 /* Collection.swift */; };
 		CED842FE25A2298C00C07428 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842FC25A2298C00C07428 /* CollectionCell.swift */; };
 		CED842FF25A2298C00C07428 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED842FD25A2298C00C07428 /* CollectionCell.xib */; };
-		CED8430D25A25CF000C07428 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8430B25A25CF000C07428 /* PhotosViewController.swift */; };
-		CED8430E25A25CF000C07428 /* PhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8430C25A25CF000C07428 /* PhotosViewController.xib */; };
+		CED8430D25A25CF000C07428 /* CollectionPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8430B25A25CF000C07428 /* CollectionPhotosViewController.swift */; };
+		CED8430E25A25CF000C07428 /* CollectionPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8430C25A25CF000C07428 /* CollectionPhotosViewController.xib */; };
 		CED8431325A2617A00C07428 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8431125A2617A00C07428 /* PhotoCell.swift */; };
 		CED8431425A2617A00C07428 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8431225A2617A00C07428 /* PhotoCell.xib */; };
 		CED8431925A269DC00C07428 /* MainViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8431825A269DC00C07428 /* MainViewButton.swift */; };
@@ -43,6 +45,8 @@
 		CE63A562259F9E6F00406FD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEA2A8AD25A3688F003E0E02 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		CEA2A8B025A37D3F003E0E02 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CEA2A8B325A383A6003E0E02 /* CollectionPhotosHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosHeader.swift; sourceTree = "<group>"; };
+		CEA2A8B425A383A6003E0E02 /* CollectionPhotosHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionPhotosHeader.xib; sourceTree = "<group>"; };
 		CED842BC25A0E0CD00C07428 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CED842BD25A0E0CD00C07428 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		CED842C925A0E31F00C07428 /* URLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLService.swift; sourceTree = "<group>"; };
@@ -59,8 +63,8 @@
 		CED842F825A2210500C07428 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		CED842FC25A2298C00C07428 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		CED842FD25A2298C00C07428 /* CollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
-		CED8430B25A25CF000C07428 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
-		CED8430C25A25CF000C07428 /* PhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosViewController.xib; sourceTree = "<group>"; };
+		CED8430B25A25CF000C07428 /* CollectionPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosViewController.swift; sourceTree = "<group>"; };
+		CED8430C25A25CF000C07428 /* CollectionPhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionPhotosViewController.xib; sourceTree = "<group>"; };
 		CED8431125A2617A00C07428 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		CED8431225A2617A00C07428 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		CED8431825A269DC00C07428 /* MainViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewButton.swift; sourceTree = "<group>"; };
@@ -112,7 +116,7 @@
 			children = (
 				CED842EF25A2149C00C07428 /* MainViewController */,
 				CED842F125A214D200C07428 /* CollectionListViewController */,
-				CED8430A25A25C6E00C07428 /* PhotosViewController */,
+				CED8430A25A25C6E00C07428 /* CollectionPhotosViewController */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -212,23 +216,25 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		CED8430A25A25C6E00C07428 /* PhotosViewController */ = {
+		CED8430A25A25C6E00C07428 /* CollectionPhotosViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CED8430B25A25CF000C07428 /* PhotosViewController.swift */,
-				CED8430C25A25CF000C07428 /* PhotosViewController.xib */,
-				CED8431025A2613100C07428 /* Cell */,
+				CED8430B25A25CF000C07428 /* CollectionPhotosViewController.swift */,
+				CED8430C25A25CF000C07428 /* CollectionPhotosViewController.xib */,
+				CED8431025A2613100C07428 /* Cells */,
 			);
-			path = PhotosViewController;
+			path = CollectionPhotosViewController;
 			sourceTree = "<group>";
 		};
-		CED8431025A2613100C07428 /* Cell */ = {
+		CED8431025A2613100C07428 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				CEA2A8B325A383A6003E0E02 /* CollectionPhotosHeader.swift */,
+				CEA2A8B425A383A6003E0E02 /* CollectionPhotosHeader.xib */,
 				CED8431125A2617A00C07428 /* PhotoCell.swift */,
 				CED8431225A2617A00C07428 /* PhotoCell.xib */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,8 +296,9 @@
 			files = (
 				CED842F525A2152B00C07428 /* CollectionListViewController.xib in Resources */,
 				CE63A561259F9E6F00406FD4 /* LaunchScreen.storyboard in Resources */,
+				CEA2A8B625A383A6003E0E02 /* CollectionPhotosHeader.xib in Resources */,
 				CED842FF25A2298C00C07428 /* CollectionCell.xib in Resources */,
-				CED8430E25A25CF000C07428 /* PhotosViewController.xib in Resources */,
+				CED8430E25A25CF000C07428 /* CollectionPhotosViewController.xib in Resources */,
 				CE63A55E259F9E6F00406FD4 /* Assets.xcassets in Resources */,
 				CED842BF25A0E0CD00C07428 /* MainViewController.xib in Resources */,
 				CED8431425A2617A00C07428 /* PhotoCell.xib in Resources */,
@@ -315,10 +322,11 @@
 				CED842F925A2210500C07428 /* Collection.swift in Sources */,
 				CED842E025A1022A00C07428 /* Photo.swift in Sources */,
 				CED842DD25A0FD4300C07428 /* NetworkService.swift in Sources */,
-				CED8430D25A25CF000C07428 /* PhotosViewController.swift in Sources */,
+				CED8430D25A25CF000C07428 /* CollectionPhotosViewController.swift in Sources */,
 				CED842CA25A0E31F00C07428 /* URLService.swift in Sources */,
 				CED842BE25A0E0CD00C07428 /* MainViewController.swift in Sources */,
 				CED8431925A269DC00C07428 /* MainViewButton.swift in Sources */,
+				CEA2A8B525A383A6003E0E02 /* CollectionPhotosHeader.swift in Sources */,
 				CEA2A8AE25A3688F003E0E02 /* DateFormatter+Extension.swift in Sources */,
 				CED842DA25A0FCF600C07428 /* DataTaskService.swift in Sources */,
 				CED842D625A0E3DD00C07428 /* ServerError.swift in Sources */,
