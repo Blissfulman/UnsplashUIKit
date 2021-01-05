@@ -102,7 +102,17 @@ extension CollectionPhotosViewController {
 }
 
 // MARK: - Collection Delegate
-extension CollectionPhotosViewController {}
+extension CollectionPhotosViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let photo = photos[indexPath.item]
+        let photoVC = PhotoViewController(photo: photo)
+        
+        // MARK: - Navigation
+        navigationController?.pushViewController(photoVC, animated: true)
+    }
+}
 
 // MARK: - Collection Layout
 extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
