@@ -10,7 +10,7 @@ import UIKit
 final class CustomButton: UIButton {
 
     override func draw(_ rect: CGRect) {
-        layer.backgroundColor = UIColor(named: "AccentVioletColor")?.cgColor
+        layer.backgroundColor = UIColor(named: "CustomVioletColor")?.cgColor
         tintColor = .white
         titleLabel?.font = .boldSystemFont(ofSize: 18)
         layer.cornerRadius = bounds.height / 2

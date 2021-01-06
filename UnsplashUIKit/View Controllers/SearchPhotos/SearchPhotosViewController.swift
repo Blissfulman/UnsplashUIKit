@@ -21,7 +21,6 @@ final class SearchPhotosViewController: UIViewController {
         super.viewDidLoad()
         
         searchTermsTextField.delegate = self
-        orderBySegmentedControl.backgroundColor = UIColor(named: "AccentVioletColor")
     }
     
     override func viewWillAppear(_ animated: Bool) {
