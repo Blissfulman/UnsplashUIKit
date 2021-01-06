@@ -36,10 +36,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgV-Ii-FyY" customClass="MainViewButton" customModule="UnsplashUIKit" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgV-Ii-FyY" customClass="CustomButton" customModule="UnsplashUIKit" customModuleProvider="target">
                                 <rect key="frame" x="353" y="0.0" width="57" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="searchButtonTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2hp-uP-ehd"/>
+                                </connections>
                             </button>
                         </subviews>
                     </stackView>

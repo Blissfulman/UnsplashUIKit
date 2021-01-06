@@ -25,9 +25,14 @@ final class HeaderTableCell: UITableViewCell {
     // MARK: - Lifecycle methods
     override func awakeFromNib() {
         super.awakeFromNib()
-                
+        
+//        fetchPhoto()
+    }
+    
+    // MARK: - Private methods
+    private func fetchPhoto() {
         networkService.fetchRandomPhotos(count: 1) { [weak self] result in
-
+            
             guard let self = self else { return }
             
             switch result {

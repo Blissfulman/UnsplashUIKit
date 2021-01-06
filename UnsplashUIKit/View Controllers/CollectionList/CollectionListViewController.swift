@@ -30,8 +30,14 @@ final class CollectionListViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.register(CollectionCell.self, forCellWithReuseIdentifier: CollectionCell.identifier)
+        collectionView.register(CollectionCell.nib(), forCellWithReuseIdentifier: CollectionCell.identifier)
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
     }
     
     // MARK: - Private methods

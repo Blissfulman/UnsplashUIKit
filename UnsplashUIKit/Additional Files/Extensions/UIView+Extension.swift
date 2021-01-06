@@ -15,8 +15,8 @@ extension UIView {
         animation.fromValue = fromValue
         animation.toValue = toValue
         animation.duration = duration
-        self.layer.add(animation, forKey: nil)
-        self.layer.opacity = toValue
+        layer.add(animation, forKey: nil)
+        layer.opacity = toValue
     }
     
 //    func resizeAnimation(toSize: CGPoint, duration: Double = 1) {
@@ -32,7 +32,7 @@ extension UIView {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = colors
         gradientLayer.opacity = opacity
-        gradientLayer.frame = self.frame
-        self.layer.insertSublayer(gradientLayer, at: 0)
+        gradientLayer.frame = frame
+        layer.insertSublayer(gradientLayer, at: 0)
     }
 }

@@ -29,6 +29,9 @@
 		CEA2A8F325A4F78F003E0E02 /* HeaderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8F125A4F78F003E0E02 /* HeaderTableCell.swift */; };
 		CEA2A8F425A4F78F003E0E02 /* HeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A8F225A4F78F003E0E02 /* HeaderTableCell.xib */; };
 		CEA2A8FC25A59D9F003E0E02 /* CarouselCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8FB25A59D9F003E0E02 /* CarouselCellType.swift */; };
+		CEA2A91125A5D9A8003E0E02 /* PhotoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A90F25A5D9A8003E0E02 /* PhotoInfoViewController.swift */; };
+		CEA2A91225A5D9A8003E0E02 /* PhotoInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A91025A5D9A8003E0E02 /* PhotoInfoViewController.xib */; };
+		CEA2A92525A61ECD003E0E02 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A92425A61ECD003E0E02 /* CustomView.swift */; };
 		CED842CA25A0E31F00C07428 /* URLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842C925A0E31F00C07428 /* URLService.swift */; };
 		CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842CD25A0E3A500C07428 /* RequestService.swift */; };
 		CED842D425A0E3DD00C07428 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D125A0E3DD00C07428 /* Paths.swift */; };
@@ -47,7 +50,7 @@
 		CED8430E25A25CF000C07428 /* CollectionPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8430C25A25CF000C07428 /* CollectionPhotosViewController.xib */; };
 		CED8431325A2617A00C07428 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8431125A2617A00C07428 /* PhotoCell.swift */; };
 		CED8431425A2617A00C07428 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8431225A2617A00C07428 /* PhotoCell.xib */; };
-		CED8431925A269DC00C07428 /* MainViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8431825A269DC00C07428 /* MainViewButton.swift */; };
+		CED8431925A269DC00C07428 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8431825A269DC00C07428 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +78,9 @@
 		CEA2A8F125A4F78F003E0E02 /* HeaderTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableCell.swift; sourceTree = "<group>"; };
 		CEA2A8F225A4F78F003E0E02 /* HeaderTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableCell.xib; sourceTree = "<group>"; };
 		CEA2A8FB25A59D9F003E0E02 /* CarouselCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCellType.swift; sourceTree = "<group>"; };
+		CEA2A90F25A5D9A8003E0E02 /* PhotoInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoViewController.swift; sourceTree = "<group>"; };
+		CEA2A91025A5D9A8003E0E02 /* PhotoInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoInfoViewController.xib; sourceTree = "<group>"; };
+		CEA2A92425A61ECD003E0E02 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		CED842C925A0E31F00C07428 /* URLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLService.swift; sourceTree = "<group>"; };
 		CED842CD25A0E3A500C07428 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
 		CED842D125A0E3DD00C07428 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
@@ -93,7 +99,7 @@
 		CED8430C25A25CF000C07428 /* CollectionPhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionPhotosViewController.xib; sourceTree = "<group>"; };
 		CED8431125A2617A00C07428 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		CED8431225A2617A00C07428 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
-		CED8431825A269DC00C07428 /* MainViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewButton.swift; sourceTree = "<group>"; };
+		CED8431825A269DC00C07428 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,22 +143,22 @@
 			path = UnsplashUIKit;
 			sourceTree = "<group>";
 		};
-		CEA2A8C025A44A24003E0E02 /* PhotoViewController */ = {
+		CEA2A8C025A44A24003E0E02 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
 				CEA2A8C125A44A50003E0E02 /* PhotoViewController.swift */,
 				CEA2A8C225A44A50003E0E02 /* PhotoViewController.xib */,
 			);
-			path = PhotoViewController;
+			path = Photo;
 			sourceTree = "<group>";
 		};
-		CEA2A8C725A476D3003E0E02 /* SearchPhotosViewController */ = {
+		CEA2A8C725A476D3003E0E02 /* SearchPhotos */ = {
 			isa = PBXGroup;
 			children = (
 				CEA2A8C825A476EF003E0E02 /* SearchPhotosViewController.swift */,
 				CEA2A8C925A476EF003E0E02 /* SearchPhotosViewController.xib */,
 			);
-			path = SearchPhotosViewController;
+			path = SearchPhotos;
 			sourceTree = "<group>";
 		};
 		CEA2A8DD25A4E63E003E0E02 /* Cells */ = {
@@ -176,14 +182,24 @@
 			path = CarouselCell;
 			sourceTree = "<group>";
 		};
+		CEA2A90A25A5D900003E0E02 /* PhotoInfo */ = {
+			isa = PBXGroup;
+			children = (
+				CEA2A90F25A5D9A8003E0E02 /* PhotoInfoViewController.swift */,
+				CEA2A91025A5D9A8003E0E02 /* PhotoInfoViewController.xib */,
+			);
+			path = PhotoInfo;
+			sourceTree = "<group>";
+		};
 		CED842BA25A0E09F00C07428 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CED842EF25A2149C00C07428 /* MainViewController */,
-				CED842F125A214D200C07428 /* CollectionListViewController */,
-				CED8430A25A25C6E00C07428 /* CollectionPhotosViewController */,
-				CEA2A8C025A44A24003E0E02 /* PhotoViewController */,
-				CEA2A8C725A476D3003E0E02 /* SearchPhotosViewController */,
+				CED842EF25A2149C00C07428 /* Main */,
+				CED842F125A214D200C07428 /* CollectionList */,
+				CED8430A25A25C6E00C07428 /* CollectionPhotos */,
+				CEA2A8C025A44A24003E0E02 /* Photo */,
+				CEA2A90A25A5D900003E0E02 /* PhotoInfo */,
+				CEA2A8C725A476D3003E0E02 /* SearchPhotos */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -242,9 +258,10 @@
 		CED842E225A111ED00C07428 /* Additional Files */ = {
 			isa = PBXGroup;
 			children = (
-				CED842E325A111F900C07428 /* Extensions */,
-				CED8431825A269DC00C07428 /* MainViewButton.swift */,
 				CEA2A8FB25A59D9F003E0E02 /* CarouselCellType.swift */,
+				CED8431825A269DC00C07428 /* CustomButton.swift */,
+				CEA2A92425A61ECD003E0E02 /* CustomView.swift */,
+				CED842E325A111F900C07428 /* Extensions */,
 			);
 			path = "Additional Files";
 			sourceTree = "<group>";
@@ -258,24 +275,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		CED842EF25A2149C00C07428 /* MainViewController */ = {
+		CED842EF25A2149C00C07428 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				CEA2A8D825A4E5E1003E0E02 /* MainViewController.swift */,
 				CEA2A8D925A4E5E1003E0E02 /* MainViewController.xib */,
 				CEA2A8DD25A4E63E003E0E02 /* Cells */,
 			);
-			path = MainViewController;
+			path = Main;
 			sourceTree = "<group>";
 		};
-		CED842F125A214D200C07428 /* CollectionListViewController */ = {
+		CED842F125A214D200C07428 /* CollectionList */ = {
 			isa = PBXGroup;
 			children = (
 				CED842F225A2152B00C07428 /* CollectionListViewController.swift */,
 				CED842F325A2152B00C07428 /* CollectionListViewController.xib */,
 				CED842FB25A2294D00C07428 /* Cell */,
 			);
-			path = CollectionListViewController;
+			path = CollectionList;
 			sourceTree = "<group>";
 		};
 		CED842FB25A2294D00C07428 /* Cell */ = {
@@ -287,14 +304,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		CED8430A25A25C6E00C07428 /* CollectionPhotosViewController */ = {
+		CED8430A25A25C6E00C07428 /* CollectionPhotos */ = {
 			isa = PBXGroup;
 			children = (
 				CED8430B25A25CF000C07428 /* CollectionPhotosViewController.swift */,
 				CED8430C25A25CF000C07428 /* CollectionPhotosViewController.xib */,
 				CED8431025A2613100C07428 /* Cells */,
 			);
-			path = CollectionPhotosViewController;
+			path = CollectionPhotos;
 			sourceTree = "<group>";
 		};
 		CED8431025A2613100C07428 /* Cells */ = {
@@ -378,6 +395,7 @@
 				CED8430E25A25CF000C07428 /* CollectionPhotosViewController.xib in Resources */,
 				CE63A55E259F9E6F00406FD4 /* Assets.xcassets in Resources */,
 				CED8431425A2617A00C07428 /* PhotoCell.xib in Resources */,
+				CEA2A91225A5D9A8003E0E02 /* PhotoInfoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +410,7 @@
 				CEA2A8CA25A476EF003E0E02 /* SearchPhotosViewController.swift in Sources */,
 				CEA2A8CF25A488F4003E0E02 /* SearchPhotosModel.swift in Sources */,
 				CEA2A8EE25A4F2AB003E0E02 /* CarouselImageCell.swift in Sources */,
+				CEA2A91125A5D9A8003E0E02 /* PhotoInfoViewController.swift in Sources */,
 				CED842F425A2152B00C07428 /* CollectionListViewController.swift in Sources */,
 				CED842E525A1121A00C07428 /* UIView+Extension.swift in Sources */,
 				CE63A555259F9E6E00406FD4 /* AppDelegate.swift in Sources */,
@@ -402,11 +421,12 @@
 				CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */,
 				CED842F925A2210500C07428 /* CollectionModel.swift in Sources */,
 				CED842E025A1022A00C07428 /* PhotoModel.swift in Sources */,
+				CEA2A92525A61ECD003E0E02 /* CustomView.swift in Sources */,
 				CED842DD25A0FD4300C07428 /* NetworkService.swift in Sources */,
 				CED8430D25A25CF000C07428 /* CollectionPhotosViewController.swift in Sources */,
 				CEA2A8C325A44A50003E0E02 /* PhotoViewController.swift in Sources */,
 				CED842CA25A0E31F00C07428 /* URLService.swift in Sources */,
-				CED8431925A269DC00C07428 /* MainViewButton.swift in Sources */,
+				CED8431925A269DC00C07428 /* CustomButton.swift in Sources */,
 				CEA2A8B525A383A6003E0E02 /* CollectionPhotosHeader.swift in Sources */,
 				CEA2A8AE25A3688F003E0E02 /* DateFormatter+Extension.swift in Sources */,
 				CEA2A8DA25A4E5E1003E0E02 /* MainViewController.swift in Sources */,

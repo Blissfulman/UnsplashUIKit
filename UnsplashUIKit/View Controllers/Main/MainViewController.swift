@@ -23,27 +23,21 @@ final class MainViewController: UITableViewController {
         setupUI()
     }
     
-    // MARK: - Navigation
-    func showCollectionsButtonTapped(_ sender: UIButton) {
-        let collectionListVC = CollectionListViewController()
-        let navigationController = UINavigationController(rootViewController: collectionListVC)
-        AppDelegate.shared.window?.rootViewController = navigationController
-    }
-    
-    func searchPhotosButtonTapped(_ sender: UIButton) {
-        let searchPhotosVC = SearchPhotosViewController()
-        let navigationController = UINavigationController(rootViewController: searchPhotosVC)
-        AppDelegate.shared.window?.rootViewController = navigationController
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
     }
     
     // MARK: - Private methods
     private func setupUI() {
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         
-        tableView.setupViewGradient(
-            withColors: [UIColor.systemTeal.cgColor, UIColor.systemPurple.cgColor],
-            opacity: 0.1
-        )
+//        tableView.setupViewGradient(
+//            withColors: [UIColor.systemTeal.cgColor, UIColor.systemPurple.cgColor],
+//            opacity: 0.5
+//        )
     }
 }
 
@@ -73,6 +67,7 @@ extension MainViewController {
                 return UITableViewCell()
             }
             carouselTableCell.configure(type: indexPath.row == 1 ? .collections : .photos)
+            carouselTableCell.delegate = self
             
             return carouselTableCell
         default:
@@ -88,7 +83,26 @@ extension MainViewController {
         case 0:
             return 350
         default:
-            return 220
+            return 250
         }
+    }
+}
+
+// MARK: - Navigation
+extension MainViewController: CarouselTableCellDelegate {
+    
+    func searchCollections() {
+        let collectionListVC = CollectionListViewController()
+        navigationController?.pushViewController(collectionListVC, animated: true)
+    }
+    
+    func searchPhotos() {
+        let searchPhotosVC = SearchPhotosViewController()
+        navigationController?.pushViewController(searchPhotosVC, animated: true)
+    }
+    
+    func onPhotoTapped(photo: PhotoModel) {
+        let photoVC = PhotoViewController(photo: photo)
+        navigationController?.pushViewController(photoVC, animated: true)
     }
 }

@@ -11,7 +11,7 @@ final class SearchPhotosViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var searchTermsTextField: UITextField!
-    @IBOutlet weak var orderBysegmentedControl: UISegmentedControl!
+    @IBOutlet weak var orderBySegmentedControl: UISegmentedControl!
     
     // MARK: - Properties
     private let networkService: NetworkServiceProtocol = NetworkService()
@@ -21,6 +21,13 @@ final class SearchPhotosViewController: UIViewController {
         super.viewDidLoad()
         
         searchTermsTextField.delegate = self
+        orderBySegmentedControl.backgroundColor = UIColor(named: "AccentVioletColor")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
     }
     
     // MARK: - Actions
@@ -34,7 +41,7 @@ final class SearchPhotosViewController: UIViewController {
         guard let query = searchTermsTextField.text,
               !query.isEmpty else { return }
         
-        let orderBy = orderBysegmentedControl.selectedSegmentIndex == 0
+        let orderBy = orderBySegmentedControl.selectedSegmentIndex == 0
             ? "relevant" : "latest"
         
         networkService.searchPhotos(query: query, orderBy: orderBy) { [weak self] result in

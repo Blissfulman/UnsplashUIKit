@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol CarouselTableCellDelegate: UIViewController {
+    func searchCollections()
+    func searchPhotos()
+    func onPhotoTapped(photo: PhotoModel)
+}
+
 final class CarouselTableCell: UITableViewCell {
     
     // MARK: - Outlets
@@ -17,8 +23,10 @@ final class CarouselTableCell: UITableViewCell {
     // MARK: - Properties
     static let identifier = "carouselTableCell"
     
-    private var photos = [PhotoModel]()
+    weak var delegate: CarouselTableCellDelegate?
     
+    private var photos = [PhotoModel]()
+    private var carouselCellType: CarouselCellType!
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Class methods
@@ -38,10 +46,22 @@ final class CarouselTableCell: UITableViewCell {
     
     // MARK: - Public methods
     func configure(type: CarouselCellType) {
+        carouselCellType = type
         titleLabel.text = type.rawValue.capitalized
         searchButton.setTitle("Search \(type.rawValue)", for: .normal)
-        
-        type == .collections
+        fetchPhotos()
+    }
+    
+    // MARK: - Actions
+    @IBAction func searchButtonTapped() {
+        carouselCellType == .collections
+            ? delegate?.searchCollections()
+            : delegate?.searchPhotos()
+    }
+    
+    // MARK: - Private methods
+    private func fetchPhotos() {
+        carouselCellType == .collections
             ? networkService.fetchCollections { [weak self] result in
                 
                 guard let self = self else { return }
@@ -90,7 +110,9 @@ extension CarouselTableCell: UICollectionViewDataSource {
                 for: indexPath) as? CarouselImageCell else {
             return UICollectionViewCell()
         }
+        cell.delegate = delegate
         cell.configure(photos[indexPath.item])
+        
         return cell
     }
 }
