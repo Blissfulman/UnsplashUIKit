@@ -19,8 +19,16 @@
 		CEA2A8CA25A476EF003E0E02 /* SearchPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8C825A476EF003E0E02 /* SearchPhotosViewController.swift */; };
 		CEA2A8CB25A476EF003E0E02 /* SearchPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A8C925A476EF003E0E02 /* SearchPhotosViewController.xib */; };
 		CEA2A8CF25A488F4003E0E02 /* SearchPhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8CE25A488F4003E0E02 /* SearchPhotosModel.swift */; };
-		CED842BE25A0E0CD00C07428 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842BC25A0E0CD00C07428 /* MainViewController.swift */; };
-		CED842BF25A0E0CD00C07428 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED842BD25A0E0CD00C07428 /* MainViewController.xib */; };
+		CEA2A8D525A4D18A003E0E02 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8D425A4D18A003E0E02 /* NetworkConstants.swift */; };
+		CEA2A8DA25A4E5E1003E0E02 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8D825A4E5E1003E0E02 /* MainViewController.swift */; };
+		CEA2A8DB25A4E5E1003E0E02 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A8D925A4E5E1003E0E02 /* MainViewController.xib */; };
+		CEA2A8E725A4EE6B003E0E02 /* CarouselTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8E525A4EE6B003E0E02 /* CarouselTableCell.swift */; };
+		CEA2A8E825A4EE6B003E0E02 /* CarouselTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A8E625A4EE6B003E0E02 /* CarouselTableCell.xib */; };
+		CEA2A8EE25A4F2AB003E0E02 /* CarouselImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8EC25A4F2AB003E0E02 /* CarouselImageCell.swift */; };
+		CEA2A8EF25A4F2AB003E0E02 /* CarouselImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A8ED25A4F2AB003E0E02 /* CarouselImageCell.xib */; };
+		CEA2A8F325A4F78F003E0E02 /* HeaderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8F125A4F78F003E0E02 /* HeaderTableCell.swift */; };
+		CEA2A8F425A4F78F003E0E02 /* HeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A8F225A4F78F003E0E02 /* HeaderTableCell.xib */; };
+		CEA2A8FC25A59D9F003E0E02 /* CarouselCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8FB25A59D9F003E0E02 /* CarouselCellType.swift */; };
 		CED842CA25A0E31F00C07428 /* URLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842C925A0E31F00C07428 /* URLService.swift */; };
 		CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842CD25A0E3A500C07428 /* RequestService.swift */; };
 		CED842D425A0E3DD00C07428 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D125A0E3DD00C07428 /* Paths.swift */; };
@@ -57,8 +65,16 @@
 		CEA2A8C825A476EF003E0E02 /* SearchPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosViewController.swift; sourceTree = "<group>"; };
 		CEA2A8C925A476EF003E0E02 /* SearchPhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPhotosViewController.xib; sourceTree = "<group>"; };
 		CEA2A8CE25A488F4003E0E02 /* SearchPhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosModel.swift; sourceTree = "<group>"; };
-		CED842BC25A0E0CD00C07428 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		CED842BD25A0E0CD00C07428 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		CEA2A8D425A4D18A003E0E02 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		CEA2A8D825A4E5E1003E0E02 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CEA2A8D925A4E5E1003E0E02 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		CEA2A8E525A4EE6B003E0E02 /* CarouselTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTableCell.swift; sourceTree = "<group>"; };
+		CEA2A8E625A4EE6B003E0E02 /* CarouselTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselTableCell.xib; sourceTree = "<group>"; };
+		CEA2A8EC25A4F2AB003E0E02 /* CarouselImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselImageCell.swift; sourceTree = "<group>"; };
+		CEA2A8ED25A4F2AB003E0E02 /* CarouselImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselImageCell.xib; sourceTree = "<group>"; };
+		CEA2A8F125A4F78F003E0E02 /* HeaderTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableCell.swift; sourceTree = "<group>"; };
+		CEA2A8F225A4F78F003E0E02 /* HeaderTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableCell.xib; sourceTree = "<group>"; };
+		CEA2A8FB25A59D9F003E0E02 /* CarouselCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCellType.swift; sourceTree = "<group>"; };
 		CED842C925A0E31F00C07428 /* URLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLService.swift; sourceTree = "<group>"; };
 		CED842CD25A0E3A500C07428 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
 		CED842D125A0E3DD00C07428 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
@@ -139,6 +155,27 @@
 			path = SearchPhotosViewController;
 			sourceTree = "<group>";
 		};
+		CEA2A8DD25A4E63E003E0E02 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CEA2A8F125A4F78F003E0E02 /* HeaderTableCell.swift */,
+				CEA2A8F225A4F78F003E0E02 /* HeaderTableCell.xib */,
+				CEA2A8E525A4EE6B003E0E02 /* CarouselTableCell.swift */,
+				CEA2A8E625A4EE6B003E0E02 /* CarouselTableCell.xib */,
+				CEA2A8EA25A4F194003E0E02 /* CarouselCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CEA2A8EA25A4F194003E0E02 /* CarouselCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEA2A8EC25A4F2AB003E0E02 /* CarouselImageCell.swift */,
+				CEA2A8ED25A4F2AB003E0E02 /* CarouselImageCell.xib */,
+			);
+			path = CarouselCell;
+			sourceTree = "<group>";
+		};
 		CED842BA25A0E09F00C07428 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +231,7 @@
 		CED842D025A0E3CC00C07428 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CEA2A8D425A4D18A003E0E02 /* NetworkConstants.swift */,
 				CED842D225A0E3DD00C07428 /* HTTPMethod.swift */,
 				CED842D125A0E3DD00C07428 /* Paths.swift */,
 				CED842D325A0E3DD00C07428 /* ServerError.swift */,
@@ -206,6 +244,7 @@
 			children = (
 				CED842E325A111F900C07428 /* Extensions */,
 				CED8431825A269DC00C07428 /* MainViewButton.swift */,
+				CEA2A8FB25A59D9F003E0E02 /* CarouselCellType.swift */,
 			);
 			path = "Additional Files";
 			sourceTree = "<group>";
@@ -222,8 +261,9 @@
 		CED842EF25A2149C00C07428 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CED842BC25A0E0CD00C07428 /* MainViewController.swift */,
-				CED842BD25A0E0CD00C07428 /* MainViewController.xib */,
+				CEA2A8D825A4E5E1003E0E02 /* MainViewController.swift */,
+				CEA2A8D925A4E5E1003E0E02 /* MainViewController.xib */,
+				CEA2A8DD25A4E63E003E0E02 /* Cells */,
 			);
 			path = MainViewController;
 			sourceTree = "<group>";
@@ -325,15 +365,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA2A8F425A4F78F003E0E02 /* HeaderTableCell.xib in Resources */,
 				CEA2A8C425A44A50003E0E02 /* PhotoViewController.xib in Resources */,
 				CEA2A8CB25A476EF003E0E02 /* SearchPhotosViewController.xib in Resources */,
 				CED842F525A2152B00C07428 /* CollectionListViewController.xib in Resources */,
+				CEA2A8EF25A4F2AB003E0E02 /* CarouselImageCell.xib in Resources */,
+				CEA2A8E825A4EE6B003E0E02 /* CarouselTableCell.xib in Resources */,
 				CE63A561259F9E6F00406FD4 /* LaunchScreen.storyboard in Resources */,
 				CEA2A8B625A383A6003E0E02 /* CollectionPhotosHeader.xib in Resources */,
 				CED842FF25A2298C00C07428 /* CollectionCell.xib in Resources */,
+				CEA2A8DB25A4E5E1003E0E02 /* MainViewController.xib in Resources */,
 				CED8430E25A25CF000C07428 /* CollectionPhotosViewController.xib in Resources */,
 				CE63A55E259F9E6F00406FD4 /* Assets.xcassets in Resources */,
-				CED842BF25A0E0CD00C07428 /* MainViewController.xib in Resources */,
 				CED8431425A2617A00C07428 /* PhotoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,12 +388,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA2A8D525A4D18A003E0E02 /* NetworkConstants.swift in Sources */,
 				CEA2A8CA25A476EF003E0E02 /* SearchPhotosViewController.swift in Sources */,
 				CEA2A8CF25A488F4003E0E02 /* SearchPhotosModel.swift in Sources */,
+				CEA2A8EE25A4F2AB003E0E02 /* CarouselImageCell.swift in Sources */,
 				CED842F425A2152B00C07428 /* CollectionListViewController.swift in Sources */,
 				CED842E525A1121A00C07428 /* UIView+Extension.swift in Sources */,
 				CE63A555259F9E6E00406FD4 /* AppDelegate.swift in Sources */,
 				CED842D425A0E3DD00C07428 /* Paths.swift in Sources */,
+				CEA2A8F325A4F78F003E0E02 /* HeaderTableCell.swift in Sources */,
 				CED8431325A2617A00C07428 /* PhotoCell.swift in Sources */,
 				CED842D525A0E3DD00C07428 /* HTTPMethod.swift in Sources */,
 				CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */,
@@ -360,11 +406,13 @@
 				CED8430D25A25CF000C07428 /* CollectionPhotosViewController.swift in Sources */,
 				CEA2A8C325A44A50003E0E02 /* PhotoViewController.swift in Sources */,
 				CED842CA25A0E31F00C07428 /* URLService.swift in Sources */,
-				CED842BE25A0E0CD00C07428 /* MainViewController.swift in Sources */,
 				CED8431925A269DC00C07428 /* MainViewButton.swift in Sources */,
 				CEA2A8B525A383A6003E0E02 /* CollectionPhotosHeader.swift in Sources */,
 				CEA2A8AE25A3688F003E0E02 /* DateFormatter+Extension.swift in Sources */,
+				CEA2A8DA25A4E5E1003E0E02 /* MainViewController.swift in Sources */,
 				CED842DA25A0FCF600C07428 /* DataTaskService.swift in Sources */,
+				CEA2A8FC25A59D9F003E0E02 /* CarouselCellType.swift in Sources */,
+				CEA2A8E725A4EE6B003E0E02 /* CarouselTableCell.swift in Sources */,
 				CED842D625A0E3DD00C07428 /* ServerError.swift in Sources */,
 				CED842FE25A2298C00C07428 /* CollectionCell.swift in Sources */,
 				CEA2A8B125A37D3F003E0E02 /* UserModel.swift in Sources */,

@@ -83,11 +83,13 @@ extension CollectionPhotosViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let header = collectionView.dequeueReusableSupplementaryView(
+        guard let header = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
             withReuseIdentifier: CollectionPhotosHeader.identifier,
             for: indexPath
-        ) as! CollectionPhotosHeader
+        ) as? CollectionPhotosHeader else {
+            return UICollectionReusableView()
+        }
         
         header.delegate = self
         header.configure(collection)
@@ -100,10 +102,13 @@ extension CollectionPhotosViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(
+        
+        guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: PhotoCell.identifier,
             for: indexPath
-        ) as! PhotoCell
+        ) as? PhotoCell else {
+            return UICollectionViewCell()
+        }
         
         cell.configure(photos[indexPath.item])
         
@@ -124,7 +129,7 @@ extension CollectionPhotosViewController {
     }
 }
 
-// MARK: - Collection Layout
+// MARK: - Collection View Layout
 extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

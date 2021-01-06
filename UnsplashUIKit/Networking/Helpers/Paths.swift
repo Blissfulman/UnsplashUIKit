@@ -6,8 +6,7 @@
 //
 
 enum PhotosPath {
-    static let getPhoto = "/photos/:id"
-    static let getRandomPhoto = "/photos/random"
+    static let randomPhotos = "/photos/random"
 }
 
 enum SearchPath {

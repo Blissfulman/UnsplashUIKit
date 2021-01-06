@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIView {
+    
     func appearAnimation(fromValue: Float = 0, toValue: Float = 1, duration: Double = 1) {
         isHidden = false
         let animation = CABasicAnimation(keyPath: "opacity")
@@ -26,4 +27,12 @@ extension UIView {
 //        self.layer.add(animation, forKey: nil)
 //        self.layer.position = toSize
 //    }
+        
+    func setupViewGradient(withColors colors: [CGColor], opacity: Float) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = colors
+        gradientLayer.opacity = opacity
+        gradientLayer.frame = self.frame
+        self.layer.insertSublayer(gradientLayer, at: 0)
+    }
 }

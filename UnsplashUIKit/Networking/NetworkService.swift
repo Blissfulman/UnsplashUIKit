@@ -13,10 +13,8 @@ typealias CollectionsResult = (Result<[CollectionModel], Error>) -> Void
 typealias SearchPhotosResult = (Result<SearchPhotosModel, Error>) -> Void
 
 protocol NetworkServiceProtocol {
-    /// Переменная, в которой хранится ключ доступа.
-    static var accessKey: String { get set }
     
-    func fetchRandomPhoto(completion: @escaping PhotoResult)
+    func fetchRandomPhotos(count: Int, completion: @escaping PhotosResult)
     
     func fetchCollections(completion: @escaping CollectionsResult)
     
@@ -29,8 +27,6 @@ protocol NetworkServiceProtocol {
 }
 
 final class NetworkService: NetworkServiceProtocol {
-        
-    static var accessKey = "_MW7r-0GgxY30SvUHXccHkJUytRpTZNZz1Ty6nPzzvA"
     
     private let urlService: URLServiceProtocol
     private let requestService: RequestServiceProtocol
@@ -44,9 +40,9 @@ final class NetworkService: NetworkServiceProtocol {
         self.dataTaskService = dataTaskService
     }
     
-    func fetchRandomPhoto(completion: @escaping PhotoResult) {
-        guard let url = urlService.getURL(forPath: PhotosPath.getRandomPhoto,
-                                          count: nil) else { return }
+    func fetchRandomPhotos(count: Int = 1, completion: @escaping PhotosResult) {
+        guard let url = urlService.getURL(forPath: PhotosPath.randomPhotos,
+                                          count: count) else { return }
 
         let request = requestService.request(url: url, httpMethod: .get)
                 

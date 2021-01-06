@@ -67,7 +67,7 @@ final class SearchPhotosViewController: UIViewController {
     }
 }
 
-// MARK: - TextFieldDelegate
+// MARK: - Text Field Delegate
 extension SearchPhotosViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

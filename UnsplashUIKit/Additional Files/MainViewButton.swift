@@ -10,11 +10,10 @@ import UIKit
 final class MainViewButton: UIButton {
 
     override func draw(_ rect: CGRect) {
-        layer.backgroundColor = CGColor.init(gray: 0, alpha: 0.7)
+        layer.backgroundColor = CGColor.init(red: 0.3, green: 0, blue: 1, alpha: 0.5)
         tintColor = .white
-        titleLabel?.font = .boldSystemFont(ofSize: 24)
-        clipsToBounds = true
-        layer.cornerRadius = 15
-        widthAnchor.constraint(equalToConstant: 250).isActive = true
+        titleLabel?.font = .boldSystemFont(ofSize: 18)
+        layer.cornerRadius = self.bounds.height / 2
+        contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
     }
 }

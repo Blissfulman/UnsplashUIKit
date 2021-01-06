@@ -30,8 +30,7 @@ final class CollectionListViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.register(CollectionCell.nib(),
-                                forCellWithReuseIdentifier: CollectionCell.identifier)
+        collectionView.register(CollectionCell.self, forCellWithReuseIdentifier: CollectionCell.identifier)
         setupUI()
     }
     
@@ -59,7 +58,7 @@ final class CollectionListViewController: UICollectionViewController {
     }
 }
 
-// MARK: - Collection Data Source
+// MARK: - Collection View Data Source
 extension CollectionListViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -68,10 +67,12 @@ extension CollectionListViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(
+        guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: CollectionCell.identifier,
             for: indexPath
-        ) as! CollectionCell
+        ) as? CollectionCell else {
+            return UICollectionViewCell()
+        }
         
         cell.configure(collections[indexPath.item])
         
@@ -79,7 +80,7 @@ extension CollectionListViewController {
     }
 }
 
-// MARK: - Collection Delegate
+// MARK: - Collection View Delegate
 extension CollectionListViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -93,7 +94,7 @@ extension CollectionListViewController {
     }
 }
 
-// MARK: - Collection Layout
+// MARK: - Collection View Layout
 extension CollectionListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
