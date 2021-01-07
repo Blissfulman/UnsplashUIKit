@@ -88,17 +88,24 @@ extension MainViewController {
 extension MainViewController: CarouselTableCellDelegate {
     
     func searchCollections() {
-        let collectionListVC = SearchViewController(contentType: .collection)
-        navigationController?.pushViewController(collectionListVC, animated: true)
+        let searchVC = SearchViewController(contentType: .collection)
+        navigationController?.pushViewController(searchVC, animated: true)
     }
     
     func searchPhotos() {
-        let searchPhotosVC = SearchViewController(contentType: .photo)
-        navigationController?.pushViewController(searchPhotosVC, animated: true)
+        let searchVC = SearchViewController(contentType: .photo)
+        navigationController?.pushViewController(searchVC, animated: true)
     }
     
     func onPhotoTapped(photo: PhotoModel) {
-        let photoVC = OnePhotoViewController(photo: photo)
-        navigationController?.pushViewController(photoVC, animated: true)
+        let onePhotoVC = OnePhotoViewController(photo: photo)
+        navigationController?.pushViewController(onePhotoVC, animated: true)
+    }
+    
+    func onCollectionTapped(collection: CollectionModel) {
+        let photoListVC = PhotoListViewController(collection: collection)
+        photoListVC.title = collection.title
+        
+        navigationController?.pushViewController(photoListVC, animated: true)
     }
 }

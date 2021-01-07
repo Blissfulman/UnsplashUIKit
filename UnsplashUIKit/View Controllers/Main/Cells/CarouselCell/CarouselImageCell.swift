@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CarouselImageCellDelegate: UITableViewCell {
+    func elementSelected(at itemIndex: Int)
+}
+
 final class CarouselImageCell: UICollectionViewCell {
     
     // MARK: - Outlets
@@ -15,9 +19,10 @@ final class CarouselImageCell: UICollectionViewCell {
     // MARK: - Properties
     static let identifier = "carouselImageCell"
     
-    weak var delegate: CarouselTableCellDelegate?
+    weak var delegate: CarouselImageCellDelegate?
     
     private var photo: PhotoModel!
+    private var itemIndex: Int!
     
     // MARK: - Class methods
     static func nib() -> UINib {
@@ -32,8 +37,10 @@ final class CarouselImageCell: UICollectionViewCell {
     }
     
     // MARK: - Public methods
-    func configure(_ photo: PhotoModel) {
+    func configure(_ photo: PhotoModel, itemIndex: Int) {
         self.photo = photo
+        self.itemIndex = itemIndex
+        
         layer.cornerRadius = UIConstant.defaultCornerRadius
 
         if let url = URL(string: photo.urls?.small ?? "") {
@@ -42,14 +49,14 @@ final class CarouselImageCell: UICollectionViewCell {
     }
     
     // MARK: - Actions
-    @objc func onPhotoTapped() {
-        delegate?.onPhotoTapped(photo: photo)
+    @objc func onImageTapped() {
+        delegate?.elementSelected(at: itemIndex)
     }
     
     // MARK: - Private methods
     private func setupGestureRecognizer() {
         let onPhotoTappedGR = UITapGestureRecognizer(target: self,
-                                                     action: #selector(onPhotoTapped))
+                                                     action: #selector(onImageTapped))
         imageView.addGestureRecognizer(onPhotoTappedGR)
     }
 }

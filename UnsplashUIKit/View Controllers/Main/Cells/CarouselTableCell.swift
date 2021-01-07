@@ -11,6 +11,7 @@ protocol CarouselTableCellDelegate: UIViewController {
     func searchCollections()
     func searchPhotos()
     func onPhotoTapped(photo: PhotoModel)
+    func onCollectionTapped(collection: CollectionModel)
 }
 
 final class CarouselTableCell: UITableViewCell {
@@ -26,6 +27,7 @@ final class CarouselTableCell: UITableViewCell {
     weak var delegate: CarouselTableCellDelegate?
     
     private var photos = [PhotoModel]()
+    private var collections = [CollectionModel]()
     private var contentType: ContentType!
     private let networkService: NetworkServiceProtocol = NetworkService()
     
@@ -74,6 +76,7 @@ final class CarouselTableCell: UITableViewCell {
                 
                 switch result {
                 case .success(let collections):
+                    self.collections = collections
                     self.photos = collections.compactMap { $0.coverPhoto }
                     self.collectionView.reloadData()
                 case .failure(let error):
@@ -116,9 +119,18 @@ extension CarouselTableCell: UICollectionViewDataSource {
                 for: indexPath) as? CarouselImageCell else {
             return UICollectionViewCell()
         }
-        cell.delegate = delegate
-        cell.configure(photos[indexPath.item])
+        cell.delegate = self
+        cell.configure(photos[indexPath.item], itemIndex: indexPath.item)
         
         return cell
+    }
+}
+
+extension CarouselTableCell: CarouselImageCellDelegate {
+    
+    func elementSelected(at itemIndex: Int) {
+        contentType == .photo
+            ? delegate?.onPhotoTapped(photo: photos[itemIndex])
+            : delegate?.onCollectionTapped(collection: collections[itemIndex])
     }
 }

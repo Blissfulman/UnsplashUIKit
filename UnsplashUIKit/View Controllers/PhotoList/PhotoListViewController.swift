@@ -57,6 +57,7 @@ final class PhotoListViewController: UICollectionViewController {
     // MARK: - Private methods
     private func setupUI() {
         collectionView.backgroundColor = .white
+        navigationController?.navigationBar.isHidden = false
         
         guard let collection = collection else { return }
         getPhotos(collection: collection)
@@ -128,10 +129,10 @@ extension PhotoListViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let photo = photos[indexPath.item]
-        let photoVC = OnePhotoViewController(photo: photo)
+        let onePhotoVC = OnePhotoViewController(photo: photo)
         
         // MARK: - Navigation
-        navigationController?.pushViewController(photoVC, animated: true)
+        navigationController?.pushViewController(onePhotoVC, animated: true)
     }
 }
 
