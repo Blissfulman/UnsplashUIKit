@@ -49,8 +49,10 @@ final class SearchPhotosViewController: UIViewController {
             
             switch result {
             case .success(let searchPhotosResult):
-                if let photos = searchPhotosResult.photos {
-                    let photosVC = CollectionPhotosViewController(photos: photos)
+                if let photos = searchPhotosResult.photos,
+                   let totalPhotos = searchPhotosResult.total {
+                    let photosVC = CollectionPhotosViewController(photos: photos,
+                                                                  totalPhotos: totalPhotos)
                     
                     // MARK: - Navigation
                     self.navigationController?.pushViewController(photosVC, animated: true)

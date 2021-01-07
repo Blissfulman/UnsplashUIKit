@@ -13,20 +13,25 @@ final class CollectionPhotosViewController: UICollectionViewController {
     var collection: CollectionModel?
     var photos = [PhotoModel]()
     
+    /// Общее количество фотографий в отображаемом списке
+    let totalPhotos: Int
+    
     private var numberOfColumns: CGFloat = 2
-    private let itemSpacing: CGFloat = 8
+    private let itemSpacing: CGFloat = 10
     
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Initializers
     init(collection: CollectionModel) {
         self.collection = collection
+        self.totalPhotos = collection.totalPhotos ?? 0
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
         getPhotos(collection: collection)
     }
     
-    init(photos: [PhotoModel]) {
+    init(photos: [PhotoModel], totalPhotos: Int) {
         self.photos = photos
+        self.totalPhotos = totalPhotos
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
@@ -48,9 +53,20 @@ final class CollectionPhotosViewController: UICollectionViewController {
         setupUI()
     }
     
+    @objc func showCollectionInfo() {
+        
+    }
+    
     // MARK: - Private methods
     private func setupUI() {
         collectionView.backgroundColor = .white
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "info.circle"),
+            style: .plain,
+            target: self,
+            action: #selector(showCollectionInfo)
+        )
         
         guard let collection = collection else { return }
         getPhotos(collection: collection)
@@ -92,7 +108,7 @@ extension CollectionPhotosViewController {
         }
         
         header.delegate = self
-        header.configure(collection)
+        header.photoCountLabel.text = "Total photos: \(totalPhotos)"
         
         return header
     }
@@ -133,7 +149,7 @@ extension CollectionPhotosViewController {
 extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        collection != nil ? CGSize(width: collectionView.bounds.width, height: 150) : .zero
+        CGSize(width: collectionView.bounds.width, height: 56)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

@@ -14,9 +14,7 @@ protocol CollectionPhotosHeaderDelegate: UIViewController {
 final class CollectionPhotosHeader: UICollectionReusableView {
 
     // MARK: - Outlets
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var photoCountLabel: UILabel!
-    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     // MARK: - Properties
@@ -27,16 +25,6 @@ final class CollectionPhotosHeader: UICollectionReusableView {
     // MARK: - Class methods
     static func nib() -> UINib {
         UINib(nibName: "CollectionPhotosHeader", bundle: nil)
-    }
-    
-    // MARK: - Public methods
-    func configure(_ collection: CollectionModel?) {
-        backgroundColor = UIColor.systemIndigo.withAlphaComponent(0.15)
-        
-        descriptionLabel.text = collection?.description
-        if let count = collection?.totalPhotos {
-            photoCountLabel.text = "Total photos: \(count)"
-        }
     }
     
     // MARK: - Actions

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,54 +14,53 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collection" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Boe-kH-TmN">
-                    <rect key="frame" x="10" y="10" width="300" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total photos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cb-jd-Ymj">
-                    <rect key="frame" x="10" y="69" width="99" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Vel-cJ-r7r">
-                    <rect key="frame" x="190" y="59" width="120" height="32"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="120" id="1dA-PN-fMq"/>
-                    </constraints>
-                    <segments>
-                        <segment title="" image="square" catalog="system"/>
-                        <segment title="" image="square.grid.2x2" catalog="system"/>
-                        <segment title="" image="square.grid.3x2" catalog="system"/>
-                    </segments>
-                    <connections>
-                        <action selector="segmentedControlSwitched:" destination="U6b-Vx-4bR" eventType="valueChanged" id="oVz-jv-dbQ"/>
-                    </connections>
-                </segmentedControl>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jIC-Ey-QMc">
+                    <rect key="frame" x="10" y="54" width="300" height="36"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total photos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cb-jd-Ymj">
+                            <rect key="frame" x="0.0" y="7.5" width="104" height="21.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Vel-cJ-r7r">
+                            <rect key="frame" x="180" y="2.5" width="120" height="32"/>
+                            <color key="backgroundColor" name="CustomVioletColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="1dA-PN-fMq"/>
+                            </constraints>
+                            <segments>
+                                <segment title="" image="square" catalog="system"/>
+                                <segment title="" image="square.grid.2x2" catalog="system"/>
+                                <segment title="" image="square.grid.3x2" catalog="system"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentedControlSwitched:" destination="U6b-Vx-4bR" eventType="valueChanged" id="oVz-jv-dbQ"/>
+                            </connections>
+                        </segmentedControl>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <constraints>
-                <constraint firstItem="Boe-kH-TmN" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="10" id="CZu-pW-ENF"/>
-                <constraint firstAttribute="trailing" secondItem="Boe-kH-TmN" secondAttribute="trailing" constant="10" id="EMT-EM-R5c"/>
-                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="Vel-cJ-r7r" secondAttribute="trailing" constant="10" id="gPQ-5D-ceh"/>
-                <constraint firstItem="6cb-jd-Ymj" firstAttribute="bottom" secondItem="VXr-Tz-HHm" secondAttribute="bottom" constant="-10" id="hY8-WQ-KUP"/>
-                <constraint firstItem="6cb-jd-Ymj" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="10" id="mjC-Gi-UzF"/>
-                <constraint firstItem="Vel-cJ-r7r" firstAttribute="bottom" secondItem="VXr-Tz-HHm" secondAttribute="bottom" constant="-10" id="pyS-Wx-YsY"/>
-                <constraint firstItem="Boe-kH-TmN" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="10" id="uuh-Gg-L41"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="jIC-Ey-QMc" secondAttribute="trailing" constant="10" id="D4s-Jw-xoS"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="jIC-Ey-QMc" secondAttribute="bottom" constant="10" id="YRQ-du-Wqn"/>
+                <constraint firstItem="jIC-Ey-QMc" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="10" id="ZvQ-Rz-Bir"/>
+                <constraint firstItem="jIC-Ey-QMc" firstAttribute="top" secondItem="VXr-Tz-HHm" secondAttribute="top" constant="10" id="mjg-7C-oL3"/>
             </constraints>
             <connections>
-                <outlet property="descriptionLabel" destination="Boe-kH-TmN" id="3qu-0h-Sab"/>
                 <outlet property="photoCountLabel" destination="6cb-jd-Ymj" id="Yqf-Bp-xkE"/>
                 <outlet property="segmentedControl" destination="Vel-cJ-r7r" id="oKC-VF-h1x"/>
             </connections>
-            <point key="canvasLocation" x="57.971014492753625" y="71.651785714285708"/>
+            <point key="canvasLocation" x="57.971014492753625" y="70.982142857142847"/>
         </collectionReusableView>
     </objects>
     <resources>
         <image name="square" catalog="system" width="128" height="114"/>
         <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
         <image name="square.grid.3x2" catalog="system" width="128" height="80"/>
+        <namedColor name="CustomVioletColor">
+            <color red="0.5" green="0.5" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -10,13 +10,19 @@ import UIKit
 final class PhotoInfoViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet weak var authorImageView: UIImageView!
+    @IBOutlet weak var authorUsernameLabel: UILabel!
+    @IBOutlet weak var createdDateLabel: UILabel!
     @IBOutlet weak var widthLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var altDescriptionLabel: UILabel!
     
     // MARK: - Properties
     let photo: PhotoModel!
+    
+    private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Initializers
     init(photo: PhotoModel) {
@@ -37,19 +43,22 @@ final class PhotoInfoViewController: UIViewController {
     
     // MARK: - Private methods
     private func setupUI() {
-        if let width = photo.width,
-           let height = photo.height {
-            widthLabel.text = "Width: \(width)"
-            heightLabel.text = "Height: \(String(describing: height))"
+        if let url = URL(string: photo.user?.profileImage?.medium ?? "") {
+            authorImageView.image = networkService.fetchImage(fromURL: url)
         }
+        authorImageView.layer.cornerRadius = authorImageView.frame.height / 2
         
-        if let description = photo.description, !description.isEmpty {
-            descriptionLabel.text = "Description: " + description
+        authorUsernameLabel.text = photo.user?.username
+        if let date = photo.createdAt {
+            createdDateLabel.text = DateFormatter.appDateFormatter.string(from: date)
         }
-        
-        if let altDescription = photo.altDescription, !altDescription.isEmpty {
-            altDescriptionLabel.text = "Alternative description: " + altDescription
+        if let width = photo.width, let height = photo.height {
+            widthLabel.text = "\(width)"
+            heightLabel.text = "\(height)"
         }
+        locationLabel.text = photo.location?.city
+        descriptionLabel.text = photo.description
+        altDescriptionLabel.text = photo.altDescription
     }
     
     @IBAction func backButtonTapped() {

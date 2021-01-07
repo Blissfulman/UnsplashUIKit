@@ -38,7 +38,6 @@ final class CarouselTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        selectionStyle = .none
         collectionView.dataSource = self
         collectionView.register(CarouselImageCell.nib(),
                                 forCellWithReuseIdentifier: CarouselImageCell.identifier)
@@ -47,8 +46,13 @@ final class CarouselTableCell: UITableViewCell {
     // MARK: - Public methods
     func configure(type: CarouselCellType) {
         carouselCellType = type
+        
+        selectionStyle = .none
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        
         titleLabel.text = type.rawValue.capitalized
         searchButton.setTitle("Search \(type.rawValue)", for: .normal)
+        
         fetchPhotos()
     }
     

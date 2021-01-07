@@ -13,7 +13,7 @@ final class CollectionListViewController: UICollectionViewController {
     private var collections = [CollectionModel]()
     
     private let numberOfColumns: CGFloat = 2
-    private let itemSpacing: CGFloat = 8
+    private let itemSpacing: CGFloat = 10
     
     private let networkService: NetworkServiceProtocol = NetworkService()
     
