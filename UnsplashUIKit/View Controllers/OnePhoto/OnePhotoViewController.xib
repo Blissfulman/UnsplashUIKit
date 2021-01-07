@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoViewController" customModule="UnsplashUIKit" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnePhotoViewController" customModule="UnsplashUIKit" customModuleProvider="target">
             <connections>
                 <outlet property="downloadsLabel" destination="mEc-xm-Bav" id="XLw-EC-L2x"/>
                 <outlet property="likesLabel" destination="GlL-Kw-HQJ" id="dgK-VG-ofC"/>

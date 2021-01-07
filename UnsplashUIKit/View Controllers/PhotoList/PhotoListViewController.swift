@@ -1,5 +1,5 @@
 //
-//  CollectionPhotosViewController.swift
+//  PhotoListViewController.swift
 //  UnsplashUIKit
 //
 //  Created by User on 04.01.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CollectionPhotosViewController: UICollectionViewController {
+final class PhotoListViewController: UICollectionViewController {
     
     // MARK: - Properties
     var collection: CollectionModel?
@@ -95,7 +95,7 @@ final class CollectionPhotosViewController: UICollectionViewController {
 }
 
 // MARK: - Collection Data Source
-extension CollectionPhotosViewController {
+extension PhotoListViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
@@ -133,12 +133,12 @@ extension CollectionPhotosViewController {
 }
 
 // MARK: - Collection Delegate
-extension CollectionPhotosViewController {
+extension PhotoListViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let photo = photos[indexPath.item]
-        let photoVC = PhotoViewController(photo: photo)
+        let photoVC = OnePhotoViewController(photo: photo)
         
         // MARK: - Navigation
         navigationController?.pushViewController(photoVC, animated: true)
@@ -146,7 +146,7 @@ extension CollectionPhotosViewController {
 }
 
 // MARK: - Collection View Layout
-extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
+extension PhotoListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         CGSize(width: collectionView.bounds.width, height: 56)
@@ -172,7 +172,7 @@ extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension CollectionPhotosViewController: CollectionPhotosHeaderDelegate {
+extension PhotoListViewController: CollectionPhotosHeaderDelegate {
     
     func switchColumnNumber(columns: Int) {
         numberOfColumns = CGFloat(columns)

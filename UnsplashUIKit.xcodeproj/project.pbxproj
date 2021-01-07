@@ -14,8 +14,8 @@
 		CEA2A8B125A37D3F003E0E02 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8B025A37D3F003E0E02 /* UserModel.swift */; };
 		CEA2A8B525A383A6003E0E02 /* CollectionPhotosHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8B325A383A6003E0E02 /* CollectionPhotosHeader.swift */; };
 		CEA2A8B625A383A6003E0E02 /* CollectionPhotosHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A8B425A383A6003E0E02 /* CollectionPhotosHeader.xib */; };
-		CEA2A8C325A44A50003E0E02 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8C125A44A50003E0E02 /* PhotoViewController.swift */; };
-		CEA2A8C425A44A50003E0E02 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A8C225A44A50003E0E02 /* PhotoViewController.xib */; };
+		CEA2A8C325A44A50003E0E02 /* OnePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8C125A44A50003E0E02 /* OnePhotoViewController.swift */; };
+		CEA2A8C425A44A50003E0E02 /* OnePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A8C225A44A50003E0E02 /* OnePhotoViewController.xib */; };
 		CEA2A8CA25A476EF003E0E02 /* SearchPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8C825A476EF003E0E02 /* SearchPhotosViewController.swift */; };
 		CEA2A8CB25A476EF003E0E02 /* SearchPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A8C925A476EF003E0E02 /* SearchPhotosViewController.xib */; };
 		CEA2A8CF25A488F4003E0E02 /* SearchPhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8CE25A488F4003E0E02 /* SearchPhotosModel.swift */; };
@@ -48,8 +48,8 @@
 		CED842F925A2210500C07428 /* CollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842F825A2210500C07428 /* CollectionModel.swift */; };
 		CED842FE25A2298C00C07428 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842FC25A2298C00C07428 /* CollectionCell.swift */; };
 		CED842FF25A2298C00C07428 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED842FD25A2298C00C07428 /* CollectionCell.xib */; };
-		CED8430D25A25CF000C07428 /* CollectionPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8430B25A25CF000C07428 /* CollectionPhotosViewController.swift */; };
-		CED8430E25A25CF000C07428 /* CollectionPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8430C25A25CF000C07428 /* CollectionPhotosViewController.xib */; };
+		CED8430D25A25CF000C07428 /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8430B25A25CF000C07428 /* PhotoListViewController.swift */; };
+		CED8430E25A25CF000C07428 /* PhotoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8430C25A25CF000C07428 /* PhotoListViewController.xib */; };
 		CED8431325A2617A00C07428 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8431125A2617A00C07428 /* PhotoCell.swift */; };
 		CED8431425A2617A00C07428 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8431225A2617A00C07428 /* PhotoCell.xib */; };
 		CED8431925A269DC00C07428 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8431825A269DC00C07428 /* CustomButton.swift */; };
@@ -65,8 +65,8 @@
 		CEA2A8B025A37D3F003E0E02 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CEA2A8B325A383A6003E0E02 /* CollectionPhotosHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosHeader.swift; sourceTree = "<group>"; };
 		CEA2A8B425A383A6003E0E02 /* CollectionPhotosHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionPhotosHeader.xib; sourceTree = "<group>"; };
-		CEA2A8C125A44A50003E0E02 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
-		CEA2A8C225A44A50003E0E02 /* PhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
+		CEA2A8C125A44A50003E0E02 /* OnePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePhotoViewController.swift; sourceTree = "<group>"; };
+		CEA2A8C225A44A50003E0E02 /* OnePhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnePhotoViewController.xib; sourceTree = "<group>"; };
 		CEA2A8C825A476EF003E0E02 /* SearchPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosViewController.swift; sourceTree = "<group>"; };
 		CEA2A8C925A476EF003E0E02 /* SearchPhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPhotosViewController.xib; sourceTree = "<group>"; };
 		CEA2A8CE25A488F4003E0E02 /* SearchPhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosModel.swift; sourceTree = "<group>"; };
@@ -99,8 +99,8 @@
 		CED842F825A2210500C07428 /* CollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionModel.swift; sourceTree = "<group>"; };
 		CED842FC25A2298C00C07428 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		CED842FD25A2298C00C07428 /* CollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
-		CED8430B25A25CF000C07428 /* CollectionPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosViewController.swift; sourceTree = "<group>"; };
-		CED8430C25A25CF000C07428 /* CollectionPhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionPhotosViewController.xib; sourceTree = "<group>"; };
+		CED8430B25A25CF000C07428 /* PhotoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewController.swift; sourceTree = "<group>"; };
+		CED8430C25A25CF000C07428 /* PhotoListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoListViewController.xib; sourceTree = "<group>"; };
 		CED8431125A2617A00C07428 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		CED8431225A2617A00C07428 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		CED8431825A269DC00C07428 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -147,13 +147,13 @@
 			path = UnsplashUIKit;
 			sourceTree = "<group>";
 		};
-		CEA2A8C025A44A24003E0E02 /* Photo */ = {
+		CEA2A8C025A44A24003E0E02 /* OnePhoto */ = {
 			isa = PBXGroup;
 			children = (
-				CEA2A8C125A44A50003E0E02 /* PhotoViewController.swift */,
-				CEA2A8C225A44A50003E0E02 /* PhotoViewController.xib */,
+				CEA2A8C125A44A50003E0E02 /* OnePhotoViewController.swift */,
+				CEA2A8C225A44A50003E0E02 /* OnePhotoViewController.xib */,
 			);
-			path = Photo;
+			path = OnePhoto;
 			sourceTree = "<group>";
 		};
 		CEA2A8C725A476D3003E0E02 /* SearchPhotos */ = {
@@ -200,10 +200,10 @@
 			children = (
 				CED842EF25A2149C00C07428 /* Main */,
 				CED842F125A214D200C07428 /* CollectionList */,
-				CED8430A25A25C6E00C07428 /* CollectionPhotos */,
-				CEA2A8C025A44A24003E0E02 /* Photo */,
-				CEA2A90A25A5D900003E0E02 /* PhotoInfo */,
 				CEA2A8C725A476D3003E0E02 /* SearchPhotos */,
+				CED8430A25A25C6E00C07428 /* PhotoList */,
+				CEA2A8C025A44A24003E0E02 /* OnePhoto */,
+				CEA2A90A25A5D900003E0E02 /* PhotoInfo */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -310,14 +310,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		CED8430A25A25C6E00C07428 /* CollectionPhotos */ = {
+		CED8430A25A25C6E00C07428 /* PhotoList */ = {
 			isa = PBXGroup;
 			children = (
-				CED8430B25A25CF000C07428 /* CollectionPhotosViewController.swift */,
-				CED8430C25A25CF000C07428 /* CollectionPhotosViewController.xib */,
+				CED8430B25A25CF000C07428 /* PhotoListViewController.swift */,
+				CED8430C25A25CF000C07428 /* PhotoListViewController.xib */,
 				CED8431025A2613100C07428 /* Cells */,
 			);
-			path = CollectionPhotos;
+			path = PhotoList;
 			sourceTree = "<group>";
 		};
 		CED8431025A2613100C07428 /* Cells */ = {
@@ -389,7 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA2A8F425A4F78F003E0E02 /* HeaderTableCell.xib in Resources */,
-				CEA2A8C425A44A50003E0E02 /* PhotoViewController.xib in Resources */,
+				CEA2A8C425A44A50003E0E02 /* OnePhotoViewController.xib in Resources */,
 				CEA2A8CB25A476EF003E0E02 /* SearchPhotosViewController.xib in Resources */,
 				CED842F525A2152B00C07428 /* CollectionListViewController.xib in Resources */,
 				CEA2A8EF25A4F2AB003E0E02 /* CarouselImageCell.xib in Resources */,
@@ -398,7 +398,7 @@
 				CEA2A8B625A383A6003E0E02 /* CollectionPhotosHeader.xib in Resources */,
 				CED842FF25A2298C00C07428 /* CollectionCell.xib in Resources */,
 				CEA2A8DB25A4E5E1003E0E02 /* MainViewController.xib in Resources */,
-				CED8430E25A25CF000C07428 /* CollectionPhotosViewController.xib in Resources */,
+				CED8430E25A25CF000C07428 /* PhotoListViewController.xib in Resources */,
 				CE63A55E259F9E6F00406FD4 /* Assets.xcassets in Resources */,
 				CED8431425A2617A00C07428 /* PhotoCell.xib in Resources */,
 				CEA2A91225A5D9A8003E0E02 /* PhotoInfoViewController.xib in Resources */,
@@ -429,8 +429,8 @@
 				CED842E025A1022A00C07428 /* PhotoModel.swift in Sources */,
 				CEA2A92525A61ECD003E0E02 /* CustomView.swift in Sources */,
 				CED842DD25A0FD4300C07428 /* NetworkService.swift in Sources */,
-				CED8430D25A25CF000C07428 /* CollectionPhotosViewController.swift in Sources */,
-				CEA2A8C325A44A50003E0E02 /* PhotoViewController.swift in Sources */,
+				CED8430D25A25CF000C07428 /* PhotoListViewController.swift in Sources */,
+				CEA2A8C325A44A50003E0E02 /* OnePhotoViewController.swift in Sources */,
 				CEA2A92E25A71A9A003E0E02 /* UIConstant.swift in Sources */,
 				CED842CA25A0E31F00C07428 /* URLService.swift in Sources */,
 				CED8431925A269DC00C07428 /* CustomButton.swift in Sources */,

@@ -11,7 +11,6 @@ extension UIImageView {
     
     func loadImage(by url: URL) {
         image = UIImage(named: "defaultImage")
-        appearAnimation()
         
         let cache = URLCache.shared
         let request = URLRequest(url: url)

@@ -1,5 +1,5 @@
 //
-//  PhotoViewController.swift
+//  OnePhotoViewController.swift
 //  UnsplashUIKit
 //
 //  Created by User on 05.01.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PhotoViewController: UIViewController {
+final class OnePhotoViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var photoImageView: UIImageView!

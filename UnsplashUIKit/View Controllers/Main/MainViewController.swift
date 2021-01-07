@@ -98,7 +98,7 @@ extension MainViewController: CarouselTableCellDelegate {
     }
     
     func onPhotoTapped(photo: PhotoModel) {
-        let photoVC = PhotoViewController(photo: photo)
+        let photoVC = OnePhotoViewController(photo: photo)
         navigationController?.pushViewController(photoVC, animated: true)
     }
 }
