@@ -13,12 +13,12 @@ final class CollectionListViewController: UICollectionViewController {
     private var collections = [CollectionModel]()
     
     private let numberOfColumns: CGFloat = 2
-    private let spacing: CGFloat = UIConstant.defaultSpacing
-    
-    private let networkService: NetworkServiceProtocol = NetworkService()
+    private let edgeWidth = UIConstant.defaultEdgeWidth
+    private let spacing = UIConstant.defaultSpacing
     
     // MARK: - Initializers
-    init() {
+    init(collections: [CollectionModel]) {
+        self.collections = collections
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
@@ -42,25 +42,7 @@ final class CollectionListViewController: UICollectionViewController {
     
     // MARK: - Private methods
     private func setupUI() {
-        title = "Collections"
         collectionView.backgroundColor = .white
-        
-        networkService.fetchCollections { [weak self] result in
-            
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let collections):
-                self.collections = collections
-                self.collectionView.reloadData()
-            case .failure(let error):
-                if let serverError = error as? ServerError {
-                    print(serverError.rawValue)
-                    return
-                }
-                print(error.localizedDescription)
-            }
-        }
     }
 }
 
@@ -113,12 +95,13 @@ extension CollectionListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionWidth = collectionView.bounds.width
-        let size = (collectionWidth - (spacing * (numberOfColumns + 1))) / numberOfColumns
+        let totalSpacingWidth = (spacing * (numberOfColumns - 1)) + edgeWidth * 2
+        let size = (collectionWidth - totalSpacingWidth) / numberOfColumns
         
         return CGSize(width: size, height: size * 1.5)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+        UIEdgeInsets(top: edgeWidth, left: edgeWidth, bottom: edgeWidth, right: edgeWidth)
     }
 }

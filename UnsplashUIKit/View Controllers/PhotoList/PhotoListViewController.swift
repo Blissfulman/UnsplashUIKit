@@ -17,7 +17,8 @@ final class PhotoListViewController: UICollectionViewController {
     let totalPhotos: Int
     
     private var numberOfColumns: CGFloat = 2
-    private let spacing: CGFloat = UIConstant.defaultSpacing
+    private let edgeWidth = UIConstant.defaultEdgeWidth
+    private let spacing = UIConstant.defaultSpacing
     
     private let networkService: NetworkServiceProtocol = NetworkService()
     
@@ -53,20 +54,9 @@ final class PhotoListViewController: UICollectionViewController {
         setupUI()
     }
     
-    @objc func showCollectionInfo() {
-        
-    }
-    
     // MARK: - Private methods
     private func setupUI() {
         collectionView.backgroundColor = .white
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "info.circle"),
-            style: .plain,
-            target: self,
-            action: #selector(showCollectionInfo)
-        )
         
         guard let collection = collection else { return }
         getPhotos(collection: collection)
@@ -162,13 +152,14 @@ extension PhotoListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionWidth = collectionView.bounds.width
-        let size = (collectionWidth - (spacing * (numberOfColumns + 1))) / numberOfColumns
+        let totalSpacingWidth = (spacing * (numberOfColumns - 1)) + edgeWidth * 2
+        let size = (collectionWidth - totalSpacingWidth) / numberOfColumns
         
         return CGSize(width: size, height: size * 0.7)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+        UIEdgeInsets(top: 0, left: edgeWidth, bottom: 0, right: edgeWidth)
     }
 }
 

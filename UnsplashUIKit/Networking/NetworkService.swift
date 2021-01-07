@@ -11,6 +11,7 @@ typealias PhotoResult = (Result<PhotoModel, Error>) -> Void
 typealias PhotosResult = (Result<[PhotoModel], Error>) -> Void
 typealias CollectionsResult = (Result<[CollectionModel], Error>) -> Void
 typealias SearchPhotosResult = (Result<SearchPhotosModel, Error>) -> Void
+typealias SearchCollectionsResult = (Result<SearchCollectionsModel, Error>) -> Void
 
 protocol NetworkServiceProtocol {
     
@@ -21,7 +22,13 @@ protocol NetworkServiceProtocol {
 //    func getCollectionPhotos(id: String, completion: @escaping PhotosResult)
     func fetchCollectionPhotos(url: URL, completion: @escaping PhotosResult)
     
-    func searchPhotos(query: String, orderBy: String, completion: @escaping SearchPhotosResult)
+    func searchPhotos(query: String,
+                      orderBy: String,
+                      completion: @escaping SearchPhotosResult)
+    
+    func searchCollections(query: String,
+                           orderBy: String,
+                           completion: @escaping SearchCollectionsResult)
 }
 
 final class NetworkService: NetworkServiceProtocol {
@@ -73,7 +80,9 @@ final class NetworkService: NetworkServiceProtocol {
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
-    func searchPhotos(query: String, orderBy: String, completion: @escaping SearchPhotosResult) {
+    func searchPhotos(query: String,
+                      orderBy: String,
+                      completion: @escaping SearchPhotosResult) {
         guard let url = urlService.getURL(forPath: SearchPath.searchPhotos,
                                           query: query,
                                           orderBy: orderBy,
@@ -83,4 +92,18 @@ final class NetworkService: NetworkServiceProtocol {
                 
         dataTaskService.dataTask(request: request, completion: completion)
     }
+    
+    func searchCollections(query: String,
+                           orderBy: String,
+                           completion: @escaping SearchCollectionsResult) {
+        guard let url = urlService.getURL(forPath: SearchPath.searchCollections,
+                                          query: query,
+                                          orderBy: orderBy,
+                                          count: 30) else { return }
+
+        let request = requestService.request(url: url, httpMethod: .get)
+                
+        dataTaskService.dataTask(request: request, completion: completion)
+    }
+
 }

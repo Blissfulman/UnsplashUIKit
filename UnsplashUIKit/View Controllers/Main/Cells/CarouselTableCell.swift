@@ -26,7 +26,7 @@ final class CarouselTableCell: UITableViewCell {
     weak var delegate: CarouselTableCellDelegate?
     
     private var photos = [PhotoModel]()
-    private var carouselCellType: CarouselCellType!
+    private var contentType: ContentType!
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Class methods
@@ -44,30 +44,30 @@ final class CarouselTableCell: UITableViewCell {
     }
     
     // MARK: - Public methods
-    func configure(type: CarouselCellType) {
-        carouselCellType = type
+    func configure(contentType: ContentType) {
+        self.contentType = contentType
         
         collectionView.contentInset = UIEdgeInsets(
-            top: 0, left: UIConstant.defaultEdge,
-            bottom: 0, right: UIConstant.defaultEdge
+            top: 0, left: UIConstant.defaultEdgeWidth,
+            bottom: 0, right: UIConstant.defaultEdgeWidth
         )
         
-        titleLabel.text = type.rawValue.capitalized
-        searchButton.setTitle("Search \(type.rawValue)", for: .normal)
+        titleLabel.text = contentType.rawValue.capitalized
+        searchButton.setTitle("Search \(contentType.rawValue)", for: .normal)
         
         fetchPhotos()
     }
     
     // MARK: - Actions
     @IBAction func searchButtonTapped() {
-        carouselCellType == .collections
+        contentType == .collection
             ? delegate?.searchCollections()
             : delegate?.searchPhotos()
     }
     
     // MARK: - Private methods
     private func fetchPhotos() {
-        carouselCellType == .collections
+        contentType == .collection
             ? networkService.fetchCollections { [weak self] result in
                 
                 guard let self = self else { return }

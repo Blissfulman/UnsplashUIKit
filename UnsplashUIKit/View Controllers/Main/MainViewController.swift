@@ -62,7 +62,7 @@ extension MainViewController {
             ) as? CarouselTableCell else {
                 return UITableViewCell()
             }
-            carouselTableCell.configure(type: indexPath.row == 1 ? .collections : .photos)
+            carouselTableCell.configure(contentType: indexPath.row == 1 ? .collection : .photo)
             carouselTableCell.delegate = self
             
             return carouselTableCell
@@ -88,12 +88,12 @@ extension MainViewController {
 extension MainViewController: CarouselTableCellDelegate {
     
     func searchCollections() {
-        let collectionListVC = CollectionListViewController()
+        let collectionListVC = SearchViewController(contentType: .collection)
         navigationController?.pushViewController(collectionListVC, animated: true)
     }
     
     func searchPhotos() {
-        let searchPhotosVC = SearchPhotosViewController()
+        let searchPhotosVC = SearchViewController(contentType: .photo)
         navigationController?.pushViewController(searchPhotosVC, animated: true)
     }
     

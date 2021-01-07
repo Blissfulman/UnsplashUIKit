@@ -16,6 +16,6 @@ enum SearchPath {
 
 enum CollectionsPath {
     static let listCollections = "/collections"
-    static let getCollection = "/collections/:id"
-    static let getCollectionPhotos = "/collections/:id/photos"
+//    static let getCollection = "/collections/:id"
+//    static let getCollectionPhotos = "/collections/:id/photos"
 }
