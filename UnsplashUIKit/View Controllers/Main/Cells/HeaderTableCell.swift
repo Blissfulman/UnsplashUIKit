@@ -39,7 +39,6 @@ final class HeaderTableCell: UITableViewCell {
             case .success(let photos):
                 if let url = URL(string: photos.first?.urls?.regular ?? "") {
                     self.photoImageView.loadImage(by: url)
-                    self.photoImageView.appearAnimation()
                 }
             case .failure(let error):
                 if let serverError = error as? ServerError {

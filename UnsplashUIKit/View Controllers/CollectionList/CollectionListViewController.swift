@@ -13,7 +13,7 @@ final class CollectionListViewController: UICollectionViewController {
     private var collections = [CollectionModel]()
     
     private let numberOfColumns: CGFloat = 2
-    private let itemSpacing: CGFloat = 10
+    private let spacing: CGFloat = UIConstant.defaultSpacing
     
     private let networkService: NetworkServiceProtocol = NetworkService()
     
@@ -42,8 +42,8 @@ final class CollectionListViewController: UICollectionViewController {
     
     // MARK: - Private methods
     private func setupUI() {
-        collectionView.backgroundColor = .white
         title = "Collections"
+        collectionView.backgroundColor = .white
         
         networkService.fetchCollections { [weak self] result in
             
@@ -104,21 +104,21 @@ extension CollectionListViewController {
 extension CollectionListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        itemSpacing
+        spacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        itemSpacing
+        spacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionWidth = collectionView.bounds.width
-        let size = (collectionWidth - (itemSpacing * (numberOfColumns + 1))) / numberOfColumns
+        let size = (collectionWidth - (spacing * (numberOfColumns + 1))) / numberOfColumns
         
         return CGSize(width: size, height: size * 1.5)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: itemSpacing, left: itemSpacing, bottom: 0, right: itemSpacing)
+        return UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
     }
 }

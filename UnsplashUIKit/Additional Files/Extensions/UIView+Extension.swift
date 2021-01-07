@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
     
-    func appearAnimation(fromValue: Float = 0, toValue: Float = 1, duration: Double = 1) {
+    func appearAnimation(fromValue: Float = 0, toValue: Float = 1, duration: Double = 0.5) {
         isHidden = false
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.fromValue = fromValue

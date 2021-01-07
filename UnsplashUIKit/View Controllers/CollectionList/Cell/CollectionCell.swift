@@ -25,7 +25,7 @@ final class CollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        layer.cornerRadius = 8
+        layer.cornerRadius = UIConstant.defaultCornerRadius
         collectionNameLabel.backgroundColor = UIColor.white.withAlphaComponent(0.7)
     }
     

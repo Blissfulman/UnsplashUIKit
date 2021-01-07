@@ -31,13 +31,9 @@ final class MainViewController: UITableViewController {
     
     // MARK: - Private methods
     private func setupUI() {
+        tableView.allowsSelection = false
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
-        
-//        tableView.setupViewGradient(
-//            withColors: [UIColor.systemTeal.cgColor, UIColor.systemPurple.cgColor],
-//            opacity: 0.5
-//        )
     }
 }
 
@@ -81,9 +77,9 @@ extension MainViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 350
+            return UIConstant.mainViewHeaderHeight
         default:
-            return 250
+            return UIConstant.mainViewCarouselHeight
         }
     }
 }

@@ -47,8 +47,10 @@ final class CarouselTableCell: UITableViewCell {
     func configure(type: CarouselCellType) {
         carouselCellType = type
         
-        selectionStyle = .none
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        collectionView.contentInset = UIEdgeInsets(
+            top: 0, left: UIConstant.defaultEdge,
+            bottom: 0, right: UIConstant.defaultEdge
+        )
         
         titleLabel.text = type.rawValue.capitalized
         searchButton.setTitle("Search \(type.rawValue)", for: .normal)

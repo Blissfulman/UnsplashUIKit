@@ -17,7 +17,7 @@ final class CollectionPhotosViewController: UICollectionViewController {
     let totalPhotos: Int
     
     private var numberOfColumns: CGFloat = 2
-    private let itemSpacing: CGFloat = 10
+    private let spacing: CGFloat = UIConstant.defaultSpacing
     
     private let networkService: NetworkServiceProtocol = NetworkService()
     
@@ -153,22 +153,22 @@ extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        itemSpacing
+        spacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        itemSpacing
+        spacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionWidth = collectionView.bounds.width
-        let size = (collectionWidth - (itemSpacing * (numberOfColumns + 1))) / numberOfColumns
+        let size = (collectionWidth - (spacing * (numberOfColumns + 1))) / numberOfColumns
         
         return CGSize(width: size, height: size * 0.7)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        UIEdgeInsets(top: itemSpacing, left: itemSpacing, bottom: 0, right: itemSpacing)
+        UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
     }
 }
 

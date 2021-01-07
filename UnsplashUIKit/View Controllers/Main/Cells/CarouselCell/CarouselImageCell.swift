@@ -34,7 +34,7 @@ final class CarouselImageCell: UICollectionViewCell {
     // MARK: - Public methods
     func configure(_ photo: PhotoModel) {
         self.photo = photo
-        layer.cornerRadius = 10
+        layer.cornerRadius = UIConstant.defaultCornerRadius
 
         if let url = URL(string: photo.urls?.small ?? "") {
             imageView.loadImage(by: url)

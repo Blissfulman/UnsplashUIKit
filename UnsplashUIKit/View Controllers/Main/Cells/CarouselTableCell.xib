@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,11 +16,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="430" height="260"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ISJ-oh-9oe">
-                        <rect key="frame" x="0.0" y="44" width="430" height="216"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ISJ-oh-9oe">
+                        <rect key="frame" x="0.0" y="54" width="430" height="206"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9JW-nK-sAv">
-                            <size key="itemSize" width="200" height="150"/>
+                            <size key="itemSize" width="240" height="195"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -54,7 +53,7 @@
                     <constraint firstItem="PdE-AY-Scy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="IZK-u5-Qqf"/>
                     <constraint firstItem="PdE-AY-Scy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="RDV-1P-7WA"/>
                     <constraint firstItem="ISJ-oh-9oe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rvc-3b-23T"/>
-                    <constraint firstItem="ISJ-oh-9oe" firstAttribute="top" secondItem="PdE-AY-Scy" secondAttribute="bottom" id="oPg-VJ-0LD"/>
+                    <constraint firstItem="ISJ-oh-9oe" firstAttribute="top" secondItem="PdE-AY-Scy" secondAttribute="bottom" constant="10" id="oPg-VJ-0LD"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -66,9 +65,4 @@
             <point key="canvasLocation" x="217.39130434782609" y="141.29464285714286"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

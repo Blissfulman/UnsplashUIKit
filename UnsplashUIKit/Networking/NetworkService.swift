@@ -22,8 +22,6 @@ protocol NetworkServiceProtocol {
     func fetchCollectionPhotos(url: URL, completion: @escaping PhotosResult)
     
     func searchPhotos(query: String, orderBy: String, completion: @escaping SearchPhotosResult)
-    
-    func fetchImage(fromURL url: URL) -> UIImage?
 }
 
 final class NetworkService: NetworkServiceProtocol {
@@ -40,7 +38,7 @@ final class NetworkService: NetworkServiceProtocol {
         self.dataTaskService = dataTaskService
     }
     
-    func fetchRandomPhotos(count: Int = 1, completion: @escaping PhotosResult) {
+    func fetchRandomPhotos(count: Int, completion: @escaping PhotosResult) {
         guard let url = urlService.getURL(forPath: PhotosPath.randomPhotos,
                                           count: count) else { return }
 
@@ -84,10 +82,5 @@ final class NetworkService: NetworkServiceProtocol {
         let request = requestService.request(url: url, httpMethod: .get)
                 
         dataTaskService.dataTask(request: request, completion: completion)
-    }
-    
-    func fetchImage(fromURL url: URL) -> UIImage? {
-        guard let imageData = try? Data(contentsOf: url) else { return nil }
-        return UIImage(data: imageData)
     }
 }
