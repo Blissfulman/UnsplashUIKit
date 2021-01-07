@@ -26,11 +26,11 @@ final class HeaderTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        fetchPhoto()
+        getPhoto()
     }
     
     // MARK: - Private methods
-    private func fetchPhoto() {
+    private func getPhoto() {
         networkService.fetchRandomPhotos(count: 1) { [weak self] result in
             
             guard let self = self else { return }
@@ -38,7 +38,7 @@ final class HeaderTableCell: UITableViewCell {
             switch result {
             case .success(let photos):
                 if let url = URL(string: photos.first?.urls?.regular ?? "") {
-                    self.photoImageView.image = self.networkService.fetchImage(fromURL: url)
+                    self.photoImageView.loadImage(by: url)
                     self.photoImageView.appearAnimation()
                 }
             case .failure(let error):

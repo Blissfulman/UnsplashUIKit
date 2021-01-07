@@ -32,6 +32,7 @@
 		CEA2A91125A5D9A8003E0E02 /* PhotoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A90F25A5D9A8003E0E02 /* PhotoInfoViewController.swift */; };
 		CEA2A91225A5D9A8003E0E02 /* PhotoInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A91025A5D9A8003E0E02 /* PhotoInfoViewController.xib */; };
 		CEA2A92525A61ECD003E0E02 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A92425A61ECD003E0E02 /* CustomView.swift */; };
+		CEA2A92A25A6CB81003E0E02 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */; };
 		CED842CA25A0E31F00C07428 /* URLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842C925A0E31F00C07428 /* URLService.swift */; };
 		CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842CD25A0E3A500C07428 /* RequestService.swift */; };
 		CED842D425A0E3DD00C07428 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D125A0E3DD00C07428 /* Paths.swift */; };
@@ -81,6 +82,7 @@
 		CEA2A90F25A5D9A8003E0E02 /* PhotoInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoViewController.swift; sourceTree = "<group>"; };
 		CEA2A91025A5D9A8003E0E02 /* PhotoInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoInfoViewController.xib; sourceTree = "<group>"; };
 		CEA2A92425A61ECD003E0E02 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		CED842C925A0E31F00C07428 /* URLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLService.swift; sourceTree = "<group>"; };
 		CED842CD25A0E3A500C07428 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
 		CED842D125A0E3DD00C07428 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				CED842E425A1121A00C07428 /* UIView+Extension.swift */,
+				CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */,
 				CEA2A8AD25A3688F003E0E02 /* DateFormatter+Extension.swift */,
 			);
 			path = Extensions;
@@ -429,6 +432,7 @@
 				CED8431925A269DC00C07428 /* CustomButton.swift in Sources */,
 				CEA2A8B525A383A6003E0E02 /* CollectionPhotosHeader.swift in Sources */,
 				CEA2A8AE25A3688F003E0E02 /* DateFormatter+Extension.swift in Sources */,
+				CEA2A92A25A6CB81003E0E02 /* UIImageView+Extension.swift in Sources */,
 				CEA2A8DA25A4E5E1003E0E02 /* MainViewController.swift in Sources */,
 				CED842DA25A0FCF600C07428 /* DataTaskService.swift in Sources */,
 				CEA2A8FC25A59D9F003E0E02 /* CarouselCellType.swift in Sources */,

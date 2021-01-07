@@ -14,8 +14,6 @@ final class PhotoCell: UICollectionViewCell {
     
     // MARK: - Properties
     static let identifier = "photoCell"
-
-    private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Class methods
     static func nib() -> UINib {
@@ -27,7 +25,7 @@ final class PhotoCell: UICollectionViewCell {
         layer.cornerRadius = 8
 
         if let url = URL(string: photo.urls?.small ?? "") {
-            imageView.image = networkService.fetchImage(fromURL: url)
+            imageView.loadImage(by: url)
         }
     }
 }

@@ -18,7 +18,6 @@ final class CarouselImageCell: UICollectionViewCell {
     weak var delegate: CarouselTableCellDelegate?
     
     private var photo: PhotoModel!
-    private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Class methods
     static func nib() -> UINib {
@@ -38,7 +37,7 @@ final class CarouselImageCell: UICollectionViewCell {
         layer.cornerRadius = 10
 
         if let url = URL(string: photo.urls?.small ?? "") {
-            imageView.image = networkService.fetchImage(fromURL: url)
+            imageView.loadImage(by: url)
         }
     }
     

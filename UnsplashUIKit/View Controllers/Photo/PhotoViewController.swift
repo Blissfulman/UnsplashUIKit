@@ -19,8 +19,6 @@ final class PhotoViewController: UIViewController {
     // MARK: - Properties
     let photo: PhotoModel!
     
-    private let networkService: NetworkServiceProtocol = NetworkService()
-    
     // MARK: - Initializers
     init(photo: PhotoModel) {
         self.photo = photo
@@ -66,7 +64,7 @@ final class PhotoViewController: UIViewController {
     
     private func fetchImage() {
         if let url = URL(string: photo.urls?.regular ?? "") {
-            photoImageView.image = networkService.fetchImage(fromURL: url)
+            photoImageView.loadImage(by: url)
         }
     }
 }

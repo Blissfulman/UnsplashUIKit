@@ -21,9 +21,7 @@ final class PhotoInfoViewController: UIViewController {
     
     // MARK: - Properties
     let photo: PhotoModel!
-    
-    private let networkService: NetworkServiceProtocol = NetworkService()
-    
+        
     // MARK: - Initializers
     init(photo: PhotoModel) {
         self.photo = photo
@@ -44,7 +42,7 @@ final class PhotoInfoViewController: UIViewController {
     // MARK: - Private methods
     private func setupUI() {
         if let url = URL(string: photo.user?.profileImage?.medium ?? "") {
-            authorImageView.image = networkService.fetchImage(fromURL: url)
+            authorImageView.loadImage(by: url)
         }
         authorImageView.layer.cornerRadius = authorImageView.frame.height / 2
         
