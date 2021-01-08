@@ -12,7 +12,7 @@ final class CollectionListViewController: UICollectionViewController {
     // MARK: - Properties
     private var collections = [CollectionModel]()
     
-    private let numberOfColumns: CGFloat = 2
+    private let numberOfColumns = UIConstant.defaultNumberOfColumns
     private let edgeWidth = UIConstant.defaultEdgeWidth
     private let spacing = UIConstant.defaultSpacing
     
@@ -61,7 +61,6 @@ extension CollectionListViewController {
         ) as? CollectionCell else {
             return UICollectionViewCell()
         }
-        
         cell.configure(collections[indexPath.item])
         
         return cell

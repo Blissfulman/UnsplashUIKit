@@ -36,6 +36,10 @@ final class CarouselImageCell: UICollectionViewCell {
         setupGestureRecognizer()
     }
     
+    override func prepareForReuse() {
+        imageView.image = UIImage(named: "defaultImage")
+    }
+    
     // MARK: - Public methods
     func configure(_ photo: PhotoModel, itemIndex: Int) {
         self.photo = photo

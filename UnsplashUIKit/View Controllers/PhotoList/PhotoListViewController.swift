@@ -16,7 +16,7 @@ final class PhotoListViewController: UICollectionViewController {
     /// Общее количество фотографий в отображаемом списке
     let totalPhotos: Int
     
-    private var numberOfColumns: CGFloat = 2
+    private var numberOfColumns = UIConstant.defaultNumberOfColumns
     private let edgeWidth = UIConstant.defaultEdgeWidth
     private let spacing = UIConstant.defaultSpacing
     
@@ -140,7 +140,7 @@ extension PhotoListViewController {
 extension PhotoListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        CGSize(width: collectionView.bounds.width, height: 56)
+        CGSize(width: collectionView.bounds.width, height: UIConstant.photoListHeaderHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

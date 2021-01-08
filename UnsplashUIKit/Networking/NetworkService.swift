@@ -17,18 +17,14 @@ protocol NetworkServiceProtocol {
     
     func fetchRandomPhotos(count: Int, completion: @escaping PhotosResult)
     
-    func fetchCollections(completion: @escaping CollectionsResult)
+    func fetchCollections(count: Int, completion: @escaping CollectionsResult)
     
 //    func getCollectionPhotos(id: String, completion: @escaping PhotosResult)
     func fetchCollectionPhotos(url: URL, completion: @escaping PhotosResult)
     
-    func searchPhotos(query: String,
-                      orderBy: String,
-                      completion: @escaping SearchPhotosResult)
+    func searchPhotos(query: String, orderBy: String, completion: @escaping SearchPhotosResult)
     
-    func searchCollections(query: String,
-                           orderBy: String,
-                           completion: @escaping SearchCollectionsResult)
+    func searchCollections(query: String, orderBy: String, completion: @escaping SearchCollectionsResult)
 }
 
 final class NetworkService: NetworkServiceProtocol {
@@ -46,7 +42,7 @@ final class NetworkService: NetworkServiceProtocol {
     }
     
     func fetchRandomPhotos(count: Int, completion: @escaping PhotosResult) {
-        guard let url = urlService.getURL(forPath: PhotosPath.randomPhotos,
+        guard let url = urlService.getURL(forPath: APIPath.randomPhotos,
                                           count: count) else { return }
 
         let request = requestService.request(url: url, httpMethod: .get)
@@ -54,9 +50,9 @@ final class NetworkService: NetworkServiceProtocol {
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
-    func fetchCollections(completion: @escaping CollectionsResult) {
-        guard let url = urlService.getURL(forPath: CollectionsPath.listCollections,
-                                          count: 30) else { return }
+    func fetchCollections(count: Int, completion: @escaping CollectionsResult) {
+        guard let url = urlService.getURL(forPath: APIPath.listCollections,
+                                          count: count) else { return }
 
         let request = requestService.request(url: url, httpMethod: .get)
                 
@@ -80,10 +76,8 @@ final class NetworkService: NetworkServiceProtocol {
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
-    func searchPhotos(query: String,
-                      orderBy: String,
-                      completion: @escaping SearchPhotosResult) {
-        guard let url = urlService.getURL(forPath: SearchPath.searchPhotos,
+    func searchPhotos(query: String, orderBy: String, completion: @escaping SearchPhotosResult) {
+        guard let url = urlService.getURL(forPath: APIPath.searchPhotos,
                                           query: query,
                                           orderBy: orderBy,
                                           count: 30) else { return }
@@ -93,10 +87,8 @@ final class NetworkService: NetworkServiceProtocol {
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
-    func searchCollections(query: String,
-                           orderBy: String,
-                           completion: @escaping SearchCollectionsResult) {
-        guard let url = urlService.getURL(forPath: SearchPath.searchCollections,
+    func searchCollections(query: String, orderBy: String, completion: @escaping SearchCollectionsResult) {
+        guard let url = urlService.getURL(forPath: APIPath.searchCollections,
                                           query: query,
                                           orderBy: orderBy,
                                           count: 30) else { return }

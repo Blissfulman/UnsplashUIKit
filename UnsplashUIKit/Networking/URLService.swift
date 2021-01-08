@@ -37,7 +37,8 @@ final class URLService: URLServiceProtocol {
         urlComponents.path = path
         
         if let count = count {
-            urlComponents.queryItems = [URLQueryItem(name: "count", value: "\(count)")]
+            urlComponents.queryItems = [URLQueryItem(name: "count", value: "\(count)"),
+                                        URLQueryItem(name: "per_page", value: "\(count)")]
         }
         
         return urlComponents.url

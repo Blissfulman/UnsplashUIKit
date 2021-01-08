@@ -20,6 +20,10 @@ final class PhotoCell: UICollectionViewCell {
         UINib(nibName: "PhotoCell", bundle: nil)
     }
     
+    override func prepareForReuse() {
+        imageView.image = UIImage(named: "defaultImage")
+    }
+    
     // MARK: - Public methods
     func configure(_ photo: PhotoModel) {
         layer.cornerRadius = UIConstant.defaultCornerRadius

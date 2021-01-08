@@ -73,7 +73,8 @@ final class CarouselTableCell: UITableViewCell {
     }
     
     private func fillCollectionCarousel() {
-        networkService.fetchCollections { [weak self] result in
+        networkService.fetchCollections(count: UIConstant.countCarouselElements) {
+            [weak self] result in
             
             guard let self = self else { return }
             
@@ -93,7 +94,8 @@ final class CarouselTableCell: UITableViewCell {
     }
     
     private func fillPhotoCarousel() {
-        networkService.fetchRandomPhotos(count: 10) { [weak self] result in
+        networkService.fetchRandomPhotos(count: UIConstant.countCarouselElements) {
+            [weak self] result in
             
             guard let self = self else { return }
             
@@ -127,7 +129,6 @@ extension CarouselTableCell: UICollectionViewDataSource {
         }
         cell.delegate = self
         cell.configure(photos[indexPath.item], itemIndex: indexPath.item)
-        
         return cell
     }
 }
