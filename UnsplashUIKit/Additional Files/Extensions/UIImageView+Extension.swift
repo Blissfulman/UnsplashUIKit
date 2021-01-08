@@ -10,7 +10,7 @@ import UIKit
 extension UIImageView {
     
     func loadImage(by url: URL) {
-        image = UIImage(named: "defaultImage")
+//        image = UIImage(named: "defaultImage")
         
         let cache = URLCache.shared
         let request = URLRequest(url: url)

@@ -47,7 +47,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="240" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="h7G-XA-W0j">
                                     <rect key="frame" x="67.5" y="0.0" width="314.5" height="40"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yjf-rJ-KAh">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="yjf-rJ-KAh">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="DPg-WK-kRO"/>
@@ -210,6 +210,7 @@
         </view>
     </objects>
     <resources>
+        <image name="defaultImage" width="1200" height="800"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

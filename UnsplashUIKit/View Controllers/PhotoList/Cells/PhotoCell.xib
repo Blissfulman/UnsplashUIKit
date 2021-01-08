@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tq3-Mz-NPL">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="tq3-Mz-NPL">
                         <rect key="frame" x="0.0" y="44" width="200" height="156"/>
                     </imageView>
                 </subviews>
@@ -34,4 +34,7 @@
             <point key="canvasLocation" x="-146" y="-21"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="defaultImage" width="1200" height="800"/>
+    </resources>
 </document>

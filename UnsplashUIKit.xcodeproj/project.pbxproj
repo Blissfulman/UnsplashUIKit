@@ -271,12 +271,12 @@
 		CED842E225A111ED00C07428 /* Additional Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE85AA3E25A82F210015E812 /* ErrorManager.swift */,
 				CEA2A92D25A71A9A003E0E02 /* UIConstant.swift */,
 				CED8431825A269DC00C07428 /* CustomButton.swift */,
 				CEA2A92425A61ECD003E0E02 /* CustomView.swift */,
 				CEA2A8FB25A59D9F003E0E02 /* ContentType.swift */,
 				CED842E325A111F900C07428 /* Extensions */,
-				CE85AA3E25A82F210015E812 /* ErrorManager.swift */,
 			);
 			path = "Additional Files";
 			sourceTree = "<group>";

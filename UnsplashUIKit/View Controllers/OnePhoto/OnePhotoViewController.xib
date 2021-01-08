@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V9K-tZ-Ysk">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="V9K-tZ-Ysk">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Knj-bj-AFh">
@@ -138,6 +138,7 @@
     </objects>
     <resources>
         <image name="arrow.down.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="defaultImage" width="1200" height="800"/>
         <image name="eye.fill" catalog="system" width="128" height="78"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <namedColor name="AccentVioletColor">

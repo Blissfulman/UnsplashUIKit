@@ -15,15 +15,38 @@ typealias SearchCollectionsResult = (Result<SearchCollectionsModel, Error>) -> V
 
 protocol NetworkServiceProtocol {
     
+    /// Получение случайных фотографий.
+    /// - Parameters:
+    ///   - count: Количество фотографий в ответе (не более 30).
+    ///   - completion: Замыкание, в которое возвращается результат выполнения функции.
     func fetchRandomPhotos(count: Int, completion: @escaping PhotosResult)
     
+    /// Получение одной страницы из списка коллекций.
+    /// - Parameters:
+    ///   - count: Количество коллекций в ответе (не более 30).
+    ///   - completion: Замыкание, в которое возвращается результат выполнения функции.
     func fetchCollections(count: Int, completion: @escaping CollectionsResult)
     
 //    func getCollectionPhotos(id: String, completion: @escaping PhotosResult)
+    
+    /// Получение фотографий из коллекции.
+    /// - Parameters:
+    ///   - url: URL коллекции.
+    ///   - completion: Замыкание, в которое возвращается результат выполнения функции.
     func fetchCollectionPhotos(url: URL, completion: @escaping PhotosResult)
     
+    /// Получение одной страницы результатов поиска фотографий по указанным параметрам.
+    /// - Parameters:
+    ///   - query: Поисковые запросы.
+    ///   - orderBy: Вариант сортировки фотографий. Допустимые значения "latest" и "relevant".
+    ///   - completion: Замыкание, в которое возвращается результат выполнения функции.
     func searchPhotos(query: String, orderBy: String, completion: @escaping SearchPhotosResult)
     
+    /// Получение одной страницы результатов поиска коллекций по указанным параметрам.
+    /// - Parameters:
+    ///   - query: Поисковые запросы.
+    ///   - orderBy: Вариант сортировки коллекций. Допустимые значения "latest" и "relevant".
+    ///   - completion: Замыкание, в которое возвращается результат выполнения функции.
     func searchCollections(query: String, orderBy: String, completion: @escaping SearchCollectionsResult)
 }
 
