@@ -11,6 +11,7 @@
 		CE63A55E259F9E6F00406FD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE63A55D259F9E6F00406FD4 /* Assets.xcassets */; };
 		CE63A561259F9E6F00406FD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE63A55F259F9E6F00406FD4 /* LaunchScreen.storyboard */; };
 		CE85AA2D25A7388A0015E812 /* SearchCollectionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85AA2C25A7388A0015E812 /* SearchCollectionsModel.swift */; };
+		CE85AA3825A810350015E812 /* UICollectionViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85AA3725A810350015E812 /* UICollectionViewController+Extension.swift */; };
 		CEA2A8AE25A3688F003E0E02 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8AD25A3688F003E0E02 /* DateFormatter+Extension.swift */; };
 		CEA2A8B125A37D3F003E0E02 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8B025A37D3F003E0E02 /* UserModel.swift */; };
 		CEA2A8B525A383A6003E0E02 /* CollectionPhotosHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8B325A383A6003E0E02 /* CollectionPhotosHeader.swift */; };
@@ -63,6 +64,7 @@
 		CE63A560259F9E6F00406FD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE63A562259F9E6F00406FD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE85AA2C25A7388A0015E812 /* SearchCollectionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionsModel.swift; sourceTree = "<group>"; };
+		CE85AA3725A810350015E812 /* UICollectionViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewController+Extension.swift"; sourceTree = "<group>"; };
 		CEA2A8AD25A3688F003E0E02 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		CEA2A8B025A37D3F003E0E02 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CEA2A8B325A383A6003E0E02 /* CollectionPhotosHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosHeader.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				CED842E425A1121A00C07428 /* UIView+Extension.swift */,
 				CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */,
 				CEA2A8AD25A3688F003E0E02 /* DateFormatter+Extension.swift */,
+				CE85AA3725A810350015E812 /* UICollectionViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			files = (
 				CEA2A8D525A4D18A003E0E02 /* NetworkConstants.swift in Sources */,
 				CEA2A8CA25A476EF003E0E02 /* SearchViewController.swift in Sources */,
+				CE85AA3825A810350015E812 /* UICollectionViewController+Extension.swift in Sources */,
 				CEA2A8CF25A488F4003E0E02 /* SearchPhotosModel.swift in Sources */,
 				CEA2A8EE25A4F2AB003E0E02 /* CarouselImageCell.swift in Sources */,
 				CEA2A91125A5D9A8003E0E02 /* PhotoInfoViewController.swift in Sources */,

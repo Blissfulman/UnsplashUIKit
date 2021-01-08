@@ -49,15 +49,13 @@ final class CarouselTableCell: UITableViewCell {
     func configure(contentType: ContentType) {
         self.contentType = contentType
         
-        collectionView.contentInset = UIEdgeInsets(
-            top: 0, left: UIConstant.defaultEdgeWidth,
-            bottom: 0, right: UIConstant.defaultEdgeWidth
-        )
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: UIConstant.defaultEdgeWidth,
+                                                   bottom: 0, right: UIConstant.defaultEdgeWidth)
         
         titleLabel.text = contentType.rawValue.capitalized
         searchButton.setTitle("Search \(contentType.rawValue)", for: .normal)
         
-        fetchPhotos()
+        setupCarouselCells()
     }
     
     // MARK: - Actions
@@ -68,41 +66,49 @@ final class CarouselTableCell: UITableViewCell {
     }
     
     // MARK: - Private methods
-    private func fetchPhotos() {
+    private func setupCarouselCells() {
         contentType == .collection
-            ? networkService.fetchCollections { [weak self] result in
-                
-                guard let self = self else { return }
-                
-                switch result {
-                case .success(let collections):
-                    self.collections = collections
-                    self.photos = collections.compactMap { $0.coverPhoto }
-                    self.collectionView.reloadData()
-                case .failure(let error):
-                    if let serverError = error as? ServerError {
-                        print(serverError.rawValue)
-                        return
-                    }
-                    print(error.localizedDescription)
+            ? fillCollectionCarousel()
+            : fillPhotoCarousel()
+    }
+    
+    private func fillCollectionCarousel() {
+        networkService.fetchCollections { [weak self] result in
+            
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let collections):
+                self.collections = collections
+                self.photos = collections.compactMap { $0.coverPhoto }
+                self.collectionView.reloadData()
+            case .failure(let error):
+                if let serverError = error as? ServerError {
+                    print(serverError.rawValue)
+                    return
                 }
+                print(error.localizedDescription)
             }
-            : networkService.fetchRandomPhotos(count: 10) { [weak self] result in
-                
-                guard let self = self else { return }
-                
-                switch result {
-                case .success(let photos):
-                    self.photos = photos
-                    self.collectionView.reloadData()
-                case .failure(let error):
-                    if let serverError = error as? ServerError {
-                        print(serverError.rawValue)
-                        return
-                    }
-                    print(error.localizedDescription)
+        }
+    }
+    
+    private func fillPhotoCarousel() {
+        networkService.fetchRandomPhotos(count: 10) { [weak self] result in
+            
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let photos):
+                self.photos = photos
+                self.collectionView.reloadData()
+            case .failure(let error):
+                if let serverError = error as? ServerError {
+                    print(serverError.rawValue)
+                    return
                 }
+                print(error.localizedDescription)
             }
+        }
     }
 }
 

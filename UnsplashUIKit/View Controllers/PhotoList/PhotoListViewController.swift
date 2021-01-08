@@ -152,11 +152,11 @@ extension PhotoListViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionWidth = collectionView.bounds.width
-        let totalSpacingWidth = (spacing * (numberOfColumns - 1)) + edgeWidth * 2
-        let size = (collectionWidth - totalSpacingWidth) / numberOfColumns
         
-        return CGSize(width: size, height: size * 0.7)
+        let sizeWidth = calculateSizeWidth(
+            spacing: spacing, edgeWidth: edgeWidth, numberOfColumns: numberOfColumns
+        )
+        return CGSize(width: sizeWidth, height: sizeWidth * 0.7)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
