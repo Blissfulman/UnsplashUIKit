@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,7 +25,7 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="V9K-tZ-Ysk">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                 </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Knj-bj-AFh">
+                <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Knj-bj-AFh">
                     <rect key="frame" x="16" y="812" width="382" height="34"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egI-fq-skW" customClass="CustomView" customModule="UnsplashUIKit" customModuleProvider="target">
@@ -51,7 +50,7 @@
                                     </constraints>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" name="AccentVioletColor"/>
+                            <color key="backgroundColor" systemColor="systemTealColor"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="PHu-B2-9f6" secondAttribute="bottom" constant="5" id="LoZ-3i-Id2"/>
                                 <constraint firstAttribute="trailing" secondItem="PHu-B2-9f6" secondAttribute="trailing" constant="8" id="qrn-Ob-7nl"/>
@@ -81,7 +80,7 @@
                                     </constraints>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" name="AccentVioletColor"/>
+                            <color key="backgroundColor" systemColor="systemTealColor"/>
                             <constraints>
                                 <constraint firstItem="4bL-E8-AI0" firstAttribute="top" secondItem="Ehi-mS-HHA" secondAttribute="top" constant="5" id="8lV-tO-stf"/>
                                 <constraint firstAttribute="bottom" secondItem="4bL-E8-AI0" secondAttribute="bottom" constant="5" id="IoG-F7-118"/>
@@ -111,7 +110,7 @@
                                     </constraints>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" name="AccentVioletColor"/>
+                            <color key="backgroundColor" systemColor="systemTealColor"/>
                             <constraints>
                                 <constraint firstItem="mGD-Va-AvE" firstAttribute="top" secondItem="EBg-Fn-Xc6" secondAttribute="top" constant="5" id="Qcr-uZ-fyK"/>
                                 <constraint firstItem="mGD-Va-AvE" firstAttribute="leading" secondItem="EBg-Fn-Xc6" secondAttribute="leading" constant="8" id="XRM-ta-CVA"/>
@@ -141,11 +140,11 @@
         <image name="defaultImage" width="1200" height="800"/>
         <image name="eye.fill" catalog="system" width="128" height="78"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <namedColor name="AccentVioletColor">
-            <color red="0.5" green="0.50000004768371586" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

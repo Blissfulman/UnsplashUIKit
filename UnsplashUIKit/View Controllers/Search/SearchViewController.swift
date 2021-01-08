@@ -12,6 +12,11 @@ final class SearchViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var searchTermsTextField: UITextField!
     @IBOutlet weak var orderBySegmentedControl: UISegmentedControl!
+    @IBOutlet weak var startSearchButton: CustomButton! {
+        didSet {
+//            startSearchButton.alpha = startSearchButton.isEnabled ? 1 : 0.5
+        }
+    }
     
     // MARK: - Properties
     private let contentType: ContentType!
@@ -31,8 +36,8 @@ final class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Search \(contentType.rawValue)"
         searchTermsTextField.delegate = self
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +47,13 @@ final class SearchViewController: UIViewController {
     }
     
     // MARK: - Actions
+    @IBAction func textFieldEditingChanged() {
+        guard let searchTerms = searchTermsTextField.text else { return }
+        
+        startSearchButton.isEnabled = !searchTerms.isEmpty
+//        startSearchButton.alpha = startSearchButton.isEnabled ? 1 : 0.5
+    }
+    
     @IBAction func startSearchButtonTapped() {
         view.endEditing(true)
         
@@ -56,6 +68,12 @@ final class SearchViewController: UIViewController {
     }
     
     // MARK: - Private methods
+    private func setupUI() {
+        title = "Search \(contentType.rawValue)"
+        
+        startSearchButton.isEnabled = false
+    }
+    
     private func searchPhotos(query: String, orderBy: String) {
         networkService.searchPhotos(query: query, orderBy: orderBy) { [weak self] result in
             

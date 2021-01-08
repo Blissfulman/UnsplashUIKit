@@ -10,8 +10,8 @@ import UIKit
 final class CustomView: UIView {
     
     override func draw(_ rect: CGRect) {
-        layer.backgroundColor = UIColor(named: "CustomVioletColor")?.cgColor
-        tintColor = .white
+        super.draw(rect)
+        
         clipsToBounds = true
         layer.cornerRadius = bounds.height / 2
     }

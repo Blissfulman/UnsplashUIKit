@@ -27,7 +27,6 @@ final class PhotoListViewController: UICollectionViewController {
         self.collection = collection
         self.totalPhotos = collection.totalPhotos ?? 0
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
-        getPhotos(collection: collection)
     }
     
     init(photos: [PhotoModel], totalPhotos: Int) {

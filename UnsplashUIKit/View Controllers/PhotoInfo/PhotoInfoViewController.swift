@@ -11,7 +11,7 @@ final class PhotoInfoViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var authorImageView: UIImageView!
-    @IBOutlet weak var authorUsernameLabel: UILabel!
+    @IBOutlet weak var authorNameLabel: UILabel!
     @IBOutlet weak var createdDateLabel: UILabel!
     @IBOutlet weak var widthLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
@@ -46,7 +46,7 @@ final class PhotoInfoViewController: UIViewController {
         }
         authorImageView.layer.cornerRadius = authorImageView.frame.height / 2
         
-        authorUsernameLabel.text = photo.user?.username
+        authorNameLabel.text = photo.user?.name
         if let date = photo.createdAt {
             createdDateLabel.text = DateFormatter.appDateFormatter.string(from: date)
         }
