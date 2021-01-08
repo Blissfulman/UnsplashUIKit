@@ -17,7 +17,7 @@ final class CarouselImageCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
     // MARK: - Properties
-    static let identifier = "carouselImageCell"
+    static let identifier = String(describing: CarouselImageCell.self)
     
     weak var delegate: CarouselImageCellDelegate?
     
@@ -26,7 +26,7 @@ final class CarouselImageCell: UICollectionViewCell {
     
     // MARK: - Class methods
     static func nib() -> UINib {
-        UINib(nibName: "CarouselImageCell", bundle: nil)
+        UINib(nibName: String(describing: CarouselImageCell.self), bundle: nil)
     }
     
     // MARK: - Lifeсycle methods

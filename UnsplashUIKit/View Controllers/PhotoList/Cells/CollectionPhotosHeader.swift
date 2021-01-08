@@ -18,13 +18,13 @@ final class CollectionPhotosHeader: UICollectionReusableView {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     // MARK: - Properties
-    static let identifier = "collectionPhotosHeader"
+    static let identifier = String(describing: CollectionPhotosHeader.self)
     
     weak var delegate: CollectionPhotosHeaderDelegate?
         
     // MARK: - Class methods
     static func nib() -> UINib {
-        UINib(nibName: "CollectionPhotosHeader", bundle: nil)
+        UINib(nibName: String(describing: CollectionPhotosHeader.self), bundle: nil)
     }
     
     // MARK: - Actions

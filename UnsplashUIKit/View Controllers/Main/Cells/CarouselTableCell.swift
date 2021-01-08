@@ -22,7 +22,7 @@ final class CarouselTableCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Properties
-    static let identifier = "carouselTableCell"
+    static let identifier = String(describing: CarouselTableCell.self)
     
     weak var delegate: CarouselTableCellDelegate?
     
@@ -33,12 +33,14 @@ final class CarouselTableCell: UITableViewCell {
     
     // MARK: - Class methods
     static func nib() -> UINib {
-        UINib(nibName: "CarouselTableCell", bundle: nil)
+        UINib(nibName: String(describing: CarouselTableCell.self), bundle: nil)
     }
     
     // MARK: - Lifecycle methods
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        print(String(describing: Self.self))
         
         collectionView.dataSource = self
         collectionView.register(CarouselImageCell.nib(),

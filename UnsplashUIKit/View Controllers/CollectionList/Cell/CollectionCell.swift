@@ -14,11 +14,11 @@ final class CollectionCell: UICollectionViewCell {
     @IBOutlet weak var collectionNameLabel: UILabel!
     
     // MARK: - Properties
-    static let identifier = "collectionCell"
+    static let identifier = String(describing: CollectionCell.self)
     
     // MARK: - Class methods
     static func nib() -> UINib {
-        UINib(nibName: "CollectionCell", bundle: nil)
+        UINib(nibName: String(describing: CollectionCell.self), bundle: nil)
     }
     
     // MARK: - Lifecycle methods

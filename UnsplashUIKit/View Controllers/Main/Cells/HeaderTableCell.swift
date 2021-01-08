@@ -13,13 +13,13 @@ final class HeaderTableCell: UITableViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     
     // MARK: - Properties
-    static let identifier = "headerTableCell"
+    static let identifier = String(describing: HeaderTableCell.self)
     
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Class methods
     static func nib() -> UINib {
-        UINib(nibName: "HeaderTableCell", bundle: nil)
+        UINib(nibName: String(describing: HeaderTableCell.self), bundle: nil)
     }
     
     // MARK: - Lifecycle methods

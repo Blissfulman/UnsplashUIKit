@@ -13,11 +13,11 @@ final class PhotoCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
     // MARK: - Properties
-    static let identifier = "photoCell"
+    static let identifier = String(describing: PhotoCell.self)
     
     // MARK: - Class methods
     static func nib() -> UINib {
-        UINib(nibName: "PhotoCell", bundle: nil)
+        UINib(nibName: String(describing: PhotoCell.self), bundle: nil)
     }
     
     override func prepareForReuse() {
