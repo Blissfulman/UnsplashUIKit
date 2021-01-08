@@ -44,62 +44,68 @@ final class SearchViewController: UIViewController {
     // MARK: - Actions
     @IBAction func startSearchButtonTapped() {
         view.endEditing(true)
-        search()
-    }
-    
-    // MARK: - Private methods
-    private func search() {
+        
         guard let query = searchTermsTextField.text,
               !query.isEmpty else { return }
         
-        let orderBy = orderBySegmentedControl.selectedSegmentIndex == 0
-            ? "relevant" : "latest"
+        let orderBy = orderBySegmentedControl.selectedSegmentIndex == 0 ? "relevant" : "latest"
         
         contentType == .photo
-            ? networkService.searchPhotos(query: query, orderBy: orderBy) { [weak self] result in
-                
-                guard let self = self else { return }
-                
-                switch result {
-                case .success(let searchPhotosResult):
-                    if let photos = searchPhotosResult.photos,
-                       let totalPhotos = searchPhotosResult.total {
-                        let photoListVC = PhotoListViewController(photos: photos,
-                                                                  totalPhotos: totalPhotos)
-                        photoListVC.title = "Results for \"\(query)\""
-                        
-                        // MARK: - Navigation
-                        self.navigationController?.pushViewController(photoListVC, animated: true)
-                    }
-                case .failure(let error):
-                    if let serverError = error as? ServerError {
-                        print(serverError.rawValue)
-                        return
-                    }
-                    print(error.localizedDescription)
+            ? searchPhotos(query: query, orderBy: orderBy)
+            : searchCollections(query: query, orderBy: orderBy)
+    }
+    
+    // MARK: - Private methods
+    private func searchPhotos(query: String, orderBy: String) {
+        networkService.searchPhotos(query: query, orderBy: orderBy) { [weak self] result in
+            
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let searchPhotosResult):
+                guard searchPhotosResult.total != 0 else {
+                    self.showEmptyResultAlert()
+                    return
                 }
-            }
-            : networkService.searchCollections(query: query, orderBy: orderBy) { [weak self] result in
                 
-                guard let self = self else { return }
-
-                switch result {
-                case .success(let searchCollectionsResult):
-                    if let collections = searchCollectionsResult.collections {
-                        let collectionListVC = CollectionListViewController(collections: collections)
-                        collectionListVC.title = "Results for \"\(query)\""
-
-                        // MARK: - Navigation
-                        self.navigationController?.pushViewController(collectionListVC, animated: true)
-                    }
-                case .failure(let error):
-                    if let serverError = error as? ServerError {
-                        print(serverError.rawValue)
-                        return
-                    }
-                    print(error.localizedDescription)
+                if let photos = searchPhotosResult.photos,
+                   let totalPhotos = searchPhotosResult.total {
+                    let photoListVC = PhotoListViewController(photos: photos,
+                                                              totalPhotos: totalPhotos)
+                    photoListVC.title = "Results for \"\(query)\""
+                    
+                    // MARK: - Navigation
+                    self.navigationController?.pushViewController(photoListVC, animated: true)
                 }
+            case .failure(let error):
+                self.showAlert(error)
             }
+        }
+    }
+    
+    private func searchCollections(query: String, orderBy: String) {
+        networkService.searchCollections(query: query, orderBy: orderBy) { [weak self] result in
+            
+            guard let self = self else { return }
+
+            switch result {
+            case .success(let searchCollectionsResult):
+                guard searchCollectionsResult.total != 0 else {
+                    self.showEmptyResultAlert()
+                    return
+                }
+                
+                if let collections = searchCollectionsResult.collections {
+                    let collectionListVC = CollectionListViewController(collections: collections)
+                    collectionListVC.title = "Results for \"\(query)\""
+
+                    // MARK: - Navigation
+                    self.navigationController?.pushViewController(collectionListVC, animated: true)
+                }
+            case .failure(let error):
+                self.showAlert(error)
+            }
+        }
     }
     
     // Скрытие клавиатуры по тапу в свободное место вью

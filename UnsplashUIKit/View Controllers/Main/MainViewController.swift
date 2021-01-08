@@ -10,7 +10,6 @@ import UIKit
 final class MainViewController: UITableViewController {
     
     // MARK: - Properties
-    private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Lifecycle methods
     override func viewDidLoad() {

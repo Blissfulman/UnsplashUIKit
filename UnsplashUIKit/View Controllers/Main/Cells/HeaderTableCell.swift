@@ -41,11 +41,7 @@ final class HeaderTableCell: UITableViewCell {
                     self.photoImageView.loadImage(by: url)
                 }
             case .failure(let error):
-                if let serverError = error as? ServerError {
-                    print(serverError.rawValue)
-                    return
-                }
-                print(error.localizedDescription)
+                ErrorManager.showErrorDescription(error: error)
             }
         }
     }

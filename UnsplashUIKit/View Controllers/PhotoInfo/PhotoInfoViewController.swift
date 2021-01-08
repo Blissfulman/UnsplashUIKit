@@ -60,6 +60,7 @@ final class PhotoInfoViewController: UIViewController {
         print(photo.urls?.full ?? "No URL" )
     }
     
+    // MARK: - Navigation
     @IBAction func backButtonTapped() {
         dismiss(animated: true)
     }

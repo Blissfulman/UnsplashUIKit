@@ -84,11 +84,7 @@ final class CarouselTableCell: UITableViewCell {
                 self.photos = collections.compactMap { $0.coverPhoto }
                 self.collectionView.reloadData()
             case .failure(let error):
-                if let serverError = error as? ServerError {
-                    print(serverError.rawValue)
-                    return
-                }
-                print(error.localizedDescription)
+                ErrorManager.showErrorDescription(error: error)
             }
         }
     }
@@ -104,11 +100,7 @@ final class CarouselTableCell: UITableViewCell {
                 self.photos = photos
                 self.collectionView.reloadData()
             case .failure(let error):
-                if let serverError = error as? ServerError {
-                    print(serverError.rawValue)
-                    return
-                }
-                print(error.localizedDescription)
+                ErrorManager.showErrorDescription(error: error)
             }
         }
     }

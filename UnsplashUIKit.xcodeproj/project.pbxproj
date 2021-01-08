@@ -12,6 +12,8 @@
 		CE63A561259F9E6F00406FD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE63A55F259F9E6F00406FD4 /* LaunchScreen.storyboard */; };
 		CE85AA2D25A7388A0015E812 /* SearchCollectionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85AA2C25A7388A0015E812 /* SearchCollectionsModel.swift */; };
 		CE85AA3825A810350015E812 /* UICollectionViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85AA3725A810350015E812 /* UICollectionViewController+Extension.swift */; };
+		CE85AA3C25A828A50015E812 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85AA3B25A828A50015E812 /* UIViewController+Extension.swift */; };
+		CE85AA3F25A82F210015E812 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85AA3E25A82F210015E812 /* ErrorManager.swift */; };
 		CEA2A8AE25A3688F003E0E02 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8AD25A3688F003E0E02 /* DateFormatter+Extension.swift */; };
 		CEA2A8B125A37D3F003E0E02 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8B025A37D3F003E0E02 /* UserModel.swift */; };
 		CEA2A8B525A383A6003E0E02 /* CollectionPhotosHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8B325A383A6003E0E02 /* CollectionPhotosHeader.swift */; };
@@ -65,6 +67,8 @@
 		CE63A562259F9E6F00406FD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE85AA2C25A7388A0015E812 /* SearchCollectionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionsModel.swift; sourceTree = "<group>"; };
 		CE85AA3725A810350015E812 /* UICollectionViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewController+Extension.swift"; sourceTree = "<group>"; };
+		CE85AA3B25A828A50015E812 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		CE85AA3E25A82F210015E812 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		CEA2A8AD25A3688F003E0E02 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		CEA2A8B025A37D3F003E0E02 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CEA2A8B325A383A6003E0E02 /* CollectionPhotosHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosHeader.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 				CEA2A92425A61ECD003E0E02 /* CustomView.swift */,
 				CEA2A8FB25A59D9F003E0E02 /* ContentType.swift */,
 				CED842E325A111F900C07428 /* Extensions */,
+				CE85AA3E25A82F210015E812 /* ErrorManager.swift */,
 			);
 			path = "Additional Files";
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 				CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */,
 				CEA2A8AD25A3688F003E0E02 /* DateFormatter+Extension.swift */,
 				CE85AA3725A810350015E812 /* UICollectionViewController+Extension.swift */,
+				CE85AA3B25A828A50015E812 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -436,6 +442,8 @@
 				CED842E025A1022A00C07428 /* PhotoModel.swift in Sources */,
 				CEA2A92525A61ECD003E0E02 /* CustomView.swift in Sources */,
 				CED842DD25A0FD4300C07428 /* NetworkService.swift in Sources */,
+				CE85AA3F25A82F210015E812 /* ErrorManager.swift in Sources */,
+				CE85AA3C25A828A50015E812 /* UIViewController+Extension.swift in Sources */,
 				CED8430D25A25CF000C07428 /* PhotoListViewController.swift in Sources */,
 				CEA2A8C325A44A50003E0E02 /* OnePhotoViewController.swift in Sources */,
 				CEA2A92E25A71A9A003E0E02 /* UIConstant.swift in Sources */,
