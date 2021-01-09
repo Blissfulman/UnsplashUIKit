@@ -42,9 +42,8 @@
 		CEA2A92525A61ECD003E0E02 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A92425A61ECD003E0E02 /* CustomView.swift */; };
 		CEA2A92A25A6CB81003E0E02 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */; };
 		CEA2A92E25A71A9A003E0E02 /* UIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A92D25A71A9A003E0E02 /* UIConstant.swift */; };
-		CED842CA25A0E31F00C07428 /* URLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842C925A0E31F00C07428 /* URLService.swift */; };
 		CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842CD25A0E3A500C07428 /* RequestService.swift */; };
-		CED842D425A0E3DD00C07428 /* APIPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D125A0E3DD00C07428 /* APIPath.swift */; };
+		CED842D425A0E3DD00C07428 /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D125A0E3DD00C07428 /* APIURL.swift */; };
 		CED842D525A0E3DD00C07428 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D225A0E3DD00C07428 /* HTTPMethod.swift */; };
 		CED842D625A0E3DD00C07428 /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D325A0E3DD00C07428 /* ServerError.swift */; };
 		CED842DA25A0FCF600C07428 /* DataTaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D925A0FCF600C07428 /* DataTaskService.swift */; };
@@ -97,9 +96,8 @@
 		CEA2A92425A61ECD003E0E02 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		CEA2A92D25A71A9A003E0E02 /* UIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstant.swift; sourceTree = "<group>"; };
-		CED842C925A0E31F00C07428 /* URLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLService.swift; sourceTree = "<group>"; };
 		CED842CD25A0E3A500C07428 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
-		CED842D125A0E3DD00C07428 /* APIPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIPath.swift; sourceTree = "<group>"; };
+		CED842D125A0E3DD00C07428 /* APIURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
 		CED842D225A0E3DD00C07428 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		CED842D325A0E3DD00C07428 /* ServerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		CED842D925A0FCF600C07428 /* DataTaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskService.swift; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				CED842D025A0E3CC00C07428 /* Helpers */,
-				CED842C925A0E31F00C07428 /* URLService.swift */,
 				CED842CD25A0E3A500C07428 /* RequestService.swift */,
 				CED842D925A0FCF600C07428 /* DataTaskService.swift */,
 				CED842DC25A0FD4300C07428 /* NetworkService.swift */,
@@ -262,7 +259,7 @@
 			children = (
 				CEA2A8D425A4D18A003E0E02 /* NetworkConstants.swift */,
 				CED842D225A0E3DD00C07428 /* HTTPMethod.swift */,
-				CED842D125A0E3DD00C07428 /* APIPath.swift */,
+				CED842D125A0E3DD00C07428 /* APIURL.swift */,
 				CED842D325A0E3DD00C07428 /* ServerError.swift */,
 			);
 			path = Helpers;
@@ -433,7 +430,7 @@
 				CED842E525A1121A00C07428 /* UIView+Extension.swift in Sources */,
 				CE63A555259F9E6E00406FD4 /* AppDelegate.swift in Sources */,
 				CE85AA4425A851D50015E812 /* CollectionCell.swift in Sources */,
-				CED842D425A0E3DD00C07428 /* APIPath.swift in Sources */,
+				CED842D425A0E3DD00C07428 /* APIURL.swift in Sources */,
 				CEA2A8F325A4F78F003E0E02 /* HeaderTableCell.swift in Sources */,
 				CED8431325A2617A00C07428 /* PhotoCell.swift in Sources */,
 				CED842D525A0E3DD00C07428 /* HTTPMethod.swift in Sources */,
@@ -449,7 +446,6 @@
 				CEA2A8C325A44A50003E0E02 /* OnePhotoViewController.swift in Sources */,
 				CEA2A92E25A71A9A003E0E02 /* UIConstant.swift in Sources */,
 				CE85AA2D25A7388A0015E812 /* SearchCollectionsModel.swift in Sources */,
-				CED842CA25A0E31F00C07428 /* URLService.swift in Sources */,
 				CED8431925A269DC00C07428 /* CustomButton.swift in Sources */,
 				CEA2A8B525A383A6003E0E02 /* CollectionPhotosHeader.swift in Sources */,
 				CEA2A8AE25A3688F003E0E02 /* DateFormatter+Extension.swift in Sources */,

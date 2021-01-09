@@ -19,7 +19,7 @@ final class HeaderTableCell: UITableViewCell {
     
     // MARK: - Class methods
     static func nib() -> UINib {
-        UINib(nibName: String(describing: HeaderTableCell.self), bundle: nil)
+        UINib(nibName: identifier, bundle: nil)
     }
     
     // MARK: - Lifecycle methods

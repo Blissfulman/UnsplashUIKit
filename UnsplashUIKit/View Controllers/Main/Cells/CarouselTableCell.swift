@@ -33,7 +33,7 @@ final class CarouselTableCell: UITableViewCell {
     
     // MARK: - Class methods
     static func nib() -> UINib {
-        UINib(nibName: String(describing: CarouselTableCell.self), bundle: nil)
+        UINib(nibName: identifier, bundle: nil)
     }
     
     // MARK: - Lifecycle methods
@@ -41,6 +41,7 @@ final class CarouselTableCell: UITableViewCell {
         super.awakeFromNib()
                 
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(CarouselImageCell.nib(),
                                 forCellWithReuseIdentifier: CarouselImageCell.identifier)
     }
@@ -114,22 +115,25 @@ extension CarouselTableCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(
         withReuseIdentifier: CarouselImageCell.identifier,
                 for: indexPath) as? CarouselImageCell else {
             return UICollectionViewCell()
         }
-        cell.delegate = self
-        cell.configure(photos[indexPath.item], itemIndex: indexPath.item)
+        
+        cell.configure(photo: photos[indexPath.item])
+        
         return cell
     }
 }
 
-extension CarouselTableCell: CarouselImageCellDelegate {
-    
-    func elementSelected(at itemIndex: Int) {
+// MARK: - Collection View Delegate
+extension CarouselTableCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         contentType == .photo
-            ? delegate?.onPhotoTapped(photo: photos[itemIndex])
-            : delegate?.onCollectionTapped(collection: collections[itemIndex])
+            ? delegate?.onPhotoTapped(photo: photos[indexPath.item])
+            : delegate?.onCollectionTapped(collection: collections[indexPath.item])
     }
 }

@@ -33,8 +33,7 @@ final class DataTaskService: DataTaskServiceProtocol {
                 return
             }
             
-            guard self.handleServerError(httpResponse,
-                                         completion: completion) else { return }
+            guard self.handleServerError(httpResponse, completion: completion) else { return }
             print(httpResponse.statusCode, request.url?.path ?? "")
             
             let decoder = JSONDecoder()
@@ -46,9 +45,9 @@ final class DataTaskService: DataTaskServiceProtocol {
                     completion(.success(result))
                 }
             } catch {
-                if !data.isEmpty {
-                    print(error.localizedDescription)
-                }
+//                if !data.isEmpty {
+//                    print(error.localizedDescription)
+//                }
                 completion(.failure(error))
             }
         }.resume()

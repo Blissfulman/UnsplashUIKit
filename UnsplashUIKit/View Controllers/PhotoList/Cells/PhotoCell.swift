@@ -17,7 +17,7 @@ final class PhotoCell: UICollectionViewCell {
     
     // MARK: - Class methods
     static func nib() -> UINib {
-        UINib(nibName: String(describing: PhotoCell.self), bundle: nil)
+        UINib(nibName: identifier, bundle: nil)
     }
     
     override func prepareForReuse() {

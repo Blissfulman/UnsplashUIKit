@@ -58,7 +58,7 @@ final class SearchViewController: UIViewController {
     
     // MARK: - Private methods
     private func setupUI() {
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
         title = "Search \(contentType.rawValue)"
         
         startSearchButton.isEnabled = false

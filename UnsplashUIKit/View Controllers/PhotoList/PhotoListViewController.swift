@@ -56,14 +56,14 @@ final class PhotoListViewController: UICollectionViewController {
     
     // MARK: - Private methods
     private func setupUI() {
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
         collectionView.backgroundColor = .white
     }
     
     private func getPhotos(collection: CollectionModel) {
-        guard let photosURL = collection.links?.photos else { return }
+        guard let collectionID = collection.id else { return }
         
-        networkService.fetchCollectionPhotos(url: photosURL) { [weak self] result in
+        networkService.fetchCollectionPhotos(id: collectionID) { [weak self] result in
             
             guard let self = self else { return }
             

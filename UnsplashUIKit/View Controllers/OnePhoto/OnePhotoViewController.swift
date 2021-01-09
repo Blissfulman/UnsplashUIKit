@@ -33,7 +33,7 @@ final class OnePhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
         setupUI()
         getImage()
     }
@@ -57,7 +57,7 @@ final class OnePhotoViewController: UIViewController {
     private func setupUI() {
         let onPhotoDoudleTapGR = UITapGestureRecognizer(target: self,
                                                         action: #selector(onPhotoDoubleTapped))
-        onPhotoDoudleTapGR.numberOfTouchesRequired = 2
+        onPhotoDoudleTapGR.numberOfTapsRequired = 2
         photoImageView.addGestureRecognizer(onPhotoDoudleTapGR)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(

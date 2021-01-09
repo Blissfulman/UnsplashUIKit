@@ -21,7 +21,7 @@ final class CollectionCell: UITableViewCell {
         
     // MARK: - Class methods
     static func nib() -> UINib {
-        UINib(nibName: String(describing: CollectionCell.self), bundle: nil)
+        UINib(nibName: identifier, bundle: nil)
     }
     
     // MARK: - Lifecycle methods

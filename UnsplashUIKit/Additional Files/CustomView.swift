@@ -9,9 +9,7 @@ import UIKit
 
 final class CustomView: UIView {
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
+    override func draw(_ rect: CGRect) {        
         clipsToBounds = true
         layer.cornerRadius = bounds.height / 2
     }

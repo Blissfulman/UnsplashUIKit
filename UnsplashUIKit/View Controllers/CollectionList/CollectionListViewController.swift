@@ -83,13 +83,13 @@ extension CollectionListViewController {
         tableView.frame.width / 3.5
     }
     
+    // MARK: - Navigation
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let collection = collections[indexPath.item]
         
         let photoListVC = PhotoListViewController(collection: collection)
         photoListVC.title = collection.title
         
-        // MARK: - Navigation
         navigationController?.pushViewController(photoListVC, animated: true)
     }
 }

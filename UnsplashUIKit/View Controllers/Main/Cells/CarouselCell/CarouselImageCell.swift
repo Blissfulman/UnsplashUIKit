@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol CarouselImageCellDelegate: UITableViewCell {
-    func elementSelected(at itemIndex: Int)
-}
-
 final class CarouselImageCell: UICollectionViewCell {
     
     // MARK: - Outlets
@@ -19,48 +15,22 @@ final class CarouselImageCell: UICollectionViewCell {
     // MARK: - Properties
     static let identifier = String(describing: CarouselImageCell.self)
     
-    weak var delegate: CarouselImageCellDelegate?
-    
-    private var photo: PhotoModel!
-    private var itemIndex: Int!
-    
     // MARK: - Class methods
     static func nib() -> UINib {
-        UINib(nibName: String(describing: CarouselImageCell.self), bundle: nil)
+        UINib(nibName: identifier, bundle: nil)
     }
     
     // MARK: - Lifeсycle methods
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        setupGestureRecognizer()
-    }
-    
     override func prepareForReuse() {
         imageView.image = UIImage(named: "defaultImage")
     }
     
     // MARK: - Public methods
-    func configure(_ photo: PhotoModel, itemIndex: Int) {
-        self.photo = photo
-        self.itemIndex = itemIndex
-        
+    func configure(photo: PhotoModel) {        
         layer.cornerRadius = UIConstant.defaultCornerRadius
 
         if let url = URL(string: photo.urls?.small ?? "") {
             imageView.loadImage(by: url)
         }
-    }
-    
-    // MARK: - Actions
-    @objc func onImageTapped() {
-        delegate?.elementSelected(at: itemIndex)
-    }
-    
-    // MARK: - Private methods
-    private func setupGestureRecognizer() {
-        let onImageTapGR = UITapGestureRecognizer(target: self,
-                                                  action: #selector(onImageTapped))
-        imageView.addGestureRecognizer(onImageTapGR)
     }
 }

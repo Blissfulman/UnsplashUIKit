@@ -24,7 +24,7 @@ final class CollectionPhotosHeader: UICollectionReusableView {
         
     // MARK: - Class methods
     static func nib() -> UINib {
-        UINib(nibName: String(describing: CollectionPhotosHeader.self), bundle: nil)
+        UINib(nibName: identifier, bundle: nil)
     }
     
     // MARK: - Actions
