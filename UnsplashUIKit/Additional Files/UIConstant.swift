@@ -8,8 +8,6 @@
 import UIKit
 
 enum UIConstant {
-    static let mainViewHeaderHeight: CGFloat = 350
-    static let mainViewCarouselHeight: CGFloat = 250
     static let photoListHeaderHeight: CGFloat = 56
     
     static let defaultNumberOfColumns: CGFloat = 2

@@ -58,6 +58,8 @@ final class SearchViewController: UIViewController {
         guard let query = searchTermsTextField.text,
               !query.isEmpty else { return }
         
+        LoadingView.show(parentView: view)
+        
         contentType == .photo
             ? searchPhotos(query: query, orderBy: searchOrderState.rawValue)
             : searchCollections(query: query, orderBy: searchOrderState.rawValue)
@@ -73,6 +75,10 @@ final class SearchViewController: UIViewController {
     
     private func searchPhotos(query: String, orderBy: String) {
         networkService.searchPhotos(query: query, orderBy: orderBy) { [weak self] result in
+
+            defer {
+                LoadingView.hide()
+            }
             
             guard let self = self else { return }
             
@@ -100,6 +106,10 @@ final class SearchViewController: UIViewController {
     
     private func searchCollections(query: String, orderBy: String) {
         networkService.searchCollections(query: query, orderBy: orderBy) { [weak self] result in
+            
+            defer {
+                LoadingView.hide()
+            }
             
             guard let self = self else { return }
 

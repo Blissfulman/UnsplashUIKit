@@ -45,9 +45,6 @@ final class DataTaskService: DataTaskServiceProtocol {
                     completion(.success(result))
                 }
             } catch {
-//                if !data.isEmpty {
-//                    print(error.localizedDescription)
-//                }
                 completion(.failure(error))
             }
         }.resume()

@@ -42,6 +42,7 @@
 		CEA2A92525A61ECD003E0E02 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A92425A61ECD003E0E02 /* CustomView.swift */; };
 		CEA2A92A25A6CB81003E0E02 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */; };
 		CEA2A92E25A71A9A003E0E02 /* UIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A92D25A71A9A003E0E02 /* UIConstant.swift */; };
+		CEB034D925AA331900B59BF4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB034D825AA331900B59BF4 /* LoadingView.swift */; };
 		CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842CD25A0E3A500C07428 /* RequestService.swift */; };
 		CED842D425A0E3DD00C07428 /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D125A0E3DD00C07428 /* APIURL.swift */; };
 		CED842D525A0E3DD00C07428 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D225A0E3DD00C07428 /* HTTPMethod.swift */; };
@@ -96,6 +97,7 @@
 		CEA2A92425A61ECD003E0E02 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		CEA2A92D25A71A9A003E0E02 /* UIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstant.swift; sourceTree = "<group>"; };
+		CEB034D825AA331900B59BF4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		CED842CD25A0E3A500C07428 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
 		CED842D125A0E3DD00C07428 /* APIURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
 		CED842D225A0E3DD00C07428 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				CED8431825A269DC00C07428 /* CustomButton.swift */,
 				CEA2A92425A61ECD003E0E02 /* CustomView.swift */,
 				CEA2A8FB25A59D9F003E0E02 /* ContentType.swift */,
+				CEB034D825AA331900B59BF4 /* LoadingView.swift */,
 				CED842E325A111F900C07428 /* Extensions */,
 			);
 			path = "Additional Files";
@@ -438,6 +441,7 @@
 				CED842F925A2210500C07428 /* CollectionModel.swift in Sources */,
 				CE85AA5C25A8C5CD0015E812 /* CollectionListViewController.swift in Sources */,
 				CED842E025A1022A00C07428 /* PhotoModel.swift in Sources */,
+				CEB034D925AA331900B59BF4 /* LoadingView.swift in Sources */,
 				CEA2A92525A61ECD003E0E02 /* CustomView.swift in Sources */,
 				CED842DD25A0FD4300C07428 /* NetworkService.swift in Sources */,
 				CE85AA3F25A82F210015E812 /* ErrorManager.swift in Sources */,

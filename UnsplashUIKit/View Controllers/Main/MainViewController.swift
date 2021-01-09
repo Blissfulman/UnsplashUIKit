@@ -8,7 +8,12 @@
 import UIKit
 
 final class MainViewController: UITableViewController {
-        
+    
+    private enum MainViewConstant {
+        static let mainViewHeaderHeight: CGFloat = 350
+        static let mainViewCarouselHeight: CGFloat = 250
+    }
+    
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,9 +79,9 @@ extension MainViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return UIConstant.mainViewHeaderHeight
+            return MainViewConstant.mainViewHeaderHeight
         default:
-            return UIConstant.mainViewCarouselHeight
+            return MainViewConstant.mainViewCarouselHeight
         }
     }
 }
