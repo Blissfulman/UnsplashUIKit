@@ -123,12 +123,12 @@ extension PhotoListViewController {
 //        
 //    }
     
+    // MARK: - Navigation
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let photo = photos[indexPath.item]
         let onePhotoVC = OnePhotoViewController(photo: photo)
         
-        // MARK: - Navigation
         navigationController?.pushViewController(onePhotoVC, animated: true)
     }
 }

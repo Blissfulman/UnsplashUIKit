@@ -9,6 +9,11 @@ import UIKit
 
 final class SearchViewController: UIViewController {
     
+    private enum SearchOrderState: String {
+        case relevant
+        case latest
+    }
+    
     // MARK: - Outlets
     @IBOutlet weak var searchTermsTextField: UITextField!
     @IBOutlet weak var orderBySegmentedControl: UISegmentedControl!
@@ -17,6 +22,10 @@ final class SearchViewController: UIViewController {
     // MARK: - Properties
     private let contentType: ContentType!
     private let networkService: NetworkServiceProtocol = NetworkService()
+    
+    private var searchOrderState: SearchOrderState {
+        orderBySegmentedControl.selectedSegmentIndex == 0 ? .relevant : .latest
+    }
     
     // MARK: - Initializers
     init(contentType: ContentType) {
@@ -49,11 +58,9 @@ final class SearchViewController: UIViewController {
         guard let query = searchTermsTextField.text,
               !query.isEmpty else { return }
         
-        let orderBy = orderBySegmentedControl.selectedSegmentIndex == 0 ? "relevant" : "latest"
-        
         contentType == .photo
-            ? searchPhotos(query: query, orderBy: orderBy)
-            : searchCollections(query: query, orderBy: orderBy)
+            ? searchPhotos(query: query, orderBy: searchOrderState.rawValue)
+            : searchCollections(query: query, orderBy: searchOrderState.rawValue)
     }
     
     // MARK: - Private methods
