@@ -8,12 +8,17 @@
 import Foundation
 
 protocol RequestServiceProtocol {
-    func request(url: URL, httpMethod: HTTPMethod) -> URLRequest
+    
+    /// Получение URLRequest с переданными параметрами и данными для авторизации.
+    /// - Parameters:
+    ///   - url: URL запроса.
+    ///   - httpMethod: HTTP метод запроса.
+    func getRequest(url: URL, httpMethod: HTTPMethod) -> URLRequest
 }
 
 final class RequestService: RequestServiceProtocol {
         
-    func request(url: URL, httpMethod: HTTPMethod) -> URLRequest {
+    func getRequest(url: URL, httpMethod: HTTPMethod) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
         request.addValue("Client-ID \(NetworkConstants.accessKey)",

@@ -8,6 +8,11 @@
 import Foundation
 
 protocol DataTaskServiceProtocol {
+    
+    /// Выполнение URLSessionDataTask с переданным запросом.
+    /// - Parameters:
+    ///   - request: Требуемый для выполнения запрос.
+    ///   - completion: Обработчик завершения, вызываемый после получения данных.
     func dataTask<T: Decodable>(request: URLRequest,
                                 completion: @escaping (Result<T, Error>) -> Void)
 }
