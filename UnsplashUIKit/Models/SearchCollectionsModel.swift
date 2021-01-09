@@ -5,8 +5,6 @@
 //  Created by User on 07.01.2021.
 //
 
-import Foundation
-
 struct SearchCollectionsModel: Decodable {
     let total: Int?
     let totalPages: Int?

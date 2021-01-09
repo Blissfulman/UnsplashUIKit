@@ -43,6 +43,10 @@ final class CollectionListViewController: UITableViewController {
 // MARK: - Table View Data Source
 extension CollectionListViewController {
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
         label.text = "Total collections: \(totalCollections)"
@@ -52,7 +56,7 @@ extension CollectionListViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        collections.count
+        section == 0 ? 0 : collections.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,7 +76,7 @@ extension CollectionListViewController {
 extension CollectionListViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        45
+        section == 0 ? 44 : 0
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

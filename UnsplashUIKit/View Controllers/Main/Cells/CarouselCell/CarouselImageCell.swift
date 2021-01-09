@@ -59,8 +59,8 @@ final class CarouselImageCell: UICollectionViewCell {
     
     // MARK: - Private methods
     private func setupGestureRecognizer() {
-        let onPhotoTappedGR = UITapGestureRecognizer(target: self,
-                                                     action: #selector(onImageTapped))
-        imageView.addGestureRecognizer(onPhotoTappedGR)
+        let onImageTapGR = UITapGestureRecognizer(target: self,
+                                                  action: #selector(onImageTapped))
+        imageView.addGestureRecognizer(onImageTapGR)
     }
 }

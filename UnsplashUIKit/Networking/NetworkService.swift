@@ -26,9 +26,7 @@ protocol NetworkServiceProtocol {
     ///   - count: Количество коллекций в ответе (не более 30).
     ///   - completion: Замыкание, в которое возвращается результат выполнения функции.
     func fetchCollections(count: Int, completion: @escaping CollectionsResult)
-    
-//    func getCollectionPhotos(id: String, completion: @escaping PhotosResult)
-    
+        
     /// Получение фотографий из коллекции.
     /// - Parameters:
     ///   - url: URL коллекции.
@@ -82,17 +80,8 @@ final class NetworkService: NetworkServiceProtocol {
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
-//    func getCollectionPhotos(id: String, completion: @escaping PhotosResult) {
-//        guard let url = urlService.getURL(forPath: CollectionsPath.listCollections + "/\(id)/photos",
-//                                          count: 30) else { return }
-//
-//        let request = requestService.request(url: url, httpMethod: .get)
-//
-//        dataTaskService.dataTask(request: request, completion: completion)
-//    }
-    
     func fetchCollectionPhotos(url: URL, completion: @escaping PhotosResult) {
-        guard let url = urlService.getURL(forURL: url, count: 30) else { return }
+        guard let url = urlService.add(countElements: 30, forURL: url) else { return }
 
         let request = requestService.request(url: url, httpMethod: .get)
                 

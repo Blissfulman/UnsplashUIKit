@@ -5,8 +5,6 @@
 //  Created by User on 04.01.2021.
 //
 
-import Foundation
-
 // MARK: - UserModel
 struct UserModel: Decodable {
     let id: String?

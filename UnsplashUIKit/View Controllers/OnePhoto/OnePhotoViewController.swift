@@ -35,16 +35,31 @@ final class OnePhotoViewController: UIViewController {
         
         navigationController?.navigationBar.isHidden = false
         setupUI()
-        fetchImage()
+        getImage()
     }
     
+    // MARK: - Actions
     @objc func showPhotoInfo() {
         let photoInfoVC = PhotoInfoViewController(photo: photo)
         present(photoInfoVC, animated: true)
     }
     
+    @IBAction func onPhotoPinched(_ sender: UIPinchGestureRecognizer) {
+        photoImageView.transform = (photoImageView.transform.scaledBy(x: sender.scale,
+                                                                      y: sender.scale))
+    }
+    
+    @objc func onPhotoDoubleTapped() {
+        print("Yo")
+    }
+    
     // MARK: - Private methods
     private func setupUI() {
+        let onPhotoDoudleTapGR = UITapGestureRecognizer(target: self,
+                                                        action: #selector(onPhotoDoubleTapped))
+        onPhotoDoudleTapGR.numberOfTouchesRequired = 2
+        photoImageView.addGestureRecognizer(onPhotoDoudleTapGR)
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "info.circle"),
             style: .plain,
@@ -62,7 +77,7 @@ final class OnePhotoViewController: UIViewController {
         downloadsLabel.text = "\(downloads)"
     }
     
-    private func fetchImage() {
+    private func getImage() {
         if let url = URL(string: photo.urls?.regular ?? "") {
             photoImageView.loadImage(by: url)
         }

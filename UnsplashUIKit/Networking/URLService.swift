@@ -8,27 +8,15 @@
 import Foundation
 
 protocol URLServiceProtocol {
-    func getURL(forURL url: URL, count: Int?) -> URL?
     func getURL(forPath path: String, count: Int?) -> URL?
     func getURL(forPath path: String, query: String, orderBy: String, count: Int?) -> URL?
+    func add(countElements count: Int?, forURL url: URL) -> URL?
 }
 
 final class URLService: URLServiceProtocol {
     
     private let scheme = "https"
     private let host = "api.unsplash.com"
-    
-    func getURL(forURL url: URL, count: Int?) -> URL? {
-        
-        var stringURL = url.absoluteString
-        
-        if let count = count {
-            stringURL += "?per_page=\(count)"
-        }
-        
-        guard let url = URL(string: stringURL) else { return nil }
-        return url
-    }
     
     func getURL(forPath path: String, count: Int?) -> URL? {
         var urlComponents = URLComponents()
@@ -40,7 +28,6 @@ final class URLService: URLServiceProtocol {
             urlComponents.queryItems = [URLQueryItem(name: "count", value: "\(count)"),
                                         URLQueryItem(name: "per_page", value: "\(count)")]
         }
-        
         return urlComponents.url
     }
     
@@ -57,7 +44,17 @@ final class URLService: URLServiceProtocol {
                 URLQueryItem(name: "per_page", value: "\(count)")
             ]
         }
-        
         return urlComponents.url
+    }
+    
+    func add(countElements count: Int?, forURL url: URL) -> URL? {
+        var stringURL = url.absoluteString
+        
+        if let count = count {
+            stringURL += "?per_page=\(count)"
+        }
+        
+        guard let url = URL(string: stringURL) else { return nil }
+        return url
     }
 }

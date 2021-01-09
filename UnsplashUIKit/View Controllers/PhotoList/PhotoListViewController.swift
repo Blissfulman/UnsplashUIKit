@@ -119,6 +119,10 @@ extension PhotoListViewController {
 // MARK: - Collection Delegate
 extension PhotoListViewController {
     
+//    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        
+//    }
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let photo = photos[indexPath.item]
