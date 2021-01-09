@@ -48,7 +48,7 @@ final class PhotoInfoViewController: UIViewController {
         
         authorNameLabel.text = photo.user?.name
         if let date = photo.createdAt {
-            createdDateLabel.text = DateFormatter.appDateFormatter.string(from: date)
+            createdDateLabel.text = DateFormatter.appLongDateFormatter.string(from: date)
         }
         if let width = photo.width, let height = photo.height {
             widthLabel.text = "\(width)"

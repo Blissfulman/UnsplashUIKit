@@ -19,7 +19,7 @@ struct CollectionModel: Decodable {
     let links: CollectionLinksModel?
     let user: UserModel?
     let coverPhoto: PhotoModel?
-//    let previewPhotos: [PreviewPhoto]?
+    let previewPhotos: [PreviewPhotoModel]?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -32,7 +32,7 @@ struct CollectionModel: Decodable {
         case links
         case user
         case coverPhoto = "cover_photo"
-//        case previewPhotos = "preview_photos"
+        case previewPhotos = "preview_photos"
     }
 }
 
@@ -49,4 +49,10 @@ struct CollectionLinksModel: Decodable {
         case photos
         case related
     }
+}
+
+// MARK: - PreviewPhotoModel
+struct PreviewPhotoModel: Decodable {
+    let id: String?
+    let urls: PhotoUrlsModel?
 }

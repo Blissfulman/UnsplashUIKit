@@ -39,9 +39,7 @@ final class CarouselTableCell: UITableViewCell {
     // MARK: - Lifecycle methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        print(String(describing: Self.self))
-        
+                
         collectionView.dataSource = self
         collectionView.register(CarouselImageCell.nib(),
                                 forCellWithReuseIdentifier: CarouselImageCell.identifier)

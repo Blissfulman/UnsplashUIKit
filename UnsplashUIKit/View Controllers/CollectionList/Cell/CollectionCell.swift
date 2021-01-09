@@ -2,20 +2,23 @@
 //  CollectionCell.swift
 //  UnsplashUIKit
 //
-//  Created by User on 03.01.2021.
+//  Created by User on 08.01.2021.
 //
 
 import UIKit
 
-final class CollectionCell: UICollectionViewCell {
+final class CollectionCell: UITableViewCell {
     
     // MARK: - Outlets
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var collectionNameLabel: UILabel!
+    @IBOutlet var previewPhotoImageViews: [UIImageView]!
+    @IBOutlet weak var collectionTitleLabel: UILabel!
+    @IBOutlet weak var totalPhotosLabel: UILabel!
+    @IBOutlet weak var publishedDateLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
     
     // MARK: - Properties
     static let identifier = String(describing: CollectionCell.self)
-    
+        
     // MARK: - Class methods
     static func nib() -> UINib {
         UINib(nibName: String(describing: CollectionCell.self), bundle: nil)
@@ -25,19 +28,38 @@ final class CollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        layer.cornerRadius = UIConstant.defaultCornerRadius
-        collectionNameLabel.backgroundColor = UIColor.white.withAlphaComponent(0.7)
+        accessoryType = .disclosureIndicator
+        previewPhotoImageViews.forEach { $0.layer.cornerRadius = UIConstant.defaultCornerRadius }
     }
     
     override func prepareForReuse() {
-        imageView.image = UIImage(named: "defaultImage")
+        previewPhotoImageViews.forEach { $0.image = UIImage(named: "defaultImage") }
     }
     
     // MARK: - Public methods
     func configure(_ collection: CollectionModel) {
-        if let url = URL(string: collection.coverPhoto?.urls?.small ?? "") {
-            imageView.loadImage(by: url)
+        collectionTitleLabel.text = collection.title
+        totalPhotosLabel.text = "\(collection.totalPhotos ?? 0)"
+        userNameLabel.text = collection.user?.name
+        if let date = collection.publishedAt {
+            publishedDateLabel.text = DateFormatter.appShortDateFormatter.string(from: date)
         }
-        collectionNameLabel.text = collection.title
+        
+        previewPhotoImageViews.enumerated().forEach { index, imageView in
+            
+            guard let countImages = collection.previewPhotos?.count else { return }
+            
+            // Если коллекция пустая, то убираются картинки по умолчанию
+            if countImages == 0 {
+                previewPhotoImageViews.forEach { $0.image = nil }
+            }
+            
+            if index < countImages, let url = URL(string: collection.previewPhotos?[index].urls?.thumb ?? "") {
+                imageView.loadImage(by: url)
+            } else {
+                // Если фотографий в коллекции меньше 4
+                imageView.image = nil
+            }
+        }
     }
 }

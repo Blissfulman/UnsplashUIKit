@@ -15,10 +15,18 @@ extension DateFormatter {
         return dateFormatter
     }()
     
-    static let appDateFormatter: DateFormatter = {
+    static let appLongDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .short
+        dateFormatter.doesRelativeDateFormatting = true
+        return dateFormatter
+    }()
+    
+    static let appShortDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
         dateFormatter.doesRelativeDateFormatting = true
         return dateFormatter
     }()

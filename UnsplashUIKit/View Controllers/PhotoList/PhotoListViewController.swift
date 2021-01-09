@@ -10,7 +10,6 @@ import UIKit
 final class PhotoListViewController: UICollectionViewController {
     
     // MARK: - Properties
-    var collection: CollectionModel?
     var photos = [PhotoModel]()
     
     /// Общее количество фотографий в отображаемом списке
@@ -23,12 +22,14 @@ final class PhotoListViewController: UICollectionViewController {
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Initializers
+    // Инициализатор для перехода с MainView и с CollectionListView
     init(collection: CollectionModel) {
-        self.collection = collection
         self.totalPhotos = collection.totalPhotos ?? 0
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        getPhotos(collection: collection)
     }
-    
+
+    // Инициализатор для перехода с SearchView
     init(photos: [PhotoModel], totalPhotos: Int) {
         self.photos = photos
         self.totalPhotos = totalPhotos
@@ -55,11 +56,8 @@ final class PhotoListViewController: UICollectionViewController {
     
     // MARK: - Private methods
     private func setupUI() {
-        collectionView.backgroundColor = .white
         navigationController?.navigationBar.isHidden = false
-        
-        guard let collection = collection else { return }
-        getPhotos(collection: collection)
+        collectionView.backgroundColor = .white
     }
     
     private func getPhotos(collection: CollectionModel) {

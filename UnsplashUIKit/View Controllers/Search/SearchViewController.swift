@@ -12,11 +12,7 @@ final class SearchViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var searchTermsTextField: UITextField!
     @IBOutlet weak var orderBySegmentedControl: UISegmentedControl!
-    @IBOutlet weak var startSearchButton: CustomButton! {
-        didSet {
-//            startSearchButton.alpha = startSearchButton.isEnabled ? 1 : 0.5
-        }
-    }
+    @IBOutlet weak var startSearchButton: CustomButton!
     
     // MARK: - Properties
     private let contentType: ContentType!
@@ -40,18 +36,11 @@ final class SearchViewController: UIViewController {
         setupUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.navigationBar.isHidden = false
-    }
-    
     // MARK: - Actions
     @IBAction func textFieldEditingChanged() {
         guard let searchTerms = searchTermsTextField.text else { return }
         
         startSearchButton.isEnabled = !searchTerms.isEmpty
-//        startSearchButton.alpha = startSearchButton.isEnabled ? 1 : 0.5
     }
     
     @IBAction func startSearchButtonTapped() {
@@ -69,6 +58,7 @@ final class SearchViewController: UIViewController {
     
     // MARK: - Private methods
     private func setupUI() {
+        navigationController?.navigationBar.isHidden = false
         title = "Search \(contentType.rawValue)"
         
         startSearchButton.isEnabled = false
@@ -113,8 +103,10 @@ final class SearchViewController: UIViewController {
                     return
                 }
                 
-                if let collections = searchCollectionsResult.collections {
-                    let collectionListVC = CollectionListViewController(collections: collections)
+                if let collections = searchCollectionsResult.collections,
+                   let totalCollections = searchCollectionsResult.total {
+                    let collectionListVC = CollectionListViewController(
+                        collections: collections, totalCollections: totalCollections)
                     collectionListVC.title = "Results for \"\(query)\""
 
                     // MARK: - Navigation

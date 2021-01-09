@@ -8,9 +8,7 @@
 import UIKit
 
 final class MainViewController: UITableViewController {
-    
-    // MARK: - Properties
-    
+        
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +30,10 @@ final class MainViewController: UITableViewController {
     private func setupUI() {
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
-        tableView.showsVerticalScrollIndicator = false
     }
 }
 
-// MARK: - Collection View Data Source
+// MARK: - Table View Data Source
 extension MainViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,7 +68,7 @@ extension MainViewController {
     }
 }
 
-// MARK: - Collection View Delegate
+// MARK: - Table View Delegate
 extension MainViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

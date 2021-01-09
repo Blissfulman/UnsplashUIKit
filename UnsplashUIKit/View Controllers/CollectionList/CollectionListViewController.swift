@@ -2,24 +2,22 @@
 //  CollectionListViewController.swift
 //  UnsplashUIKit
 //
-//  Created by User on 03.01.2021.
+//  Created by User on 08.01.2021.
 //
 
 import UIKit
 
-final class CollectionListViewController: UICollectionViewController {
-    
+final class CollectionListViewController: UITableViewController {
+        
     // MARK: - Properties
     private var collections = [CollectionModel]()
-    
-    private let numberOfColumns = UIConstant.defaultNumberOfColumns
-    private let edgeWidth = UIConstant.defaultEdgeWidth
-    private let spacing = UIConstant.defaultSpacing
+    private let totalCollections: Int
     
     // MARK: - Initializers
-    init(collections: [CollectionModel]) {
+    init(collections: [CollectionModel], totalCollections: Int) {
         self.collections = collections
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        self.totalCollections = totalCollections
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -30,36 +28,39 @@ final class CollectionListViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.register(CollectionCell.nib(), forCellWithReuseIdentifier: CollectionCell.identifier)
+        tableView.register(CollectionCell.nib(),
+                           forCellReuseIdentifier: CollectionCell.identifier)
         setupUI()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.navigationBar.isHidden = false
     }
     
     // MARK: - Private methods
     private func setupUI() {
-        collectionView.backgroundColor = .white
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        tableView.separatorStyle = .singleLine
     }
 }
 
-// MARK: - Collection View Data Source
+// MARK: - Table View Data Source
 extension CollectionListViewController {
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "Total collections: \(totalCollections)"
+        label.backgroundColor = .white
+        label.textAlignment = .center
+        return label
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         collections.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: CollectionCell.identifier,
-            for: indexPath
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: CollectionCell.identifier, for: indexPath
         ) as? CollectionCell else {
-            return UICollectionViewCell()
+            return UITableViewCell()
         }
         cell.configure(collections[indexPath.item])
         
@@ -67,10 +68,18 @@ extension CollectionListViewController {
     }
 }
 
-// MARK: - Collection View Delegate
+// MARK: - Table View Delegate
 extension CollectionListViewController {
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        45
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        tableView.frame.width / 3.5
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let collection = collections[indexPath.item]
         
         let photoListVC = PhotoListViewController(collection: collection)
@@ -78,29 +87,5 @@ extension CollectionListViewController {
         
         // MARK: - Navigation
         navigationController?.pushViewController(photoListVC, animated: true)
-    }
-}
-
-// MARK: - Collection View Layout
-extension CollectionListViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        spacing
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        spacing
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let sizeWidth = calculateSizeWidth(
-            spacing: spacing, edgeWidth: edgeWidth, numberOfColumns: numberOfColumns
-        )
-        return CGSize(width: sizeWidth, height: sizeWidth * 1.5)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        UIEdgeInsets(top: edgeWidth, left: edgeWidth, bottom: edgeWidth, right: edgeWidth)
     }
 }
