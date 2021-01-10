@@ -23,10 +23,10 @@ enum APIURL {
             return URL(string: stringURL)
         case let .searchPhotos(query, orderBy, count):
             let stringURL = baseURL + "/search/photos?query=\(query)&order_by=\(orderBy)&per_page=\(count)"
-            return URL(string: stringURL)
+            return URL(string: stringURL.urlEncoded() ?? "")
         case let .searchCollections(query, orderBy, count):
             let stringURL = baseURL + "/search/collections?query=\(query)&order_by=\(orderBy)&per_page=\(count)"
-            return URL(string: stringURL)
+            return URL(string: stringURL.urlEncoded() ?? "")
         case .listCollections(let count):
             let stringURL = baseURL + "/collections?per_page=\(count)"
             return URL(string: stringURL)

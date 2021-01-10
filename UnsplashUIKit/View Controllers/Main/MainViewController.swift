@@ -56,7 +56,7 @@ extension MainViewController {
                 return UITableViewCell()
             }
             return headerImageCell
-        case 1, 2:
+        default:
             guard let carouselTableCell = tableView.dequeueReusableCell(
                     withIdentifier: CarouselTableCell.identifier,
                     for: indexPath
@@ -67,8 +67,6 @@ extension MainViewController {
             carouselTableCell.delegate = self
             
             return carouselTableCell
-        default:
-            return UITableViewCell()
         }
     }
 }
