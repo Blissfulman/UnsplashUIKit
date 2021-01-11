@@ -20,7 +20,7 @@ final class PhotoInfoViewController: UIViewController {
     @IBOutlet weak var altDescriptionLabel: UILabel!
     
     // MARK: - Properties
-    let photo: PhotoModel!
+    let photo: PhotoModel
         
     // MARK: - Initializers
     init(photo: PhotoModel) {

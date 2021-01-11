@@ -97,15 +97,15 @@ extension MainViewController: CarouselTableCellDelegate {
         navigationController?.pushViewController(searchVC, animated: true)
     }
     
-    func onPhotoTapped(photo: PhotoModel) {
-        let onePhotoVC = OnePhotoViewController(photo: photo)
-        navigationController?.pushViewController(onePhotoVC, animated: true)
-    }
-    
     func onCollectionTapped(collection: CollectionModel) {
         let collectionPhotosVC = CollectionPhotosViewController(collection: collection)
         collectionPhotosVC.title = collection.title
         
         navigationController?.pushViewController(collectionPhotosVC, animated: true)
+    }
+    
+    func onPhotoTapped(photo: PhotoModel) {
+        let onePhotoVC = OnePhotoViewController(photo: photo)
+        navigationController?.pushViewController(onePhotoVC, animated: true)
     }
 }

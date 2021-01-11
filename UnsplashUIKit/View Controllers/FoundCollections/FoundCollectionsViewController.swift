@@ -90,7 +90,7 @@ extension FoundCollectionsViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        tableView.frame.width / 3.5
+        tableView.frame.width / UIConstant.CollectionCellSidesRatio
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

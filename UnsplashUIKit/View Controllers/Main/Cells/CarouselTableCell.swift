@@ -10,8 +10,8 @@ import UIKit
 protocol CarouselTableCellDelegate: UIViewController {
     func searchCollections()
     func searchPhotos()
-    func onPhotoTapped(photo: PhotoModel)
     func onCollectionTapped(collection: CollectionModel)
+    func onPhotoTapped(photo: PhotoModel)
 }
 
 final class CarouselTableCell: UITableViewCell {
@@ -26,9 +26,10 @@ final class CarouselTableCell: UITableViewCell {
     
     weak var delegate: CarouselTableCellDelegate?
     
-    private var photos = [PhotoModel]()
-    private var collections = [CollectionModel]()
     private var contentType: ContentType!
+    private var collections = [CollectionModel]()
+    private var photos = [PhotoModel]()
+    
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Class methods

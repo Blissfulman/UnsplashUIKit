@@ -10,6 +10,8 @@ import UIKit
 enum UIConstant {
     static let photoListHeaderHeight: CGFloat = 56
     static let collectionListHeaderHeight: CGFloat = 40
+    static let photoCellSidesRatio: CGFloat = 0.7
+    static let CollectionCellSidesRatio: CGFloat = 3.5
     
     static let defaultNumberOfColumns: CGFloat = 2
     static let defaultEdgeWidth: CGFloat = 10

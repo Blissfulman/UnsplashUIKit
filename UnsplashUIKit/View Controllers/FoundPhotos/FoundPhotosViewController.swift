@@ -140,7 +140,7 @@ extension FoundPhotosViewController: UICollectionViewDelegateFlowLayout {
         let sizeWidth = calculateSizeWidth(
             spacing: spacing, edgeWidth: edgeWidth, numberOfColumns: numberOfColumns
         )
-        return CGSize(width: sizeWidth, height: sizeWidth * 0.7)
+        return CGSize(width: sizeWidth, height: sizeWidth * UIConstant.photoCellSidesRatio)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

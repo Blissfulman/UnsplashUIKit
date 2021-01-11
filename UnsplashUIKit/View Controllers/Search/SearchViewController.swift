@@ -20,12 +20,13 @@ final class SearchViewController: UIViewController {
     @IBOutlet weak var startSearchButton: CustomButton!
     
     // MARK: - Properties
-    private let contentType: ContentType!
-    private let networkService: NetworkServiceProtocol = NetworkService()
+    private let contentType: ContentType
     
     private var searchOrderState: SearchOrderState {
         orderBySegmentedControl.selectedSegmentIndex == 0 ? .relevant : .latest
     }
+    
+    private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Initializers
     init(contentType: ContentType) {
