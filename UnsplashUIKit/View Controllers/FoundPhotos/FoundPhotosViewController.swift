@@ -7,25 +7,24 @@
 
 import UIKit
 
-final class FoundPhotosViewController: UICollectionViewController, PhotosCollectionViewControllerPaginable {
+final class FoundPhotosViewController: UICollectionViewController {
     
     // MARK: - Properties
     /// Отображаемые (загруженные) фотографии
-    var photos = [PhotoModel]()
+    private var photos = [PhotoModel]()
     
     /// Общее количество фотографий в отображаемом списке
-    let totalItems: Int
+    private let totalItems: Int
     
     /// Количество загруженных страниц
-    var loadedPages = 1
+    private var loadedPages = 1
     
     private var numberOfColumns = UIConstant.defaultNumberOfColumns
     private let edgeWidth = UIConstant.defaultEdgeWidth
     private let spacing = UIConstant.defaultSpacing
     
-    var links: PaginationLinks?
-    private let networkService: NetworkServiceProtocol = NetworkService()
-    let paginationService: PaginationServiceProtocol = PaginationService()
+    private var links: PaginationLinks?
+    private let paginationService: PaginationServiceProtocol = PaginationService()
     
     // MARK: - Initializers
     init(photos: [PhotoModel], totalItems: Int, links: PaginationLinks?) {
@@ -53,14 +52,44 @@ final class FoundPhotosViewController: UICollectionViewController, PhotosCollect
         setupUI()
     }
     
-    // MARK: - Private methods
+    // MARK: - Setup UI
     private func setupUI() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         collectionView.backgroundColor = .white
     }
+    
+    // MARK: - Pagination
+    private func loadNextPage() {
+        guard let nextLink = links?[RelationLinkType.next],
+              let url = nextLink else { return }
+        
+        paginationService.searchPhotos(url: url) {
+            [weak self] result, links in
+
+            guard let self = self else { return }
+
+            switch result {
+            case .success(let searchPhotossResult):
+
+                guard let photos = searchPhotossResult.photos else { return }
+
+                self.photos.append(contentsOf: photos)
+
+                let indexPaths = self.getNextPageIndexPaths(
+                    loadedPages: self.loadedPages,
+                    newItemsCount: searchPhotossResult.photos?.count ?? 0
+                )
+                self.loadedPages += 1
+                self.links = links
+                self.collectionView.insertItems(at: indexPaths)
+            case .failure(let error):
+                self.showAlert(error)
+            }
+        }
+    }
 }
 
-// MARK: - Collection Data Source
+// MARK: - Collection View Data Source
 extension FoundPhotosViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -98,16 +127,14 @@ extension FoundPhotosViewController {
     }
 }
 
-// MARK: - Collection Delegate
+// MARK: - Collection View Delegate
 extension FoundPhotosViewController {
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-                
-        let isNeedLoading = photos.count - indexPath.row == 5
         
-        if isNeedLoading {
+        if (totalItems > photos.count) && (photos.count - indexPath.row == 5) {
             print("Need loading...")
-            loadNextPageFoundPhotos(forSection: 0)
+            loadNextPage()
         }
     }
     
@@ -149,6 +176,7 @@ extension FoundPhotosViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - FoundPhotosHeaderDelegate
 extension FoundPhotosViewController: FoundPhotosHeaderDelegate {
     
     func switchColumnNumber(columns: Int) {

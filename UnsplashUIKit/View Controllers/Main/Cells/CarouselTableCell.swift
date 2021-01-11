@@ -74,6 +74,7 @@ final class CarouselTableCell: UITableViewCell {
             : fillPhotoCarousel()
     }
     
+    // MARK: - Fetching data
     private func fillCollectionCarousel() {
         networkService.fetchCollections(count: UIConstant.countCarouselElements) {
             [weak self] result, _ in

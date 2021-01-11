@@ -7,25 +7,25 @@
 
 import UIKit
 
-final class CollectionPhotosViewController: UICollectionViewController, PhotosCollectionViewControllerPaginable {
+final class CollectionPhotosViewController: UICollectionViewController {
     
     // MARK: - Properties
     /// Отображаемые (загруженные) фотографии
-    var photos = [PhotoModel]()
+    private var photos = [PhotoModel]()
     
     /// Общее количество фотографий в отображаемом списке
-    let totalItems: Int
+    private let totalItems: Int
     
     /// Количество загруженных страниц
-    var loadedPages = 0
+    private var loadedPages = 0
     
     private var numberOfColumns = UIConstant.defaultNumberOfColumns
     private let edgeWidth = UIConstant.defaultEdgeWidth
     private let spacing = UIConstant.defaultSpacing
     
-    internal var links: PaginationLinks?
+    private var links: PaginationLinks?
     private let networkService: NetworkServiceProtocol = NetworkService()
-    let paginationService: PaginationServiceProtocol = PaginationService()
+    private let paginationService: PaginationServiceProtocol = PaginationService()
     
     // MARK: - Initializers
     // Инициализатор для перехода с MainView и с CollectionListView
@@ -53,12 +53,13 @@ final class CollectionPhotosViewController: UICollectionViewController, PhotosCo
         setupUI()
     }
     
-    // MARK: - Private methods
+    // MARK: - Setup UI
     private func setupUI() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         collectionView.backgroundColor = .white
     }
     
+    // MARK: - Fetching data
     private func loadFirstPage(collection: CollectionModel) {
         
         guard let collectionID = collection.id else { return }
@@ -79,9 +80,36 @@ final class CollectionPhotosViewController: UICollectionViewController, PhotosCo
             }
         }
     }
+    
+    // MARK: - Pagination
+    private func loadNextPage() {
+        guard let nextLink = links?[RelationLinkType.next],
+              let url = nextLink else { return }
+        
+        paginationService.fetchCollectionPhotos(url: url) {
+            [weak self] result, links in
+
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let photos):
+                self.photos.append(contentsOf: photos)
+
+                let indexPaths = self.getNextPageIndexPaths(
+                    loadedPages: self.loadedPages,
+                    newItemsCount: photos.count
+                )
+                self.loadedPages += 1
+                self.links = links
+                self.collectionView.insertItems(at: indexPaths)
+            case .failure(let error):
+                self.showAlert(error)
+            }
+        }
+    }
 }
 
-// MARK: - Collection Data Source
+// MARK: - Collection View Data Source
 extension CollectionPhotosViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -119,16 +147,14 @@ extension CollectionPhotosViewController {
     }
 }
 
-// MARK: - Collection Delegate
+// MARK: - Collection View Delegate
 extension CollectionPhotosViewController {
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
                 
-        let isNeedLoading = photos.count - indexPath.row == 5
-        
-        if isNeedLoading {
+        if (totalItems > photos.count) && (photos.count - indexPath.row == 5) {
             print("Need loading...")
-            loadNextPageCollectionPhotos(forSection: 0)
+            loadNextPage()
         }
     }
     
@@ -170,6 +196,7 @@ extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - CollectionPhotosHeaderDelegate
 extension CollectionPhotosViewController: CollectionPhotosHeaderDelegate {
     
     func switchColumnNumber(columns: Int) {

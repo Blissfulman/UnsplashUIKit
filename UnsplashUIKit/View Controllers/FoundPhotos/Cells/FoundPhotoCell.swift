@@ -20,6 +20,7 @@ final class FoundPhotoCell: UICollectionViewCell {
         UINib(nibName: identifier, bundle: nil)
     }
     
+    // MARK: - Lifecycle methods
     override func prepareForReuse() {
         imageView.image = UIImage(named: "defaultImage")
     }

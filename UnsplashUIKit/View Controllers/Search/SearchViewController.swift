@@ -66,7 +66,7 @@ final class SearchViewController: UIViewController {
             : searchCollections(query: query, orderBy: searchOrderState.rawValue)
     }
     
-    // MARK: - Private methods
+    // MARK: - Setup UI
     private func setupUI() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         title = "Search \(contentType.rawValue)"
@@ -74,6 +74,7 @@ final class SearchViewController: UIViewController {
         startSearchButton.isEnabled = false
     }
     
+    // MARK: - Fetching data
     private func searchPhotos(query: String, orderBy: String) {
         networkService.searchPhotos(query: query, orderBy: orderBy) { [weak self] result, links in
             

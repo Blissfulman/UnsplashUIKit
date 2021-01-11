@@ -20,7 +20,7 @@ final class PhotoInfoViewController: UIViewController {
     @IBOutlet weak var altDescriptionLabel: UILabel!
     
     // MARK: - Properties
-    let photo: PhotoModel
+    private let photo: PhotoModel
         
     // MARK: - Initializers
     init(photo: PhotoModel) {
@@ -39,7 +39,7 @@ final class PhotoInfoViewController: UIViewController {
         setupUI()
     }
     
-    // MARK: - Private methods
+    // MARK: - Setup UI
     private func setupUI() {
         if let url = URL(string: photo.user?.profileImage?.medium ?? "") {
             authorImageView.loadImage(by: url)

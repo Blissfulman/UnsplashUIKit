@@ -7,21 +7,20 @@
 
 import UIKit
 
-final class FoundCollectionsViewController: UITableViewController, CollectionsTableViewControllerPaginable {
+final class FoundCollectionsViewController: UITableViewController {
     
     // MARK: - Properties
     /// Отображаемые (загруженные) коллекции
-    var collections = [CollectionModel]()
+    private var collections = [CollectionModel]()
     
     /// Общее количество элементов в отображаемом списке
     private let totalItems: Int
     
     /// Количество загруженных страниц
-    var loadedPages = 1
+    private var loadedPages = 1
     
-    var links: PaginationLinks?
-    private let networkService: NetworkServiceProtocol = NetworkService()
-    let paginationService: PaginationServiceProtocol = PaginationService()
+    private var links: PaginationLinks?
+    private let paginationService: PaginationServiceProtocol = PaginationService()
     
     // MARK: - Initializers
     init(collections: [CollectionModel], totalItems: Int, links: PaginationLinks?) {
@@ -48,6 +47,37 @@ final class FoundCollectionsViewController: UITableViewController, CollectionsTa
     private func setupUI() {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .singleLine
+    }
+    
+    // MARK: - Pagination
+    private func loadNextPage() {
+        guard let nextLink = links?[RelationLinkType.next],
+              let url = nextLink else { return }
+        
+        paginationService.searchCollections(url: url) {
+            [weak self] result, links in
+            
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let searchCollectionsResult):
+                
+                guard let collections = searchCollectionsResult.collections else { return }
+                
+                self.collections.append(contentsOf: collections)
+                
+                let indexPaths = self.getNextPageIndexPaths(
+                    loadedPages: self.loadedPages,
+                    newItemsCount: searchCollectionsResult.collections?.count ?? 0,
+                    section: 1
+                )
+                self.loadedPages += 1
+                self.links = links
+                self.tableView.insertRows(at: indexPaths, with: .automatic)
+            case .failure(let error):
+                self.showAlert(error)
+            }
+        }
     }
 }
 
@@ -96,12 +126,9 @@ extension FoundCollectionsViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        let displayedItems = loadedPages * APIConstant.itemsPerPage
-        let isNeedLoading = displayedItems - indexPath.row == 10
-        
-        if isNeedLoading {
+        if (totalItems > collections.count) && (collections.count - indexPath.row == 5) {
             print("Need loading...")
-            loadNextPageFoundCollections(forSection: 1)
+            loadNextPage()
         }
     }
     

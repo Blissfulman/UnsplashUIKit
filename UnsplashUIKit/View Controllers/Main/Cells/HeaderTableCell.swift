@@ -29,7 +29,7 @@ final class HeaderTableCell: UITableViewCell {
         getPhoto()
     }
     
-    // MARK: - Private methods
+    // MARK: - Fetching data
     private func getPhoto() {
         networkService.fetchRandomPhotos(count: 1) { [weak self] result, _ in
             

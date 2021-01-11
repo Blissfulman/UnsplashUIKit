@@ -31,7 +31,7 @@ final class MainViewController: UITableViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    // MARK: - Private methods
+    // MARK: - Setup UI
     private func setupUI() {
         tableView.allowsSelection = false
         tableView.separatorStyle = .none

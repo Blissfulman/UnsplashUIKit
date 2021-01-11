@@ -17,7 +17,7 @@ final class OnePhotoViewController: UIViewController {
     @IBOutlet weak var downloadsLabel: UILabel!
     
     // MARK: - Properties
-    let photo: PhotoModel
+    private let photo: PhotoModel
     
     // MARK: - Initializers
     init(photo: PhotoModel) {

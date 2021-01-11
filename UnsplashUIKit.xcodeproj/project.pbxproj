@@ -11,8 +11,6 @@
 		CE26FF1225AC73A900DD1059 /* FoundPhotosHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE26FF1025AC73A900DD1059 /* FoundPhotosHeader.xib */; };
 		CE26FF1625AC740F00DD1059 /* FoundPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26FF1425AC740F00DD1059 /* FoundPhotoCell.swift */; };
 		CE26FF1725AC740F00DD1059 /* FoundPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE26FF1525AC740F00DD1059 /* FoundPhotoCell.xib */; };
-		CE26FF1E25AC87C900DD1059 /* CollectionsTableViewControllerPaginable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26FF1D25AC87C900DD1059 /* CollectionsTableViewControllerPaginable.swift */; };
-		CE26FF2125AC882600DD1059 /* UICollectionViewControllerPaginable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26FF2025AC882600DD1059 /* UICollectionViewControllerPaginable.swift */; };
 		CE26FF2825ACB83200DD1059 /* PaginationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26FF2725ACB83200DD1059 /* PaginationService.swift */; };
 		CE63A555259F9E6E00406FD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE63A554259F9E6E00406FD4 /* AppDelegate.swift */; };
 		CE63A55E259F9E6F00406FD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE63A55D259F9E6F00406FD4 /* Assets.xcassets */; };
@@ -75,8 +73,6 @@
 		CE26FF1025AC73A900DD1059 /* FoundPhotosHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundPhotosHeader.xib; sourceTree = "<group>"; };
 		CE26FF1425AC740F00DD1059 /* FoundPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundPhotoCell.swift; sourceTree = "<group>"; };
 		CE26FF1525AC740F00DD1059 /* FoundPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundPhotoCell.xib; sourceTree = "<group>"; };
-		CE26FF1D25AC87C900DD1059 /* CollectionsTableViewControllerPaginable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsTableViewControllerPaginable.swift; sourceTree = "<group>"; };
-		CE26FF2025AC882600DD1059 /* UICollectionViewControllerPaginable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewControllerPaginable.swift; sourceTree = "<group>"; };
 		CE26FF2725ACB83200DD1059 /* PaginationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationService.swift; sourceTree = "<group>"; };
 		CE63A551259F9E6E00406FD4 /* UnsplashUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsplashUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE63A554259F9E6E00406FD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,15 +152,6 @@
 				CE26FF1525AC740F00DD1059 /* FoundPhotoCell.xib */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		CE26FF1C25AC87AF00DD1059 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				CE26FF1D25AC87C900DD1059 /* CollectionsTableViewControllerPaginable.swift */,
-				CE26FF2025AC882600DD1059 /* UICollectionViewControllerPaginable.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		CE63A548259F9E6E00406FD4 = {
@@ -322,7 +309,6 @@
 				CEB034D825AA331900B59BF4 /* LoadingView.swift */,
 				CED91E0B25AC3852003E8BE8 /* RelationLinkType.swift */,
 				CED842E325A111F900C07428 /* Extensions */,
-				CE26FF1C25AC87AF00DD1059 /* Protocols */,
 			);
 			path = "Additional Files";
 			sourceTree = "<group>";
@@ -485,7 +471,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA2A8D525A4D18A003E0E02 /* APIConstant.swift in Sources */,
-				CE26FF1E25AC87C900DD1059 /* CollectionsTableViewControllerPaginable.swift in Sources */,
 				CEA2A8CA25A476EF003E0E02 /* SearchViewController.swift in Sources */,
 				CED91E1C25AC6EFF003E8BE8 /* FoundPhotosViewController.swift in Sources */,
 				CE85AA3825A810350015E812 /* UICollectionViewController+Extension.swift in Sources */,
@@ -525,7 +510,6 @@
 				CEA2A8FC25A59D9F003E0E02 /* ContentType.swift in Sources */,
 				CEA2A8E725A4EE6B003E0E02 /* CarouselTableCell.swift in Sources */,
 				CEB034DE25AAB78F00B59BF4 /* String+Extension.swift in Sources */,
-				CE26FF2125AC882600DD1059 /* UICollectionViewControllerPaginable.swift in Sources */,
 				CED842D625A0E3DD00C07428 /* ServerError.swift in Sources */,
 				CEA2A8B125A37D3F003E0E02 /* UserModel.swift in Sources */,
 			);
