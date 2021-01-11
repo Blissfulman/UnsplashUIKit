@@ -13,7 +13,7 @@ struct UserModel: Decodable {
     let firstName: String?
     let lastName: String?
     let links: UserLinksModel?
-    let profileImage: ProfileImageModel?
+    let profileImage: UserProfileImageModel?
     let totalCollections: Int?
     let totalLikes: Int?
     let totalPhotos: Int?
@@ -39,8 +39,8 @@ struct UserLinksModel: Decodable {
     let likes: String?
 }
 
-// MARK: - ProfileImageModel
-struct ProfileImageModel: Decodable {
+// MARK: - UserProfileImageModel
+struct UserProfileImageModel: Decodable {
     let small: String?
     let medium: String?
     let large: String?

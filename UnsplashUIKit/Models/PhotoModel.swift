@@ -19,10 +19,9 @@ struct PhotoModel: Decodable {
     let description: String?
     let altDescription: String?
     let urls: PhotoUrlsModel?
-    //    let links: PhotoLinks?
     let likes: Int?
     let user: UserModel?
-    let location: LocationModel?
+    let location: PhotoLocationModel?
     let views: Int?
     let downloads: Int?
     
@@ -37,7 +36,6 @@ struct PhotoModel: Decodable {
         case description
         case altDescription = "alt_description"
         case urls
-        //        case links
         case likes
         case user
         case location
@@ -55,17 +53,10 @@ struct PhotoUrlsModel: Decodable {
     let thumb: String?
 }
 
-// MARK: - LocationModel
-struct LocationModel: Decodable {
+// MARK: - PhotoLocationModel
+struct PhotoLocationModel: Decodable {
     let title: String?
     let name: String?
     let city: String?
     let country: String?
-    let position: PositionModel?
-}
-
-// MARK: - PositionModel
-struct PositionModel: Decodable {
-    let latitude: Double?
-    let longitude: Double?
 }
