@@ -1,5 +1,5 @@
 //
-//  CollectionListViewController.swift
+//  FoundCollectionsViewController.swift
 //  UnsplashUIKit
 //
 //  Created by User on 08.01.2021.
@@ -7,16 +7,26 @@
 
 import UIKit
 
-final class CollectionListViewController: UITableViewController {
-        
+final class FoundCollectionsViewController: UITableViewController, CollectionsTableViewControllerPaginable {
+    
     // MARK: - Properties
-    private var collections = [CollectionModel]()
-    private let totalCollections: Int
+    /// Отображаемые (загруженные) коллекции
+    var collections = [CollectionModel]()
+    
+    /// Общее количество элементов в отображаемом списке
+    private let totalItems: Int
+    
+    /// Количество загруженных страниц
+    var loadedPages = 1
+    
+    var links: PaginationLinks?
+    let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Initializers
-    init(collections: [CollectionModel], totalCollections: Int) {
+    init(collections: [CollectionModel], totalItems: Int, links: PaginationLinks?) {
         self.collections = collections
-        self.totalCollections = totalCollections
+        self.totalItems = totalItems
+        self.links = links
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,7 +51,7 @@ final class CollectionListViewController: UITableViewController {
 }
 
 // MARK: - Table View Data Source
-extension CollectionListViewController {
+extension FoundCollectionsViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         2
@@ -49,7 +59,7 @@ extension CollectionListViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.text = "Total collections: \(totalCollections)"
+        label.text = "Total collections: \(totalItems)"
         label.backgroundColor = .white
         label.textAlignment = .center
         return label
@@ -73,23 +83,34 @@ extension CollectionListViewController {
 }
 
 // MARK: - Table View Delegate
-extension CollectionListViewController {
+extension FoundCollectionsViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        section == 0 ? 44 : 0
+        section == 0 ? UIConstant.collectionListHeaderHeight : 0
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         tableView.frame.width / 3.5
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        let displayedItems = loadedPages * APIConstant.itemsPerPage
+        let isNeedLoading = displayedItems - indexPath.row == 10
+        
+        if isNeedLoading {
+            print("Need loading...")
+            loadNextPageFoundCollections(forSection: 1)
+        }
+    }
+    
     // MARK: - Navigation
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let collection = collections[indexPath.item]
         
-        let photoListVC = PhotoListViewController(collection: collection)
-        photoListVC.title = collection.title
+        let collectionPhotosVC = CollectionPhotosViewController(collection: collection)
+        collectionPhotosVC.title = collection.title
         
-        navigationController?.pushViewController(photoListVC, animated: true)
+        navigationController?.pushViewController(collectionPhotosVC, animated: true)
     }
 }

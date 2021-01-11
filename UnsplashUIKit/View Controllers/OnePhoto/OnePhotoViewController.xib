@@ -25,9 +25,6 @@
                 <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="V9K-tZ-Ysk">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <gestureRecognizers/>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="ZZb-Qf-wkG" appends="YES" id="S3a-Yi-fAw"/>
-                    </connections>
                 </imageView>
                 <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Knj-bj-AFh">
                     <rect key="frame" x="16" y="812" width="382" height="34"/>
@@ -138,11 +135,6 @@
             </constraints>
             <point key="canvasLocation" x="34.782608695652179" y="71.651785714285708"/>
         </view>
-        <pinchGestureRecognizer id="ZZb-Qf-wkG">
-            <connections>
-                <action selector="onPhotoPinched:" destination="-1" id="58w-y0-8SF"/>
-            </connections>
-        </pinchGestureRecognizer>
     </objects>
     <resources>
         <image name="arrow.down.circle.fill" catalog="system" width="128" height="121"/>

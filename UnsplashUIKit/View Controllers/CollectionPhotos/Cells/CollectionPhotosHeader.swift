@@ -15,7 +15,6 @@ final class CollectionPhotosHeader: UICollectionReusableView {
 
     // MARK: - Outlets
     @IBOutlet weak var photoCountLabel: UILabel!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     // MARK: - Properties
     static let identifier = String(describing: CollectionPhotosHeader.self)
@@ -28,7 +27,7 @@ final class CollectionPhotosHeader: UICollectionReusableView {
     }
     
     // MARK: - Actions
-    @IBAction func segmentedControlSwitched(_ sender: Any) {
-        delegate?.switchColumnNumber(columns: segmentedControl.selectedSegmentIndex + 1)
+    @IBAction func segmentedControlSwitched(_ sender: UISegmentedControl) {
+        delegate?.switchColumnNumber(columns: sender.selectedSegmentIndex + 1)
     }
 }

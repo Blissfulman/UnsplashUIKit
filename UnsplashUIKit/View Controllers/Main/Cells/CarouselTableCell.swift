@@ -75,7 +75,7 @@ final class CarouselTableCell: UITableViewCell {
     
     private func fillCollectionCarousel() {
         networkService.fetchCollections(count: UIConstant.countCarouselElements) {
-            [weak self] result in
+            [weak self] result, _ in
             
             guard let self = self else { return }
             
@@ -92,7 +92,7 @@ final class CarouselTableCell: UITableViewCell {
     
     private func fillPhotoCarousel() {
         networkService.fetchRandomPhotos(count: UIConstant.countCarouselElements) {
-            [weak self] result in
+            [weak self] result, _ in
             
             guard let self = self else { return }
             

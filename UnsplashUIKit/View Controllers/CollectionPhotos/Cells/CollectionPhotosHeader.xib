@@ -35,7 +35,7 @@
                                 <segment title="" image="square.grid.3x2" catalog="system"/>
                             </segments>
                             <connections>
-                                <action selector="segmentedControlSwitched:" destination="U6b-Vx-4bR" eventType="valueChanged" id="oVz-jv-dbQ"/>
+                                <action selector="segmentedControlSwitched:" destination="U6b-Vx-4bR" eventType="valueChanged" id="q9o-iK-Vrm"/>
                             </connections>
                         </segmentedControl>
                     </subviews>
@@ -50,13 +50,12 @@
             </constraints>
             <connections>
                 <outlet property="photoCountLabel" destination="6cb-jd-Ymj" id="Yqf-Bp-xkE"/>
-                <outlet property="segmentedControl" destination="Vel-cJ-r7r" id="oKC-VF-h1x"/>
             </connections>
             <point key="canvasLocation" x="57.971014492753625" y="70.982142857142847"/>
         </collectionReusableView>
     </objects>
     <resources>
-        <image name="square" catalog="system" width="128" height="114"/>
+        <image name="square" catalog="system" width="32" height="32"/>
         <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
         <image name="square.grid.3x2" catalog="system" width="128" height="80"/>
         <namedColor name="CustomVioletColor">

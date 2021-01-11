@@ -103,9 +103,9 @@ extension MainViewController: CarouselTableCellDelegate {
     }
     
     func onCollectionTapped(collection: CollectionModel) {
-        let photoListVC = PhotoListViewController(collection: collection)
-        photoListVC.title = collection.title
+        let collectionPhotosVC = CollectionPhotosViewController(collection: collection)
+        collectionPhotosVC.title = collection.title
         
-        navigationController?.pushViewController(photoListVC, animated: true)
+        navigationController?.pushViewController(collectionPhotosVC, animated: true)
     }
 }

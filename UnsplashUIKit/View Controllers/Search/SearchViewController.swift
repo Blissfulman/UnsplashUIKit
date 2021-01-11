@@ -74,8 +74,8 @@ final class SearchViewController: UIViewController {
     }
     
     private func searchPhotos(query: String, orderBy: String) {
-        networkService.searchPhotos(query: query, orderBy: orderBy) { [weak self] result in
-
+        networkService.searchPhotos(query: query, orderBy: orderBy) { [weak self] result, links in
+            
             defer {
                 LoadingView.hide()
             }
@@ -90,13 +90,14 @@ final class SearchViewController: UIViewController {
                 }
                 
                 if let photos = searchPhotosResult.photos,
-                   let totalPhotos = searchPhotosResult.total {
-                    let photoListVC = PhotoListViewController(photos: photos,
-                                                              totalPhotos: totalPhotos)
-                    photoListVC.title = "Results for \"\(query)\""
+                   let totalItems = searchPhotosResult.total {
+                    let foundPhotosVC = FoundPhotosViewController(
+                        photos: photos, totalItems: totalItems, links: links
+                    )
+                    foundPhotosVC.title = "Results for \"\(query)\""
                     
                     // MARK: - Navigation
-                    self.navigationController?.pushViewController(photoListVC, animated: true)
+                    self.navigationController?.pushViewController(foundPhotosVC, animated: true)
                 }
             case .failure(let error):
                 self.showAlert(error)
@@ -105,14 +106,15 @@ final class SearchViewController: UIViewController {
     }
     
     private func searchCollections(query: String, orderBy: String) {
-        networkService.searchCollections(query: query, orderBy: orderBy) { [weak self] result in
+        networkService.searchCollections(query: query, orderBy: orderBy) {
+            [weak self] result, links in
             
             defer {
                 LoadingView.hide()
             }
             
             guard let self = self else { return }
-
+            
             switch result {
             case .success(let searchCollectionsResult):
                 guard searchCollectionsResult.total != 0 else {
@@ -121,13 +123,14 @@ final class SearchViewController: UIViewController {
                 }
                 
                 if let collections = searchCollectionsResult.collections,
-                   let totalCollections = searchCollectionsResult.total {
-                    let collectionListVC = CollectionListViewController(
-                        collections: collections, totalCollections: totalCollections)
-                    collectionListVC.title = "Results for \"\(query)\""
+                   let totalItems = searchCollectionsResult.total {
+                    let foundCollectionsVC = FoundCollectionsViewController(
+                        collections: collections, totalItems: totalItems, links: links
+                    )
+                    foundCollectionsVC.title = "Results for \"\(query)\""
 
                     // MARK: - Navigation
-                    self.navigationController?.pushViewController(collectionListVC, animated: true)
+                    self.navigationController?.pushViewController(foundCollectionsVC, animated: true)
                 }
             case .failure(let error):
                 self.showAlert(error)

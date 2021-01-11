@@ -36,4 +36,13 @@ extension UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
+    func getNextPageIndexPaths(loadedPages: Int, newItemsCount: Int, section: Int = 0) -> [IndexPath] {
+        let displayedItems = loadedPages * APIConstant.itemsPerPage
+        
+        let indexPaths = (displayedItems..<(displayedItems + newItemsCount)).map {
+            IndexPath.init(item: $0, section: section)
+        }
+        return indexPaths
+    }
 }

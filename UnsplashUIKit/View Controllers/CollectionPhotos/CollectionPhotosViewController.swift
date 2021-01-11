@@ -1,5 +1,5 @@
 //
-//  PhotoListViewController.swift
+//  CollectionPhotosViewController.swift
 //  UnsplashUIKit
 //
 //  Created by User on 04.01.2021.
@@ -7,33 +7,31 @@
 
 import UIKit
 
-final class PhotoListViewController: UICollectionViewController {
+final class CollectionPhotosViewController: UICollectionViewController, PhotosCollectionViewControllerPaginable {
     
     // MARK: - Properties
+    /// Отображаемые (загруженные) фотографии
     var photos = [PhotoModel]()
     
     /// Общее количество фотографий в отображаемом списке
-    let totalPhotos: Int
+    let totalItems: Int
+    
+    /// Количество загруженных страниц
+    var loadedPages = 0
     
     private var numberOfColumns = UIConstant.defaultNumberOfColumns
     private let edgeWidth = UIConstant.defaultEdgeWidth
     private let spacing = UIConstant.defaultSpacing
     
-    private let networkService: NetworkServiceProtocol = NetworkService()
+    internal var links: PaginationLinks?
+    internal let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Initializers
     // Инициализатор для перехода с MainView и с CollectionListView
     init(collection: CollectionModel) {
-        self.totalPhotos = collection.totalPhotos ?? 0
+        self.totalItems = collection.totalPhotos ?? 0
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
-        getPhotos(collection: collection)
-    }
-
-    // Инициализатор для перехода с SearchView
-    init(photos: [PhotoModel], totalPhotos: Int) {
-        self.photos = photos
-        self.totalPhotos = totalPhotos
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        loadFirstPage(collection: collection)
     }
     
     required init?(coder: NSCoder) {
@@ -49,8 +47,8 @@ final class PhotoListViewController: UICollectionViewController {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: CollectionPhotosHeader.identifier
         )
-        collectionView.register(PhotoCell.nib(),
-                                forCellWithReuseIdentifier: PhotoCell.identifier)
+        collectionView.register(CollectionPhotoCell.nib(),
+                                forCellWithReuseIdentifier: CollectionPhotoCell.identifier)
         setupUI()
     }
     
@@ -60,16 +58,20 @@ final class PhotoListViewController: UICollectionViewController {
         collectionView.backgroundColor = .white
     }
     
-    private func getPhotos(collection: CollectionModel) {
+    private func loadFirstPage(collection: CollectionModel) {
+        
         guard let collectionID = collection.id else { return }
         
-        networkService.fetchCollectionPhotos(id: collectionID) { [weak self] result in
+        networkService.fetchCollectionPhotos(id: collectionID) {
+            [weak self] result, links in
             
             guard let self = self else { return }
             
             switch result {
             case .success(let photos):
                 self.photos = photos
+                self.links = links
+                self.loadedPages += 1
                 self.collectionView.reloadData()
             case .failure(let error):
                 ErrorManager.showErrorDescription(error: error)
@@ -79,7 +81,7 @@ final class PhotoListViewController: UICollectionViewController {
 }
 
 // MARK: - Collection Data Source
-extension PhotoListViewController {
+extension CollectionPhotosViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
@@ -92,7 +94,7 @@ extension PhotoListViewController {
         }
         
         header.delegate = self
-        header.photoCountLabel.text = "Total photos: \(totalPhotos)"
+        header.photoCountLabel.text = "Total photos: \(totalItems)"
         
         return header
     }
@@ -104,9 +106,9 @@ extension PhotoListViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: PhotoCell.identifier,
+            withReuseIdentifier: CollectionPhotoCell.identifier,
             for: indexPath
-        ) as? PhotoCell else {
+        ) as? CollectionPhotoCell else {
             return UICollectionViewCell()
         }
         
@@ -117,11 +119,17 @@ extension PhotoListViewController {
 }
 
 // MARK: - Collection Delegate
-extension PhotoListViewController {
+extension CollectionPhotosViewController {
     
-//    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        
-//    }
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+                
+        let isNeedLoading = photos.count - indexPath.row == 5
+        
+        if isNeedLoading {
+            print("Need loading...")
+            loadNextPageCollectionPhotos(forSection: 0)
+        }
+    }
     
     // MARK: - Navigation
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -134,7 +142,7 @@ extension PhotoListViewController {
 }
 
 // MARK: - Collection View Layout
-extension PhotoListViewController: UICollectionViewDelegateFlowLayout {
+extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         CGSize(width: collectionView.bounds.width, height: UIConstant.photoListHeaderHeight)
@@ -161,7 +169,7 @@ extension PhotoListViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension PhotoListViewController: CollectionPhotosHeaderDelegate {
+extension CollectionPhotosViewController: CollectionPhotosHeaderDelegate {
     
     func switchColumnNumber(columns: Int) {
         numberOfColumns = CGFloat(columns)

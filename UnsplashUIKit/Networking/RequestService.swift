@@ -21,7 +21,7 @@ final class RequestService: RequestServiceProtocol {
     func getRequest(url: URL, httpMethod: HTTPMethod) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
-        request.addValue("Client-ID \(NetworkConstants.accessKey)",
+        request.addValue("Client-ID \(APIConstant.accessKey)",
                          forHTTPHeaderField: "Authorization")
         
         return request

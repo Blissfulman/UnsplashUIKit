@@ -31,7 +31,7 @@ final class HeaderTableCell: UITableViewCell {
     
     // MARK: - Private methods
     private func getPhoto() {
-        networkService.fetchRandomPhotos(count: 1) { [weak self] result in
+        networkService.fetchRandomPhotos(count: 1) { [weak self] result, _ in
             
             guard let self = self else { return }
             

@@ -15,7 +15,7 @@ enum APIURL {
     case collectionPhotos(id: String, count: Int)
     
     var url: URL? {
-        let baseURL = NetworkConstants.baseURL
+        let baseURL = APIConstant.baseURL
         
         switch self {
         case .randomPhotos(let count):

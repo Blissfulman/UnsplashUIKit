@@ -7,11 +7,15 @@
 
 import UIKit
 
-typealias PhotoResult = (Result<PhotoModel, Error>) -> Void
-typealias PhotosResult = (Result<[PhotoModel], Error>) -> Void
-typealias CollectionsResult = (Result<[CollectionModel], Error>) -> Void
-typealias SearchPhotosResult = (Result<SearchPhotosModel, Error>) -> Void
-typealias SearchCollectionsResult = (Result<SearchCollectionsModel, Error>) -> Void
+typealias PaginationLinks = [RelationLinkType: URL?]
+
+typealias ResultBlock<T> = (Result<T, Error>, PaginationLinks?) -> Void
+
+typealias PhotoResult = ResultBlock<PhotoModel>
+typealias PhotosResult = ResultBlock<[PhotoModel]>
+typealias CollectionsResult = ResultBlock<[CollectionModel]>
+typealias SearchPhotosResult = ResultBlock<SearchPhotosModel>
+typealias SearchCollectionsResult = ResultBlock<SearchCollectionsModel>
 
 protocol NetworkServiceProtocol {
     
@@ -46,6 +50,10 @@ protocol NetworkServiceProtocol {
     ///   - orderBy: Вариант сортировки коллекций. Допустимые значения "latest" и "relevant".
     ///   - completion: Обработчик завершения, в который возвращается результат выполнения функции.
     func searchCollections(query: String, orderBy: String, completion: @escaping SearchCollectionsResult)
+    
+    func fetchCollectionPhotos(url: URL, completion: @escaping PhotosResult)
+    func searchCollections(url: URL, completion: @escaping SearchCollectionsResult)
+    func searchPhotos(url: URL, completion: @escaping SearchPhotosResult)
 }
 
 final class NetworkService: NetworkServiceProtocol {
@@ -76,7 +84,8 @@ final class NetworkService: NetworkServiceProtocol {
     }
     
     func fetchCollectionPhotos(id: String, completion: @escaping PhotosResult) {
-        guard let url = APIURL.collectionPhotos(id: id, count: 30).url else { return }
+        guard let url = APIURL.collectionPhotos(id: id,
+                                                count: APIConstant.itemsPerPage).url else { return }
 
         let request = requestService.getRequest(url: url, httpMethod: .get)
                 
@@ -84,7 +93,9 @@ final class NetworkService: NetworkServiceProtocol {
     }
     
     func searchPhotos(query: String, orderBy: String, completion: @escaping SearchPhotosResult) {
-        guard let url = APIURL.searchPhotos(query: query, orderBy: orderBy, count: 30).url else { return }
+        guard let url = APIURL.searchPhotos(query: query,
+                                            orderBy: orderBy,
+                                            count: APIConstant.itemsPerPage).url else { return }
         
         let request = requestService.getRequest(url: url, httpMethod: .get)
                 
@@ -92,8 +103,28 @@ final class NetworkService: NetworkServiceProtocol {
     }
     
     func searchCollections(query: String, orderBy: String, completion: @escaping SearchCollectionsResult) {
-        guard let url = APIURL.searchCollections(query: query, orderBy: orderBy, count: 30).url else { return }
+        guard let url = APIURL.searchCollections(query: query,
+                                                 orderBy: orderBy,
+                                                 count: APIConstant.itemsPerPage).url else { return }
         
+        let request = requestService.getRequest(url: url, httpMethod: .get)
+                
+        dataTaskService.dataTask(request: request, completion: completion)
+    }
+    
+    func fetchCollectionPhotos(url: URL, completion: @escaping PhotosResult) {
+        let request = requestService.getRequest(url: url, httpMethod: .get)
+                
+        dataTaskService.dataTask(request: request, completion: completion)
+    }
+    
+    func searchCollections(url: URL, completion: @escaping SearchCollectionsResult) {
+        let request = requestService.getRequest(url: url, httpMethod: .get)
+                
+        dataTaskService.dataTask(request: request, completion: completion)
+    }
+    
+    func searchPhotos(url: URL, completion: @escaping SearchPhotosResult) {
         let request = requestService.getRequest(url: url, httpMethod: .get)
                 
         dataTaskService.dataTask(request: request, completion: completion)

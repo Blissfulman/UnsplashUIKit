@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import WebKit
 
 final class OnePhotoViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var photoImageView: UIImageView!
-    
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var viewsLabel: UILabel!
     @IBOutlet weak var downloadsLabel: UILabel!
@@ -44,21 +44,16 @@ final class OnePhotoViewController: UIViewController {
         present(photoInfoVC, animated: true)
     }
     
-    @IBAction func onPhotoPinched(_ sender: UIPinchGestureRecognizer) {
-        photoImageView.transform = (photoImageView.transform.scaledBy(x: sender.scale,
-                                                                      y: sender.scale))
-    }
-    
-    @objc func onPhotoDoubleTapped() {
-        print("Yo")
-    }
+//    @objc func onPhotoDoubleTapped() {
+//        print("Yo")
+//    }
     
     // MARK: - Private methods
     private func setupUI() {
-        let onPhotoDoudleTapGR = UITapGestureRecognizer(target: self,
-                                                        action: #selector(onPhotoDoubleTapped))
-        onPhotoDoudleTapGR.numberOfTapsRequired = 2
-        photoImageView.addGestureRecognizer(onPhotoDoudleTapGR)
+//        let onPhotoDoudleTapGR = UITapGestureRecognizer(target: self,
+//                                                        action: #selector(onPhotoDoubleTapped))
+//        onPhotoDoudleTapGR.numberOfTapsRequired = 2
+//        photoImageView.addGestureRecognizer(onPhotoDoudleTapGR)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "info.circle"),
