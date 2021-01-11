@@ -50,10 +50,6 @@ protocol NetworkServiceProtocol {
     ///   - orderBy: Вариант сортировки коллекций. Допустимые значения "latest" и "relevant".
     ///   - completion: Обработчик завершения, в который возвращается результат выполнения функции.
     func searchCollections(query: String, orderBy: String, completion: @escaping SearchCollectionsResult)
-    
-    func fetchCollectionPhotos(url: URL, completion: @escaping PhotosResult)
-    func searchCollections(url: URL, completion: @escaping SearchCollectionsResult)
-    func searchPhotos(url: URL, completion: @escaping SearchPhotosResult)
 }
 
 final class NetworkService: NetworkServiceProtocol {
@@ -107,24 +103,6 @@ final class NetworkService: NetworkServiceProtocol {
                                                  orderBy: orderBy,
                                                  count: APIConstant.itemsPerPage).url else { return }
         
-        let request = requestService.getRequest(url: url, httpMethod: .get)
-                
-        dataTaskService.dataTask(request: request, completion: completion)
-    }
-    
-    func fetchCollectionPhotos(url: URL, completion: @escaping PhotosResult) {
-        let request = requestService.getRequest(url: url, httpMethod: .get)
-                
-        dataTaskService.dataTask(request: request, completion: completion)
-    }
-    
-    func searchCollections(url: URL, completion: @escaping SearchCollectionsResult) {
-        let request = requestService.getRequest(url: url, httpMethod: .get)
-                
-        dataTaskService.dataTask(request: request, completion: completion)
-    }
-    
-    func searchPhotos(url: URL, completion: @escaping SearchPhotosResult) {
         let request = requestService.getRequest(url: url, httpMethod: .get)
                 
         dataTaskService.dataTask(request: request, completion: completion)

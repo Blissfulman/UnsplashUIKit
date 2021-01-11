@@ -11,7 +11,7 @@ protocol PhotosCollectionViewControllerPaginable: UICollectionViewController {
     var photos: [PhotoModel] { get set }
     var loadedPages: Int { get set }
     var links: PaginationLinks? { get set }
-    var networkService: NetworkServiceProtocol { get }
+    var paginationService: PaginationServiceProtocol { get }
 }
 
 extension PhotosCollectionViewControllerPaginable {
@@ -20,7 +20,7 @@ extension PhotosCollectionViewControllerPaginable {
         guard let urlLink = links?[RelationLinkType.next],
               let url = urlLink else { return }
         
-        networkService.searchPhotos(url: url) {
+        paginationService.searchPhotos(url: url) {
             [weak self] result, links in
 
             guard let self = self else { return }
@@ -52,7 +52,7 @@ extension PhotosCollectionViewControllerPaginable {
         guard let urlLink = links?[RelationLinkType.next],
               let url = urlLink else { return }
         
-        networkService.fetchCollectionPhotos(url: url) {
+        paginationService.fetchCollectionPhotos(url: url) {
             [weak self] result, links in
 
             guard let self = self else { return }

@@ -20,7 +20,8 @@ final class FoundCollectionsViewController: UITableViewController, CollectionsTa
     var loadedPages = 1
     
     var links: PaginationLinks?
-    let networkService: NetworkServiceProtocol = NetworkService()
+    private let networkService: NetworkServiceProtocol = NetworkService()
+    let paginationService: PaginationServiceProtocol = PaginationService()
     
     // MARK: - Initializers
     init(collections: [CollectionModel], totalItems: Int, links: PaginationLinks?) {

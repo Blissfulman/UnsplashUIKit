@@ -11,7 +11,7 @@ protocol CollectionsTableViewControllerPaginable: UITableViewController {
     var collections: [CollectionModel] { get set }
     var loadedPages: Int { get set }
     var links: PaginationLinks? { get set }
-    var networkService: NetworkServiceProtocol { get }
+    var paginationService: PaginationServiceProtocol { get }
 }
 
 extension CollectionsTableViewControllerPaginable {
@@ -20,7 +20,7 @@ extension CollectionsTableViewControllerPaginable {
         guard let urlLink = links?[RelationLinkType.next],
               let url = urlLink else { return }
         
-        networkService.searchCollections(url: url) {
+        paginationService.searchCollections(url: url) {
             [weak self] result, links in
             
             guard let self = self else { return }

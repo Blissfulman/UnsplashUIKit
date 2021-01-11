@@ -24,7 +24,8 @@ final class CollectionPhotosViewController: UICollectionViewController, PhotosCo
     private let spacing = UIConstant.defaultSpacing
     
     internal var links: PaginationLinks?
-    internal let networkService: NetworkServiceProtocol = NetworkService()
+    private let networkService: NetworkServiceProtocol = NetworkService()
+    let paginationService: PaginationServiceProtocol = PaginationService()
     
     // MARK: - Initializers
     // Инициализатор для перехода с MainView и с CollectionListView

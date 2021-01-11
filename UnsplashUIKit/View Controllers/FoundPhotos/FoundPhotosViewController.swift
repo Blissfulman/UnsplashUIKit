@@ -24,7 +24,8 @@ final class FoundPhotosViewController: UICollectionViewController, PhotosCollect
     private let spacing = UIConstant.defaultSpacing
     
     var links: PaginationLinks?
-    let networkService: NetworkServiceProtocol = NetworkService()
+    private let networkService: NetworkServiceProtocol = NetworkService()
+    let paginationService: PaginationServiceProtocol = PaginationService()
     
     // MARK: - Initializers
     init(photos: [PhotoModel], totalItems: Int, links: PaginationLinks?) {
