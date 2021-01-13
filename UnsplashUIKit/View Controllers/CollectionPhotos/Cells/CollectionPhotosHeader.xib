@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionPhotosHeader" id="U6b-Vx-4bR" customClass="CollectionPhotosHeader" customModule="UnsplashUIKit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jIC-Ey-QMc">
+                    <rect key="frame" x="10" y="54" width="300" height="36"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total photos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cb-jd-Ymj">
+                            <rect key="frame" x="0.0" y="8" width="99" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Vel-cJ-r7r">
+                            <rect key="frame" x="180" y="2.5" width="120" height="32"/>
+                            <color key="backgroundColor" name="CustomVioletColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="1dA-PN-fMq"/>
+                            </constraints>
+                            <segments>
+                                <segment title="" image="square" catalog="system"/>
+                                <segment title="" image="square.grid.2x2" catalog="system"/>
+                                <segment title="" image="square.grid.3x2" catalog="system"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentedControlSwitched:" destination="U6b-Vx-4bR" eventType="valueChanged" id="q9o-iK-Vrm"/>
+                            </connections>
+                        </segmentedControl>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="jIC-Ey-QMc" secondAttribute="trailing" constant="10" id="D4s-Jw-xoS"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="jIC-Ey-QMc" secondAttribute="bottom" constant="10" id="YRQ-du-Wqn"/>
+                <constraint firstItem="jIC-Ey-QMc" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="10" id="ZvQ-Rz-Bir"/>
+                <constraint firstItem="jIC-Ey-QMc" firstAttribute="top" secondItem="VXr-Tz-HHm" secondAttribute="top" constant="10" id="mjg-7C-oL3"/>
+            </constraints>
+            <connections>
+                <outlet property="photoCountLabel" destination="6cb-jd-Ymj" id="Yqf-Bp-xkE"/>
+            </connections>
+            <point key="canvasLocation" x="57.971014492753625" y="70.982142857142847"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="square" catalog="system" width="32" height="32"/>
+        <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
+        <image name="square.grid.3x2" catalog="system" width="128" height="80"/>
+        <namedColor name="CustomVioletColor">
+            <color red="0.5" green="0.5" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
