@@ -10,9 +10,9 @@
 
 1. Отображение случайных фотографий и коллекций на стартовом экране.
 
-2. Поиск по коллекциям и фотографиям с подргузкой найденных данных (пагинацией).
+2. Поиск по коллекциям и фотографиям.
 
-3. Отображение найденных данных в виде таблиц (коллекций).
+3. Отображение данных в виде таблиц (коллекций) с подгрузкой данных (пагинацией).
 
 4. Просмотр отдельной фотографии с возможностью масштабирования и загрузкой изображения в оригинальном размере.
 
@@ -42,7 +42,7 @@
 
 Пример стартового экрана:
 
-![Start View]()
+![Start View](https://github.com/Blissfulman/UnsplashUIKit/blob/main/GIFs/StartView.gif)
 
 **Экран поиска**:
 
@@ -56,7 +56,7 @@
 
 Пример экрана поиска:
 
-![Search View]()
+![Search View](https://github.com/Blissfulman/UnsplashUIKit/blob/main/GIFs/SearchView.gif)
 
 **Экран списка коллекций**:
 
@@ -70,7 +70,7 @@
 
 Пример экрана списка коллекций:
 
-![Collection List View]()
+![Collection List View](https://github.com/Blissfulman/UnsplashUIKit/blob/main/GIFs/CollectionListView.gif)
 
 **Экран списка фотографий**:
 
@@ -82,7 +82,7 @@
 
 Пример экрана списка фотографий:
 
-![Photo List View]()
+![Photo List View](https://github.com/Blissfulman/UnsplashUIKit/blob/main/GIFs/PhotoListView.gif)
 
 **Экран просмотра фотографии**:
 
@@ -94,7 +94,7 @@
 
 Пример экрана просмотра фотографии:
 
-![Photo View]()
+![Photo View](https://github.com/Blissfulman/UnsplashUIKit/blob/main/GIFs/PhotoView.gif)
 
 **Экран информации о фотографии**:
 
@@ -106,7 +106,7 @@
 
 Пример экрана информации о фотографии:
 
-![Photo Info View]()
+![Photo Info View](https://github.com/Blissfulman/UnsplashUIKit/blob/main/GIFs/PhotoInfoView.gif)
 
 ### Дополнительная информация
 
