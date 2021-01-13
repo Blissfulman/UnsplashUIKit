@@ -9,6 +9,12 @@ import UIKit
 
 extension UICollectionViewController {
     
+    /// Расчёт ширины ячейки коллекции на основе переданных данных.
+    /// - Parameters:
+    ///   - spacing: Горизонтальный spacing коллекции.
+    ///   - edgeWidth: Ширина горизонтальной границы коллекции с родительским вью.
+    ///   - numberOfColumns: Количество колонок коллекции.
+    /// - Returns: Возвращает значение ширины.
     func calculateSizeWidth(spacing: CGFloat,
                             edgeWidth: CGFloat,
                             numberOfColumns: CGFloat) -> CGFloat {

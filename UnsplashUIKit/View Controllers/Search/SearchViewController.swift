@@ -59,8 +59,6 @@ final class SearchViewController: UIViewController {
         guard let query = searchTermsTextField.text,
               !query.isEmpty else { return }
         
-        LoadingView.show(parentView: view)
-        
         contentType == .photo
             ? searchPhotos(query: query, orderBy: searchOrderState.rawValue)
             : searchCollections(query: query, orderBy: searchOrderState.rawValue)
@@ -76,10 +74,13 @@ final class SearchViewController: UIViewController {
     
     // MARK: - Fetching data
     private func searchPhotos(query: String, orderBy: String) {
+        
+        BlockingView.show(parentView: view)
+        
         networkService.searchPhotos(query: query, orderBy: orderBy) { [weak self] result, links in
             
             defer {
-                LoadingView.hide()
+                BlockingView.hide()
             }
             
             guard let self = self else { return }
@@ -102,17 +103,20 @@ final class SearchViewController: UIViewController {
                     self.navigationController?.pushViewController(foundPhotosVC, animated: true)
                 }
             case .failure(let error):
-                self.showAlert(error)
+                self.showErrorAlert(error)
             }
         }
     }
     
     private func searchCollections(query: String, orderBy: String) {
+
+        BlockingView.show(parentView: view)
+        
         networkService.searchCollections(query: query, orderBy: orderBy) {
             [weak self] result, links in
             
             defer {
-                LoadingView.hide()
+                BlockingView.hide()
             }
             
             guard let self = self else { return }
@@ -135,7 +139,7 @@ final class SearchViewController: UIViewController {
                     self.navigationController?.pushViewController(foundCollectionsVC, animated: true)
                 }
             case .failure(let error):
-                self.showAlert(error)
+                self.showErrorAlert(error)
             }
         }
     }

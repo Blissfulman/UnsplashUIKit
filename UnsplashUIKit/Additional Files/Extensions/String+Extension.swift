@@ -14,6 +14,7 @@ extension String {
         self.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
     }
     
+    /// Декодирование ссылок пагинации по regex pattern.
     func decodeToPaginationURLs(regexPattern: String) -> PaginationLinks {
         let groups = self.groupLinksData(for: regexPattern)
         
@@ -29,6 +30,7 @@ extension String {
         return result
     }
     
+    /// Группировка полей ссылок пагинации по regex pattern.
     private func groupLinksData(for regexPattern: String) -> [[String]] {
         do {
             let text = self

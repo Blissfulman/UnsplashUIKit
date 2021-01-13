@@ -28,7 +28,9 @@ enum APIURL {
             let stringURL = baseURL + "/search/collections?query=\(query)&order_by=\(orderBy)&per_page=\(count)"
             return URL(string: stringURL.urlEncoded() ?? "")
         case .listCollections(let count):
-            let stringURL = baseURL + "/collections?per_page=\(count)"
+            // Тут немного захардкодил просто чтобы разные коллекции отображались
+            let randomPage = Int.random(in: 0...100)
+            let stringURL = baseURL + "/collections?page=\(randomPage)&per_page=\(count)"
             return URL(string: stringURL)
         case let .collectionPhotos(id, count):
             let stringURL = baseURL + "/collections/\(id)/photos?per_page=\(count)"

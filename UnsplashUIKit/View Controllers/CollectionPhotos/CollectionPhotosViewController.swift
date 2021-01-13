@@ -103,7 +103,7 @@ final class CollectionPhotosViewController: UICollectionViewController {
                 self.links = links
                 self.collectionView.insertItems(at: indexPaths)
             case .failure(let error):
-                self.showAlert(error)
+                self.showErrorAlert(error)
             }
         }
     }
@@ -153,7 +153,7 @@ extension CollectionPhotosViewController {
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
                 
         if (totalItems > photos.count) && (photos.count - indexPath.row == 5) {
-            print("Need loading...")
+            print("Pagination loading...")
             loadNextPage()
         }
     }

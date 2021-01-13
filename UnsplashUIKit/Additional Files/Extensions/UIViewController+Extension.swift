@@ -9,7 +9,8 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlert(_ error: Error?) {
+    /// Alert, оповещающий об ошибке.
+    func showErrorAlert(_ error: Error?) {
         var alertTitle = "Unknown error!"
         var alertMessage = "Please, try again later"
         
@@ -28,6 +29,7 @@ extension UIViewController {
         }
     }
     
+    /// Alert, оповещающий о пустом результате поиска.
     func showEmptyResultAlert() {
         let alert = UIAlertController(title: "Search result is empty",
                                       message: "Try entering another search terms",
@@ -37,6 +39,7 @@ extension UIViewController {
         present(alert, animated: true)
     }
     
+    /// Получеине массива IndexPath, соответствующих элементам следующей загруженной странице при пагинации.
     func getNextPageIndexPaths(loadedPages: Int, newItemsCount: Int, section: Int = 0) -> [IndexPath] {
         let displayedItems = loadedPages * APIConstant.itemsPerPage
         

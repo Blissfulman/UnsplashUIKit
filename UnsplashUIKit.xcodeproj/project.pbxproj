@@ -15,6 +15,8 @@
 		CE63A555259F9E6E00406FD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE63A554259F9E6E00406FD4 /* AppDelegate.swift */; };
 		CE63A55E259F9E6F00406FD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE63A55D259F9E6F00406FD4 /* Assets.xcassets */; };
 		CE63A561259F9E6F00406FD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE63A55F259F9E6F00406FD4 /* LaunchScreen.storyboard */; };
+		CE761A4F25AE03C600880262 /* OnePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE761A4D25AE03C600880262 /* OnePhotoViewController.swift */; };
+		CE761A5025AE03C600880262 /* OnePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE761A4E25AE03C600880262 /* OnePhotoViewController.xib */; };
 		CE85AA2D25A7388A0015E812 /* SearchCollectionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85AA2C25A7388A0015E812 /* SearchCollectionsModel.swift */; };
 		CE85AA3825A810350015E812 /* UICollectionViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85AA3725A810350015E812 /* UICollectionViewController+Extension.swift */; };
 		CE85AA3C25A828A50015E812 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85AA3B25A828A50015E812 /* UIViewController+Extension.swift */; };
@@ -27,8 +29,6 @@
 		CEA2A8B125A37D3F003E0E02 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8B025A37D3F003E0E02 /* UserModel.swift */; };
 		CEA2A8B525A383A6003E0E02 /* CollectionPhotosHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8B325A383A6003E0E02 /* CollectionPhotosHeader.swift */; };
 		CEA2A8B625A383A6003E0E02 /* CollectionPhotosHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A8B425A383A6003E0E02 /* CollectionPhotosHeader.xib */; };
-		CEA2A8C325A44A50003E0E02 /* OnePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8C125A44A50003E0E02 /* OnePhotoViewController.swift */; };
-		CEA2A8C425A44A50003E0E02 /* OnePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A8C225A44A50003E0E02 /* OnePhotoViewController.xib */; };
 		CEA2A8CA25A476EF003E0E02 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8C825A476EF003E0E02 /* SearchViewController.swift */; };
 		CEA2A8CB25A476EF003E0E02 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2A8C925A476EF003E0E02 /* SearchViewController.xib */; };
 		CEA2A8CF25A488F4003E0E02 /* SearchPhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A8CE25A488F4003E0E02 /* SearchPhotosModel.swift */; };
@@ -47,7 +47,7 @@
 		CEA2A92525A61ECD003E0E02 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A92425A61ECD003E0E02 /* CustomView.swift */; };
 		CEA2A92A25A6CB81003E0E02 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */; };
 		CEA2A92E25A71A9A003E0E02 /* UIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A92D25A71A9A003E0E02 /* UIConstant.swift */; };
-		CEB034D925AA331900B59BF4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB034D825AA331900B59BF4 /* LoadingView.swift */; };
+		CEB034D925AA331900B59BF4 /* BlockingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB034D825AA331900B59BF4 /* BlockingView.swift */; };
 		CEB034DE25AAB78F00B59BF4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB034DD25AAB78F00B59BF4 /* String+Extension.swift */; };
 		CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842CD25A0E3A500C07428 /* RequestService.swift */; };
 		CED842D425A0E3DD00C07428 /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D125A0E3DD00C07428 /* APIURL.swift */; };
@@ -56,7 +56,6 @@
 		CED842DA25A0FCF600C07428 /* DataTaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D925A0FCF600C07428 /* DataTaskService.swift */; };
 		CED842DD25A0FD4300C07428 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842DC25A0FD4300C07428 /* NetworkService.swift */; };
 		CED842E025A1022A00C07428 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842DF25A1022A00C07428 /* PhotoModel.swift */; };
-		CED842E525A1121A00C07428 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842E425A1121A00C07428 /* UIView+Extension.swift */; };
 		CED842F925A2210500C07428 /* CollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842F825A2210500C07428 /* CollectionModel.swift */; };
 		CED8430D25A25CF000C07428 /* CollectionPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8430B25A25CF000C07428 /* CollectionPhotosViewController.swift */; };
 		CED8430E25A25CF000C07428 /* CollectionPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED8430C25A25CF000C07428 /* CollectionPhotosViewController.xib */; };
@@ -79,6 +78,8 @@
 		CE63A55D259F9E6F00406FD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE63A560259F9E6F00406FD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE63A562259F9E6F00406FD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE761A4D25AE03C600880262 /* OnePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePhotoViewController.swift; sourceTree = "<group>"; };
+		CE761A4E25AE03C600880262 /* OnePhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnePhotoViewController.xib; sourceTree = "<group>"; };
 		CE85AA2C25A7388A0015E812 /* SearchCollectionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionsModel.swift; sourceTree = "<group>"; };
 		CE85AA3725A810350015E812 /* UICollectionViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewController+Extension.swift"; sourceTree = "<group>"; };
 		CE85AA3B25A828A50015E812 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -91,8 +92,6 @@
 		CEA2A8B025A37D3F003E0E02 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CEA2A8B325A383A6003E0E02 /* CollectionPhotosHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosHeader.swift; sourceTree = "<group>"; };
 		CEA2A8B425A383A6003E0E02 /* CollectionPhotosHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionPhotosHeader.xib; sourceTree = "<group>"; };
-		CEA2A8C125A44A50003E0E02 /* OnePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePhotoViewController.swift; sourceTree = "<group>"; };
-		CEA2A8C225A44A50003E0E02 /* OnePhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnePhotoViewController.xib; sourceTree = "<group>"; };
 		CEA2A8C825A476EF003E0E02 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CEA2A8C925A476EF003E0E02 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		CEA2A8CE25A488F4003E0E02 /* SearchPhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosModel.swift; sourceTree = "<group>"; };
@@ -111,7 +110,7 @@
 		CEA2A92425A61ECD003E0E02 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		CEA2A92D25A71A9A003E0E02 /* UIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstant.swift; sourceTree = "<group>"; };
-		CEB034D825AA331900B59BF4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		CEB034D825AA331900B59BF4 /* BlockingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingView.swift; sourceTree = "<group>"; };
 		CEB034DD25AAB78F00B59BF4 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		CED842CD25A0E3A500C07428 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
 		CED842D125A0E3DD00C07428 /* APIURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
@@ -120,7 +119,6 @@
 		CED842D925A0FCF600C07428 /* DataTaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskService.swift; sourceTree = "<group>"; };
 		CED842DC25A0FD4300C07428 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		CED842DF25A1022A00C07428 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
-		CED842E425A1121A00C07428 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		CED842F825A2210500C07428 /* CollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionModel.swift; sourceTree = "<group>"; };
 		CED8430B25A25CF000C07428 /* CollectionPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPhotosViewController.swift; sourceTree = "<group>"; };
 		CED8430C25A25CF000C07428 /* CollectionPhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionPhotosViewController.xib; sourceTree = "<group>"; };
@@ -187,8 +185,8 @@
 		CEA2A8C025A44A24003E0E02 /* OnePhoto */ = {
 			isa = PBXGroup;
 			children = (
-				CEA2A8C125A44A50003E0E02 /* OnePhotoViewController.swift */,
-				CEA2A8C225A44A50003E0E02 /* OnePhotoViewController.xib */,
+				CE761A4D25AE03C600880262 /* OnePhotoViewController.swift */,
+				CE761A4E25AE03C600880262 /* OnePhotoViewController.xib */,
 			);
 			path = OnePhoto;
 			sourceTree = "<group>";
@@ -278,11 +276,11 @@
 		CED842C825A0E2DC00C07428 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				CED842D025A0E3CC00C07428 /* Helpers */,
 				CED842CD25A0E3A500C07428 /* RequestService.swift */,
 				CED842D925A0FCF600C07428 /* DataTaskService.swift */,
 				CED842DC25A0FD4300C07428 /* NetworkService.swift */,
 				CE26FF2725ACB83200DD1059 /* PaginationService.swift */,
+				CED842D025A0E3CC00C07428 /* Helpers */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -306,7 +304,7 @@
 				CED8431825A269DC00C07428 /* CustomButton.swift */,
 				CEA2A92425A61ECD003E0E02 /* CustomView.swift */,
 				CEA2A8FB25A59D9F003E0E02 /* ContentType.swift */,
-				CEB034D825AA331900B59BF4 /* LoadingView.swift */,
+				CEB034D825AA331900B59BF4 /* BlockingView.swift */,
 				CED91E0B25AC3852003E8BE8 /* RelationLinkType.swift */,
 				CED842E325A111F900C07428 /* Extensions */,
 			);
@@ -316,7 +314,6 @@
 		CED842E325A111F900C07428 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CED842E425A1121A00C07428 /* UIView+Extension.swift */,
 				CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */,
 				CEA2A8AD25A3688F003E0E02 /* DateFormatter+Extension.swift */,
 				CE85AA3725A810350015E812 /* UICollectionViewController+Extension.swift */,
@@ -445,8 +442,8 @@
 			files = (
 				CE85AA5D25A8C5CD0015E812 /* FoundCollectionsViewController.xib in Resources */,
 				CEA2A8F425A4F78F003E0E02 /* HeaderTableCell.xib in Resources */,
-				CEA2A8C425A44A50003E0E02 /* OnePhotoViewController.xib in Resources */,
 				CEA2A8CB25A476EF003E0E02 /* SearchViewController.xib in Resources */,
+				CE761A5025AE03C600880262 /* OnePhotoViewController.xib in Resources */,
 				CEA2A8EF25A4F2AB003E0E02 /* CarouselImageCell.xib in Resources */,
 				CE85AA5125A8C3BF0015E812 /* CollectionCell.xib in Resources */,
 				CEA2A8E825A4EE6B003E0E02 /* CarouselTableCell.xib in Resources */,
@@ -477,7 +474,6 @@
 				CEA2A8CF25A488F4003E0E02 /* SearchPhotosModel.swift in Sources */,
 				CEA2A8EE25A4F2AB003E0E02 /* CarouselImageCell.swift in Sources */,
 				CEA2A91125A5D9A8003E0E02 /* PhotoInfoViewController.swift in Sources */,
-				CED842E525A1121A00C07428 /* UIView+Extension.swift in Sources */,
 				CE26FF2825ACB83200DD1059 /* PaginationService.swift in Sources */,
 				CE63A555259F9E6E00406FD4 /* AppDelegate.swift in Sources */,
 				CE85AA4425A851D50015E812 /* CollectionCell.swift in Sources */,
@@ -492,17 +488,17 @@
 				CED91E0C25AC3852003E8BE8 /* RelationLinkType.swift in Sources */,
 				CE85AA5C25A8C5CD0015E812 /* FoundCollectionsViewController.swift in Sources */,
 				CED842E025A1022A00C07428 /* PhotoModel.swift in Sources */,
-				CEB034D925AA331900B59BF4 /* LoadingView.swift in Sources */,
+				CEB034D925AA331900B59BF4 /* BlockingView.swift in Sources */,
 				CEA2A92525A61ECD003E0E02 /* CustomView.swift in Sources */,
 				CED842DD25A0FD4300C07428 /* NetworkService.swift in Sources */,
 				CE85AA3F25A82F210015E812 /* ErrorManager.swift in Sources */,
 				CE85AA3C25A828A50015E812 /* UIViewController+Extension.swift in Sources */,
 				CED8430D25A25CF000C07428 /* CollectionPhotosViewController.swift in Sources */,
-				CEA2A8C325A44A50003E0E02 /* OnePhotoViewController.swift in Sources */,
 				CEA2A92E25A71A9A003E0E02 /* UIConstant.swift in Sources */,
 				CE85AA2D25A7388A0015E812 /* SearchCollectionsModel.swift in Sources */,
 				CED8431925A269DC00C07428 /* CustomButton.swift in Sources */,
 				CEA2A8B525A383A6003E0E02 /* CollectionPhotosHeader.swift in Sources */,
+				CE761A4F25AE03C600880262 /* OnePhotoViewController.swift in Sources */,
 				CEA2A8AE25A3688F003E0E02 /* DateFormatter+Extension.swift in Sources */,
 				CEA2A92A25A6CB81003E0E02 /* UIImageView+Extension.swift in Sources */,
 				CEA2A8DA25A4E5E1003E0E02 /* MainViewController.swift in Sources */,

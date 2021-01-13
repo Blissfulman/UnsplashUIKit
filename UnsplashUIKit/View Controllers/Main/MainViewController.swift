@@ -9,32 +9,21 @@ import UIKit
 
 final class MainViewController: UITableViewController {
     
-    private enum MainViewConstant {
-        static let mainViewHeaderHeight: CGFloat = 350
-        static let mainViewCarouselHeight: CGFloat = 250
-    }
-    
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.separatorStyle = .none
         tableView.register(HeaderTableCell.nib(),
                            forCellReuseIdentifier: HeaderTableCell.identifier)
         tableView.register(CarouselTableCell.nib(),
                            forCellReuseIdentifier: CarouselTableCell.identifier)
-        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    // MARK: - Setup UI
-    private func setupUI() {
-        tableView.allowsSelection = false
-        tableView.separatorStyle = .none
     }
 }
 
@@ -77,9 +66,23 @@ extension MainViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return MainViewConstant.mainViewHeaderHeight
+            return UIConstant.mainViewHeaderHeight
         default:
-            return MainViewConstant.mainViewCarouselHeight
+            return UIConstant.mainViewCarouselHeight
+        }
+    }
+    
+    // MARK: - Navigation
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == 0 {
+            guard let headerImageCell = tableView.cellForRow(at: IndexPath(item: 0, section: 0))
+                    as? HeaderTableCell else { return }
+            
+            guard let photo = headerImageCell.photo else { return }
+            
+            let onePhotoVC = OnePhotoViewController(photo: photo)
+            navigationController?.pushViewController(onePhotoVC, animated: true)
         }
     }
 }

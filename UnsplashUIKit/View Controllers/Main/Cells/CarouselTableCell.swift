@@ -51,6 +51,7 @@ final class CarouselTableCell: UITableViewCell {
     func configure(contentType: ContentType) {
         self.contentType = contentType
         
+        selectionStyle = .none
         collectionView.contentInset = UIEdgeInsets(top: 0, left: UIConstant.defaultEdgeWidth,
                                                    bottom: 0, right: UIConstant.defaultEdgeWidth)
         

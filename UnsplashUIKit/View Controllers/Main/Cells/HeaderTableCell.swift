@@ -15,6 +15,9 @@ final class HeaderTableCell: UITableViewCell {
     // MARK: - Properties
     static let identifier = String(describing: HeaderTableCell.self)
     
+    // Хранение модели необходимо для открытия фотографии с MainView
+    var photo: PhotoModel?
+    
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Class methods
@@ -26,20 +29,21 @@ final class HeaderTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        getPhoto()
+        loadPhoto()
     }
     
     // MARK: - Fetching data
-    private func getPhoto() {
+    private func loadPhoto() {
         networkService.fetchRandomPhotos(count: 1) { [weak self] result, _ in
             
             guard let self = self else { return }
             
             switch result {
             case .success(let photos):
-                if let url = URL(string: photos.first?.urls?.regular ?? "") {
-                    self.photoImageView.loadImage(by: url)
-                }
+                guard let photo = photos.first,
+                      let url = URL(string: photo.urls?.regular ?? "") else { return }
+                self.photo = photo
+                self.photoImageView.loadImage(by: url)
             case .failure(let error):
                 ErrorManager.showErrorDescription(error: error)
             }

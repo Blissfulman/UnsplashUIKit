@@ -75,7 +75,7 @@ final class FoundCollectionsViewController: UITableViewController {
                 self.links = links
                 self.tableView.insertRows(at: indexPaths, with: .automatic)
             case .failure(let error):
-                self.showAlert(error)
+                self.showErrorAlert(error)
             }
         }
     }
@@ -121,13 +121,13 @@ extension FoundCollectionsViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        tableView.frame.width / UIConstant.CollectionCellSidesRatio
+        tableView.frame.width / UIConstant.collectionCellSidesRatio
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if (totalItems > collections.count) && (collections.count - indexPath.row == 5) {
-            print("Need loading...")
+            print("Pagination loading...")
             loadNextPage()
         }
     }
