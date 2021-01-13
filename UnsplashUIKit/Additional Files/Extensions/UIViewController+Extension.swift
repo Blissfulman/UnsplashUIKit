@@ -39,7 +39,7 @@ extension UIViewController {
         present(alert, animated: true)
     }
     
-    /// Получеине массива IndexPath, соответствующих элементам следующей загруженной странице при пагинации.
+    /// Получение массива IndexPath, соответствующих элементам следующей загруженной странице при пагинации.
     func getNextPageIndexPaths(loadedPages: Int, newItemsCount: Int, section: Int = 0) -> [IndexPath] {
         let displayedItems = loadedPages * APIConstant.itemsPerPage
         
