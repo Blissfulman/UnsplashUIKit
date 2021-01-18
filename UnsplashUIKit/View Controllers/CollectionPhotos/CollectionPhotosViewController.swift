@@ -10,14 +10,11 @@ import UIKit
 final class CollectionPhotosViewController: UICollectionViewController {
     
     // MARK: - Properties
-    /// Отображаемые (загруженные) фотографии
+    /// Отображаемые (загруженные) фотографии.
     private var photos = [PhotoModel]()
     
-    /// Общее количество фотографий в отображаемом списке
+    /// Общее количество фотографий в отображаемом списке.
     private let totalItems: Int
-    
-    /// Количество загруженных страниц
-    private var loadedPages = 0
     
     private var numberOfColumns = UIConstant.defaultNumberOfColumns
     private let edgeWidth = UIConstant.defaultEdgeWidth
@@ -73,7 +70,6 @@ final class CollectionPhotosViewController: UICollectionViewController {
             case .success(let photos):
                 self.photos = photos
                 self.links = links
-                self.loadedPages += 1
                 self.collectionView.reloadData()
             case .failure(let error):
                 ErrorManager.showErrorDescription(error: error)
@@ -93,13 +89,11 @@ final class CollectionPhotosViewController: UICollectionViewController {
             
             switch result {
             case .success(let photos):
-                self.photos.append(contentsOf: photos)
-
                 let indexPaths = self.getNextPageIndexPaths(
-                    loadedPages: self.loadedPages,
+                    loadedItems: self.photos.count,
                     newItemsCount: photos.count
                 )
-                self.loadedPages += 1
+                self.photos.append(contentsOf: photos)
                 self.links = links
                 self.collectionView.insertItems(at: indexPaths)
             case .failure(let error):

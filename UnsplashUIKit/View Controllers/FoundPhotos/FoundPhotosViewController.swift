@@ -10,14 +10,11 @@ import UIKit
 final class FoundPhotosViewController: UICollectionViewController {
     
     // MARK: - Properties
-    /// Отображаемые (загруженные) фотографии
+    /// Отображаемые (загруженные) фотографии.
     private var photos = [PhotoModel]()
     
-    /// Общее количество фотографий в отображаемом списке
+    /// Общее количество фотографий в отображаемом списке.
     private let totalItems: Int
-    
-    /// Количество загруженных страниц
-    private var loadedPages = 1
     
     private var numberOfColumns = UIConstant.defaultNumberOfColumns
     private let edgeWidth = UIConstant.defaultEdgeWidth
@@ -69,17 +66,15 @@ final class FoundPhotosViewController: UICollectionViewController {
             guard let self = self else { return }
 
             switch result {
-            case .success(let searchPhotossResult):
+            case .success(let searchPhotosResult):
 
-                guard let photos = searchPhotossResult.photos else { return }
-
-                self.photos.append(contentsOf: photos)
-
+                guard let photos = searchPhotosResult.photos else { return }
+                
                 let indexPaths = self.getNextPageIndexPaths(
-                    loadedPages: self.loadedPages,
-                    newItemsCount: searchPhotossResult.photos?.count ?? 0
+                    loadedItems: self.photos.count,
+                    newItemsCount: searchPhotosResult.photos?.count ?? 0
                 )
-                self.loadedPages += 1
+                self.photos.append(contentsOf: photos)
                 self.links = links
                 self.collectionView.insertItems(at: indexPaths)
             case .failure(let error):

@@ -10,14 +10,11 @@ import UIKit
 final class FoundCollectionsViewController: UITableViewController {
     
     // MARK: - Properties
-    /// Отображаемые (загруженные) коллекции
+    /// Отображаемые (загруженные) коллекции.
     private var collections = [CollectionModel]()
     
-    /// Общее количество элементов в отображаемом списке
+    /// Общее количество элементов в отображаемом списке.
     private let totalItems: Int
-    
-    /// Количество загруженных страниц
-    private var loadedPages = 1
     
     private var links: PaginationLinks?
     private let paginationService: PaginationServiceProtocol = PaginationService()
@@ -38,8 +35,7 @@ final class FoundCollectionsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(CollectionCell.nib(),
-                           forCellReuseIdentifier: CollectionCell.identifier)
+        tableView.register(CollectionCell.nib(), forCellReuseIdentifier: CollectionCell.identifier)
         setupUI()
     }
     
@@ -64,14 +60,12 @@ final class FoundCollectionsViewController: UITableViewController {
                 
                 guard let collections = searchCollectionsResult.collections else { return }
                 
-                self.collections.append(contentsOf: collections)
-                
                 let indexPaths = self.getNextPageIndexPaths(
-                    loadedPages: self.loadedPages,
+                    loadedItems: self.collections.count,
                     newItemsCount: searchCollectionsResult.collections?.count ?? 0,
                     section: 1
                 )
-                self.loadedPages += 1
+                self.collections.append(contentsOf: collections)
                 self.links = links
                 self.tableView.insertRows(at: indexPaths, with: .automatic)
             case .failure(let error):
