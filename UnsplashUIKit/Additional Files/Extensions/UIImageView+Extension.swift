@@ -29,9 +29,8 @@ extension UIImageView {
                 guard let self = self else { return }
                 
                 DispatchQueue.main.async {
-                    guard let data = data, let response = response else {
-                        return
-                    }
+                    guard let data = data, let response = response else { return }
+                    
                     let cacheRepsonse = CachedURLResponse(response: response, data: data)
                     cache.storeCachedResponse(cacheRepsonse, for: request)
                     self.image = UIImage(data: data)

@@ -10,6 +10,7 @@ import UIKit
 final class OnePhotoViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var likesLabel: UILabel!
@@ -63,12 +64,13 @@ final class OnePhotoViewController: UIViewController {
                     guard let self = self else { return }
 
                     self.updateImageViewConstraints()
-                    self.updateMinZoomScaleForSize()
+                    self.updateMinZoomScale()
                 }
             }
         }
     }
     
+    // Изменение масштаба фотографии по двойному тапу
     @objc private func scrollViewDoubleTapped() {
         switch scrollView.zoomScale {
         case minZoomScale:
@@ -111,7 +113,10 @@ final class OnePhotoViewController: UIViewController {
                     guard let self = self else { return }
 
                     self.updateImageViewConstraints()
-                    self.updateMinZoomScaleForSize()
+                    self.updateMinZoomScale()
+                    self.scrollView.isUserInteractionEnabled = true
+                    self.imageView.isHidden = false
+                    self.activityIndicator.stopAnimating()
                 }
             }
         }
@@ -126,7 +131,8 @@ final class OnePhotoViewController: UIViewController {
     }
     
     // MARK: - Layout methods
-    func updateMinZoomScaleForSize() {
+    /// Обновление минимального значения масштабирования ScrollView для текущей фотографии.
+    func updateMinZoomScale() {
         let size = scrollView.bounds.size
         let widthScale = size.width / imageView.bounds.width
         let heightScale = size.height / imageView.bounds.height
@@ -137,6 +143,7 @@ final class OnePhotoViewController: UIViewController {
         self.minZoomScale = minZoomScale
     }
     
+    /// Обновление констрейнтов ImageView для текущей фотографии.
     func updateImageViewConstraints() {
         let size = scrollView.bounds.size
         let yOffset = max(0, (size.height - imageView.frame.height) / 2)
