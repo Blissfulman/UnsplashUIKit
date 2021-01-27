@@ -9,6 +9,7 @@ import UIKit
 
 final class SearchViewController: UIViewController {
     
+    // MARK: - Nested types
     private enum SearchOrderState: String {
         case relevant
         case latest

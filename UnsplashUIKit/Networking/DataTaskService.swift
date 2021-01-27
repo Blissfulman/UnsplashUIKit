@@ -59,9 +59,6 @@ final class DataTaskService: DataTaskServiceProtocol {
         guard let stringLinks = httpResponse.value(forHTTPHeaderField: "Link") else {
             return nil
         }
-//        print(httpResponse.value(forHTTPHeaderField: "x-total"))
-//        print(httpResponse.value(forHTTPHeaderField: "x-per-page"))
-        
         return stringLinks.decodeToPaginationURLs(regexPattern: APIConstant.linksRegexPattern)
     }
     
