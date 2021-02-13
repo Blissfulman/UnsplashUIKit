@@ -1,5 +1,5 @@
 //
-//  UIConstant.swift
+//  UIConstants.swift
 //  UnsplashUIKit
 //
 //  Created by User on 07.01.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum UIConstant {
+enum UIConstants {
     
     // Only for Main view
     static let mainViewHeaderHeight: CGFloat = 350
@@ -24,4 +24,6 @@ enum UIConstant {
     static let defaultEdgeWidth: CGFloat = 10
     static let defaultSpacing: CGFloat = 3
     static let defaultCornerRadius: CGFloat = 8
+    
+    static let defaultImage = UIImage(named: "defaultImage")
 }

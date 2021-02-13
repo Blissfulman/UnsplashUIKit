@@ -66,9 +66,9 @@ extension MainViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return UIConstant.mainViewHeaderHeight
+            return UIConstants.mainViewHeaderHeight
         default:
-            return UIConstant.mainViewCarouselHeight
+            return UIConstants.mainViewCarouselHeight
         }
     }
     

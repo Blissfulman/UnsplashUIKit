@@ -111,11 +111,11 @@ extension FoundCollectionsViewController {
 extension FoundCollectionsViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        section == 0 ? UIConstant.collectionListHeaderHeight : 0
+        section == 0 ? UIConstants.collectionListHeaderHeight : 0
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        tableView.frame.width / UIConstant.collectionCellSidesRatio
+        tableView.frame.width / UIConstants.collectionCellSidesRatio
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

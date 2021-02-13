@@ -22,12 +22,12 @@ final class CarouselImageCell: UICollectionViewCell {
     
     // MARK: - Lifeсycle methods
     override func prepareForReuse() {
-        imageView.image = UIImage(named: "defaultImage")
+        imageView.image = UIConstants.defaultImage
     }
     
     // MARK: - Public methods
     func configure(photo: PhotoModel) {        
-        layer.cornerRadius = UIConstant.defaultCornerRadius
+        layer.cornerRadius = UIConstants.defaultCornerRadius
 
         if let url = URL(string: photo.urls?.small ?? "") {
             imageView.loadImage(by: url)

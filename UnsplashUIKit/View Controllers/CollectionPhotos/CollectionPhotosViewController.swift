@@ -16,9 +16,9 @@ final class CollectionPhotosViewController: UICollectionViewController {
     /// Общее количество фотографий в отображаемом списке.
     private let totalItems: Int
     
-    private var numberOfColumns = UIConstant.defaultNumberOfColumns
-    private let edgeWidth = UIConstant.defaultEdgeWidth
-    private let spacing = UIConstant.defaultSpacing
+    private var numberOfColumns = UIConstants.defaultNumberOfColumns
+    private let edgeWidth = UIConstants.defaultEdgeWidth
+    private let spacing = UIConstants.defaultSpacing
     
     private var links: PaginationLinks?
     private let networkService: NetworkServiceProtocol = NetworkService()
@@ -166,7 +166,7 @@ extension CollectionPhotosViewController {
 extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        CGSize(width: collectionView.bounds.width, height: UIConstant.photoListHeaderHeight)
+        CGSize(width: collectionView.bounds.width, height: UIConstants.photoListHeaderHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -182,7 +182,7 @@ extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
         let sizeWidth = calculateSizeWidth(
             spacing: spacing, edgeWidth: edgeWidth, numberOfColumns: numberOfColumns
         )
-        return CGSize(width: sizeWidth, height: sizeWidth * UIConstant.photoCellSidesRatio)
+        return CGSize(width: sizeWidth, height: sizeWidth * UIConstants.photoCellSidesRatio)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

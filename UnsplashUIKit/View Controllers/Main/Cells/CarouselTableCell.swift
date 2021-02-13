@@ -52,8 +52,8 @@ final class CarouselTableCell: UITableViewCell {
         self.contentType = contentType
         
         selectionStyle = .none
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: UIConstant.defaultEdgeWidth,
-                                                   bottom: 0, right: UIConstant.defaultEdgeWidth)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: UIConstants.defaultEdgeWidth,
+                                                   bottom: 0, right: UIConstants.defaultEdgeWidth)
         
         titleLabel.text = contentType.rawValue.capitalized
         searchButton.setTitle("Search \(contentType.rawValue)", for: .normal)
@@ -77,7 +77,7 @@ final class CarouselTableCell: UITableViewCell {
     
     // MARK: - Fetching data
     private func fillCollectionCarousel() {
-        networkService.fetchCollections(count: UIConstant.countCarouselElements) {
+        networkService.fetchCollections(count: UIConstants.countCarouselElements) {
             [weak self] result, _ in
             
             guard let self = self else { return }
@@ -94,7 +94,7 @@ final class CarouselTableCell: UITableViewCell {
     }
     
     private func fillPhotoCarousel() {
-        networkService.fetchRandomPhotos(count: UIConstant.countCarouselElements) {
+        networkService.fetchRandomPhotos(count: UIConstants.countCarouselElements) {
             [weak self] result, _ in
             
             guard let self = self else { return }
