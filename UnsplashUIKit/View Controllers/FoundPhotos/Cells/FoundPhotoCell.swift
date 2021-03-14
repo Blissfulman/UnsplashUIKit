@@ -12,14 +12,6 @@ final class FoundPhotoCell: UICollectionViewCell {
     // MARK: - Outlets
     @IBOutlet weak var imageView: UIImageView!
     
-    // MARK: - Properties
-    static let identifier = String(describing: FoundPhotoCell.self)
-    
-    // MARK: - Class methods
-    static func nib() -> UINib {
-        UINib(nibName: identifier, bundle: nil)
-    }
-    
     // MARK: - Lifecycle methods
     override func prepareForReuse() {
         imageView.image = UIConstants.defaultImage

@@ -16,14 +16,6 @@ final class CollectionCell: UITableViewCell {
     @IBOutlet weak var publishedDateLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     
-    // MARK: - Properties
-    static let identifier = String(describing: CollectionCell.self)
-        
-    // MARK: - Class methods
-    static func nib() -> UINib {
-        UINib(nibName: identifier, bundle: nil)
-    }
-    
     // MARK: - Lifecycle methods
     override func awakeFromNib() {
         super.awakeFromNib()

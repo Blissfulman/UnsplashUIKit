@@ -22,8 +22,6 @@ final class CarouselTableCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Properties
-    static let identifier = String(describing: CarouselTableCell.self)
-    
     weak var delegate: CarouselTableCellDelegate?
     
     private var contentType: ContentType!
@@ -31,11 +29,6 @@ final class CarouselTableCell: UITableViewCell {
     private var photos = [PhotoModel]()
     
     private let networkService: NetworkServiceProtocol = NetworkService()
-    
-    // MARK: - Class methods
-    static func nib() -> UINib {
-        UINib(nibName: identifier, bundle: nil)
-    }
     
     // MARK: - Lifecycle methods
     override func awakeFromNib() {

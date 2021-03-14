@@ -16,15 +16,8 @@ final class FoundPhotosHeader: UICollectionReusableView {
     // MARK: - Outlets
     @IBOutlet weak var photoCountLabel: UILabel!
     
-    // MARK: - Properties
-    static let identifier = String(describing: FoundPhotosHeader.self)
-    
+    // MARK: - Properties    
     weak var delegate: FoundPhotosHeaderDelegate?
-        
-    // MARK: - Class methods
-    static func nib() -> UINib {
-        UINib(nibName: identifier, bundle: nil)
-    }
     
     // MARK: - Actions
     @IBAction func segmentedControlSwitched(_ sender: UISegmentedControl) {

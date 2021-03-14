@@ -49,6 +49,8 @@
 		CEA2A92E25A71A9A003E0E02 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2A92D25A71A9A003E0E02 /* UIConstants.swift */; };
 		CEB034D925AA331900B59BF4 /* BlockingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB034D825AA331900B59BF4 /* BlockingView.swift */; };
 		CEB034DE25AAB78F00B59BF4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB034DD25AAB78F00B59BF4 /* String+Extension.swift */; };
+		CEB7E23525FE74BF00893AF4 /* UICollectionReusableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB7E23325FE74BE00893AF4 /* UICollectionReusableView+Extension.swift */; };
+		CEB7E23625FE74BF00893AF4 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB7E23425FE74BF00893AF4 /* UITableViewCell+Extension.swift */; };
 		CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842CD25A0E3A500C07428 /* RequestService.swift */; };
 		CED842D425A0E3DD00C07428 /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D125A0E3DD00C07428 /* APIURL.swift */; };
 		CED842D525A0E3DD00C07428 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED842D225A0E3DD00C07428 /* HTTPMethod.swift */; };
@@ -112,6 +114,8 @@
 		CEA2A92D25A71A9A003E0E02 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		CEB034D825AA331900B59BF4 /* BlockingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingView.swift; sourceTree = "<group>"; };
 		CEB034DD25AAB78F00B59BF4 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		CEB7E23325FE74BE00893AF4 /* UICollectionReusableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionReusableView+Extension.swift"; sourceTree = "<group>"; };
+		CEB7E23425FE74BF00893AF4 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		CED842CD25A0E3A500C07428 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
 		CED842D125A0E3DD00C07428 /* APIURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
 		CED842D225A0E3DD00C07428 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -314,11 +318,13 @@
 		CED842E325A111F900C07428 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */,
-				CEA2A8AD25A3688F003E0E02 /* DateFormatter+Extension.swift */,
-				CE85AA3725A810350015E812 /* UICollectionViewController+Extension.swift */,
 				CE85AA3B25A828A50015E812 /* UIViewController+Extension.swift */,
+				CE85AA3725A810350015E812 /* UICollectionViewController+Extension.swift */,
+				CEB7E23425FE74BF00893AF4 /* UITableViewCell+Extension.swift */,
+				CEB7E23325FE74BE00893AF4 /* UICollectionReusableView+Extension.swift */,
+				CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */,
 				CEB034DD25AAB78F00B59BF4 /* String+Extension.swift */,
+				CEA2A8AD25A3688F003E0E02 /* DateFormatter+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -486,6 +492,8 @@
 				CED842CE25A0E3A500C07428 /* RequestService.swift in Sources */,
 				CED842F925A2210500C07428 /* CollectionModel.swift in Sources */,
 				CED91E0C25AC3852003E8BE8 /* RelationLinkType.swift in Sources */,
+				CEB7E23525FE74BF00893AF4 /* UICollectionReusableView+Extension.swift in Sources */,
+				CEB7E23625FE74BF00893AF4 /* UITableViewCell+Extension.swift in Sources */,
 				CE85AA5C25A8C5CD0015E812 /* FoundCollectionsViewController.swift in Sources */,
 				CED842E025A1022A00C07428 /* PhotoModel.swift in Sources */,
 				CEB034D925AA331900B59BF4 /* BlockingView.swift in Sources */,

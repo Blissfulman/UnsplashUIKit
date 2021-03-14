@@ -13,17 +13,10 @@ final class HeaderTableCell: UITableViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     
     // MARK: - Properties
-    static let identifier = String(describing: HeaderTableCell.self)
-    
     // Хранение модели необходимо для открытия фотографии с MainView
     var photo: PhotoModel?
     
     private let networkService: NetworkServiceProtocol = NetworkService()
-    
-    // MARK: - Class methods
-    static func nib() -> UINib {
-        UINib(nibName: identifier, bundle: nil)
-    }
     
     // MARK: - Lifecycle methods
     override func awakeFromNib() {
