@@ -2,7 +2,7 @@
 //  DateFormatter+Extension.swift
 //  UnsplashUIKit
 //
-//  Created by User on 04.01.2021.
+//  Created by Evgeny Novgorodov on 04.01.2021.
 //
 
 import Foundation

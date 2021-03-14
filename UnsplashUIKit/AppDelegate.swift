@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  UnsplashUIKit
 //
-//  Created by User on 01.01.2021.
+//  Created by Evgeny Novgorodov on 01.01.2021.
 //
 
 import UIKit

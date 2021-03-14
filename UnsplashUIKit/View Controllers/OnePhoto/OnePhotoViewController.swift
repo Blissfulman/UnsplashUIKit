@@ -2,7 +2,7 @@
 //  OnePhotoViewController.swift
 //  UnsplashUIKit
 //
-//  Created by User on 12.01.2021.
+//  Created by Evgeny Novgorodov on 12.01.2021.
 //
 
 import UIKit

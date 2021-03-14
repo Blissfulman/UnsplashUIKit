@@ -2,7 +2,7 @@
 //  SearchCollectionsModel.swift
 //  UnsplashUIKit
 //
-//  Created by User on 07.01.2021.
+//  Created by Evgeny Novgorodov on 07.01.2021.
 //
 
 struct SearchCollectionsModel: Decodable {

@@ -2,7 +2,7 @@
 //  RequestService.swift
 //  UnsplashUIKit
 //
-//  Created by User on 02.01.2021.
+//  Created by Evgeny Novgorodov on 02.01.2021.
 //
 
 import Foundation
@@ -21,8 +21,7 @@ final class RequestService: RequestServiceProtocol {
     func getRequest(url: URL, httpMethod: HTTPMethod) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
-        request.addValue("Client-ID \(APIConstant.accessKey)",
-                         forHTTPHeaderField: "Authorization")
+        request.addValue("Client-ID \(APIConstant.accessKey)", forHTTPHeaderField: "Authorization")
         
         return request
     }

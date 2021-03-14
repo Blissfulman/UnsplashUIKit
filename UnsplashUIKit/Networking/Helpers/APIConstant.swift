@@ -2,7 +2,7 @@
 //  APIConstant.swift
 //  UnsplashUIKit
 //
-//  Created by User on 05.01.2021.
+//  Created by Evgeny Novgorodov on 05.01.2021.
 //
 
 enum APIConstant {

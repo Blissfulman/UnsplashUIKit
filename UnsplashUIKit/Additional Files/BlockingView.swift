@@ -2,7 +2,7 @@
 //  BlockingView.swift
 //  UnsplashUIKit
 //
-//  Created by User on 09.01.2021.
+//  Created by Evgeny Novgorodov on 09.01.2021.
 //
 
 import UIKit

@@ -2,7 +2,7 @@
 //  ContentType.swift
 //  UnsplashUIKit
 //
-//  Created by User on 06.01.2021.
+//  Created by Evgeny Novgorodov on 06.01.2021.
 //
 
 enum ContentType: String {

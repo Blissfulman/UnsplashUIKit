@@ -2,7 +2,7 @@
 //  MainViewController.swift
 //  UnsplashUIKit
 //
-//  Created by User on 05.01.2021.
+//  Created by Evgeny Novgorodov on 05.01.2021.
 //
 
 import UIKit
@@ -14,10 +14,8 @@ final class MainViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.separatorStyle = .none
-        tableView.register(HeaderTableCell.nib(),
-                           forCellReuseIdentifier: HeaderTableCell.identifier)
-        tableView.register(CarouselTableCell.nib(),
-                           forCellReuseIdentifier: CarouselTableCell.identifier)
+        tableView.register(HeaderTableCell.nib(), forCellReuseIdentifier: HeaderTableCell.identifier)
+        tableView.register(CarouselTableCell.nib(), forCellReuseIdentifier: CarouselTableCell.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -2,7 +2,7 @@
 //  PhotoInfoViewController.swift
 //  UnsplashUIKit
 //
-//  Created by User on 06.01.2021.
+//  Created by Evgeny Novgorodov on 06.01.2021.
 //
 
 import UIKit

@@ -2,7 +2,7 @@
 //  ErrorManager.swift
 //  UnsplashUIKit
 //
-//  Created by User on 08.01.2021.
+//  Created by Evgeny Novgorodov on 08.01.2021.
 //
 
 final class ErrorManager {
