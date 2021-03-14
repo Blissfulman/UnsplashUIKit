@@ -61,9 +61,7 @@ final class CollectionPhotosViewController: UICollectionViewController {
         
         guard let collectionID = collection.id else { return }
         
-        networkService.fetchCollectionPhotos(id: collectionID) {
-            [weak self] result, links in
-            
+        networkService.fetchCollectionPhotos(id: collectionID) { [weak self] result, links in
             guard let self = self else { return }
             
             switch result {
@@ -82,9 +80,7 @@ final class CollectionPhotosViewController: UICollectionViewController {
         guard let nextLink = links?[RelationLinkType.next],
               let url = nextLink else { return }
         
-        paginationService.fetchCollectionPhotos(url: url) {
-            [weak self] result, links in
-
+        paginationService.fetchCollectionPhotos(url: url) { [weak self] result, links in
             guard let self = self else { return }
             
             switch result {

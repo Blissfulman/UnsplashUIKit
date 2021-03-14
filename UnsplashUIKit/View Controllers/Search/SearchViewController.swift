@@ -79,7 +79,6 @@ final class SearchViewController: UIViewController {
         BlockingView.show(parentView: view)
         
         networkService.searchPhotos(query: query, orderBy: orderBy) { [weak self] result, links in
-            
             defer {
                 BlockingView.hide()
             }
@@ -113,9 +112,7 @@ final class SearchViewController: UIViewController {
 
         BlockingView.show(parentView: view)
         
-        networkService.searchCollections(query: query, orderBy: orderBy) {
-            [weak self] result, links in
-            
+        networkService.searchCollections(query: query, orderBy: orderBy) { [weak self] result, links in
             defer {
                 BlockingView.hide()
             }

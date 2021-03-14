@@ -30,7 +30,7 @@ protocol NetworkServiceProtocol {
     ///   - count: Количество коллекций в ответе (не более 30).
     ///   - completion: Обработчик завершения, в который возвращается результат выполнения функции.
     func fetchCollections(count: Int, completion: @escaping CollectionsResult)
-        
+    
     /// Получение фотографий из коллекции.
     /// - Parameters:
     ///   - id: ID коллекции.
@@ -67,7 +67,6 @@ final class NetworkService: NetworkServiceProtocol {
         guard let url = APIURL.randomPhotos(count: count).url else { return }
         
         let request = requestService.getRequest(url: url, httpMethod: .get)
-        
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
@@ -75,16 +74,14 @@ final class NetworkService: NetworkServiceProtocol {
         guard let url = APIURL.listCollections(count: count).url else { return }
         
         let request = requestService.getRequest(url: url, httpMethod: .get)
-                
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
     func fetchCollectionPhotos(id: String, completion: @escaping PhotosResult) {
         guard let url = APIURL.collectionPhotos(id: id,
                                                 count: APIConstant.itemsPerPage).url else { return }
-
+        
         let request = requestService.getRequest(url: url, httpMethod: .get)
-                
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
@@ -94,7 +91,6 @@ final class NetworkService: NetworkServiceProtocol {
                                             count: APIConstant.itemsPerPage).url else { return }
         
         let request = requestService.getRequest(url: url, httpMethod: .get)
-                
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
@@ -104,7 +100,6 @@ final class NetworkService: NetworkServiceProtocol {
                                                  count: APIConstant.itemsPerPage).url else { return }
         
         let request = requestService.getRequest(url: url, httpMethod: .get)
-                
         dataTaskService.dataTask(request: request, completion: completion)
     }
 }

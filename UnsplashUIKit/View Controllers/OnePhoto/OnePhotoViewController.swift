@@ -59,10 +59,10 @@ final class OnePhotoViewController: UIViewController {
         
         if let url = URL(string: photo.urls?.full ?? "") {
             imageView.loadImage(by: url) { [weak self] in
+                guard let self = self else { return }
+                
                 DispatchQueue.main.async {
                     BlockingView.hide()
-                    guard let self = self else { return }
-
                     self.updateImageViewConstraints()
                     self.updateMinZoomScale()
                 }
@@ -109,9 +109,9 @@ final class OnePhotoViewController: UIViewController {
     private func loadImage() {
         if let url = URL(string: photo.urls?.regular ?? "") {
             imageView.loadImage(by: url) { [weak self] in
+                guard let self = self else { return }
+                
                 DispatchQueue.main.async {
-                    guard let self = self else { return }
-
                     self.updateImageViewConstraints()
                     self.updateMinZoomScale()
                     self.scrollView.isUserInteractionEnabled = true

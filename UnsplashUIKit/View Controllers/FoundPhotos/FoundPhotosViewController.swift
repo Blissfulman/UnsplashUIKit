@@ -60,14 +60,11 @@ final class FoundPhotosViewController: UICollectionViewController {
         guard let nextLink = links?[RelationLinkType.next],
               let url = nextLink else { return }
         
-        paginationService.searchPhotos(url: url) {
-            [weak self] result, links in
-
+        paginationService.searchPhotos(url: url) { [weak self] result, links in
             guard let self = self else { return }
 
             switch result {
             case .success(let searchPhotosResult):
-
                 guard let photos = searchPhotosResult.photos else { return }
                 
                 let indexPaths = self.getNextPageIndexPaths(

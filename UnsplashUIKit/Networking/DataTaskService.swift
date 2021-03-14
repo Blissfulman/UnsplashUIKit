@@ -20,8 +20,7 @@ final class DataTaskService: DataTaskServiceProtocol {
     
     func dataTask<T: Decodable>(request: URLRequest, completion: @escaping ResultBlock<T>) {
         
-        URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
-            
+        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             guard let self = self else { return }
             
             if let error = error {

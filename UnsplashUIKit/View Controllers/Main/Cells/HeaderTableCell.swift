@@ -28,7 +28,6 @@ final class HeaderTableCell: UITableViewCell {
     // MARK: - Fetching data
     private func loadPhoto() {
         networkService.fetchRandomPhotos(count: 1) { [weak self] result, _ in
-            
             guard let self = self else { return }
             
             switch result {

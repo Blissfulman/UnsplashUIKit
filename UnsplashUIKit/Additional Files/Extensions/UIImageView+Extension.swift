@@ -20,8 +20,7 @@ extension UIImageView {
             image = UIImage(data: imageData)
             completion?()
         } else {
-            URLSession.shared.dataTask(with: request) { [weak self] (data, response, _) in
-                
+            URLSession.shared.dataTask(with: request) { [weak self] data, response, _ in
                 defer {
                     completion?()
                 }

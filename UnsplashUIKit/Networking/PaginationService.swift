@@ -40,19 +40,16 @@ final class PaginationService: PaginationServiceProtocol {
     
     func fetchCollectionPhotos(url: URL, completion: @escaping PhotosResult) {
         let request = requestService.getRequest(url: url, httpMethod: .get)
-                
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
     func searchCollections(url: URL, completion: @escaping SearchCollectionsResult) {
         let request = requestService.getRequest(url: url, httpMethod: .get)
-                
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
     func searchPhotos(url: URL, completion: @escaping SearchPhotosResult) {
         let request = requestService.getRequest(url: url, httpMethod: .get)
-                
         dataTaskService.dataTask(request: request, completion: completion)
     }
 }

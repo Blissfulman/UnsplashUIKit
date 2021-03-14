@@ -50,14 +50,11 @@ final class FoundCollectionsViewController: UITableViewController {
         guard let nextLink = links?[RelationLinkType.next],
               let url = nextLink else { return }
         
-        paginationService.searchCollections(url: url) {
-            [weak self] result, links in
-            
+        paginationService.searchCollections(url: url) { [weak self] result, links in
             guard let self = self else { return }
             
             switch result {
             case .success(let searchCollectionsResult):
-                
                 guard let collections = searchCollectionsResult.collections else { return }
                 
                 let indexPaths = self.getNextPageIndexPaths(
