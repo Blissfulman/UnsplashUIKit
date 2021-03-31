@@ -10,7 +10,7 @@ import UIKit
 final class HeaderTableCell: UITableViewCell {
     
     // MARK: - Outlets
-    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet private weak var photoImageView: UIImageView!
     
     // MARK: - Properties
     // Хранение модели необходимо для открытия фотографии с MainView

@@ -10,14 +10,14 @@ import UIKit
 final class PhotoInfoViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var authorImageView: UIImageView!
-    @IBOutlet weak var authorNameLabel: UILabel!
-    @IBOutlet weak var createdDateLabel: UILabel!
-    @IBOutlet weak var widthLabel: UILabel!
-    @IBOutlet weak var heightLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var altDescriptionLabel: UILabel!
+    @IBOutlet private weak var authorImageView: UIImageView!
+    @IBOutlet private weak var authorNameLabel: UILabel!
+    @IBOutlet private weak var createdDateLabel: UILabel!
+    @IBOutlet private weak var widthLabel: UILabel!
+    @IBOutlet private weak var heightLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var altDescriptionLabel: UILabel!
     
     // MARK: - Properties
     private let photo: PhotoModel
@@ -61,7 +61,7 @@ final class PhotoInfoViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    @IBAction func backButtonTapped() {
+    @IBAction private func backButtonTapped() {
         dismiss(animated: true)
     }
 }

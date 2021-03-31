@@ -10,11 +10,11 @@ import UIKit
 final class CollectionCell: UITableViewCell {
     
     // MARK: - Outlets
-    @IBOutlet var previewPhotoImageViews: [UIImageView]!
-    @IBOutlet weak var collectionTitleLabel: UILabel!
-    @IBOutlet weak var totalPhotosLabel: UILabel!
-    @IBOutlet weak var publishedDateLabel: UILabel!
-    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet private var previewPhotoImageViews: [UIImageView]!
+    @IBOutlet private weak var collectionTitleLabel: UILabel!
+    @IBOutlet private weak var totalPhotosLabel: UILabel!
+    @IBOutlet private weak var publishedDateLabel: UILabel!
+    @IBOutlet private weak var userNameLabel: UILabel!
     
     // MARK: - Lifecycle methods
     override func awakeFromNib() {

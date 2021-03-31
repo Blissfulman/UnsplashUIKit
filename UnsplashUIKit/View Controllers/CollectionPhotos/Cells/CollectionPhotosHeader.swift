@@ -20,7 +20,7 @@ final class CollectionPhotosHeader: UICollectionReusableView {
     weak var delegate: CollectionPhotosHeaderDelegate?
     
     // MARK: - Actions
-    @IBAction func segmentedControlSwitched(_ sender: UISegmentedControl) {
+    @IBAction private func segmentedControlSwitched(_ sender: UISegmentedControl) {
         delegate?.switchColumnNumber(columns: sender.selectedSegmentIndex + 1)
     }
 }

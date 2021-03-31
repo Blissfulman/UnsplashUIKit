@@ -10,7 +10,7 @@ import UIKit
 final class CarouselImageCell: UICollectionViewCell {
     
     // MARK: - Outlets
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var imageView: UIImageView!
     
     // MARK: - Lifeсycle methods
     override func prepareForReuse() {

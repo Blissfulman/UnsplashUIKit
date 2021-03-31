@@ -17,9 +17,9 @@ protocol CarouselTableCellDelegate: UIViewController {
 final class CarouselTableCell: UITableViewCell {
     
     // MARK: - Outlets
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var searchButton: UIButton!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     // MARK: - Properties
     weak var delegate: CarouselTableCellDelegate?
@@ -55,7 +55,7 @@ final class CarouselTableCell: UITableViewCell {
     }
     
     // MARK: - Actions
-    @IBAction func searchButtonTapped() {
+    @IBAction private func searchButtonTapped() {
         contentType == .collection
             ? delegate?.searchCollections()
             : delegate?.searchPhotos()

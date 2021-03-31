@@ -10,17 +10,17 @@ import UIKit
 final class OnePhotoViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var likesLabel: UILabel!
-    @IBOutlet weak var viewsLabel: UILabel!
-    @IBOutlet weak var downloadsLabel: UILabel!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var likesLabel: UILabel!
+    @IBOutlet private weak var viewsLabel: UILabel!
+    @IBOutlet private weak var downloadsLabel: UILabel!
     
-    @IBOutlet weak var imageViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var imageViewLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var imageViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var imageViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var imageViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var imageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var imageViewTrailingConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     private let photo: PhotoModel

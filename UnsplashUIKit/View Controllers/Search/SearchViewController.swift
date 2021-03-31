@@ -16,9 +16,9 @@ final class SearchViewController: UIViewController {
     }
     
     // MARK: - Outlets
-    @IBOutlet weak var searchTermsTextField: UITextField!
-    @IBOutlet weak var orderBySegmentedControl: UISegmentedControl!
-    @IBOutlet weak var startSearchButton: CustomButton!
+    @IBOutlet private weak var searchTermsTextField: UITextField!
+    @IBOutlet private weak var orderBySegmentedControl: UISegmentedControl!
+    @IBOutlet private weak var startSearchButton: CustomButton!
     
     // MARK: - Properties
     private let contentType: ContentType
@@ -48,13 +48,13 @@ final class SearchViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func textFieldEditingChanged() {
+    @IBAction private func textFieldEditingChanged() {
         guard let searchTerms = searchTermsTextField.text else { return }
         
         startSearchButton.isEnabled = !searchTerms.isEmpty
     }
     
-    @IBAction func startSearchButtonTapped() {
+    @IBAction private func startSearchButtonTapped() {
         view.endEditing(true)
         
         guard let query = searchTermsTextField.text,

@@ -10,7 +10,7 @@ import UIKit
 final class CollectionPhotoCell: UICollectionViewCell {
     
     // MARK: - Outlets
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var imageView: UIImageView!
     
     // MARK: - Lifecycle methods
     override func prepareForReuse() {
