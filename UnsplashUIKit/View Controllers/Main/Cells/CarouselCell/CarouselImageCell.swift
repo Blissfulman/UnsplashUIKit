@@ -10,14 +10,17 @@ import UIKit
 final class CarouselImageCell: UICollectionViewCell {
     
     // MARK: - Outlets
+    
     @IBOutlet private weak var imageView: UIImageView!
     
     // MARK: - Lifeсycle methods
+    
     override func prepareForReuse() {
         imageView.image = UIConstants.defaultImage
     }
     
     // MARK: - Public methods
+    
     func configure(photo: PhotoModel) {        
         layer.cornerRadius = UIConstants.defaultCornerRadius
 

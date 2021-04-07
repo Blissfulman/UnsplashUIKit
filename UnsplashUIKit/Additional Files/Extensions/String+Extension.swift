@@ -37,7 +37,7 @@ extension String {
             let regex = try NSRegularExpression(pattern: regexPattern)
             let matches = regex.matches(in: text, range: NSRange(text.startIndex..., in: text))
             return matches.map { match in
-                return (1..<match.numberOfRanges).map {
+                (1..<match.numberOfRanges).map {
                     let rangeBounds = match.range(at: $0)
                     guard let range = Range(rangeBounds, in: text) else {
                         return ""

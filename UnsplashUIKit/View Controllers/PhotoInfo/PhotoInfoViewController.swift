@@ -10,6 +10,7 @@ import UIKit
 final class PhotoInfoViewController: UIViewController {
     
     // MARK: - Outlets
+    
     @IBOutlet private weak var authorImageView: UIImageView!
     @IBOutlet private weak var authorNameLabel: UILabel!
     @IBOutlet private weak var createdDateLabel: UILabel!
@@ -20,9 +21,11 @@ final class PhotoInfoViewController: UIViewController {
     @IBOutlet private weak var altDescriptionLabel: UILabel!
     
     // MARK: - Properties
+    
     private let photo: PhotoModel
         
     // MARK: - Initializers
+    
     init(photo: PhotoModel) {
         self.photo = photo
         super.init(nibName: nil, bundle: nil)
@@ -33,6 +36,7 @@ final class PhotoInfoViewController: UIViewController {
     }
     
     // MARK: - Lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +44,7 @@ final class PhotoInfoViewController: UIViewController {
     }
     
     // MARK: - Setup UI
+    
     private func setupUI() {
         if let url = URL(string: photo.user?.profileImage?.medium ?? "") {
             authorImageView.loadImage(by: url)
@@ -61,6 +66,7 @@ final class PhotoInfoViewController: UIViewController {
     }
     
     // MARK: - Navigation
+    
     @IBAction private func backButtonTapped() {
         dismiss(animated: true)
     }

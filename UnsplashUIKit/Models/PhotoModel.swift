@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - PhotoModel
+
 struct PhotoModel: Decodable {
     let id: String?
     let createdAt: Date?
@@ -45,6 +46,7 @@ struct PhotoModel: Decodable {
 }
 
 // MARK: - PhotoUrlsModel
+
 struct PhotoUrlsModel: Decodable {
     let raw: String?
     let full: String?
@@ -54,6 +56,7 @@ struct PhotoUrlsModel: Decodable {
 }
 
 // MARK: - PhotoLocationModel
+
 struct PhotoLocationModel: Decodable {
     let title: String?
     let name: String?

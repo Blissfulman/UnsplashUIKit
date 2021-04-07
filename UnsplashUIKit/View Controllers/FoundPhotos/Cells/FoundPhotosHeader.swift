@@ -14,12 +14,15 @@ protocol FoundPhotosHeaderDelegate: UIViewController {
 final class FoundPhotosHeader: UICollectionReusableView {
 
     // MARK: - Outlets
+    
     @IBOutlet weak var photoCountLabel: UILabel!
     
-    // MARK: - Properties    
+    // MARK: - Properties
+    
     weak var delegate: FoundPhotosHeaderDelegate?
     
     // MARK: - Actions
+    
     @IBAction private func segmentedControlSwitched(_ sender: UISegmentedControl) {
         delegate?.switchColumnNumber(columns: sender.selectedSegmentIndex + 1)
     }

@@ -55,7 +55,7 @@
         </collectionReusableView>
     </objects>
     <resources>
-        <image name="square" catalog="system" width="32" height="32"/>
+        <image name="square" catalog="system" width="128" height="114"/>
         <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
         <image name="square.grid.3x2" catalog="system" width="128" height="80"/>
         <namedColor name="CustomVioletColor">

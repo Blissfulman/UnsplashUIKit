@@ -10,6 +10,7 @@ import UIKit
 final class MainViewController: UITableViewController {
     
     // MARK: - Lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +26,8 @@ final class MainViewController: UITableViewController {
     }
 }
 
-// MARK: - Table View Data Source
+// MARK: - Table view data source
+
 extension MainViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,7 +35,6 @@ extension MainViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.row {
         case 0:
             guard let headerImageCell = tableView.dequeueReusableCell(
@@ -58,7 +59,8 @@ extension MainViewController {
     }
 }
 
-// MARK: - Table View Delegate
+// MARK: - Table view delegate
+
 extension MainViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -71,8 +73,8 @@ extension MainViewController {
     }
     
     // MARK: - Navigation
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if indexPath.row == 0 {
             guard let headerImageCell = tableView.cellForRow(at: IndexPath(item: 0, section: 0))
                     as? HeaderTableCell else { return }
@@ -86,6 +88,7 @@ extension MainViewController {
 }
 
 // MARK: - Navigation
+
 extension MainViewController: CarouselTableCellDelegate {
     
     func searchCollections() {

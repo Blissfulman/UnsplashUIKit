@@ -10,6 +10,7 @@ import UIKit
 final class CollectionCell: UITableViewCell {
     
     // MARK: - Outlets
+    
     @IBOutlet private var previewPhotoImageViews: [UIImageView]!
     @IBOutlet private weak var collectionTitleLabel: UILabel!
     @IBOutlet private weak var totalPhotosLabel: UILabel!
@@ -17,6 +18,7 @@ final class CollectionCell: UITableViewCell {
     @IBOutlet private weak var userNameLabel: UILabel!
     
     // MARK: - Lifecycle methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -29,6 +31,7 @@ final class CollectionCell: UITableViewCell {
     }
     
     // MARK: - Public methods
+    
     func configure(_ collection: CollectionModel) {
         collectionTitleLabel.text = collection.title
         totalPhotosLabel.text = "\(collection.totalPhotos ?? 0)"

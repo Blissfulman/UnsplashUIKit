@@ -10,6 +10,7 @@ import UIKit
 final class FoundPhotosViewController: UICollectionViewController {
     
     // MARK: - Properties
+    
     /// Отображаемые (загруженные) фотографии.
     private var photos = [PhotoModel]()
     
@@ -24,6 +25,7 @@ final class FoundPhotosViewController: UICollectionViewController {
     private let paginationService: PaginationServiceProtocol = PaginationService()
     
     // MARK: - Initializers
+    
     init(photos: [PhotoModel], totalItems: Int, links: PaginationLinks?) {
         self.photos = photos
         self.totalItems = totalItems
@@ -36,6 +38,7 @@ final class FoundPhotosViewController: UICollectionViewController {
     }
     
     // MARK: - Lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,12 +53,14 @@ final class FoundPhotosViewController: UICollectionViewController {
     }
     
     // MARK: - Setup UI
+    
     private func setupUI() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         collectionView.backgroundColor = .white
     }
     
     // MARK: - Pagination
+    
     private func loadNextPage() {
         guard let nextLink = links?[RelationLinkType.next],
               let url = nextLink else { return }
@@ -81,11 +86,11 @@ final class FoundPhotosViewController: UICollectionViewController {
     }
 }
 
-// MARK: - Collection View Data Source
+// MARK: - Collection view data source
+
 extension FoundPhotosViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
         guard let header = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
             withReuseIdentifier: FoundPhotosHeader.identifier,
@@ -105,7 +110,6 @@ extension FoundPhotosViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: FoundPhotoCell.identifier,
             for: indexPath
@@ -114,16 +118,15 @@ extension FoundPhotosViewController {
         }
         
         cell.configure(photos[indexPath.item])
-        
         return cell
     }
 }
 
-// MARK: - Collection View Delegate
+// MARK: - Collection view delegate
+
 extension FoundPhotosViewController {
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
         if (totalItems > photos.count) && (photos.count - indexPath.row == 5) {
             print("Pagination loading...")
             loadNextPage()
@@ -131,8 +134,8 @@ extension FoundPhotosViewController {
     }
     
     // MARK: - Navigation
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let photo = photos[indexPath.item]
         let onePhotoVC = OnePhotoViewController(photo: photo)
         
@@ -140,7 +143,8 @@ extension FoundPhotosViewController {
     }
 }
 
-// MARK: - Collection View Layout
+// MARK: - Collection view layout
+
 extension FoundPhotosViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -156,7 +160,6 @@ extension FoundPhotosViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let sizeWidth = calculateSizeWidth(
             spacing: spacing, edgeWidth: edgeWidth, numberOfColumns: numberOfColumns
         )
@@ -169,6 +172,7 @@ extension FoundPhotosViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - FoundPhotosHeaderDelegate
+
 extension FoundPhotosViewController: FoundPhotosHeaderDelegate {
     
     func switchColumnNumber(columns: Int) {

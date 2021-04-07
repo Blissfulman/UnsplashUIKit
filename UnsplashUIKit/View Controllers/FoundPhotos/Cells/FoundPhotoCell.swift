@@ -10,14 +10,17 @@ import UIKit
 final class FoundPhotoCell: UICollectionViewCell {
 
     // MARK: - Outlets
+    
     @IBOutlet private weak var imageView: UIImageView!
     
     // MARK: - Lifecycle methods
+    
     override func prepareForReuse() {
         imageView.image = UIConstants.defaultImage
     }
     
     // MARK: - Public methods
+    
     func configure(_ photo: PhotoModel) {
         layer.cornerRadius = UIConstants.defaultCornerRadius
 

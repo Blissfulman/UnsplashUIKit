@@ -10,6 +10,7 @@ import UIKit
 final class OnePhotoViewController: UIViewController {
     
     // MARK: - Outlets
+    
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var imageView: UIImageView!
@@ -23,12 +24,14 @@ final class OnePhotoViewController: UIViewController {
     @IBOutlet private weak var imageViewTrailingConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
+    
     private let photo: PhotoModel
     
     /// Минимальное значение масштабирования ScrollView для загруженной фотографии. Обновляется после загрузки фотографии.
     private var minZoomScale: CGFloat = 1
     
     // MARK: - Initializers
+    
     init(photo: PhotoModel) {
         self.photo = photo
         super.init(nibName: nil, bundle: nil)
@@ -39,6 +42,7 @@ final class OnePhotoViewController: UIViewController {
     }
     
     // MARK: - Lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +52,7 @@ final class OnePhotoViewController: UIViewController {
     }
     
     // MARK: - Actions
+    
     @objc func showPhotoInfo() {
         let photoInfoVC = PhotoInfoViewController(photo: photo)
         present(photoInfoVC, animated: true)
@@ -83,6 +88,7 @@ final class OnePhotoViewController: UIViewController {
     }
     
     // MARK: - Setup UI
+    
     private func setupUI() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         
@@ -106,6 +112,7 @@ final class OnePhotoViewController: UIViewController {
     }
     
     // MARK: - Private methods
+    
     private func loadImage() {
         if let url = URL(string: photo.urls?.regular ?? "") {
             imageView.loadImage(by: url) { [weak self] in
@@ -131,8 +138,9 @@ final class OnePhotoViewController: UIViewController {
     }
     
     // MARK: - Layout methods
+    
     /// Обновление минимального значения масштабирования ScrollView для текущей фотографии.
-    func updateMinZoomScale() {
+    private func updateMinZoomScale() {
         let size = scrollView.bounds.size
         let widthScale = size.width / imageView.bounds.width
         let heightScale = size.height / imageView.bounds.height
@@ -144,7 +152,7 @@ final class OnePhotoViewController: UIViewController {
     }
     
     /// Обновление констрейнтов ImageView для текущей фотографии.
-    func updateImageViewConstraints() {
+    private func updateImageViewConstraints() {
         let size = scrollView.bounds.size
         let yOffset = max(0, (size.height - imageView.frame.height) / 2)
         let xOffset = max(0, (size.width - imageView.frame.width) / 2)
@@ -158,7 +166,7 @@ final class OnePhotoViewController: UIViewController {
     }
 }
 
-// MARK: - Scroll View Delegate
+// MARK: - Scroll view delegate
 extension OnePhotoViewController: UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

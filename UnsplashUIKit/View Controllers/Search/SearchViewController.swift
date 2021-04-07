@@ -10,17 +10,20 @@ import UIKit
 final class SearchViewController: UIViewController {
     
     // MARK: - Nested types
+    
     private enum SearchOrderState: String {
         case relevant
         case latest
     }
     
     // MARK: - Outlets
+    
     @IBOutlet private weak var searchTermsTextField: UITextField!
     @IBOutlet private weak var orderBySegmentedControl: UISegmentedControl!
     @IBOutlet private weak var startSearchButton: CustomButton!
     
     // MARK: - Properties
+    
     private let contentType: ContentType
     
     private var searchOrderState: SearchOrderState {
@@ -30,6 +33,7 @@ final class SearchViewController: UIViewController {
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Initializers
+    
     init(contentType: ContentType) {
         self.contentType = contentType
         super.init(nibName: nil, bundle: nil)
@@ -40,6 +44,7 @@ final class SearchViewController: UIViewController {
     }
     
     // MARK: - Lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +53,7 @@ final class SearchViewController: UIViewController {
     }
     
     // MARK: - Actions
+    
     @IBAction private func textFieldEditingChanged() {
         guard let searchTerms = searchTermsTextField.text else { return }
         
@@ -66,6 +72,7 @@ final class SearchViewController: UIViewController {
     }
     
     // MARK: - Setup UI
+    
     private func setupUI() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         title = "Search \(contentType.rawValue)"
@@ -74,8 +81,8 @@ final class SearchViewController: UIViewController {
     }
     
     // MARK: - Fetching data
+    
     private func searchPhotos(query: String, orderBy: String) {
-        
         BlockingView.show(parentView: view)
         
         networkService.searchPhotos(query: query, orderBy: orderBy) { [weak self] result, links in
@@ -100,6 +107,7 @@ final class SearchViewController: UIViewController {
                     foundPhotosVC.title = "Results for \"\(query)\""
                     
                     // MARK: - Navigation
+                    
                     self.navigationController?.pushViewController(foundPhotosVC, animated: true)
                 }
             case .failure(let error):
@@ -109,7 +117,6 @@ final class SearchViewController: UIViewController {
     }
     
     private func searchCollections(query: String, orderBy: String) {
-
         BlockingView.show(parentView: view)
         
         networkService.searchCollections(query: query, orderBy: orderBy) { [weak self] result, links in
@@ -134,6 +141,7 @@ final class SearchViewController: UIViewController {
                     foundCollectionsVC.title = "Results for \"\(query)\""
 
                     // MARK: - Navigation
+                    
                     self.navigationController?.pushViewController(foundCollectionsVC, animated: true)
                 }
             case .failure(let error):
@@ -150,7 +158,8 @@ final class SearchViewController: UIViewController {
     }
 }
 
-// MARK: - Text Field Delegate
+// MARK: - Text field delegate
+
 extension SearchViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

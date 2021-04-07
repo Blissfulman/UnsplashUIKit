@@ -10,6 +10,7 @@ import UIKit
 final class FoundCollectionsViewController: UITableViewController {
     
     // MARK: - Properties
+    
     /// Отображаемые (загруженные) коллекции.
     private var collections = [CollectionModel]()
     
@@ -20,6 +21,7 @@ final class FoundCollectionsViewController: UITableViewController {
     private let paginationService: PaginationServiceProtocol = PaginationService()
     
     // MARK: - Initializers
+    
     init(collections: [CollectionModel], totalItems: Int, links: PaginationLinks?) {
         self.collections = collections
         self.totalItems = totalItems
@@ -32,6 +34,7 @@ final class FoundCollectionsViewController: UITableViewController {
     }
     
     // MARK: - Lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,13 +42,15 @@ final class FoundCollectionsViewController: UITableViewController {
         setupUI()
     }
     
-    // MARK: - Private methods
+    // MARK: - Setup UI
+    
     private func setupUI() {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .singleLine
     }
     
     // MARK: - Pagination
+    
     private func loadNextPage() {
         guard let nextLink = links?[RelationLinkType.next],
               let url = nextLink else { return }
@@ -72,7 +77,8 @@ final class FoundCollectionsViewController: UITableViewController {
     }
 }
 
-// MARK: - Table View Data Source
+// MARK: - Table view data source
+
 extension FoundCollectionsViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -92,7 +98,6 @@ extension FoundCollectionsViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: CollectionCell.identifier, for: indexPath
         ) as? CollectionCell else {
@@ -104,7 +109,8 @@ extension FoundCollectionsViewController {
     }
 }
 
-// MARK: - Table View Delegate
+// MARK: - Table view delegate
+
 extension FoundCollectionsViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -116,7 +122,6 @@ extension FoundCollectionsViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
         if (totalItems > collections.count) && (collections.count - indexPath.row == 5) {
             print("Pagination loading...")
             loadNextPage()
@@ -124,6 +129,7 @@ extension FoundCollectionsViewController {
     }
     
     // MARK: - Navigation
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let collection = collections[indexPath.item]
         

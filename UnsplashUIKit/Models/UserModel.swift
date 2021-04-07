@@ -6,6 +6,7 @@
 //
 
 // MARK: - UserModel
+
 struct UserModel: Decodable {
     let id: String?
     let username: String?
@@ -33,6 +34,7 @@ struct UserModel: Decodable {
 }
 
 // MARK: - UserLinksModel
+
 struct UserLinksModel: Decodable {
     let html: String?
     let photos: String?
@@ -40,6 +42,7 @@ struct UserLinksModel: Decodable {
 }
 
 // MARK: - UserProfileImageModel
+
 struct UserProfileImageModel: Decodable {
     let small: String?
     let medium: String?

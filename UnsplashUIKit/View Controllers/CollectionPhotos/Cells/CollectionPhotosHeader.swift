@@ -14,12 +14,15 @@ protocol CollectionPhotosHeaderDelegate: UIViewController {
 final class CollectionPhotosHeader: UICollectionReusableView {
 
     // MARK: - Outlets
+    
     @IBOutlet weak var photoCountLabel: UILabel!
     
-    // MARK: - Properties    
+    // MARK: - Properties
+    
     weak var delegate: CollectionPhotosHeaderDelegate?
     
     // MARK: - Actions
+    
     @IBAction private func segmentedControlSwitched(_ sender: UISegmentedControl) {
         delegate?.switchColumnNumber(columns: sender.selectedSegmentIndex + 1)
     }

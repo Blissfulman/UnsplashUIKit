@@ -17,11 +17,13 @@ protocol CarouselTableCellDelegate: UIViewController {
 final class CarouselTableCell: UITableViewCell {
     
     // MARK: - Outlets
+    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var searchButton: UIButton!
     @IBOutlet private weak var collectionView: UICollectionView!
     
     // MARK: - Properties
+    
     weak var delegate: CarouselTableCellDelegate?
     
     private var contentType: ContentType!
@@ -31,6 +33,7 @@ final class CarouselTableCell: UITableViewCell {
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Lifecycle methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
                 
@@ -41,6 +44,7 @@ final class CarouselTableCell: UITableViewCell {
     }
     
     // MARK: - Public methods
+    
     func configure(contentType: ContentType) {
         self.contentType = contentType
         
@@ -55,6 +59,7 @@ final class CarouselTableCell: UITableViewCell {
     }
     
     // MARK: - Actions
+    
     @IBAction private func searchButtonTapped() {
         contentType == .collection
             ? delegate?.searchCollections()
@@ -62,6 +67,7 @@ final class CarouselTableCell: UITableViewCell {
     }
     
     // MARK: - Private methods
+    
     private func setupCarouselCells() {
         contentType == .collection
             ? fillCollectionCarousel()
@@ -69,6 +75,7 @@ final class CarouselTableCell: UITableViewCell {
     }
     
     // MARK: - Fetching data
+    
     private func fillCollectionCarousel() {
         networkService.fetchCollections(count: UIConstants.countCarouselElements) {
             [weak self] result, _ in
@@ -103,7 +110,8 @@ final class CarouselTableCell: UITableViewCell {
     }
 }
 
-// MARK: - Collection View Data Source
+// MARK: - Collection view data source
+
 extension CarouselTableCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -111,7 +119,6 @@ extension CarouselTableCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell = collectionView.dequeueReusableCell(
         withReuseIdentifier: CarouselImageCell.identifier,
                 for: indexPath) as? CarouselImageCell else {
@@ -124,10 +131,11 @@ extension CarouselTableCell: UICollectionViewDataSource {
     }
 }
 
-// MARK: - Collection View Delegate
+// MARK: - Collection view delegate
+
 extension CarouselTableCell: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         contentType == .photo
             ? delegate?.onPhotoTapped(photo: photos[indexPath.item])
             : delegate?.onCollectionTapped(collection: collections[indexPath.item])

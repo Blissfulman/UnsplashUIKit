@@ -10,6 +10,7 @@ import UIKit
 final class CollectionPhotosViewController: UICollectionViewController {
     
     // MARK: - Properties
+    
     /// Отображаемые (загруженные) фотографии.
     private var photos = [PhotoModel]()
     
@@ -25,6 +26,7 @@ final class CollectionPhotosViewController: UICollectionViewController {
     private let paginationService: PaginationServiceProtocol = PaginationService()
     
     // MARK: - Initializers
+    
     // Инициализатор для перехода с MainView и с CollectionListView
     init(collection: CollectionModel) {
         self.totalItems = collection.totalPhotos ?? 0
@@ -37,6 +39,7 @@ final class CollectionPhotosViewController: UICollectionViewController {
     }
     
     // MARK: - Lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,14 +54,15 @@ final class CollectionPhotosViewController: UICollectionViewController {
     }
     
     // MARK: - Setup UI
+    
     private func setupUI() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         collectionView.backgroundColor = .white
     }
     
     // MARK: - Fetching data
+    
     private func loadFirstPage(collection: CollectionModel) {
-        
         guard let collectionID = collection.id else { return }
         
         networkService.fetchCollectionPhotos(id: collectionID) { [weak self] result, links in
@@ -76,6 +80,7 @@ final class CollectionPhotosViewController: UICollectionViewController {
     }
     
     // MARK: - Pagination
+    
     private func loadNextPage() {
         guard let nextLink = links?[RelationLinkType.next],
               let url = nextLink else { return }
@@ -99,11 +104,11 @@ final class CollectionPhotosViewController: UICollectionViewController {
     }
 }
 
-// MARK: - Collection View Data Source
+// MARK: - Collection view data source
+
 extension CollectionPhotosViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
         guard let header = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
             withReuseIdentifier: CollectionPhotosHeader.identifier,
@@ -123,7 +128,6 @@ extension CollectionPhotosViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: CollectionPhotoCell.identifier,
             for: indexPath
@@ -141,7 +145,6 @@ extension CollectionPhotosViewController {
 extension CollectionPhotosViewController {
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-                
         if (totalItems > photos.count) && (photos.count - indexPath.row == 5) {
             print("Pagination loading...")
             loadNextPage()
@@ -149,8 +152,8 @@ extension CollectionPhotosViewController {
     }
     
     // MARK: - Navigation
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let photo = photos[indexPath.item]
         let onePhotoVC = OnePhotoViewController(photo: photo)
         
@@ -158,7 +161,8 @@ extension CollectionPhotosViewController {
     }
 }
 
-// MARK: - Collection View Layout
+// MARK: - Collection view layout
+
 extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -187,6 +191,7 @@ extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - CollectionPhotosHeaderDelegate
+
 extension CollectionPhotosViewController: CollectionPhotosHeaderDelegate {
     
     func switchColumnNumber(columns: Int) {

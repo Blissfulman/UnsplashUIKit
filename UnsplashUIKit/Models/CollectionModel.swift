@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - CollectionModel
+
 struct CollectionModel: Decodable {
     let id: String?
     let title: String?
@@ -35,6 +36,7 @@ struct CollectionModel: Decodable {
 }
 
 // MARK: - PreviewPhotoModel
+
 struct PreviewPhotoModel: Decodable {
     let id: String?
     let urls: PhotoUrlsModel?

@@ -10,15 +10,18 @@ import UIKit
 final class HeaderTableCell: UITableViewCell {
     
     // MARK: - Outlets
+    
     @IBOutlet private weak var photoImageView: UIImageView!
     
     // MARK: - Properties
+    
     // Хранение модели необходимо для открытия фотографии с MainView
     var photo: PhotoModel?
     
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Lifecycle methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -26,6 +29,7 @@ final class HeaderTableCell: UITableViewCell {
     }
     
     // MARK: - Fetching data
+    
     private func loadPhoto() {
         networkService.fetchRandomPhotos(count: 1) { [weak self] result, _ in
             guard let self = self else { return }
