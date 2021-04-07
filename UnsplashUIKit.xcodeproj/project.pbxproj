@@ -67,6 +67,7 @@
 		CED91E0C25AC3852003E8BE8 /* RelationLinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED91E0B25AC3852003E8BE8 /* RelationLinkType.swift */; };
 		CED91E1C25AC6EFF003E8BE8 /* FoundPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED91E1A25AC6EFF003E8BE8 /* FoundPhotosViewController.swift */; };
 		CED91E1D25AC6EFF003E8BE8 /* FoundPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED91E1B25AC6EFF003E8BE8 /* FoundPhotosViewController.xib */; };
+		CEEEE975261E3297004333A4 /* ServerErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEEE974261E3297004333A4 /* ServerErrorHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +133,7 @@
 		CED91E0B25AC3852003E8BE8 /* RelationLinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationLinkType.swift; sourceTree = "<group>"; };
 		CED91E1A25AC6EFF003E8BE8 /* FoundPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundPhotosViewController.swift; sourceTree = "<group>"; };
 		CED91E1B25AC6EFF003E8BE8 /* FoundPhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundPhotosViewController.xib; sourceTree = "<group>"; };
+		CEEEE974261E3297004333A4 /* ServerErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerErrorHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +298,7 @@
 				CED842D125A0E3DD00C07428 /* APIURL.swift */,
 				CED842D225A0E3DD00C07428 /* HTTPMethod.swift */,
 				CED842D325A0E3DD00C07428 /* ServerError.swift */,
+				CEEEE974261E3297004333A4 /* ServerErrorHandler.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				CEA2A8E725A4EE6B003E0E02 /* CarouselTableCell.swift in Sources */,
 				CEB034DE25AAB78F00B59BF4 /* String+Extension.swift in Sources */,
 				CED842D625A0E3DD00C07428 /* ServerError.swift in Sources */,
+				CEEEE975261E3297004333A4 /* ServerErrorHandler.swift in Sources */,
 				CEA2A8B125A37D3F003E0E02 /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

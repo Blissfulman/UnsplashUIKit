@@ -54,14 +54,8 @@ protocol NetworkServiceProtocol {
 
 final class NetworkService: NetworkServiceProtocol {
     
-    private let requestService: RequestServiceProtocol
-    private let dataTaskService: DataTaskServiceProtocol
-    
-    init(requestService: RequestServiceProtocol = RequestService(),
-         dataTaskService: DataTaskServiceProtocol = DataTaskService()) {
-        self.requestService = requestService
-        self.dataTaskService = dataTaskService
-    }
+    private let requestService: RequestServiceProtocol = RequestService()
+    private let dataTaskService: DataTaskServiceProtocol = DataTaskService()
     
     func fetchRandomPhotos(count: Int, completion: @escaping PhotosResult) {
         guard let url = APIURL.randomPhotos(count: count).url else { return }

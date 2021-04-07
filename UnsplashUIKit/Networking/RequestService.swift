@@ -22,7 +22,6 @@ final class RequestService: RequestServiceProtocol {
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
         request.addValue("Client-ID \(APIConstant.accessKey)", forHTTPHeaderField: "Authorization")
-        
         return request
     }
 }

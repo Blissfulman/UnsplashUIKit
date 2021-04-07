@@ -5,13 +5,14 @@
 //  Created by Evgeny Novgorodov on 02.01.2021.
 //
 
-enum ServerError: Error {
-    case badRequest     // 400
-    case unauthorized   // 401
-    case forbidden      // 403
-    case notFound       // 404
-    case somethingElse  // 500, 503
-    case unknownError
+enum ServerError: Int, Error {
+    case badRequest = 400
+    case unauthorized = 401
+    case forbidden = 403
+    case notFound = 404
+    case somethingElse = 500
+    case somethingElse2 = 503
+    case unknownError = 0
     
     var localizedDescription: String {
         switch self {
@@ -23,7 +24,7 @@ enum ServerError: Error {
             return "Missing permissions to perform request"
         case .notFound:
             return "The requested resource doesn’t exist"
-        case .somethingElse:
+        case .somethingElse, .somethingElse2:
             return "Something went wrong on our end"
         case .unknownError:
             return "Unknown error"
