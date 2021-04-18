@@ -21,12 +21,12 @@ final class CollectionCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         accessoryType = .disclosureIndicator
         previewPhotoImageViews.forEach { $0.layer.cornerRadius = UIConstants.defaultCornerRadius }
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         previewPhotoImageViews.forEach { $0.image = UIImage(named: "defaultImage") }
     }
     
@@ -41,7 +41,6 @@ final class CollectionCell: UITableViewCell {
         }
         
         previewPhotoImageViews.enumerated().forEach { index, imageView in
-            
             guard let countImages = collection.previewPhotos?.count else { return }
             
             // Если коллекция пустая, то убираются картинки по умолчанию

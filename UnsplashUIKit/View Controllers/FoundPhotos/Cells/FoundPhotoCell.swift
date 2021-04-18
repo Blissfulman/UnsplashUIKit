@@ -16,6 +16,7 @@ final class FoundPhotoCell: UICollectionViewCell {
     // MARK: - Lifecycle methods
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         imageView.image = UIConstants.defaultImage
     }
     

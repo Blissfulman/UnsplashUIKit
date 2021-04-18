@@ -16,6 +16,7 @@ final class CarouselImageCell: UICollectionViewCell {
     // MARK: - Lifeсycle methods
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         imageView.image = UIConstants.defaultImage
     }
     

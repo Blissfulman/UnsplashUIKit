@@ -24,7 +24,6 @@ final class HeaderTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         loadPhoto()
     }
     

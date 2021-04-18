@@ -41,9 +41,8 @@ extension UIViewController {
     
     /// Получение массива IndexPath, соответствующих элементам следующей загруженной странице при пагинации.
     func getNextPageIndexPaths(loadedItems: Int, newItemsCount: Int, section: Int = 0) -> [IndexPath] {
-        
         let indexPaths = (loadedItems..<(loadedItems + newItemsCount)).map {
-            IndexPath.init(item: $0, section: section)
+            IndexPath(item: $0, section: section)
         }
         return indexPaths
     }

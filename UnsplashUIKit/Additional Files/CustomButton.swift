@@ -9,7 +9,8 @@ import UIKit
 
 final class CustomButton: UIButton {
 
-    override func draw(_ rect: CGRect) {        
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         layer.backgroundColor = isEnabled
             ? UIColor(named: "CustomVioletColor")?.cgColor
             : UIColor(named: "CustomVioletColor")?.withAlphaComponent(0.5).cgColor

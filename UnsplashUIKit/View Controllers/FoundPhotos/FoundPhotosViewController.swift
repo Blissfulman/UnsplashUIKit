@@ -13,14 +13,11 @@ final class FoundPhotosViewController: UICollectionViewController {
     
     /// Отображаемые (загруженные) фотографии.
     private var photos = [PhotoModel]()
-    
     /// Общее количество фотографий в отображаемом списке.
     private let totalItems: Int
-    
     private var numberOfColumns = UIConstants.defaultNumberOfColumns
     private let edgeWidth = UIConstants.defaultEdgeWidth
     private let spacing = UIConstants.defaultSpacing
-    
     private var links: PaginationLinks?
     private let paginationService: PaginationServiceProtocol = PaginationService()
     
@@ -90,18 +87,17 @@ final class FoundPhotosViewController: UICollectionViewController {
 
 extension FoundPhotosViewController {
     
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 viewForSupplementaryElementOfKind kind: String,
+                                 at indexPath: IndexPath) -> UICollectionReusableView {
         guard let header = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind,
-            withReuseIdentifier: FoundPhotosHeader.identifier,
-            for: indexPath
+            ofKind: kind, withReuseIdentifier: FoundPhotosHeader.identifier, for: indexPath
         ) as? FoundPhotosHeader else {
             return UICollectionReusableView()
         }
         
         header.delegate = self
-        header.photoCountLabel.text = "Total photos: \(totalItems)"
-        
+        header.configure(photoCount: totalItems)
         return header
     }
     
@@ -109,11 +105,10 @@ extension FoundPhotosViewController {
         photos.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: FoundPhotoCell.identifier,
-            for: indexPath
-        ) as? FoundPhotoCell else {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoundPhotoCell.identifier,
+                                                            for: indexPath) as? FoundPhotoCell else {
             return UICollectionViewCell()
         }
         
@@ -126,7 +121,9 @@ extension FoundPhotosViewController {
 
 extension FoundPhotosViewController {
     
-    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 willDisplay cell: UICollectionViewCell,
+                                 forItemAt indexPath: IndexPath) {
         if (totalItems > photos.count) && (photos.count - indexPath.row == 5) {
             print("Pagination loading...")
             loadNextPage()
@@ -138,7 +135,6 @@ extension FoundPhotosViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let photo = photos[indexPath.item]
         let onePhotoVC = OnePhotoViewController(photo: photo)
-        
         navigationController?.pushViewController(onePhotoVC, animated: true)
     }
 }
@@ -147,26 +143,34 @@ extension FoundPhotosViewController {
 
 extension FoundPhotosViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
         CGSize(width: collectionView.bounds.width, height: UIConstants.photoListHeaderHeight)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         spacing
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         spacing
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let sizeWidth = calculateSizeWidth(
-            spacing: spacing, edgeWidth: edgeWidth, numberOfColumns: numberOfColumns
-        )
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let sizeWidth = calculateSizeWidth(spacing: spacing, edgeWidth: edgeWidth, numberOfColumns: numberOfColumns)
         return CGSize(width: sizeWidth, height: sizeWidth * UIConstants.photoCellSidesRatio)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
         UIEdgeInsets(top: 0, left: edgeWidth, bottom: 0, right: edgeWidth)
     }
 }

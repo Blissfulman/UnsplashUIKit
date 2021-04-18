@@ -26,7 +26,6 @@ final class OnePhotoViewController: UIViewController {
     // MARK: - Properties
     
     private let photo: PhotoModel
-    
     /// Минимальное значение масштабирования ScrollView для загруженной фотографии. Обновляется после загрузки фотографии.
     private var minZoomScale: CGFloat = 1
     
@@ -45,7 +44,6 @@ final class OnePhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadImage()
         setupUI()
         setupGestureRecognizer()
@@ -92,18 +90,14 @@ final class OnePhotoViewController: UIViewController {
     private func setupUI() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         
-        let infoButton = UIBarButtonItem(
-            image: UIImage(systemName: "info.circle"),
-            style: .plain,
-            target: self,
-            action: #selector(showPhotoInfo)
-        )
-        let openOriginalButton = UIBarButtonItem(
-            title: "Open original",
-            style: .plain,
-            target: self,
-            action: #selector(openOriginal)
-        )
+        let infoButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(showPhotoInfo))
+        let openOriginalButton = UIBarButtonItem(title: "Open original",
+                                                 style: .plain,
+                                                 target: self,
+                                                 action: #selector(openOriginal))
         navigationItem.rightBarButtonItems = [infoButton, openOriginalButton]
         
         likesLabel.text = "\(photo.likes ?? 0)"
@@ -130,9 +124,7 @@ final class OnePhotoViewController: UIViewController {
     }
     
     private func setupGestureRecognizer() {
-        let scrollViewDoubleTapGR = UITapGestureRecognizer(
-            target: self, action: #selector(scrollViewDoubleTapped)
-        )
+        let scrollViewDoubleTapGR = UITapGestureRecognizer(target: self, action: #selector(scrollViewDoubleTapped))
         scrollViewDoubleTapGR.numberOfTapsRequired = 2
         scrollView.addGestureRecognizer(scrollViewDoubleTapGR)
     }

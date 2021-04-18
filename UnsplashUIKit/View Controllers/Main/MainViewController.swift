@@ -13,7 +13,6 @@ final class MainViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.separatorStyle = .none
         tableView.register(HeaderTableCell.nib(), forCellReuseIdentifier: HeaderTableCell.identifier)
         tableView.register(CarouselTableCell.nib(), forCellReuseIdentifier: CarouselTableCell.identifier)
@@ -21,7 +20,6 @@ final class MainViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }
@@ -104,7 +102,6 @@ extension MainViewController: CarouselTableCellDelegate {
     func onCollectionTapped(collection: CollectionModel) {
         let collectionPhotosVC = CollectionPhotosViewController(collection: collection)
         collectionPhotosVC.title = collection.title
-        
         navigationController?.pushViewController(collectionPhotosVC, animated: true)
     }
     

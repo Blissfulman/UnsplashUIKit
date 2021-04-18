@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CollectionPhotosHeaderDelegate: UIViewController {
+protocol CollectionPhotosHeaderDelegate: class {
     func switchColumnNumber(columns: Int)
 }
 
@@ -15,11 +15,17 @@ final class CollectionPhotosHeader: UICollectionReusableView {
 
     // MARK: - Outlets
     
-    @IBOutlet weak var photoCountLabel: UILabel!
+    @IBOutlet private weak var photoCountLabel: UILabel!
     
     // MARK: - Properties
     
     weak var delegate: CollectionPhotosHeaderDelegate?
+    
+    // MARK: - Public methods
+    
+    func configure(photoCount: Int) {
+        photoCountLabel.text = "Total photos: \(photoCount)"
+    }
     
     // MARK: - Actions
     

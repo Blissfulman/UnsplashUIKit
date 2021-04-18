@@ -25,11 +25,9 @@ final class SearchViewController: UIViewController {
     // MARK: - Properties
     
     private let contentType: ContentType
-    
     private var searchOrderState: SearchOrderState {
         orderBySegmentedControl.selectedSegmentIndex == 0 ? .relevant : .latest
     }
-    
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Initializers
@@ -47,7 +45,6 @@ final class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         searchTermsTextField.delegate = self
         setupUI()
     }
@@ -62,9 +59,7 @@ final class SearchViewController: UIViewController {
     
     @IBAction private func startSearchButtonTapped() {
         view.endEditing(true)
-        
-        guard let query = searchTermsTextField.text,
-              !query.isEmpty else { return }
+        guard let query = searchTermsTextField.text, !query.isEmpty else { return }
         
         contentType == .photo
             ? searchPhotos(query: query, orderBy: searchOrderState.rawValue)
@@ -76,7 +71,6 @@ final class SearchViewController: UIViewController {
     private func setupUI() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         title = "Search \(contentType.rawValue)"
-        
         startSearchButton.isEnabled = false
     }
     
@@ -101,9 +95,7 @@ final class SearchViewController: UIViewController {
                 
                 if let photos = searchPhotosResult.photos,
                    let totalItems = searchPhotosResult.total {
-                    let foundPhotosVC = FoundPhotosViewController(
-                        photos: photos, totalItems: totalItems, links: links
-                    )
+                    let foundPhotosVC = FoundPhotosViewController(photos: photos, totalItems: totalItems, links: links)
                     foundPhotosVC.title = "Results for \"\(query)\""
                     
                     // MARK: - Navigation
@@ -135,9 +127,9 @@ final class SearchViewController: UIViewController {
                 
                 if let collections = searchCollectionsResult.collections,
                    let totalItems = searchCollectionsResult.total {
-                    let foundCollectionsVC = FoundCollectionsViewController(
-                        collections: collections, totalItems: totalItems, links: links
-                    )
+                    let foundCollectionsVC = FoundCollectionsViewController(collections: collections,
+                                                                            totalItems: totalItems,
+                                                                            links: links)
                     foundCollectionsVC.title = "Results for \"\(query)\""
 
                     // MARK: - Navigation
@@ -153,7 +145,6 @@ final class SearchViewController: UIViewController {
     // Скрытие клавиатуры по тапу в свободное место вью
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        
         view.endEditing(true)
     }
 }

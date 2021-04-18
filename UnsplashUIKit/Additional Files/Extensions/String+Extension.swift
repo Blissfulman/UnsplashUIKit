@@ -17,13 +17,12 @@ extension String {
     /// Декодирование ссылок пагинации по regex pattern.
     func decodeToPaginationURLs(regexPattern: String) -> PaginationLinks {
         let groups = self.groupLinksData(for: regexPattern)
-        
         var result = PaginationLinks()
         
         groups.forEach { group in
             if let first = group.first,
                let last = group.last {
-                guard let relationLinkType = RelationLinkType.init(rawValue: last) else { return }
+                guard let relationLinkType = RelationLinkType(rawValue: last) else { return }
                 result.updateValue(URL(string: first), forKey: relationLinkType)
             }
         }

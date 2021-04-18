@@ -15,10 +15,7 @@ extension UICollectionViewController {
     ///   - edgeWidth: Ширина горизонтальной границы коллекции с родительским вью.
     ///   - numberOfColumns: Количество колонок коллекции.
     /// - Returns: Возвращает значение ширины.
-    func calculateSizeWidth(spacing: CGFloat,
-                            edgeWidth: CGFloat,
-                            numberOfColumns: CGFloat) -> CGFloat {
-        
+    func calculateSizeWidth(spacing: CGFloat, edgeWidth: CGFloat, numberOfColumns: CGFloat) -> CGFloat {
         let collectionWidth = collectionView.bounds.width
         let totalSpacingWidth = (spacing * (numberOfColumns - 1)) + edgeWidth * 2
         return (collectionWidth - totalSpacingWidth) / numberOfColumns

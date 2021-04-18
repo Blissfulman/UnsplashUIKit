@@ -16,6 +16,7 @@ final class CollectionPhotoCell: UICollectionViewCell {
     // MARK: - Lifecycle methods
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         imageView.image = UIConstants.defaultImage
     }
     
@@ -23,7 +24,7 @@ final class CollectionPhotoCell: UICollectionViewCell {
     
     func configure(_ photo: PhotoModel) {
         layer.cornerRadius = UIConstants.defaultCornerRadius
-
+        
         if let url = URL(string: photo.urls?.small ?? "") {
             imageView.loadImage(by: url)
         }

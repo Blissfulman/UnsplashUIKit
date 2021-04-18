@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CarouselTableCellDelegate: UIViewController {
+protocol CarouselTableCellDelegate: class {
     func searchCollections()
     func searchPhotos()
     func onCollectionTapped(collection: CollectionModel)
@@ -29,14 +29,12 @@ final class CarouselTableCell: UITableViewCell {
     private var contentType: ContentType!
     private var collections = [CollectionModel]()
     private var photos = [PhotoModel]()
-    
     private let networkService: NetworkServiceProtocol = NetworkService()
     
     // MARK: - Lifecycle methods
     
     override func awakeFromNib() {
         super.awakeFromNib()
-                
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(CarouselImageCell.nib(),
@@ -77,9 +75,7 @@ final class CarouselTableCell: UITableViewCell {
     // MARK: - Fetching data
     
     private func fillCollectionCarousel() {
-        networkService.fetchCollections(count: UIConstants.countCarouselElements) {
-            [weak self] result, _ in
-            
+        networkService.fetchCollections(count: UIConstants.countCarouselElements) { [weak self] result, _ in
             guard let self = self else { return }
             
             switch result {
@@ -94,9 +90,7 @@ final class CarouselTableCell: UITableViewCell {
     }
     
     private func fillPhotoCarousel() {
-        networkService.fetchRandomPhotos(count: UIConstants.countCarouselElements) {
-            [weak self] result, _ in
-            
+        networkService.fetchRandomPhotos(count: UIConstants.countCarouselElements) { [weak self] result, _ in
             guard let self = self else { return }
             
             switch result {
@@ -118,10 +112,11 @@ extension CarouselTableCell: UICollectionViewDataSource {
         photos.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-        withReuseIdentifier: CarouselImageCell.identifier,
-                for: indexPath) as? CarouselImageCell else {
+            withReuseIdentifier: CarouselImageCell.identifier, for: indexPath
+        ) as? CarouselImageCell else {
             return UICollectionViewCell()
         }
         
