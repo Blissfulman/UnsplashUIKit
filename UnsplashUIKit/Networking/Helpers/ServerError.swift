@@ -5,7 +5,9 @@
 //  Created by Evgeny Novgorodov on 02.01.2021.
 //
 
-enum ServerError: Int, Error {
+import Foundation
+
+enum ServerError: Int, Error, LocalizedError {
     case badRequest = 400
     case unauthorized = 401
     case forbidden = 403
@@ -14,7 +16,7 @@ enum ServerError: Int, Error {
     case somethingElse2 = 503
     case unknownError = 0
     
-    var localizedDescription: String {
+    var errorDescription: String? {
         switch self {
         case .badRequest:
             return "The request was unacceptable, often due to missing a required parameter"

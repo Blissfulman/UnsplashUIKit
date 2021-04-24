@@ -11,13 +11,9 @@ extension UIViewController {
     
     /// Alert, оповещающий об ошибке.
     func showErrorAlert(_ error: Error?) {
-        var alertTitle = "Unknown error!"
-        var alertMessage = "Please, try again later"
-        
-        if let error = error as? ServerError {
-            alertTitle = error.localizedDescription
-            alertMessage = ""
-        }
+        let isServerError = error is ServerError
+        let alertTitle = isServerError ? error?.localizedDescription : "Unknown error!"
+        let alertMessage = isServerError ? "" : "Please, try again later"
         
         DispatchQueue.main.async { [weak self] in
             let alert = UIAlertController(title: alertTitle,
