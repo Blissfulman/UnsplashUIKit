@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol FoundPhotosHeaderDelegate: class {
+protocol FoundPhotosHeaderDelegate: AnyObject {
     func switchColumnNumber(columns: Int)
 }
 
@@ -15,7 +15,7 @@ final class FoundPhotosHeader: UICollectionReusableView {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var photoCountLabel: UILabel!
+    @IBOutlet private var photoCountLabel: UILabel!
     
     // MARK: - Properties
     

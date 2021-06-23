@@ -11,17 +11,16 @@ final class OnePhotoViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet private weak var scrollView: UIScrollView!
-    @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var likesLabel: UILabel!
-    @IBOutlet private weak var viewsLabel: UILabel!
-    @IBOutlet private weak var downloadsLabel: UILabel!
-    
-    @IBOutlet private weak var imageViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var imageViewLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var imageViewTopConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var imageViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private var scrollView: UIScrollView!
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var likesLabel: UILabel!
+    @IBOutlet private var viewsLabel: UILabel!
+    @IBOutlet private var downloadsLabel: UILabel!
+    @IBOutlet private var imageViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private var imageViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private var imageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet private var imageViewTrailingConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     
@@ -159,6 +158,7 @@ final class OnePhotoViewController: UIViewController {
 }
 
 // MARK: - Scroll view delegate
+
 extension OnePhotoViewController: UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

@@ -12,10 +12,10 @@ final class CollectionCell: UITableViewCell {
     // MARK: - Outlets
     
     @IBOutlet private var previewPhotoImageViews: [UIImageView]!
-    @IBOutlet private weak var collectionTitleLabel: UILabel!
-    @IBOutlet private weak var totalPhotosLabel: UILabel!
-    @IBOutlet private weak var publishedDateLabel: UILabel!
-    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private var collectionTitleLabel: UILabel!
+    @IBOutlet private var totalPhotosLabel: UILabel!
+    @IBOutlet private var publishedDateLabel: UILabel!
+    @IBOutlet private var userNameLabel: UILabel!
     
     // MARK: - Lifecycle methods
     

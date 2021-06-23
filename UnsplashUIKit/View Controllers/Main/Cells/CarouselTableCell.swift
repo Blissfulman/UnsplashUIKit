@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CarouselTableCellDelegate: class {
+protocol CarouselTableCellDelegate: AnyObject {
     func searchCollections()
     func searchPhotos()
     func onCollectionTapped(collection: CollectionModel)
@@ -18,9 +18,9 @@ final class CarouselTableCell: UITableViewCell {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var searchButton: UIButton!
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var searchButton: UIButton!
+    @IBOutlet private var collectionView: UICollectionView!
     
     // MARK: - Properties
     

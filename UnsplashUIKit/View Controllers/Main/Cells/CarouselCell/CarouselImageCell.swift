@@ -11,7 +11,7 @@ final class CarouselImageCell: UICollectionViewCell {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private var imageView: UIImageView!
     
     // MARK: - Lifeсycle methods
     

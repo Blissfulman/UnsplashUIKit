@@ -18,9 +18,9 @@ final class SearchViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var searchTermsTextField: UITextField!
-    @IBOutlet private weak var orderBySegmentedControl: UISegmentedControl!
-    @IBOutlet private weak var startSearchButton: CustomButton!
+    @IBOutlet private var searchTermsTextField: UITextField!
+    @IBOutlet private var orderBySegmentedControl: UISegmentedControl!
+    @IBOutlet private var startSearchButton: CustomButton!
     
     // MARK: - Properties
     

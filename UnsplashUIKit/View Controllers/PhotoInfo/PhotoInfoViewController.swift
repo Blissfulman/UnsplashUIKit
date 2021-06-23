@@ -11,14 +11,14 @@ final class PhotoInfoViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var authorImageView: UIImageView!
-    @IBOutlet private weak var authorNameLabel: UILabel!
-    @IBOutlet private weak var createdDateLabel: UILabel!
-    @IBOutlet private weak var widthLabel: UILabel!
-    @IBOutlet private weak var heightLabel: UILabel!
-    @IBOutlet private weak var locationLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var altDescriptionLabel: UILabel!
+    @IBOutlet private var authorImageView: UIImageView!
+    @IBOutlet private var authorNameLabel: UILabel!
+    @IBOutlet private var createdDateLabel: UILabel!
+    @IBOutlet private var widthLabel: UILabel!
+    @IBOutlet private var heightLabel: UILabel!
+    @IBOutlet private var locationLabel: UILabel!
+    @IBOutlet private var descriptionLabel: UILabel!
+    @IBOutlet private var altDescriptionLabel: UILabel!
     
     // MARK: - Properties
     

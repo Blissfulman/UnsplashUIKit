@@ -11,7 +11,7 @@ final class HeaderTableCell: UITableViewCell {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var photoImageView: UIImageView!
+    @IBOutlet private var photoImageView: UIImageView!
     
     // MARK: - Properties
     
