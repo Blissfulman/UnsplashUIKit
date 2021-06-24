@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Protocols
+
 protocol PaginationServiceProtocol {
     
     /// Получение очередной страницы фотографий коллекции по URL.
@@ -27,6 +29,7 @@ protocol PaginationServiceProtocol {
     ///   - completion: Обработчик завершения, в который возвращается результат выполнения функции.
     func searchPhotos(url: URL, completion: @escaping SearchPhotosResult)
 }
+
 final class PaginationService: PaginationServiceProtocol {
     
     private let requestService: RequestServiceProtocol

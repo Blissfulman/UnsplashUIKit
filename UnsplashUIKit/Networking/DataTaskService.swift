@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Protocols
+
 protocol DataTaskServiceProtocol {
     
     /// Выполнение URLSessionDataTask с переданным запросом.

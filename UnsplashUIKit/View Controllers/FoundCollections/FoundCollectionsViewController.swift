@@ -96,10 +96,10 @@ extension FoundCollectionsViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: CollectionCell.identifier, for: indexPath
-        ) as? CollectionCell else {
-            return UITableViewCell()
-        }
+            withIdentifier: CollectionCell.identifier,
+            for: indexPath
+        ) as? CollectionCell else { return UITableViewCell() }
+        
         cell.configure(collections[indexPath.item])
         return cell
     }
@@ -117,9 +117,11 @@ extension FoundCollectionsViewController {
         tableView.frame.width / UIConstants.collectionCellSidesRatio
     }
     
-    override func tableView(_ tableView: UITableView,
-                            willDisplay cell: UITableViewCell,
-                            forRowAt indexPath: IndexPath) {
+    override func tableView(
+        _ tableView: UITableView,
+        willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath
+    ) {
         if (totalItems > collections.count) && (collections.count - indexPath.row == 5) {
             print("Pagination loading...")
             loadNextPage()

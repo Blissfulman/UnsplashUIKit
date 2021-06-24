@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Protocols
+
 protocol RequestServiceProtocol {
     
     /// Получение URLRequest с переданными параметрами и данными для авторизации.

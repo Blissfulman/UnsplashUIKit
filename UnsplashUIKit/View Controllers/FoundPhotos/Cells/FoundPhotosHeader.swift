@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - Protocols
+
 protocol FoundPhotosHeaderDelegate: AnyObject {
     func switchColumnNumber(columns: Int)
 }

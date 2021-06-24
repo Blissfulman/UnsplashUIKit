@@ -53,7 +53,6 @@ final class SearchViewController: UIViewController {
     
     @IBAction private func textFieldEditingChanged() {
         guard let searchTerms = searchTermsTextField.text else { return }
-        
         startSearchButton.isEnabled = !searchTerms.isEmpty
     }
     
@@ -80,10 +79,7 @@ final class SearchViewController: UIViewController {
         BlockingView.show(parentView: view)
         
         networkService.searchPhotos(query: query, orderBy: orderBy) { [weak self] result, links in
-            defer {
-                BlockingView.hide()
-            }
-            
+            defer { BlockingView.hide() }
             guard let self = self else { return }
             
             switch result {
@@ -112,10 +108,7 @@ final class SearchViewController: UIViewController {
         BlockingView.show(parentView: view)
         
         networkService.searchCollections(query: query, orderBy: orderBy) { [weak self] result, links in
-            defer {
-                BlockingView.hide()
-            }
-            
+            defer { BlockingView.hide() }
             guard let self = self else { return }
             
             switch result {
@@ -127,9 +120,11 @@ final class SearchViewController: UIViewController {
                 
                 if let collections = searchCollectionsResult.collections,
                    let totalItems = searchCollectionsResult.total {
-                    let foundCollectionsVC = FoundCollectionsViewController(collections: collections,
-                                                                            totalItems: totalItems,
-                                                                            links: links)
+                    let foundCollectionsVC = FoundCollectionsViewController(
+                        collections: collections,
+                        totalItems: totalItems,
+                        links: links
+                    )
                     foundCollectionsVC.title = "Results for \"\(query)\""
 
                     // MARK: - Navigation

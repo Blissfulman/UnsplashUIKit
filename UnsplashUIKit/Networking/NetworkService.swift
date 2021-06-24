@@ -7,15 +7,7 @@
 
 import Foundation
 
-typealias PaginationLinks = [RelationLinkType: URL?]
-
-typealias ResultBlock<T> = (Result<T, Error>, PaginationLinks?) -> Void
-
-typealias PhotoResult = ResultBlock<PhotoModel>
-typealias PhotosResult = ResultBlock<[PhotoModel]>
-typealias CollectionsResult = ResultBlock<[CollectionModel]>
-typealias SearchPhotosResult = ResultBlock<SearchPhotosModel>
-typealias SearchCollectionsResult = ResultBlock<SearchCollectionsModel>
+// MARK: - Protocols
 
 protocol NetworkServiceProtocol {
     

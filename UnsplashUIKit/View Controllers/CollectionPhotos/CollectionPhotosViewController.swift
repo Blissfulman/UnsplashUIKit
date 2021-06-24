@@ -44,8 +44,7 @@ final class CollectionPhotosViewController: UICollectionViewController {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: CollectionPhotosHeader.identifier
         )
-        collectionView.register(CollectionPhotoCell.nib(),
-                                forCellWithReuseIdentifier: CollectionPhotoCell.identifier)
+        collectionView.register(CollectionPhotoCell.nib(), forCellWithReuseIdentifier: CollectionPhotoCell.identifier)
         setupUI()
     }
     
@@ -104,14 +103,17 @@ final class CollectionPhotosViewController: UICollectionViewController {
 
 extension CollectionPhotosViewController {
     
-    override func collectionView(_ collectionView: UICollectionView,
-                                 viewForSupplementaryElementOfKind kind: String,
-                                 at indexPath: IndexPath) -> UICollectionReusableView {
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        
         guard let header = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind, withReuseIdentifier: CollectionPhotosHeader.identifier, for: indexPath
-        ) as? CollectionPhotosHeader else {
-            return UICollectionReusableView()
-        }
+            ofKind: kind,
+            withReuseIdentifier: CollectionPhotosHeader.identifier,
+            for: indexPath
+        ) as? CollectionPhotosHeader else { return UICollectionReusableView() }
         
         header.delegate = self
         header.configure(photoCount: totalItems)
@@ -122,13 +124,15 @@ extension CollectionPhotosViewController {
         photos.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView,
-                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: CollectionPhotoCell.identifier, for: indexPath
-        ) as? CollectionPhotoCell else {
-            return UICollectionViewCell()
-        }
+            withReuseIdentifier: CollectionPhotoCell.identifier,
+            for: indexPath
+        ) as? CollectionPhotoCell else { return UICollectionViewCell() }
         
         cell.configure(photos[indexPath.item])
         return cell
@@ -138,9 +142,11 @@ extension CollectionPhotosViewController {
 // MARK: - Collection View Delegate
 extension CollectionPhotosViewController {
     
-    override func collectionView(_ collectionView: UICollectionView,
-                                 willDisplay cell: UICollectionViewCell,
-                                 forItemAt indexPath: IndexPath) {
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        willDisplay cell: UICollectionViewCell,
+        forItemAt indexPath: IndexPath
+    ) {
         if (totalItems > photos.count) && (photos.count - indexPath.row == 5) {
             print("Pagination loading...")
             loadNextPage()
@@ -160,34 +166,44 @@ extension CollectionPhotosViewController {
 
 extension CollectionPhotosViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        referenceSizeForHeaderInSection section: Int) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        referenceSizeForHeaderInSection section: Int
+    ) -> CGSize {
         CGSize(width: collectionView.bounds.width, height: UIConstants.photoListHeaderHeight)
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
         spacing
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumInteritemSpacingForSectionAt section: Int
+    ) -> CGFloat {
         spacing
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         let sizeWidth = calculateSizeWidth(spacing: spacing, edgeWidth: edgeWidth, numberOfColumns: numberOfColumns)
         return CGSize(width: sizeWidth, height: sizeWidth * UIConstants.photoCellSidesRatio)
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
         UIEdgeInsets(top: 0, left: edgeWidth, bottom: 0, right: edgeWidth)
     }
 }

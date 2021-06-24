@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - Protocols
+
 protocol CarouselTableCellDelegate: AnyObject {
     func searchCollections()
     func searchPhotos()
@@ -112,16 +114,16 @@ extension CarouselTableCell: UICollectionViewDataSource {
         photos.count
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: CarouselImageCell.identifier, for: indexPath
-        ) as? CarouselImageCell else {
-            return UICollectionViewCell()
-        }
+            withReuseIdentifier: CarouselImageCell.identifier,
+            for: indexPath
+        ) as? CarouselImageCell else { return UICollectionViewCell() }
         
         cell.configure(photo: photos[indexPath.item])
-        
         return cell
     }
 }
