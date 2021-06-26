@@ -35,8 +35,10 @@ final class PaginationService: PaginationServiceProtocol {
     private let requestService: RequestServiceProtocol
     private let dataTaskService: DataTaskServiceProtocol
     
-    init(requestService: RequestServiceProtocol = RequestService(),
-         dataTaskService: DataTaskServiceProtocol = DataTaskService()) {
+    init(
+        requestService: RequestServiceProtocol = RequestService(),
+        dataTaskService: DataTaskServiceProtocol = DataTaskService()
+    ) {
         self.requestService = requestService
         self.dataTaskService = dataTaskService
     }

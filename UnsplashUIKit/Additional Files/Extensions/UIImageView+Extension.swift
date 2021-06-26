@@ -21,10 +21,7 @@ extension UIImageView {
             completion?()
         } else {
             URLSession.shared.dataTask(with: request) { [weak self] data, response, _ in
-                defer {
-                    completion?()
-                }
-                
+                defer { completion?() }
                 guard let self = self else { return }
                 
                 DispatchQueue.main.async {

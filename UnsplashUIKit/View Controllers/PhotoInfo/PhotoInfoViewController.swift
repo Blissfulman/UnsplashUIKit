@@ -61,7 +61,7 @@ final class PhotoInfoViewController: UIViewController {
         locationLabel.text = photo.location?.city
         descriptionLabel.text = photo.description
         altDescriptionLabel.text = photo.altDescription
-        print(photo.urls?.full ?? "No URL" )
+        print(photo.urls?.full ?? "No URL")
     }
     
     // MARK: - Navigation

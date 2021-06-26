@@ -89,14 +89,18 @@ final class OnePhotoViewController: UIViewController {
     private func setupUI() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         
-        let infoButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
-                                         style: .plain,
-                                         target: self,
-                                         action: #selector(showPhotoInfo))
-        let openOriginalButton = UIBarButtonItem(title: "Open original",
-                                                 style: .plain,
-                                                 target: self,
-                                                 action: #selector(openOriginal))
+        let infoButton = UIBarButtonItem(
+            image: UIImage(systemName: "info.circle"),
+            style: .plain,
+            target: self,
+            action: #selector(showPhotoInfo)
+        )
+        let openOriginalButton = UIBarButtonItem(
+            title: "Open original",
+            style: .plain,
+            target: self,
+            action: #selector(openOriginal)
+        )
         navigationItem.rightBarButtonItems = [infoButton, openOriginalButton]
         
         likesLabel.text = "\(photo.likes ?? 0)"

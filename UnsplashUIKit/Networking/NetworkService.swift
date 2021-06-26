@@ -64,26 +64,29 @@ final class NetworkService: NetworkServiceProtocol {
     }
     
     func fetchCollectionPhotos(id: String, completion: @escaping PhotosResult) {
-        guard let url = APIURL.collectionPhotos(id: id,
-                                                count: APIConstant.itemsPerPage).url else { return }
+        guard let url = APIURL.collectionPhotos(id: id, count: APIConstant.itemsPerPage).url else { return }
         
         let request = requestService.getRequest(url: url, httpMethod: .get)
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
     func searchPhotos(query: String, orderBy: String, completion: @escaping SearchPhotosResult) {
-        guard let url = APIURL.searchPhotos(query: query,
-                                            orderBy: orderBy,
-                                            count: APIConstant.itemsPerPage).url else { return }
+        guard let url = APIURL.searchPhotos(
+            query: query,
+            orderBy: orderBy,
+            count: APIConstant.itemsPerPage
+        ).url else { return }
         
         let request = requestService.getRequest(url: url, httpMethod: .get)
         dataTaskService.dataTask(request: request, completion: completion)
     }
     
     func searchCollections(query: String, orderBy: String, completion: @escaping SearchCollectionsResult) {
-        guard let url = APIURL.searchCollections(query: query,
-                                                 orderBy: orderBy,
-                                                 count: APIConstant.itemsPerPage).url else { return }
+        guard let url = APIURL.searchCollections(
+            query: query,
+            orderBy: orderBy,
+            count: APIConstant.itemsPerPage
+        ).url else { return }
         
         let request = requestService.getRequest(url: url, httpMethod: .get)
         dataTaskService.dataTask(request: request, completion: completion)

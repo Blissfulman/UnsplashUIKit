@@ -39,8 +39,7 @@ final class CarouselTableCell: UITableViewCell {
         super.awakeFromNib()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(CarouselImageCell.nib(),
-                                forCellWithReuseIdentifier: CarouselImageCell.identifier)
+        collectionView.register(CarouselImageCell.nib(), forCellWithReuseIdentifier: CarouselImageCell.identifier)
     }
     
     // MARK: - Public methods
@@ -49,29 +48,28 @@ final class CarouselTableCell: UITableViewCell {
         self.contentType = contentType
         
         selectionStyle = .none
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: UIConstants.defaultEdgeWidth,
-                                                   bottom: 0, right: UIConstants.defaultEdgeWidth)
+        collectionView.contentInset = UIEdgeInsets(
+            top: 0,
+            left: UIConstants.defaultEdgeWidth,
+            bottom: 0,
+            right: UIConstants.defaultEdgeWidth
+        )
         
         titleLabel.text = contentType.rawValue.capitalized
         searchButton.setTitle("Search \(contentType.rawValue)", for: .normal)
-        
         setupCarouselCells()
     }
     
     // MARK: - Actions
     
     @IBAction private func searchButtonTapped() {
-        contentType == .collection
-            ? delegate?.searchCollections()
-            : delegate?.searchPhotos()
+        contentType == .collection ? delegate?.searchCollections() : delegate?.searchPhotos()
     }
     
     // MARK: - Private methods
     
     private func setupCarouselCells() {
-        contentType == .collection
-            ? fillCollectionCarousel()
-            : fillPhotoCarousel()
+        contentType == .collection ? fillCollectionCarousel() : fillPhotoCarousel()
     }
     
     // MARK: - Fetching data

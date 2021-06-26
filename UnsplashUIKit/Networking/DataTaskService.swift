@@ -59,9 +59,7 @@ final class DataTaskService: DataTaskServiceProtocol {
     // MARK: - Private methods
     
     private func getPaginationLinks(from httpResponse: HTTPURLResponse) -> PaginationLinks? {
-        guard let stringLinks = httpResponse.value(forHTTPHeaderField: "Link") else {
-            return nil
-        }
+        guard let stringLinks = httpResponse.value(forHTTPHeaderField: "Link") else { return nil }
         return stringLinks.decodeToPaginationURLs(regexPattern: APIConstant.linksRegexPattern)
     }
 }

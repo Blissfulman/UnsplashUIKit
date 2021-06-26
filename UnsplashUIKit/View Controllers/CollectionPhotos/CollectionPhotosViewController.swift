@@ -139,7 +139,8 @@ extension CollectionPhotosViewController {
     }
 }
 
-// MARK: - Collection View Delegate
+// MARK: - Collection view delegate
+
 extension CollectionPhotosViewController {
     
     override func collectionView(

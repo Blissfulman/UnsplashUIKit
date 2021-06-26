@@ -16,7 +16,7 @@ enum ServerError: Int, Error, LocalizedError {
     case somethingElse2 = 503
     case unknownError = 0
     
-    var errorDescription: String? {
+    var errorDescription: String {
         switch self {
         case .badRequest:
             return "The request was unacceptable, often due to missing a required parameter"

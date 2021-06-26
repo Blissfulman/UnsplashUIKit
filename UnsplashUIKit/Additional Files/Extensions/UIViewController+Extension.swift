@@ -16,9 +16,7 @@ extension UIViewController {
         let alertMessage = isServerError ? "" : "Please, try again later"
         
         DispatchQueue.main.async { [weak self] in
-            let alert = UIAlertController(title: alertTitle,
-                                          message: alertMessage,
-                                          preferredStyle: .alert)
+            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(okAction)
             self?.present(alert, animated: true)
@@ -27,9 +25,11 @@ extension UIViewController {
     
     /// Alert, оповещающий о пустом результате поиска.
     func showEmptyResultAlert() {
-        let alert = UIAlertController(title: "Search result is empty",
-                                      message: "Try entering another search terms",
-                                      preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Search result is empty",
+            message: "Try entering another search terms",
+            preferredStyle: .alert
+        )
         let okAction = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
