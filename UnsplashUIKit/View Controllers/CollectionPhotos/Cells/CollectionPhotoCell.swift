@@ -23,7 +23,7 @@ final class CollectionPhotoCell: UICollectionViewCell {
     // MARK: - Public methods
     
     func configure(_ photo: PhotoModel) {
-        layer.cornerRadius = UIConstants.defaultCornerRadius
+        setCornerRadius(UIConstants.defaultCornerRadius)
         
         if let url = URL(string: photo.urls?.small ?? "") {
             imageView.loadImage(by: url)

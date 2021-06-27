@@ -13,6 +13,7 @@
 		CE26FF1725AC740F00DD1059 /* FoundPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE26FF1525AC740F00DD1059 /* FoundPhotoCell.xib */; };
 		CE26FF2825ACB83200DD1059 /* PaginationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26FF2725ACB83200DD1059 /* PaginationService.swift */; };
 		CE42A43226844E09000D1138 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42A43126844E09000D1138 /* Typealiases.swift */; };
+		CE5462DC2688FC7E008380B5 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5462DB2688FC7E008380B5 /* UIView+Extension.swift */; };
 		CE63A555259F9E6E00406FD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE63A554259F9E6E00406FD4 /* AppDelegate.swift */; };
 		CE63A55E259F9E6F00406FD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE63A55D259F9E6F00406FD4 /* Assets.xcassets */; };
 		CE63A561259F9E6F00406FD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE63A55F259F9E6F00406FD4 /* LaunchScreen.storyboard */; };
@@ -78,6 +79,7 @@
 		CE26FF1525AC740F00DD1059 /* FoundPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundPhotoCell.xib; sourceTree = "<group>"; };
 		CE26FF2725ACB83200DD1059 /* PaginationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationService.swift; sourceTree = "<group>"; };
 		CE42A43126844E09000D1138 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		CE5462DB2688FC7E008380B5 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		CE63A551259F9E6E00406FD4 /* UnsplashUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsplashUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE63A554259F9E6E00406FD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE63A55D259F9E6F00406FD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				CEA2A92925A6CB81003E0E02 /* UIImageView+Extension.swift */,
 				CEB034DD25AAB78F00B59BF4 /* String+Extension.swift */,
 				CEA2A8AD25A3688F003E0E02 /* DateFormatter+Extension.swift */,
+				CE5462DB2688FC7E008380B5 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				CE26FF2825ACB83200DD1059 /* PaginationService.swift in Sources */,
 				CE63A555259F9E6E00406FD4 /* AppDelegate.swift in Sources */,
 				CE85AA4425A851D50015E812 /* CollectionCell.swift in Sources */,
+				CE5462DC2688FC7E008380B5 /* UIView+Extension.swift in Sources */,
 				CED842D425A0E3DD00C07428 /* APIURL.swift in Sources */,
 				CEA2A8F325A4F78F003E0E02 /* HeaderTableCell.swift in Sources */,
 				CE26FF1125AC73A900DD1059 /* FoundPhotosHeader.swift in Sources */,

@@ -22,7 +22,7 @@ final class CollectionCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         accessoryType = .disclosureIndicator
-        previewPhotoImageViews.forEach { $0.layer.cornerRadius = UIConstants.defaultCornerRadius }
+        previewPhotoImageViews.forEach { $0.setCornerRadius(UIConstants.defaultCornerRadius) }
     }
     
     override func prepareForReuse() {
